@@ -202,6 +202,20 @@ class ProgettoPNI_2:
     #list_of_tuples = [(key, LAYER_NAME_PNI_unordered[key]) for key in order_of_keys]
     #LAYER_NAME_PNI = OrderedDict(list_of_tuples)
     
+    LAYER_NAME_PNI_ced = {
+        'PNI_CAVO': 'ebw_cavo',
+        'PNI_GIUNTO': 'ebw_giunto',
+        'PNI_LOCATION': 'ebw_location',
+        'PNI_PFP': 'ebw_pfp',
+        'PNI_PFS': 'ebw_pfs',
+        'PNI_POP': 'ebw_pop',
+        'PNI_ROUTE': 'ebw_route',
+        'PNI_SCORTA': 'ebw_scorta',
+        'PNI_GRID': 'grid',
+        'PNI_PLANIMETRIA': 'planimetria',
+        'PNI_STREET': 'street'
+    }
+    
     LAYER_NAME = {
         'SCALA': 'Scala',
         'PTA': 'Giunti',
@@ -306,6 +320,7 @@ class ProgettoPNI_2:
         self.iface = iface
         # initialize plugin directory
         self.plugin_dir = os.path.dirname(__file__)
+        #Utils.logMessage(str(self.plugin_dir))
         # initialize locale
         locale = QSettings().value('locale/userLocale')[0:2]
         locale_path = os.path.join(
@@ -970,10 +985,21 @@ class ProgettoPNI_2:
         schemaDB = self.dlg_config.schemaDB.text() #recupero lo schema da cui prelevare le tabelle
         nameDB = self.dlg_config.nameDB.text()
         global epsg_srid
-        #svuoto la TOC:
-        layers = self.iface.legendInterface().layers()
+        #recupero layer in ordine dalla TOC
+        if (int(qgis_version[0]) >= 3):
+            layers = [tree_layer.layer() for tree_layer in QgsProject.instance().layerTreeRoot().findLayers()]
+        else:
+            layers = self.iface.legendInterface().layers()
+        #tolgo i layer dalla TOC
         for layer in layers:
-            QgsMapLayerRegistry.instance().removeMapLayer(layer.id())
+            if (int(qgis_version[0]) >= 3):
+                QgsProject.instance().removeMapLayer(layer.id())
+            else:
+                QgsMapLayerRegistry.instance().removeMapLayer(layer.id())
+        
+        #in base al tipo di progetto recupero i nomi dei layer da caricare:
+        ced_checked = self.dlg_config.ced_radioButton.isChecked()
+        
         try:
             #ciclo dentro la variabile LAYER_NAME e carico i layer da DB:
             #for key, value in sorted(self.LAYER_NAME_PNI.items()): #casualmente l'ordine alfabetico ci piace...altrimenti devi usare "from collections import OrderedDict, LAYER_NAME_PNI=OrderedDict(), LAYER_NAME_PNI['SCALA']='Scala'" etc..
@@ -982,13 +1008,29 @@ class ProgettoPNI_2:
                 if ( (key=="GIUNTO_F_dev") | (key=="PTA") | (key=="SCALA_F") | (key=="PD_F") | (key=="SCALA_append") ):
                     continue #evito di caricare 2/3 volte il layer GIUNTO
                 Utils.logMessage('nome layerDB da caricare: ' + value)
-                uri = "%s key=gid table=\"%s\".\"%s\" (geom) sql=" % (dest_dir, schemaDB, value.lower())
+                uri = "%s key=gidd table=\"%s\".\"%s\" (geom) sql=" % (dest_dir, schemaDB, value.lower())
                 #provo a caricare il layer da un service:
                 #uri = "dbname='%s' service='%s_service_operatore' user='operatore' sslmode=disable key=gid table=\"%s\".\"%s\" (geom) sql=" % (nameDB, nameDB, schemaDB, value.lower())
                 layer = QgsVectorLayer(uri, value, "postgres")
                 QgsMapLayerRegistry.instance().addMapLayer(layer)
                 layer.loadNamedStyle(os.getenv("HOME")+'/.qgis2/python/plugins/ProgettoPNI_2/qml_base/%s.qml' % (value))
                 crs = layer.crs()
+            
+            '''
+            if (int(qgis_version[0]) >= 3):
+                QgsProject.instance().addMapLayers(lista_layer_to_load)
+            else:
+                QgsMapLayerRegistry.instance().addMapLayers(lista_layer_to_load)
+            '''
+            #nel caso di piccoli comuni (CeD) occorre modificare nel file pni2_CeD_db.qgs:
+            #dbschema
+            #dbname='test_pni'
+            #port=5433
+            #host=10.127.138.53
+            #user='postgres'
+            #srid=3003
+            #grid_XX
+            #PWD
             
             #ridefinisco la variabile SRID per il progetto:
             epsg_srid = int(crs.postgisSrid())
@@ -4619,7 +4661,8 @@ JOIN
     
     def run_help(self):
         #Prelevo il numero di versione dal file metadata.txt:
-        nome_file = os.getenv("HOME")+'/.qgis2/python/plugins/ProgettoPNI_2/metadata.txt'
+        #nome_file = os.getenv("HOME")+'/.qgis2/python/plugins/ProgettoPNI_2/metadata.txt'
+        nome_file = self.plugin_dir + '/metadata.txt'
         searchfile = open(nome_file, "r")
         for line in searchfile:
             if "version=" in line:
