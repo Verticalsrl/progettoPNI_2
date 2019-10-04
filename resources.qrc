@@ -1,0 +1,62 @@
+<RCC>
+    <qresource prefix="/plugins/ProgettoPNI_2" >
+        <file>grouping_C83737.png</file>
+    </qresource>
+    <qresource prefix="/plugins/ProgettoPNI_2" >
+        <file>config_and_create.png</file>
+    </qresource>
+    <qresource prefix="/plugins/ProgettoPNI_2" >
+        <file>compare_C83737.png</file>
+    </qresource>
+    <qresource prefix="/plugins/ProgettoPNI_2" >
+        <file>cavo_route_C83737.png</file>
+    </qresource>
+    <qresource prefix="/plugins/ProgettoPNI_2" >
+        <file>export.png</file>
+    </qresource>
+	<qresource prefix="/plugins/ProgettoPNI_2" >
+        <file>pipes.png</file>
+    </qresource>
+    <qresource prefix="/plugins/ProgettoPNI_2" >
+        <file>help_CCCC00.png</file>
+    </qresource>
+    <qresource prefix="/plugins/ProgettoPNI_2" >
+        <file>download_CCCC00.png</file>
+    </qresource>
+	<qresource prefix="/plugins/ProgettoPNI_2" >
+        <file>label.png</file>
+    </qresource>
+    <qresource prefix="/plugins/ProgettoPNI_2" >
+        <file>computo_C83737.png</file>
+    </qresource>
+    <qresource prefix="/plugins/ProgettoPNI_2" >
+        <file>VERTICAL_SOLUTIONS.png</file>
+    </qresource>
+    <qresource prefix="/plugins/ProgettoPNI_2" >
+        <file>metadata.txt</file>
+    </qresource>
+    <qresource prefix="/plugins/ProgettoPNI_2" >
+        <file>counting_C83737.png</file>
+    </qresource>
+    <qresource prefix="/plugins/ProgettoPNI_2" >
+        <file>razor_blade_C83737.png</file>
+    </qresource>
+    <qresource prefix="/plugins/ProgettoPNI_2" >
+        <file>calc_C83737.png</file>
+    </qresource>
+    <qresource prefix="/plugins/ProgettoPNI_2" >
+        <file>update.png</file>
+    </qresource>
+    <qresource prefix="/plugins/ProgettoPNI_2" >
+        <file>append_C83737.png</file>
+    </qresource>
+    <qresource prefix="/plugins/ProgettoPNI_2" >
+        <file>cloneschema_C83737.png</file>
+    </qresource>
+    <qresource prefix="/plugins/ProgettoPNI_2" >
+        <file>overlap_C83737.png</file>
+    </qresource>
+    <qresource prefix="/plugins/ProgettoPNI_2" >
+        <file>network_C83737.png</file>
+    </qresource>
+</RCC>
