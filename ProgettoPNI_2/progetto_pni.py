@@ -211,9 +211,27 @@ class ProgettoPNI_2:
         'PNI_POP': 'ebw_pop',
         'PNI_ROUTE': 'ebw_route',
         'PNI_SCORTA': 'ebw_scorta',
-        'PNI_GRID': 'grid',
+        'PNI_GRID': 'grid_XX',
         'PNI_PLANIMETRIA': 'planimetria',
         'PNI_STREET': 'street'
+    }
+    
+    LAYER_NAME_PNI_aib = {
+        'PNI_ACCESS_POINT': 'access_point',
+        'PNI_CAVO': 'area_cavo',
+        'PNI_PFP': 'aree_pfp',
+        'PNI_PFS': 'aree_pfs',
+        'PNI_CAVI': 'cavi',
+        'PNI_CIVICI': 'civici',
+        'PNI_COLONNINE': 'colonnine',
+        'PNI_DELIVERY': 'delivery',
+        'PNI_EDIFICI': 'edifici',
+        'PNI_GIUNTI': 'giunti',
+        'PNI_PLANIMETRIA': 'planimetria',
+        'PNI_POZZETTI': 'pozzetti',
+        'PNI_STRADE': 'strade',
+        'PNI_TRATTA': 'tratta',
+        'PNI_TRATTA_AEREA': 'tratta_aerea'
     }
     
     LAYER_NAME = {
@@ -320,7 +338,6 @@ class ProgettoPNI_2:
         self.iface = iface
         # initialize plugin directory
         self.plugin_dir = os.path.dirname(__file__)
-        #Utils.logMessage(str(self.plugin_dir))
         # initialize locale
         locale = QSettings().value('locale/userLocale')[0:2]
         locale_path = os.path.join(
@@ -382,7 +399,7 @@ class ProgettoPNI_2:
         self.dlg_config.no_import.clicked.connect(self.toggle_no_import)
         self.dlg_config.si_import.clicked.connect(self.toggle_si_import)
         #che tipo di dati sto caricando e come vanno associati gli shp alle tabelle standard del PNI?
-        self.dlg_config.buttonGroup.buttonClicked.connect(self.toggle_ced_element)
+        #self.dlg_config.buttonGroup.buttonClicked.connect(self.toggle_ced_element)
         
         #self.dlg_config.si_inizializza.clicked.connect(self.toggle_si_inizializza)
         #Azioni sul tasto import per spostare gli shp su DB:
@@ -456,12 +473,12 @@ class ProgettoPNI_2:
         webbrowser.open(url, new=0, autoraise=True)
     '''
     
-    def toggle_ced_element(self):
-        tab_attivo = self.dlg_config.ced_radioButton.isChecked()
-        if (tab_attivo==True):
-            self.dlg_config.el_stackedWidget.setCurrentIndex(0)
-        else:
-            self.dlg_config.el_stackedWidget.setCurrentIndex(1)
+    #def toggle_ced_element(self):
+    #    tab_attivo = self.dlg_config.ced_radioButton.isChecked()
+    #    if (tab_attivo==True):
+    #        self.dlg_config.el_stackedWidget.setCurrentIndex(0)
+    #    else:
+    #        self.dlg_config.el_stackedWidget.setCurrentIndex(1)
     
     def toggle_no_import(self):
         tab_attivo = self.dlg_config.no_import.isChecked()
@@ -1004,6 +1021,7 @@ class ProgettoPNI_2:
             #ciclo dentro la variabile LAYER_NAME e carico i layer da DB:
             #for key, value in sorted(self.LAYER_NAME_PNI.items()): #casualmente l'ordine alfabetico ci piace...altrimenti devi usare "from collections import OrderedDict, LAYER_NAME_PNI=OrderedDict(), LAYER_NAME_PNI['SCALA']='Scala'" etc..
             #nel caso del progetto PNI provo a non ordinare il dict ma uso l'orderedDict:
+            '''
             for key, value in self.LAYER_NAME_PNI.items():
                 if ( (key=="GIUNTO_F_dev") | (key=="PTA") | (key=="SCALA_F") | (key=="PD_F") | (key=="SCALA_append") ):
                     continue #evito di caricare 2/3 volte il layer GIUNTO
@@ -1015,6 +1033,36 @@ class ProgettoPNI_2:
                 QgsMapLayerRegistry.instance().addMapLayer(layer)
                 layer.loadNamedStyle(os.getenv("HOME")+'/.qgis2/python/plugins/ProgettoPNI_2/qml_base/%s.qml' % (value))
                 crs = layer.crs()
+            '''
+            
+            if (ced_checked == True):
+                for key, value in self.LAYER_NAME_PNI_ced.items():
+                    Utils.logMessage('nome layerDB da caricare: ' + value)
+                    uri = "%s key=gidd table=\"%s\".\"%s\" (geom) sql=" % (dest_dir, schemaDB, value.lower())
+                    #provo a caricare il layer da un service:
+                    #uri = "dbname='%s' service='%s_service_operatore' user='operatore' sslmode=disable key=gid table=\"%s\".\"%s\" (geom) sql=" % (nameDB, nameDB, schemaDB, value.lower())
+                    layer = QgsVectorLayer(uri, value, "postgres")
+                    if (int(qgis_version[0]) >= 3):
+                        QgsProject.instance().addMapLayer(layer)
+                    else:
+                        QgsMapLayerRegistry.instance().addMapLayer(layer)
+                    #layer.loadNamedStyle(os.getenv("HOME")+'/.qgis2/python/plugins/ProgettoPNI_2/qml_base/%s.qml' % (value))
+                    layer.loadNamedStyle( self.plugin_dir + '/qml_base/ced/%s.qml' % (value))
+                    crs = layer.crs()
+            else:
+                for key, value in self.LAYER_NAME_PNI_aib.items():
+                    Utils.logMessage('nome layerDB da caricare: ' + value)
+                    uri = "%s key=gidd table=\"%s\".\"%s\" (geom) sql=" % (dest_dir, schemaDB, value.lower())
+                    #provo a caricare il layer da un service:
+                    #uri = "dbname='%s' service='%s_service_operatore' user='operatore' sslmode=disable key=gid table=\"%s\".\"%s\" (geom) sql=" % (nameDB, nameDB, schemaDB, value.lower())
+                    layer = QgsVectorLayer(uri, value, "postgres")
+                    if (int(qgis_version[0]) >= 3):
+                        QgsProject.instance().addMapLayer(layer)
+                    else:
+                        QgsMapLayerRegistry.instance().addMapLayer(layer)
+                    #layer.loadNamedStyle(os.getenv("HOME")+'/.qgis2/python/plugins/ProgettoPNI_2/qml_base/%s.qml' % (value))
+                    layer.loadNamedStyle( self.plugin_dir + '/qml_base/aib/%s.qml' % (value))
+                    crs = layer.crs()
             
             '''
             if (int(qgis_version[0]) >= 3):

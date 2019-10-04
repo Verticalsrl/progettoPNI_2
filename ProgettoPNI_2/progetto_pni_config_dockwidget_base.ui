@@ -328,7 +328,7 @@ p, li { white-space: pre-wrap; }
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>0</y>
+       <y>40</y>
        <width>551</width>
        <height>18</height>
       </rect>
@@ -341,9 +341,9 @@ p, li { white-space: pre-wrap; }
      <property name="geometry">
       <rect>
        <x>0</x>
-       <y>30</y>
+       <y>70</y>
        <width>551</width>
-       <height>341</height>
+       <height>281</height>
       </rect>
      </property>
      <property name="title">
@@ -398,7 +398,7 @@ p, li { white-space: pre-wrap; }
       <property name="geometry">
        <rect>
         <x>320</x>
-        <y>290</y>
+        <y>220</y>
         <width>71</width>
         <height>16</height>
        </rect>
@@ -411,7 +411,7 @@ p, li { white-space: pre-wrap; }
       <property name="geometry">
        <rect>
         <x>380</x>
-        <y>280</y>
+        <y>210</y>
         <width>161</width>
         <height>51</height>
        </rect>
@@ -428,7 +428,7 @@ p, li { white-space: pre-wrap; }
       <property name="geometry">
        <rect>
         <x>120</x>
-        <y>290</y>
+        <y>220</y>
         <width>111</width>
         <height>20</height>
        </rect>
@@ -451,637 +451,13 @@ p, li { white-space: pre-wrap; }
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>310</y>
+        <y>240</y>
         <width>321</width>
         <height>23</height>
        </rect>
       </property>
       <property name="value">
        <number>0</number>
-      </property>
-     </widget>
-     <widget class="QStackedWidget" name="el_stackedWidget">
-      <property name="enabled">
-       <bool>true</bool>
-      </property>
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>90</y>
-        <width>531</width>
-        <height>181</height>
-       </rect>
-      </property>
-      <widget class="QWidget" name="ced_page">
-       <property name="enabled">
-        <bool>true</bool>
-       </property>
-       <widget class="QScrollArea" name="scrollArea">
-        <property name="geometry">
-         <rect>
-          <x>9</x>
-          <y>10</y>
-          <width>511</width>
-          <height>131</height>
-         </rect>
-        </property>
-        <property name="frameShape">
-         <enum>QFrame::NoFrame</enum>
-        </property>
-        <property name="widgetResizable">
-         <bool>true</bool>
-        </property>
-        <widget class="QWidget" name="scrollAreaWidgetContents">
-         <property name="geometry">
-          <rect>
-           <x>0</x>
-           <y>0</y>
-           <width>511</width>
-           <height>131</height>
-          </rect>
-         </property>
-         <widget class="QLineEdit" name="location_shp">
-          <property name="geometry">
-           <rect>
-            <x>410</x>
-            <y>10</y>
-            <width>91</width>
-            <height>20</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>ebw_location</string>
-          </property>
-         </widget>
-         <widget class="QLineEdit" name="grafo_shp">
-          <property name="geometry">
-           <rect>
-            <x>60</x>
-            <y>40</y>
-            <width>91</width>
-            <height>20</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>ebw_street</string>
-          </property>
-         </widget>
-         <widget class="QLineEdit" name="areapfp_shp">
-          <property name="geometry">
-           <rect>
-            <x>410</x>
-            <y>70</y>
-            <width>91</width>
-            <height>20</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>ebw_pfp</string>
-          </property>
-         </widget>
-         <widget class="QLabel" name="label_52">
-          <property name="geometry">
-           <rect>
-            <x>170</x>
-            <y>10</y>
-            <width>81</width>
-            <height>16</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>giunto  &lt;--</string>
-          </property>
-         </widget>
-         <widget class="QLabel" name="label_54">
-          <property name="geometry">
-           <rect>
-            <x>350</x>
-            <y>40</y>
-            <width>71</width>
-            <height>16</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>cavo &lt;--</string>
-          </property>
-         </widget>
-         <widget class="QLineEdit" name="scorta_shp">
-          <property name="geometry">
-           <rect>
-            <x>60</x>
-            <y>10</y>
-            <width>91</width>
-            <height>20</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>ebw_scorta</string>
-          </property>
-         </widget>
-         <widget class="QLabel" name="label_61">
-          <property name="geometry">
-           <rect>
-            <x>340</x>
-            <y>10</y>
-            <width>81</width>
-            <height>16</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>location  &lt;--</string>
-          </property>
-         </widget>
-         <widget class="QLineEdit" name="cavo_shp">
-          <property name="geometry">
-           <rect>
-            <x>410</x>
-            <y>40</y>
-            <width>91</width>
-            <height>20</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>ebw_cavo</string>
-          </property>
-         </widget>
-         <widget class="QLabel" name="label_57">
-          <property name="geometry">
-           <rect>
-            <x>180</x>
-            <y>70</y>
-            <width>51</width>
-            <height>16</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>PFS  &lt;--</string>
-          </property>
-         </widget>
-         <widget class="QLabel" name="label_66">
-          <property name="geometry">
-           <rect>
-            <x>0</x>
-            <y>10</y>
-            <width>81</width>
-            <height>16</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>scorta  &lt;--</string>
-          </property>
-         </widget>
-         <widget class="QLabel" name="label_56">
-          <property name="geometry">
-           <rect>
-            <x>350</x>
-            <y>70</y>
-            <width>51</width>
-            <height>16</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>PFP &lt;--</string>
-          </property>
-         </widget>
-         <widget class="QLabel" name="label_53">
-          <property name="geometry">
-           <rect>
-            <x>0</x>
-            <y>40</y>
-            <width>81</width>
-            <height>16</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>strade  &lt;--</string>
-          </property>
-         </widget>
-         <widget class="QLineEdit" name="giunto_shp">
-          <property name="geometry">
-           <rect>
-            <x>240</x>
-            <y>10</y>
-            <width>91</width>
-            <height>20</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>ebw_giunto</string>
-          </property>
-         </widget>
-         <widget class="QLabel" name="label_55">
-          <property name="geometry">
-           <rect>
-            <x>180</x>
-            <y>40</y>
-            <width>81</width>
-            <height>16</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>route   &lt;--</string>
-          </property>
-         </widget>
-         <widget class="QLineEdit" name="route_shp">
-          <property name="geometry">
-           <rect>
-            <x>240</x>
-            <y>40</y>
-            <width>91</width>
-            <height>20</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>ebw_route</string>
-          </property>
-         </widget>
-         <widget class="QLineEdit" name="areapfs_shp">
-          <property name="geometry">
-           <rect>
-            <x>240</x>
-            <y>70</y>
-            <width>91</width>
-            <height>20</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>ebw_pfs</string>
-          </property>
-         </widget>
-         <widget class="QLineEdit" name="areapfp_shp_2">
-          <property name="geometry">
-           <rect>
-            <x>60</x>
-            <y>70</y>
-            <width>91</width>
-            <height>20</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>ebw_pop</string>
-          </property>
-         </widget>
-         <widget class="QLabel" name="label_58">
-          <property name="geometry">
-           <rect>
-            <x>0</x>
-            <y>70</y>
-            <width>51</width>
-            <height>16</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>POP &lt;--</string>
-          </property>
-         </widget>
-         <widget class="QLineEdit" name="grafo_shp_2">
-          <property name="geometry">
-           <rect>
-            <x>130</x>
-            <y>100</y>
-            <width>91</width>
-            <height>20</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>grid*</string>
-          </property>
-         </widget>
-         <widget class="QLabel" name="label_62">
-          <property name="geometry">
-           <rect>
-            <x>70</x>
-            <y>100</y>
-            <width>81</width>
-            <height>16</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>grid  &lt;--</string>
-          </property>
-         </widget>
-         <widget class="QLabel" name="label_63">
-          <property name="geometry">
-           <rect>
-            <x>250</x>
-            <y>100</y>
-            <width>101</width>
-            <height>16</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>planimetria   &lt;--</string>
-          </property>
-         </widget>
-         <widget class="QLineEdit" name="route_shp_2">
-          <property name="geometry">
-           <rect>
-            <x>350</x>
-            <y>100</y>
-            <width>91</width>
-            <height>20</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>planimetria</string>
-          </property>
-         </widget>
-        </widget>
-       </widget>
-      </widget>
-      <widget class="QWidget" name="aib_page">
-       <widget class="QScrollArea" name="scrollArea_2">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>20</y>
-          <width>504</width>
-          <height>151</height>
-         </rect>
-        </property>
-        <property name="frameShape">
-         <enum>QFrame::NoFrame</enum>
-        </property>
-        <property name="widgetResizable">
-         <bool>true</bool>
-        </property>
-        <widget class="QWidget" name="scrollAreaWidgetContents_2">
-         <property name="geometry">
-          <rect>
-           <x>0</x>
-           <y>0</y>
-           <width>504</width>
-           <height>151</height>
-          </rect>
-         </property>
-         <layout class="QGridLayout" name="gridLayout">
-          <item row="0" column="0">
-           <widget class="QLabel" name="label_71">
-            <property name="text">
-             <string>Acc.point &lt;--</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="1">
-           <widget class="QLineEdit" name="scorta_shp_2">
-            <property name="text">
-             <string>access_point</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="2">
-           <widget class="QLabel" name="label_65">
-            <property name="text">
-             <string>giunto  &lt;--</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="3" colspan="2">
-           <widget class="QLineEdit" name="giunto_shp_2">
-            <property name="text">
-             <string>giunti</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="5">
-           <widget class="QLabel" name="label_69">
-            <property name="text">
-             <string>colonnine  &lt;--</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="6">
-           <widget class="QLineEdit" name="location_shp_2">
-            <property name="text">
-             <string>colonnine</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="0">
-           <widget class="QLabel" name="label_73">
-            <property name="text">
-             <string>delivery  &lt;--</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="1">
-           <widget class="QLineEdit" name="grafo_shp_3">
-            <property name="text">
-             <string>delivery</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="2">
-           <widget class="QLabel" name="label_74">
-            <property name="text">
-             <string>civici   &lt;--</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="3" colspan="2">
-           <widget class="QLineEdit" name="route_shp_3">
-            <property name="text">
-             <string>civici</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="5">
-           <widget class="QLabel" name="label_67">
-            <property name="text">
-             <string>strade &lt;--</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="6">
-           <widget class="QLineEdit" name="cavo_shp_2">
-            <property name="text">
-             <string>strade</string>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="0">
-           <widget class="QLabel" name="label_75">
-            <property name="text">
-             <string>pozzetti &lt;--</string>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="1">
-           <widget class="QLineEdit" name="areapfp_shp_4">
-            <property name="text">
-             <string>pozzetti</string>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="2">
-           <widget class="QLabel" name="label_70">
-            <property name="text">
-             <string>PFS  &lt;--</string>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="3" colspan="2">
-           <widget class="QLineEdit" name="areapfs_shp_2">
-            <property name="text">
-             <string>aree_pfs</string>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="5">
-           <widget class="QLabel" name="label_72">
-            <property name="text">
-             <string>PFP &lt;--</string>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="6">
-           <widget class="QLineEdit" name="areapfp_shp_3">
-            <property name="text">
-             <string>aree_pfp</string>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="0">
-           <widget class="QLabel" name="label_78">
-            <property name="text">
-             <string>tratta aerea &lt;--</string>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="1">
-           <widget class="QLineEdit" name="route_shp_5">
-            <property name="text">
-             <string>tratta_aerea</string>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="2">
-           <widget class="QLabel" name="label_76">
-            <property name="text">
-             <string>tratta  &lt;--</string>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="3">
-           <widget class="QLineEdit" name="grafo_shp_4">
-            <property name="text">
-             <string>tratta</string>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="4" colspan="2">
-           <widget class="QLabel" name="label_77">
-            <property name="text">
-             <string>planimetria   &lt;--</string>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="6">
-           <widget class="QLineEdit" name="route_shp_4">
-            <property name="text">
-             <string>planimetria</string>
-            </property>
-           </widget>
-          </item>
-          <item row="4" column="0">
-           <widget class="QLabel" name="label_79">
-            <property name="text">
-             <string>area cavo  &lt;--</string>
-            </property>
-           </widget>
-          </item>
-          <item row="4" column="1">
-           <widget class="QLineEdit" name="route_shp_7">
-            <property name="text">
-             <string>area_cavo</string>
-            </property>
-           </widget>
-          </item>
-          <item row="4" column="2">
-           <widget class="QLabel" name="label_80">
-            <property name="text">
-             <string>cavo  &lt;--</string>
-            </property>
-           </widget>
-          </item>
-          <item row="4" column="3">
-           <widget class="QLineEdit" name="grafo_shp_5">
-            <property name="text">
-             <string>cavi</string>
-            </property>
-           </widget>
-          </item>
-          <item row="4" column="4" colspan="2">
-           <widget class="QLabel" name="label_81">
-            <property name="text">
-             <string>edifici   &lt;--</string>
-            </property>
-           </widget>
-          </item>
-          <item row="4" column="6">
-           <widget class="QLineEdit" name="route_shp_6">
-            <property name="text">
-             <string>edifici</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-       </widget>
-      </widget>
-     </widget>
-     <widget class="QRadioButton" name="ced_radioButton">
-      <property name="enabled">
-       <bool>true</bool>
-      </property>
-      <property name="geometry">
-       <rect>
-        <x>160</x>
-        <y>70</y>
-        <width>131</width>
-        <height>18</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>ced (piccoli comun)</string>
-      </property>
-      <property name="checked">
-       <bool>true</bool>
-      </property>
-      <attribute name="buttonGroup">
-       <string notr="true">buttonGroup</string>
-      </attribute>
-     </widget>
-     <widget class="QRadioButton" name="aib_radioButton">
-      <property name="enabled">
-       <bool>true</bool>
-      </property>
-      <property name="geometry">
-       <rect>
-        <x>300</x>
-        <y>70</y>
-        <width>90</width>
-        <height>18</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>aib (città)</string>
-      </property>
-      <attribute name="buttonGroup">
-       <string notr="true">buttonGroup</string>
-      </attribute>
-     </widget>
-     <widget class="QLabel" name="label_68">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>70</y>
-        <width>141</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Tpo di dati da importare</string>
       </property>
      </widget>
      <zorder>label_50</zorder>
@@ -1091,11 +467,61 @@ p, li { white-space: pre-wrap; }
      <zorder>import_shp</zorder>
      <zorder>dirBrowse_txt</zorder>
      <zorder>import_progressBar</zorder>
-     <zorder>el_stackedWidget</zorder>
-     <zorder>ced_radioButton</zorder>
-     <zorder>aib_radioButton</zorder>
-     <zorder>label_68</zorder>
      <zorder>txtFeedback_import</zorder>
+    </widget>
+    <widget class="QLabel" name="label_68">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>10</y>
+       <width>141</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Tpo di dati da importare</string>
+     </property>
+    </widget>
+    <widget class="QRadioButton" name="ced_radioButton">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>200</x>
+       <y>10</y>
+       <width>131</width>
+       <height>18</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>ced (piccoli comun)</string>
+     </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
+     <attribute name="buttonGroup">
+      <string notr="true">buttonGroup</string>
+     </attribute>
+    </widget>
+    <widget class="QRadioButton" name="aib_radioButton">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>340</x>
+       <y>10</y>
+       <width>90</width>
+       <height>18</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>aib (città)</string>
+     </property>
+     <attribute name="buttonGroup">
+      <string notr="true">buttonGroup</string>
+     </attribute>
     </widget>
    </widget>
   </widget>
@@ -1163,38 +589,6 @@ p, li { white-space: pre-wrap; }
     <hint type="destinationlabel">
      <x>20</x>
      <y>20</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>buttonGroup</sender>
-   <signal>buttonPressed(int)</signal>
-   <receiver>el_stackedWidget</receiver>
-   <slot>setCurrentIndex(int)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>-1</x>
-     <y>-1</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>275</x>
-     <y>331</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>buttonGroup</sender>
-   <signal>buttonClicked(int)</signal>
-   <receiver>el_stackedWidget</receiver>
-   <slot>setCurrentIndex(int)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>-1</x>
-     <y>-1</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>275</x>
-     <y>331</y>
     </hint>
    </hints>
   </connection>
