@@ -1079,6 +1079,18 @@ class ProgettoPNI_2:
             #srid=3003
             #grid_XX
             #PWD
+            #per modificare i progetti QGis gia' stabiliti si potrebbe seguire qui:
+            # --> https://gis.stackexchange.com/questions/144245/change-layer-datasource-in-qgis-project-with-python
+            # --> https://gis.stackexchange.com/questions/62610/changing-data-source-of-layer-in-qgis
+            #e dunque (per QGis 2.x):
+            #layers=iface.mapCanvas().layers()
+            #layers[0].source() #ottengo l'uri del layer nel progetto
+            #uri_sorgente = u'dbname=\'test_pni\' host=10.127.138.53 port=5433 user=\'postgres\' password=\'ARTURO\' sslmode=disable key=\'gidd\' srid=3003 type=Point checkPrimaryKeyUnicity=\'1\' table="pni_schema"."pozzetti" (geom) sql='
+            #new_uri = 'dbname=\'test_pni\' host=localhost port=5433 user=\'postgres\' password=\'ARTURO\' sslmode=disable key=\'gidd\' srid=32632 type=Point checkPrimaryKeyUnicity=\'1\' table="bettola_pni2"."ebw_giunto" (geom) sql='
+            #layers[0].setDataSource(new_uri, layers[0].name(), 'postgres')
+            #OK funziona!! Pero' cio' accade se il progetto e' gia' caricato. Come fare altrimenti?
+            #prova questo? --> https://geogear.wordpress.com/2015/05/15/changing-qgis-layer-datasource-with-python/
+            
             
             #ridefinisco la variabile SRID per il progetto:
             epsg_srid = int(crs.postgisSrid())
