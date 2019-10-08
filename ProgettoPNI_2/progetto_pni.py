@@ -33,30 +33,12 @@ NUOVE NOTE PROGETTO PNI:
 
 
 
-
-
-
-VECCHIE NOTE del PLUGIN di partenza FTTH:
-- all'interno della funzione recupero_ui_cavo di db_cavoroute ho introdotto la variabile dict_null_id che contiene gli id dalla tabella pgrvertices_netpoints_array che non sono stati correttamente collegati col Routing molto presumibilmente perche' la geometria del layer cavo e' scorretta. Le coppie non associate al cavo vengono riportate nel file di log
-- ci sono delle moltiplicazioni di UI fatte in db_solid per popolare le n_ui di cavoroute, che non rappresentano dunque quelle reali ma le UI effettive...Da mail di Gatti del 03/02/2017
-
-NUOVA VERSIONE - CASCATA:
-- ho assunto che le regole "FROM_TO_RULES" per connettere in cascata le SCALE siano come quelle dei PTA
-- nel caso di SCALA-SCALA non ho considerato alcun vincolo sui contatori tant'e' che sulla tabella non c'e' il campo n_cont... Nel caso, aggiungere la colonna in tabella ed aggiungere l'opzione relativa nella funzione "import_action"
-- nella funzione "associa_cascata_scala" e "associa_cascata_pd" nonche' in quella dei "associa_padri_giunti" io mi fermo solo al PRIMO LIVELLO di connessione, dovrei invece ciclare fino a beccare TUTTI i figli...!
-- ho imposto:   FIBRE_CAVO['SCALA_SCALA'] = FIBRE_CAVO['SCALA_PTA']
-    FIBRE_CAVO['PD_PD'] = FIBRE_CAVO['GIUNTO_PD']
-    FIBRE_CAVO['PTA_PFS'] = FIBRE_CAVO['PTA_PD']
-- occorrerebbe forse a questo punto pensare ad un modo per come scollegare un punto SENZA eliminarlo...
-- le SCALE non essendo possibile eliminarle non e' possibile SCOLLEGARLE!
-
-
 OTTIMIZZAZIONI/DUBBI:
-- "Aggiorno id del cavoroute -- ATTENZIONE!! Devo prelevare il COD_POP impostato a livello di progetto!!" Al fondo della funzione calcola_route in db_solid: come lo faccio? Al momento ho commentato le righe per non avere errore. Lo devo fare? Se si, potrei prelevare l'ID_POP da uno degli shp importati, quindi in questo script nella funzione di importazione definire la variabile self.COD_POP.
-- devi ancora implementare la parte "Consolida progetto" del vecchio plugin!! Ma fallo anche alla fine, precedenza al routing.
-- ATTENZIONE! Il campo num_scorte di cavoroute, quando lo creo? Perche' non esiste piu'?? Vedere verso rigo 400 db_solid.py...
-- ATTENZIONE! Le variabili del progetto nella maschera del plugin al momento LE SCRIVI sulla maschera: devi riuscire a recuperarle dal DB!
-- la procedura per creare le cavoroute_labels in db_solid.py e' ancora molto da verificare...
+- ATTENZIONE!! nelc cambio di datasource del progetto template devo omettere quei layer che non trovano esatto riscontro nel nome sul DB altrimenti QGis crasha. Vedi funzione import_shp2db
+- creare maschere di editing sui progetti template con le dovute constraints sui campi (mappa valori) in modo tale da riportarle poi sui progetti salvati con i dati da DB
+
+- RIPULISCI questo codice dalle vecchie funzioni e vecchi richiami ad altri script, che dovrai eliminare dal plugin in modo che sia un po' piu' pulito
+
 '''
 
 
@@ -970,6 +952,29 @@ class ProgettoPNI_2:
                 
                 cur.close()
                 test_conn.close()
+
+                self.dlg_config.txtFeedback_import.setText("Dati importati con successo! Passiamo alla creazione del progetto...")
+                #a questo punto dovrei importare il progetto template in base al tipo di dati importati
+                project = QgsProject.instance()
+                #in base al tipo di progetto recupero il progetto da caricare:
+                ced_checked = self.dlg_config.ced_radioButton.isChecked()
+                if (ced_checked == True):
+                    project.read(self.plugin_dir + "/pni2_CeD_db.qgs")
+                else:
+                    project.read(self.plugin_dir + "/pni2_AiB_db.qgs")
+                #ora modifico i dataSource di questi progetti puntandoli allo schema appena creato:
+                layers_from_project_template = iface.mapCanvas().layers()
+                #ATTENZIONE!!! Se non dovesse esserci una tabella corrispondente su postgres QGis crasha direttamente e anche con try/except non si riesce a intercettare questo errore!!
+                for layer_imported in layers_from_project_template:
+                    new_uri = "%s key=gidd table=\"%s\".\"%s\" (geom) sql=" % (dest_dir, schemaDB, layer_imported.name().lower())
+                    if ( 'grid' not in layer_imported.name() ):
+                        layer_imported.setDataSource(new_uri, layer_imported.name(), 'postgres')
+                #refresh del canvas e zoommo sull'estensione del progetto:
+                iface.mapCanvas().refresh()
+                iface.mapCanvas().zoomToFullExtent()
+                #SALVO il nuovo progetto:
+                project.write(dirname_text+"/"+schemaDB+'.qgs')
+
             except psycopg2.Error as e:
                 Utils.logMessage(e.pgerror)
                 self.dlg_config.txtFeedback_import.setText("Errore su DB, vedere il log o contattare l'amministratore")
@@ -981,12 +986,12 @@ class ProgettoPNI_2:
                 test_conn.rollback()
                 return 0
             else:
-                self.dlg_config.txtFeedback_import.setText("Dati importati con successo! Puoi passare alla sezione C")
+                self.dlg_config.txtFeedback_import.setText("Dati importati e progetto creato con successo in " + dirname_text+"/"+schemaDB+".qgs")
                 #Abilito le restanti sezioni e pulsanti
                 self.dlg_config.chkDB.setEnabled(False)
                 self.dlg_config.import_DB.setEnabled(False)
-                #self.dlg_config.variabili_DB.setEnabled(True)
-                self.dlg_config.importBtn.setEnabled(True)
+                #self.dlg_config.importBtn.setEnabled(True) #questo pulsante NON dovrebbe piu' servire
+
             finally:
                 if test_conn is not None:
                     try:
