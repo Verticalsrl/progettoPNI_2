@@ -250,6 +250,8 @@ tratta_aerea	constructi	Realizzato	character varying(14)
 \.
 
 
+GRANT SELECT ON TABLE mappa_valori_pni2 TO operatore;
+
 -- Completed on 2019-10-07 15:35:49
 
 --

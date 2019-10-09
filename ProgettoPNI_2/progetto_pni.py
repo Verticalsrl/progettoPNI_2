@@ -401,6 +401,7 @@ class ProgettoPNI_2:
         #AZIONO PULSANTE PERSONALIZZATO:
         #self.dlg_config.aggiorna_variabiliBtn.clicked.connect(self.inizializzaDB)
         self.dlg_config.importBtn.clicked.connect(self.load_layers_from_db)
+        self.dlg_config.createBtn.clicked.connect(self.load_project_from_db)
         
         #AZIONO pulsante per TESTARE CONNESSIONE AL DB:
         self.dlg_config.testBtn.clicked.connect(self.test_connection)
@@ -469,10 +470,12 @@ class ProgettoPNI_2:
             #self.dlg_config.si_inizializza.setChecked(False)
             #self.dlg_config.variabili_DB.setEnabled(True) #attivo il toolbox delle variabili
             self.dlg_config.importBtn.setEnabled(True) #attivo il pulsante di caricamento layer da DB sulla TOC
+            self.dlg_config.createBtn.setEnabled(True) #attivo il pulsante di creazione e caricamento nuovo progetto con i dati da DB
         else:
             self.dlg_config.si_import.setChecked(True) #insomma funziona alla stregua di un radio_button
             #self.dlg_config.variabili_DB.setEnabled(False)
             self.dlg_config.importBtn.setEnabled(False)
+            self.dlg_config.createBtn.setEnabled(False)
             
     def toggle_si_import(self):
         tab_attivo = self.dlg_config.si_import.isChecked()
@@ -481,10 +484,12 @@ class ProgettoPNI_2:
             #self.dlg_config.si_inizializza.setChecked(False)
             #self.dlg_config.variabili_DB.setEnabled(False)
             self.dlg_config.importBtn.setEnabled(False)
+            self.dlg_config.createBtn.setEnabled(False)
         else:
             self.dlg_config.no_import.setChecked(True) #insomma funziona alla stregua di un radio_button
             #self.dlg_config.variabili_DB.setEnabled(True) #attivo il toolbox delle variabili
             self.dlg_config.importBtn.setEnabled(True) #attivo il pulsante di caricamento layer da DB sulla TOC
+            self.dlg_config.createBtn.setEnabled(True) #attivo il pulsante di creazione e caricamento nuovo progetto con i dati da DB
             
     def toggle_si_inizializza(self):
         tab_attivo = self.dlg_config.si_inizializza.isChecked()
@@ -493,11 +498,13 @@ class ProgettoPNI_2:
             self.dlg_config.si_import.setChecked(False)
             self.dlg_config.variabili_DB.setEnabled(False)
             self.dlg_config.importBtn.setEnabled(False)
+            self.dlg_config.createBtn.setEnabled(False)
         else:
             self.dlg_config.no_import.setChecked(False)
             self.dlg_config.si_import.setChecked(False)
             self.dlg_config.variabili_DB.setEnabled(False) #attivo il toolbox delle variabili
             self.dlg_config.importBtn.setEnabled(False) #attivo il pulsante di caricamento layer da DB sulla TOC
+            self.dlg_config.createBtn.setEnabled(False)
     
     def inizializza_DB(self):
         #INIZIALIZZO UN NUOVO PROGETTO DA ZERO, importando solo lo shp delle scale
@@ -716,6 +723,7 @@ class ProgettoPNI_2:
                 self.dlg_config.import_DB.setEnabled(False)
                 self.dlg_config.variabili_DB.setEnabled(True)
                 self.dlg_config.importBtn.setEnabled(True)
+                self.dlg_config.createBtn.setEnabled(True)
             finally:
                 if test_conn is not None:
                     try:
@@ -959,21 +967,35 @@ class ProgettoPNI_2:
                 #in base al tipo di progetto recupero il progetto da caricare:
                 ced_checked = self.dlg_config.ced_radioButton.isChecked()
                 if (ced_checked == True):
-                    project.read(self.plugin_dir + "/pni2_CeD_db.qgs")
+                    if (int(qgis_version[0]) >= 3):
+                        project.read(self.plugin_dir + "/pni2_CeD_db.qgs")
+                    else:
+                        project.read( QFileInfo(self.plugin_dir + "/pni2_CeD_db.qgs") )
                 else:
-                    project.read(self.plugin_dir + "/pni2_AiB_db.qgs")
+                    if (int(qgis_version[0]) >= 3):
+                        project.read(self.plugin_dir + "/pni2_AiB_db.qgs")
+                    else:
+                        project.read( QFileInfo(self.plugin_dir + "/pni2_AiB_db.qgs") )
                 #ora modifico i dataSource di questi progetti puntandoli allo schema appena creato:
                 layers_from_project_template = iface.mapCanvas().layers()
                 #ATTENZIONE!!! Se non dovesse esserci una tabella corrispondente su postgres QGis crasha direttamente e anche con try/except non si riesce a intercettare questo errore!!
                 for layer_imported in layers_from_project_template:
                     new_uri = "%s key=gidd table=\"%s\".\"%s\" (geom) sql=" % (dest_dir, schemaDB, layer_imported.name().lower())
-                    if ( 'grid' not in layer_imported.name() ):
+                    if ('grid' in layer_imported.name()):
+                        continue
+                    elif ('mappa_valori' in layer_imported.name()):
+                        continue
+                    else:
                         layer_imported.setDataSource(new_uri, layer_imported.name(), 'postgres')
+
                 #refresh del canvas e zoommo sull'estensione del progetto:
                 iface.mapCanvas().refresh()
                 iface.mapCanvas().zoomToFullExtent()
                 #SALVO il nuovo progetto:
-                project.write(dirname_text+"/"+schemaDB+'.qgs')
+                if (int(qgis_version[0]) >= 3):
+                    project.write(dirname_text+"/"+schemaDB+'.qgs')
+                else:
+                    project.write( QFileInfo(dirname_text+"/"+schemaDB+'.qgs') )
 
             except psycopg2.Error as e:
                 Utils.logMessage(e.pgerror)
@@ -1002,6 +1024,58 @@ class ProgettoPNI_2:
                         msg.setStandardButtons(QMessageBox.Ok)
                         retval = msg.exec_()
     
+    def load_project_from_db(self):
+        #creo questa funzione a parte nel caso voglia staccare la fase in cui carico gli shp su DB da quella in cui creo il progetto
+        schemaDB = self.dlg_config.schemaDB.text() #recupero lo schema da cui prelevare le tabelle
+        nameDB = self.dlg_config.nameDB.text()
+        dirname_text = self.dlg_config.dirBrowse_txt.text()
+        if ( (dirname_text is None) or (dirname_text=='') ):
+            dirname_text = os.getenv("HOME")
+        global epsg_srid
+        
+        try:
+            #a questo punto dovrei importare il progetto template in base al tipo di dati importati
+            project = QgsProject.instance()
+            #in base al tipo di progetto recupero il progetto da caricare:
+            ced_checked = self.dlg_config.ced_radioButton.isChecked()
+            if (ced_checked == True):
+                if (int(qgis_version[0]) >= 3):
+                    project.read(self.plugin_dir + "/pni2_CeD_db.qgs")
+                else:
+                    project.read( QFileInfo(self.plugin_dir + "/pni2_CeD_db.qgs") )
+            else:
+                if (int(qgis_version[0]) >= 3):
+                    project.read(self.plugin_dir + "/pni2_AiB_db.qgs")
+                else:
+                    project.read( QFileInfo(self.plugin_dir + "/pni2_AiB_db.qgs") )
+            #ora modifico i dataSource di questi progetti puntandoli allo schema appena creato:
+            layers_from_project_template = iface.mapCanvas().layers()
+            #ATTENZIONE!!! Se non dovesse esserci una tabella corrispondente su postgres QGis crasha direttamente e anche con try/except non si riesce a intercettare questo errore!!
+            for layer_imported in layers_from_project_template:
+                new_uri = "%s key=gidd table=\"%s\".\"%s\" (geom) sql=" % (dest_dir, schemaDB, layer_imported.name().lower())
+                if ('grid' in layer_imported.name()):
+                    continue
+                elif ('mappa_valori' in layer_imported.name()):
+                    continue
+                else:
+                    layer_imported.setDataSource(new_uri, layer_imported.name(), 'postgres')
+            #refresh del canvas e zoommo sull'estensione del progetto:
+            iface.mapCanvas().refresh()
+            iface.mapCanvas().zoomToFullExtent()
+            #SALVO il nuovo progetto:
+            if (int(qgis_version[0]) >= 3):
+                project.write(dirname_text+"/"+schemaDB+'.qgs')
+            else:
+                project.write( QFileInfo(dirname_text+"/"+schemaDB+'.qgs') )
+        
+        except SystemError as e:
+            debug_text = "Qualcosa e' andata storta nel caricare i layer da DB. Forse il servizio per il DB indicato non esiste? Rivedere i dati e riprovare"
+            #in realta' questo errore non viene gestito, inizia a chiedere la pwd del servizio prima!
+            self.dlg_config.txtFeedback.setText(debug_text)
+            return 0
+        else:
+            self.dlg_config.txtFeedback.setText('Creazione e caricamento del progetto riusciti. Progetto salvato in' + dirname_text+'/'+schemaDB+'.qgs')
+            return 1
     
     def load_layers_from_db(self):
         schemaDB = self.dlg_config.schemaDB.text() #recupero lo schema da cui prelevare le tabelle
@@ -1068,34 +1142,6 @@ class ProgettoPNI_2:
                     #layer.loadNamedStyle(os.getenv("HOME")+'/.qgis2/python/plugins/ProgettoPNI_2/qml_base/%s.qml' % (value))
                     layer.loadNamedStyle( self.plugin_dir + '/qml_base/aib/%s.qml' % (value))
                     crs = layer.crs()
-            
-            '''
-            if (int(qgis_version[0]) >= 3):
-                QgsProject.instance().addMapLayers(lista_layer_to_load)
-            else:
-                QgsMapLayerRegistry.instance().addMapLayers(lista_layer_to_load)
-            '''
-            #nel caso di piccoli comuni (CeD) occorre modificare nel file pni2_CeD_db.qgs:
-            #dbschema
-            #dbname='test_pni'
-            #port=5433
-            #host=10.127.138.53
-            #user='postgres'
-            #srid=3003
-            #grid_XX
-            #PWD
-            #per modificare i progetti QGis gia' stabiliti si potrebbe seguire qui:
-            # --> https://gis.stackexchange.com/questions/144245/change-layer-datasource-in-qgis-project-with-python
-            # --> https://gis.stackexchange.com/questions/62610/changing-data-source-of-layer-in-qgis
-            #e dunque (per QGis 2.x):
-            #layers=iface.mapCanvas().layers()
-            #layers[0].source() #ottengo l'uri del layer nel progetto
-            #uri_sorgente = u'dbname=\'test_pni\' host=10.127.138.53 port=5433 user=\'postgres\' password=\'ARTURO\' sslmode=disable key=\'gidd\' srid=3003 type=Point checkPrimaryKeyUnicity=\'1\' table="pni_schema"."pozzetti" (geom) sql='
-            #new_uri = 'dbname=\'test_pni\' host=localhost port=5433 user=\'postgres\' password=\'ARTURO\' sslmode=disable key=\'gidd\' srid=32632 type=Point checkPrimaryKeyUnicity=\'1\' table="bettola_pni2"."ebw_giunto" (geom) sql='
-            #layers[0].setDataSource(new_uri, layers[0].name(), 'postgres')
-            #OK funziona!! Pero' cio' accade se il progetto e' gia' caricato. Come fare altrimenti?
-            #prova questo? --> https://geogear.wordpress.com/2015/05/15/changing-qgis-layer-datasource-with-python/
-            
             
             #ridefinisco la variabile SRID per il progetto:
             epsg_srid = int(crs.postgisSrid())
@@ -3347,6 +3393,7 @@ PFS: %(id_pfs)s"""
             self.dlg_config.txtFeedback.setText(debug_text)
             self.dlg_config.testAnswer.setText("FAIL! Inserisci dei dati corretti e continua")
             self.dlg_config.importBtn.setEnabled(False)
+            self.dlg_config.createBtn.setEnabled(False)
             return 0
             '''except dbConnection.DbError, e:
             Utils.logMessage("dbname:" + dbname + ", " + e.msg)
@@ -3357,6 +3404,7 @@ PFS: %(id_pfs)s"""
             self.dlg_config.txtFeedback.setText(debug_text)
             self.dlg_config.testAnswer.setText('FAIL!')
             self.dlg_config.importBtn.setEnabled(False)
+            self.dlg_config.createBtn.setEnabled(False)
             return 0
         finally:
             if test_conn:
@@ -3681,6 +3729,7 @@ PFS: %(id_pfs)s"""
         self.dlg_config.testAnswer.clear()
         self.dlg_config.chkDB.setEnabled(True);
         self.dlg_config.importBtn.setEnabled(False);
+        self.dlg_config.createBtn.setEnabled(False)
         
         self.dlg_config.import_DB.setEnabled(False);
         #self.dlg_config.variabili_DB.setEnabled(False);
@@ -3780,8 +3829,10 @@ PFS: %(id_pfs)s"""
         filename_check = self.dlg_append.shpBrowse_txt.text()
         if (filename_check):
             self.dlg_append.importBtn.setEnabled(True);
+            self.dlg_config.createBtn.setEnabled(True)
         else:
             self.dlg_append.importBtn.setEnabled(False);
+            self.dlg_config.createBtn.setEnabled(False)
     
     def append_scala_DbManager(self):
         #in questo caso do per assodato che le nuove SCALE siano gia state caricate su DB con DbManager in una tabella chiamata come LAYER_NAME['SCALA_append'], questo perche' la funzione append_scala da certi PC resttuisce un errore

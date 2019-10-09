@@ -25,6 +25,8 @@ CREATE SCHEMA pni_aib_template;
 
 ALTER SCHEMA pni_aib_template OWNER TO postgres;
 
+GRANT USAGE ON SCHEMA pni_aib_template TO operatore;
+
 --
 -- TOC entry 42 (class 2615 OID 2494535)
 -- Name: pni_ced_template; Type: SCHEMA; Schema: -; Owner: postgres
@@ -34,6 +36,9 @@ CREATE SCHEMA pni_ced_template;
 
 
 ALTER SCHEMA pni_ced_template OWNER TO postgres;
+
+GRANT USAGE ON SCHEMA pni_ced_template TO operatore;
+
 
 SET search_path = pni_aib_template, pg_catalog;
 
@@ -1688,6 +1693,36 @@ ALTER TABLE ONLY planimetria
 ALTER TABLE ONLY street
     ADD CONSTRAINT street_pkey PRIMARY KEY (gidd);
 
+
+SET search_path = pni_aib_template, pg_catalog;
+GRANT SELECT ON TABLE access_point TO operatore;
+GRANT SELECT ON TABLE area_cavo TO operatore;
+GRANT SELECT ON TABLE aree_pfp TO operatore;
+GRANT SELECT ON TABLE aree_pfs TO operatore;
+GRANT SELECT ON TABLE cavi TO operatore;
+GRANT SELECT ON TABLE civici TO operatore;
+GRANT SELECT ON TABLE colonnine TO operatore;
+GRANT SELECT ON TABLE delivery TO operatore;
+GRANT SELECT ON TABLE edifici TO operatore;
+GRANT SELECT ON TABLE giunti TO operatore;
+GRANT SELECT ON TABLE planimetria TO operatore;
+GRANT SELECT ON TABLE pozzetti TO operatore;
+GRANT SELECT ON TABLE strade TO operatore;
+GRANT SELECT ON TABLE tratta TO operatore;
+GRANT SELECT ON TABLE tratta_aerea TO operatore;
+
+SET search_path = pni_ced_template, pg_catalog;
+GRANT SELECT ON TABLE ebw_cavo TO operatore;
+GRANT SELECT ON TABLE ebw_giunto TO operatore;
+GRANT SELECT ON TABLE ebw_location TO operatore;
+GRANT SELECT ON TABLE ebw_pfp TO operatore;
+GRANT SELECT ON TABLE ebw_pfs TO operatore;
+GRANT SELECT ON TABLE ebw_pop TO operatore;
+GRANT SELECT ON TABLE ebw_route TO operatore;
+GRANT SELECT ON TABLE ebw_scorta TO operatore;
+GRANT SELECT ON TABLE grid_a0_bettola TO operatore;
+GRANT SELECT ON TABLE planimetria TO operatore;
+GRANT SELECT ON TABLE street TO operatore;
 
 -- Completed on 2019-10-08 12:22:49
 
