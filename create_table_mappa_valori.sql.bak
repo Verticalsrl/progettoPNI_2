@@ -2,47 +2,43 @@
 -- PostgreSQL database dump
 --
 
--- Dumped from database version 9.6.12
--- Dumped by pg_dump version 10.7 (Ubuntu 10.7-1.pgdg18.04+1)
+-- Dumped from database version 9.3.13
+-- Dumped by pg_dump version 9.5.1
 
--- Started on 2019-10-16 10:37:54 CEST
+-- Started on 2019-10-07 15:35:49
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
-SET idle_in_transaction_session_timeout = 0;
 SET client_encoding = 'UTF8';
 SET standard_conforming_strings = on;
-SELECT pg_catalog.set_config('search_path', '', false);
 SET check_function_bodies = false;
 SET client_min_messages = warning;
 SET row_security = off;
 
-SET default_tablespace = '';
+SET search_path = public, pg_catalog;
 
 SET default_with_oids = false;
 
 --
--- TOC entry 265 (class 1259 OID 33239)
--- Name: mappa_valori_pni2; Type: TABLE; Schema: public; Owner: postgres
+-- TOC entry 402 (class 1259 OID 2494363)
+-- Name: mappa_valori_pni2; Type: TABLE; Schema: public; Owner: -
 --
 
-CREATE TABLE public.mappa_valori_pni2 (
-    tabella character varying(32) NOT NULL,
-    campo character varying(32) NOT NULL,
-    valore character varying(250) NOT NULL,
+CREATE TABLE mappa_valori_pni2 (
+    tabella character varying(32),
+    campo character varying(32),
+    valore character varying(250),
     valore_tipo character varying(32)
 );
 
 
-ALTER TABLE public.mappa_valori_pni2 OWNER TO postgres;
-
 --
--- TOC entry 3993 (class 0 OID 33239)
--- Dependencies: 265
--- Data for Name: mappa_valori_pni2; Type: TABLE DATA; Schema: public; Owner: postgres
+-- TOC entry 4205 (class 0 OID 2494363)
+-- Dependencies: 402
+-- Data for Name: mappa_valori_pni2; Type: TABLE DATA; Schema: public; Owner: -
 --
 
-COPY public.mappa_valori_pni2 (tabella, campo, valore, valore_tipo) FROM stdin;
+COPY mappa_valori_pni2 (tabella, campo, valore, valore_tipo) FROM stdin;
 ebw_cavo	numero_fib	12	integer
 ebw_cavo	numero_fib	24	integer
 ebw_cavo	numero_fib	48	integer
@@ -251,43 +247,12 @@ tratta_aerea	ebw_flag_1	True	character varying(10)
 tratta_aerea	guy_type	In Facciata	character varying(19)
 tratta_aerea	constructi	Progettato	character varying(14)
 tratta_aerea	constructi	Realizzato	character varying(14)
-colonnine	spec_id	PTA ALTRO	character varying(16)
-colonnine	spec_id	PALO	character varying(16)
-colonnine	spec_id	MTCO	character varying(16)
-colonnine	spec_id	IP	character varying(16)
-colonnine	spec_id	Box Esterno (MW)	character varying(16)
-colonnine	spec_id	RF	character varying(16)
-access_point	type	Unknown	character varying(16)
-access_point	type	Conduit Terminus	character varying(16)
-access_point	spec_id	Interno PFS	character varying(16)
-pozzetti	type	Conduit Terminus	character varying(28)
-pozzetti	type	Vault	character varying(28)
-pozzetti	type	Residential Access	character varying(28)
-pozzetti	type	Pedestal	character varying(28)
-pozzetti	type	Handhole	character varying(28)
-pozzetti	ebw_owner	ACEA	character varying(30)
 \.
 
 
---
--- TOC entry 3868 (class 2606 OID 33386)
--- Name: mappa_valori_pni2 mappa_valori_pni2_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
---
+GRANT SELECT ON TABLE mappa_valori_pni2 TO operatore;
 
-ALTER TABLE ONLY public.mappa_valori_pni2
-    ADD CONSTRAINT mappa_valori_pni2_pkey PRIMARY KEY (tabella, campo, valore);
-
-
---
--- TOC entry 3999 (class 0 OID 0)
--- Dependencies: 265
--- Name: TABLE mappa_valori_pni2; Type: ACL; Schema: public; Owner: postgres
---
-
-GRANT SELECT ON TABLE public.mappa_valori_pni2 TO operatore;
-
-
--- Completed on 2019-10-16 10:38:22 CEST
+-- Completed on 2019-10-07 15:35:49
 
 --
 -- PostgreSQL database dump complete

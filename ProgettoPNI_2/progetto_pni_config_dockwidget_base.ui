@@ -495,7 +495,7 @@ p, li { white-space: pre-wrap; }
       </rect>
      </property>
      <property name="text">
-      <string>ced (piccoli comun)</string>
+      <string>CeD (piccoli comun)</string>
      </property>
      <property name="checked">
       <bool>true</bool>
@@ -517,7 +517,7 @@ p, li { white-space: pre-wrap; }
       </rect>
      </property>
      <property name="text">
-      <string>aib (città)</string>
+      <string>AeB (città)</string>
      </property>
      <attribute name="buttonGroup">
       <string notr="true">buttonGroup</string>

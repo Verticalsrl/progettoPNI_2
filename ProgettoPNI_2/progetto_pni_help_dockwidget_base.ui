@@ -79,7 +79,7 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>110</y>
+     <y>100</y>
      <width>371</width>
      <height>101</height>
     </rect>
@@ -90,7 +90,7 @@
     </font>
    </property>
    <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;http://webgis.map-hosting.it/walkout.htm&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;webgis.map-hosting.it/walkout.htm&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Questo plugin permette la gestione dell'infrastruttura reti PNI.&lt;br/&gt;Sviluppato su QGis LTR v2.14 e QtCreator.&lt;br/&gt;Per informazioni scrivere a &lt;a href=&quot;mailto:info@vertical.digital&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;info@vertical.digital&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;http://webgis.map-hosting.it/walkout.htm&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;webgis.map-hosting.it&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Gestione infrastruttura reti PNI II.&lt;br/&gt;Sviluppato su QGis LTR v3.4 e QtCreator.&lt;br/&gt;Per informazioni scrivere a &lt;a href=&quot;mailto:info@vertical.digital&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;gis@vertical-srl.it&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
    <property name="textFormat">
     <enum>Qt::RichText</enum>
