@@ -136,7 +136,7 @@ p, li { white-space: pre-wrap; }
       </rect>
      </property>
      <property name="text">
-      <string>localhost</string>
+      <string>86.107.96.34</string>
      </property>
     </widget>
     <widget class="QLineEdit" name="portDB">
@@ -149,7 +149,7 @@ p, li { white-space: pre-wrap; }
       </rect>
      </property>
      <property name="text">
-      <string>5433</string>
+      <string>5432</string>
      </property>
     </widget>
     <widget class="QLineEdit" name="usrDB">
@@ -188,7 +188,7 @@ p, li { white-space: pre-wrap; }
       </rect>
      </property>
      <property name="text">
-      <string>test_pni</string>
+      <string>pni_2</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_2">
@@ -292,7 +292,7 @@ p, li { white-space: pre-wrap; }
       </rect>
      </property>
      <property name="text">
-      <string>pni_schema</string>
+      <string/>
      </property>
     </widget>
     <widget class="QLabel" name="label_6">
