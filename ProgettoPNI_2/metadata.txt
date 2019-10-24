@@ -11,7 +11,7 @@ name=ProgettoPNI_2
 qgisMinimumVersion=2.14
 qgisMaximumVersion=3.99
 description=import dati progetto PNI versione 2
-version=0.2
+version=0.3
 author=A.R.Gaeta
 email=ar_gaeta@yahoo.it
 release_date=2019/10/02
@@ -28,6 +28,7 @@ repository=github.com
 changelog=
 	2019/10/02 0.1 prima versione. Per renderla compatibile con QGis 2.18, ricordarsi la modifica del comando da selectByIds a setSelectedFeatures. In realta questo plugin per la creazione del progetto QGis da fornire poi ai cantieri NON e' compatibile con QGis 2.x poiche' i progetti da creare sono stati pensati per QGis 3.14
 	2019/10/24 0.2 aggiornato progetto con dicitura originale del sistema PNI_II cioe' in inglese - solo per lotti A&B, da sviluppare per i lotti C&D
+	2019/10/24 0.2 aggiornato progetto con dicitura originale del sistema PNI_II cioe' con gli shp in inglese e i layer su qgis in italiano per entrambi i tipi di lotto A&B e C&D
 
 
 # Tags are comma separated with spaces allowed

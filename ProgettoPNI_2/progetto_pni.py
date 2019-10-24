@@ -185,17 +185,18 @@ class ProgettoPNI_2:
     #LAYER_NAME_PNI = OrderedDict(list_of_tuples)
     
     LAYER_NAME_PNI_ced = {
-        'PNI_CAVO': 'ebw_cavo',
-        'PNI_GIUNTO': 'ebw_giunto',
-        'PNI_LOCATION': 'ebw_location',
-        'PNI_PFP': 'ebw_pfp',
-        'PNI_PFS': 'ebw_pfs',
-        'PNI_POP': 'ebw_pop',
-        'PNI_ROUTE': 'ebw_route',
+        'PNI_CIVICI': 'ebw_address',
+        'PNI_CAVI': 'ebw_cavo',
+        'PNI_GIUNTI': 'ebw_giunto',
+        'PNI_POZZETTI': 'ebw_location',
+        'PNI_AREA_PFP': 'ebw_pfp',
+        'PNI_AREA_PFS': 'ebw_pfs',
+        'PNI_AREA_POP': 'ebw_pop',
+        'PNI_TRATTA': 'ebw_route',
         'PNI_SCORTA': 'ebw_scorta',
         'PNI_GRID': 'grid_XX',
         'PNI_PLANIMETRIA': 'planimetria',
-        'PNI_STREET': 'street'
+        'PNI_STRADE': 'street'
     }
     
     #dizionario dei nomi da progetto QGIS_template (key) a tavole su DB (value):
@@ -1009,7 +1010,10 @@ class ProgettoPNI_2:
                     elif ('mappa_valori' in layer_imported.name()):
                         continue
                     elif (ced_checked == True):
-                        new_uri = "%s key=gidd table=\"%s\".\"%s\" (geom) sql=" % (dest_dir, schemaDB, self.LAYER_NAME_PNI_ced[chiave_da_ricercare])
+                        if ('planimetra' in layer_imported.name()): #non sempre e' presente
+                            continue
+                        else:
+                            new_uri = "%s key=gidd table=\"%s\".\"%s\" (geom) sql=" % (dest_dir, schemaDB, self.LAYER_NAME_PNI_ced[chiave_da_ricercare])
                     else:
                         new_uri = "%s key=gidd table=\"%s\".\"%s\" (geom) sql=" % (dest_dir, schemaDB, self.LAYER_NAME_PNI_aib[chiave_da_ricercare])
                     layer_imported.setDataSource(new_uri, layer_imported.name(), 'postgres')
@@ -1087,7 +1091,10 @@ class ProgettoPNI_2:
                 elif ('mappa_valori' in layer_imported.name()):
                     continue
                 elif (ced_checked == True):
-                    new_uri = "%s key=gidd table=\"%s\".\"%s\" (geom) sql=" % (dest_dir, schemaDB, self.LAYER_NAME_PNI_ced[chiave_da_ricercare])
+                    if ('planimetra' in layer_imported.name()): #non sempre e' presente
+                        continue
+                    else:
+                        new_uri = "%s key=gidd table=\"%s\".\"%s\" (geom) sql=" % (dest_dir, schemaDB, self.LAYER_NAME_PNI_ced[chiave_da_ricercare])
                 else:
                     new_uri = "%s key=gidd table=\"%s\".\"%s\" (geom) sql=" % (dest_dir, schemaDB, self.LAYER_NAME_PNI_aib[chiave_da_ricercare])
                 layer_imported.setDataSource(new_uri, layer_imported.name(), 'postgres')
