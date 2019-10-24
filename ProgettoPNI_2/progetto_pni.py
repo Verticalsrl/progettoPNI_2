@@ -198,11 +198,13 @@ class ProgettoPNI_2:
         'PNI_STREET': 'street'
     }
     
-    LAYER_NAME_PNI_aib = {
+    #dizionario dei nomi da progetto QGIS_template (key) a tavole su DB (value):
+    LAYER_NAME_PNI_aib_ita = {
         'PNI_ACCESS_POINT': 'access_point',
-        'PNI_CAVO': 'area_cavo',
-        'PNI_PFP': 'aree_pfp',
-        'PNI_PFS': 'aree_pfs',
+        'PNI_AREA_CAVO': 'area_cavo',
+        'PNI_AREE_PFP': 'aree_pfp',
+        'PNI_AREE_PFS': 'aree_pfs',
+        'PNI_AREA_ANELLO': 'area_anello',
         'PNI_CAVI': 'cavi',
         'PNI_CIVICI': 'civici',
         'PNI_COLONNINE': 'colonnine',
@@ -214,6 +216,24 @@ class ProgettoPNI_2:
         'PNI_STRADE': 'strade',
         'PNI_TRATTA': 'tratta',
         'PNI_TRATTA_AEREA': 'tratta_aerea'
+    }
+    LAYER_NAME_PNI_aib = {
+        'PNI_ACCESS_POINT': 'access_point',
+        'PNI_AREA_CAVO': 'ebw_area_cavo',
+        'PNI_AREE_PFP': 'ebw_area_pfp',
+        'PNI_AREE_PFS': 'ebw_area_pfs',
+        'PNI_AREA_ANELLO': 'ebw_area_anello',
+        'PNI_CAVI': 'sheath_with_loc',
+        'PNI_CIVICI': 'address',
+        'PNI_COLONNINE': 'mit_terminal_enclosure',
+        'PNI_DELIVERY': 'point_of_interest',
+        'PNI_EDIFICI': 'building',
+        'PNI_GIUNTI': 'sheath_splice',
+        'PNI_PLANIMETRIA': 'planimetria',
+        'PNI_POZZETTI': 'uub',
+        'PNI_STRADE': 'street',
+        'PNI_TRATTA': 'underground_route',
+        'PNI_TRATTA_AEREA': 'aerial_route'
     }
     
     LAYER_NAME = {
@@ -979,14 +999,20 @@ class ProgettoPNI_2:
                 #ora modifico i dataSource di questi progetti puntandoli allo schema appena creato:
                 layers_from_project_template = iface.mapCanvas().layers()
                 #ATTENZIONE!!! Se non dovesse esserci una tabella corrispondente su postgres QGis crasha direttamente e anche con try/except non si riesce a intercettare questo errore!!
+                #ATTENZIONE!!! iface.mapCanvas().layers() recupera solo i layers visibili, per questo motivo nel template li ho messi tutti visibili
                 for layer_imported in layers_from_project_template:
-                    new_uri = "%s key=gidd table=\"%s\".\"%s\" (geom) sql=" % (dest_dir, schemaDB, layer_imported.name().lower())
+                    #new_uri = "%s key=gidd table=\"%s\".\"%s\" (geom) sql=" % (dest_dir, schemaDB, layer_imported.name().lower())
+                    #sul progetto qgis i nomi dei layer sono in italiano. Uso il dizionario LAYER_NAME_PNI_aib per accoppiare i layer con la corretta tavola su DB:
+                    chiave_da_ricercare = 'PNI_' + layer_imported.name().upper()
                     if ('grid' in layer_imported.name()):
                         continue
                     elif ('mappa_valori' in layer_imported.name()):
                         continue
+                    elif (ced_checked == True):
+                        new_uri = "%s key=gidd table=\"%s\".\"%s\" (geom) sql=" % (dest_dir, schemaDB, self.LAYER_NAME_PNI_ced[chiave_da_ricercare])
                     else:
-                        layer_imported.setDataSource(new_uri, layer_imported.name(), 'postgres')
+                        new_uri = "%s key=gidd table=\"%s\".\"%s\" (geom) sql=" % (dest_dir, schemaDB, self.LAYER_NAME_PNI_aib[chiave_da_ricercare])
+                    layer_imported.setDataSource(new_uri, layer_imported.name(), 'postgres')
 
                 #refresh del canvas e zoommo sull'estensione del progetto:
                 iface.mapCanvas().refresh()
@@ -1051,14 +1077,21 @@ class ProgettoPNI_2:
             #ora modifico i dataSource di questi progetti puntandoli allo schema appena creato:
             layers_from_project_template = iface.mapCanvas().layers()
             #ATTENZIONE!!! Se non dovesse esserci una tabella corrispondente su postgres QGis crasha direttamente e anche con try/except non si riesce a intercettare questo errore!!
+            #ATTENZIONE!!! iface.mapCanvas().layers() recupera solo i layers visibili, per questo motivo nel template li ho messi tutti visibili
             for layer_imported in layers_from_project_template:
-                new_uri = "%s key=gidd table=\"%s\".\"%s\" (geom) sql=" % (dest_dir, schemaDB, layer_imported.name().lower())
+                #new_uri = "%s key=gidd table=\"%s\".\"%s\" (geom) sql=" % (dest_dir, schemaDB, layer_imported.name().lower())
+                #sul progetto qgis i nomi dei layer sono in italiano. Uso il dizionario LAYER_NAME_PNI_aib per accoppiare i layer con la corretta tavola su DB:
+                chiave_da_ricercare = 'PNI_' + layer_imported.name().upper()
                 if ('grid' in layer_imported.name()):
                     continue
                 elif ('mappa_valori' in layer_imported.name()):
                     continue
+                elif (ced_checked == True):
+                    new_uri = "%s key=gidd table=\"%s\".\"%s\" (geom) sql=" % (dest_dir, schemaDB, self.LAYER_NAME_PNI_ced[chiave_da_ricercare])
                 else:
-                    layer_imported.setDataSource(new_uri, layer_imported.name(), 'postgres')
+                    new_uri = "%s key=gidd table=\"%s\".\"%s\" (geom) sql=" % (dest_dir, schemaDB, self.LAYER_NAME_PNI_aib[chiave_da_ricercare])
+                layer_imported.setDataSource(new_uri, layer_imported.name(), 'postgres')
+
             #refresh del canvas e zoommo sull'estensione del progetto:
             iface.mapCanvas().refresh()
             iface.mapCanvas().zoomToFullExtent()

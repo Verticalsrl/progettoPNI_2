@@ -89,6 +89,26 @@ ALTER TABLE access_point_gidd_seq OWNER TO operatore;
 ALTER SEQUENCE access_point_gidd_seq OWNED BY access_point.gidd;
 
 
+CREATE TABLE area_anello
+(
+  gidd integer NOT NULL,
+  geom public.geometry(Polygon,3003),
+  ebw_nome character varying(100)
+);
+ALTER TABLE area_anello OWNER TO operatore;
+
+CREATE SEQUENCE area_anello_gidd_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+ALTER TABLE area_anello_gidd_seq OWNER TO operatore;
+ALTER SEQUENCE area_anello_gidd_seq OWNED BY area_anello.gidd;
+ALTER TABLE ONLY area_anello ALTER COLUMN gidd SET DEFAULT nextval('area_anello_gidd_seq'::regclass);
+ALTER TABLE ONLY area_anello ADD CONSTRAINT area_anello_pkey PRIMARY KEY (gidd);
+
 --
 -- TOC entry 409 (class 1259 OID 2494380)
 -- Name: area_cavo; Type: TABLE; Schema: pni_aib_template; Owner: operatore
@@ -1696,6 +1716,7 @@ ALTER TABLE ONLY street
 
 SET search_path = pni_aib_template, pg_catalog;
 GRANT SELECT ON TABLE access_point TO operatore;
+GRANT SELECT ON TABLE area_anello TO operatore;
 GRANT SELECT ON TABLE area_cavo TO operatore;
 GRANT SELECT ON TABLE aree_pfp TO operatore;
 GRANT SELECT ON TABLE aree_pfs TO operatore;
