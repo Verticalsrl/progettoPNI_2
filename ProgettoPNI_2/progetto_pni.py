@@ -194,7 +194,7 @@ class ProgettoPNI_2:
         'PNI_AREA_POP': 'ebw_pop',
         'PNI_TRATTA': 'ebw_route',
         'PNI_SCORTA': 'ebw_scorta',
-        'PNI_GRID': 'grid_XX',
+        #'PNI_GRID': 'grid_XX',
         'PNI_PLANIMETRIA': 'planimetria',
         'PNI_STRADE': 'street'
     }
@@ -218,6 +218,7 @@ class ProgettoPNI_2:
         'PNI_TRATTA': 'tratta',
         'PNI_TRATTA_AEREA': 'tratta_aerea'
     }
+    #questo e' il dictionary in PRODUZIONE!!
     LAYER_NAME_PNI_aib = {
         'PNI_ACCESS_POINT': 'access_point',
         'PNI_AREA_CAVO': 'ebw_area_cavo',
@@ -795,57 +796,29 @@ class ProgettoPNI_2:
             #Utils.logMessage( str(shp_to_load) )
             self.dlg_config.import_progressBar.setMaximum( shp_counter )
             
-            '''
-            scorta_shp = self.dlg_config.scorta_shp.text()
-            giunto_shp = self.dlg_config.giunto_shp.text()
-            location_shp = self.dlg_config.location_shp.text()
-            grafo_shp = self.dlg_config.grafo_shp.text()
-            route_shp = self.dlg_config.route_shp.text()
-            #pozzetto_shp = self.dlg_config.pozzetto_shp.text()
-            areapfs_shp = self.dlg_config.areapfs_shp.text()
-            areapfp_shp = self.dlg_config.areapfp_shp.text()
-            cavo_shp = self.dlg_config.cavo_shp.text()
+            #devo verificare che, in base al tipo di progetto scelto, siano presenti gli shp necessari per costruire il progetto
+            sciape_error = []
+            if ced_checked:
+                for sciape in self.LAYER_NAME_PNI_ced.values():
+                    if sciape+'.shp' not in shp_to_load:
+                        sciape_error.append(sciape)
+            else:
+                for sciape in self.LAYER_NAME_PNI_aib.values():
+                    if sciape+'.shp' not in shp_to_load:
+                        sciape_error.append(sciape)
+            Utils.logMessage( 'shp NON presenti nella directory ma necessari alla composizione del progetto indicato: '+str(sciape_error) )
             
-            codpop = int(self.dlg_config.codpopDB_2.text())
-            comuneDB = self.dlg_config.comuneDB_2.text()
-            codice_lotto = self.dlg_config.lottoDB_2.text()
-            if ( (dirname_text is None) or (scorta_shp is None) or (dirname_text=='') or (scorta_shp=='') ):
-                raise NameError('Specificare TUTTI i nomi degli shp e il percorso di origine!')
-            if ( (giunto_shp is None) or (location_shp is None) or (giunto_shp=='') or (location_shp=='') ):
-                raise NameError('Specificare TUTTI i nomi degli shp e il percorso di origine!')
-            if ( (grafo_shp is None) or (route_shp is None) or (grafo_shp=='') or (route_shp=='') ):
-                raise NameError('Specificare TUTTI i nomi degli shp e il percorso di origine!')
-            if ( (areapfs_shp is None) or (areapfs_shp=='') ):
-                raise NameError('Specificare TUTTI i nomi degli shp e il percorso di origine!')
-            if ( (areapfp_shp is None) or (cavo_shp is None) or (areapfp_shp=='') or (cavo_shp=='') ):
-                raise NameError('Specificare TUTTI i nomi degli shp e il percorso di origine!')
-            
-            #VERIFICO che nella directory indicata vi siano TUTTI i layer indicati, cioe' gli shp:
-            filepath = "%s/%s.shp" % (dirname_text, scorta_shp)
-            if not os.path.isfile(filepath):
-                raise NameError("ATTENZIONE! Manca il file '%s' nel percorso indicato" % (os.path.basename(filepath)) )
-            filepath = "%s/%s.shp" % (dirname_text, giunto_shp)
-            if not os.path.isfile(filepath):
-                raise NameError("ATTENZIONE! Manca il file '%s' nel percorso indicato" % (os.path.basename(filepath)) )
-            filepath = "%s/%s.shp" % (dirname_text, location_shp)
-            if not os.path.isfile(filepath):
-                raise NameError("ATTENZIONE! Manca il file '%s' nel percorso indicato" % (os.path.basename(filepath)) )
-            filepath = "%s/%s.shp" % (dirname_text, grafo_shp)
-            if not os.path.isfile(filepath):
-                raise NameError("ATTENZIONE! Manca il file '%s' nel percorso indicato" % (os.path.basename(filepath)) )
-            filepath = "%s/%s.shp" % (dirname_text, route_shp)
-            if not os.path.isfile(filepath):
-                raise NameError("ATTENZIONE! Manca il file '%s' nel percorso indicato" % (os.path.basename(filepath)) )
-            filepath = "%s/%s.shp" % (dirname_text, areapfs_shp)
-            if not os.path.isfile(filepath):
-                raise NameError("ATTENZIONE! Manca il file '%s' nel percorso indicato" % (os.path.basename(filepath)) )
-            filepath = "%s/%s.shp" % (dirname_text, areapfp_shp)
-            if not os.path.isfile(filepath):
-                raise NameError("ATTENZIONE! Manca il file '%s' nel percorso indicato" % (os.path.basename(filepath)) )
-            filepath = "%s/%s.shp" % (dirname_text, cavo_shp)
-            if not os.path.isfile(filepath):
-                raise NameError("ATTENZIONE! Manca il file '%s' nel percorso indicato" % (os.path.basename(filepath)) )
-            '''
+            if len(sciape_error)>0:
+                msg.setText("ATTENZIONE!\nNella cartella di origine mancano degli shape necessari alla composizione del progetto indicato. Cio' potrebbe causare degli errori nella generazione del progetto QGis. I dati verranno in ogni caso caricati nel DB nello schema specificato.\nGli shape mancanti risultano essere '%s'\nSicuro di aver indicato il progetto A&B o C&D correttamente?" % ( str(sciape_error) ))
+                msg.setIcon(QMessageBox.Warning)
+                msg.setWindowTitle("incoerenza shape presenti e progetto indicato")
+                msg.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
+                retval = msg.exec_()
+                if (retval != 16384): #l'utente NON ha cliccato yes: sceglie di fermarsi, esco
+                    self.dlg_config.txtFeedback_import.setText("incoerenza shape presenti e progetto indicato. Abbandono dell'operazione di import per scelta dell'utente")
+                    Utils.logMessage("incoerenza shape presenti e progetto indicato. Abbandono dell'operazione di import per scelta dell'utente")
+                    return 0
+        
         except NameError as err:
             msg.setText(err.args[0])
             msg.setIcon(QMessageBox.Critical)
