@@ -184,7 +184,7 @@ class ProgettoPNI_2:
     #list_of_tuples = [(key, LAYER_NAME_PNI_unordered[key]) for key in order_of_keys]
     #LAYER_NAME_PNI = OrderedDict(list_of_tuples)
     
-    LAYER_NAME_PNI_ced = {
+    LAYER_NAME_PNI_ced = { #in teoria la chiave del dict dovrebbe essere composta da PNI+<nome_del_layer_in_legenda> e il value del dict dovrebbe essere uguale al nome dello shp e quindi della tavola su DB. Nel caso di ced, la key la lascio uguale al nome tavola a meno di non modificare il progetto qgis ced_template....
         'PNI_CIVICI': 'ebw_address',
         'PNI_CAVI': 'ebw_cavo',
         'PNI_GIUNTI': 'ebw_giunto',
@@ -198,6 +198,7 @@ class ProgettoPNI_2:
         'PNI_PLANIMETRIA': 'planimetria',
         'PNI_STRADE': 'street'
     }
+    LAYER_OPZIONALI_ced = ['planimetria', 'street']
     
     #dizionario dei nomi da progetto QGIS_template (key) a tavole su DB (value):
     LAYER_NAME_PNI_aib_ita = {
@@ -237,6 +238,7 @@ class ProgettoPNI_2:
         'PNI_TRATTA': 'underground_route',
         'PNI_TRATTA_AEREA': 'aerial_route'
     }
+    LAYER_OPZIONALI_aib = []
     
     LAYER_NAME = {
         'SCALA': 'Scala',
@@ -328,6 +330,7 @@ class ProgettoPNI_2:
     
     COD_POP = 0
     epsg_srid = 0
+    sciape_error = []
 
     def __init__(self, iface):
         """Constructor.
@@ -779,6 +782,8 @@ class ProgettoPNI_2:
         
         self.dlg_config.txtFeedback_import.setText("Sto caricando i dati, non interrompere, il processo potrebbe richiedere alcuni minuti...")
         global epsg_srid
+        global sciape_error
+        self.sciape_error = []
         #importo gli shp su db. Controllo che tutti i campi siano compilati prima di procedere:
         msg = QMessageBox()
         try:
@@ -797,19 +802,30 @@ class ProgettoPNI_2:
             self.dlg_config.import_progressBar.setMaximum( shp_counter )
             
             #devo verificare che, in base al tipo di progetto scelto, siano presenti gli shp necessari per costruire il progetto
-            sciape_error = []
             if ced_checked:
                 for sciape in self.LAYER_NAME_PNI_ced.values():
                     if sciape+'.shp' not in shp_to_load:
-                        sciape_error.append(sciape)
+                        self.sciape_error.append(sciape)
             else:
                 for sciape in self.LAYER_NAME_PNI_aib.values():
                     if sciape+'.shp' not in shp_to_load:
-                        sciape_error.append(sciape)
-            Utils.logMessage( 'shp NON presenti nella directory ma necessari alla composizione del progetto indicato: '+str(sciape_error) )
+                        self.sciape_error.append(sciape)
+            Utils.logMessage( 'shp NON presenti nella directory ma necessari alla composizione del progetto indicato: '+str(self.sciape_error) )
             
-            if len(sciape_error)>0:
-                msg.setText("ATTENZIONE!\nNella cartella di origine mancano degli shape necessari alla composizione del progetto indicato. Cio' potrebbe causare degli errori nella generazione del progetto QGis. I dati verranno in ogni caso caricati nel DB nello schema specificato.\nGli shape mancanti risultano essere '%s'\nSicuro di aver indicato il progetto A&B o C&D correttamente?" % ( str(sciape_error) ))
+            if len(self.sciape_error)>0:
+                #SE nella lista sciape_error non ci sono solo layer opzionali, allora BLOCCO le successive operazioni. Altrimenti faccio scegliere all'utente:
+                sciape_essenziali = []
+                if ced_checked:
+                    for sciape_mancanti in self.sciape_error:
+                        if sciape_mancanti not in self.LAYER_OPZIONALI_ced:
+                            sciape_essenziali.append(sciape_mancanti)
+                else:
+                    for sciape_mancanti in self.sciape_error:
+                        if sciape_mancanti not in self.LAYER_OPZIONALI_aib:
+                            sciape_essenziali.append(sciape_mancanti)
+                if len(sciape_essenziali)>0:
+                    raise NameError("Nella cartella di origine specificata non sono presenti alcuni layer fondamentali per la creazione del progetto: %s\nNon e' possibile continuare" % (str(sciape_essenziali)))
+                msg.setText("ATTENZIONE!\nNella cartella di origine mancano degli shape che potrebbero servire alla composizione del progetto indicato. Cio' potrebbe causare degli errori nella generazione del progetto QGis. I dati verranno in ogni caso caricati nel DB nello schema specificato.\nGli shape mancanti risultano essere '%s'\nSicuro di aver indicato il progetto A&B o C&D correttamente?" % ( str(self.sciape_error) ))
                 msg.setIcon(QMessageBox.Warning)
                 msg.setWindowTitle("incoerenza shape presenti e progetto indicato")
                 msg.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
@@ -983,7 +999,8 @@ class ProgettoPNI_2:
                     elif ('mappa_valori' in layer_imported.name()):
                         continue
                     elif (ced_checked == True):
-                        if ('planimetra' in layer_imported.name()): #non sempre e' presente
+                        #if ('planimetra' in layer_imported.name()): #non sempre e' presente
+                        if (layer_imported.name() in self.sciape_error): #se lo shp non e' stato importato su DB poiche' non presente salto il suo reindirizzamento sul progetto QGis
                             continue
                         else:
                             new_uri = "%s key=gidd table=\"%s\".\"%s\" (geom) sql=" % (dest_dir, schemaDB, self.LAYER_NAME_PNI_ced[chiave_da_ricercare])
@@ -1064,7 +1081,8 @@ class ProgettoPNI_2:
                 elif ('mappa_valori' in layer_imported.name()):
                     continue
                 elif (ced_checked == True):
-                    if ('planimetra' in layer_imported.name()): #non sempre e' presente
+                    #if ('planimetra' in layer_imported.name()): #non sempre e' presente
+                    if (layer_imported.name() in self.sciape_error): #se lo shp non e' stato importato su DB poiche' non presente salto il suo reindirizzamento sul progetto QGis
                         continue
                     else:
                         new_uri = "%s key=gidd table=\"%s\".\"%s\" (geom) sql=" % (dest_dir, schemaDB, self.LAYER_NAME_PNI_ced[chiave_da_ricercare])

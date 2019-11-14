@@ -1264,6 +1264,47 @@ ALTER TABLE street_gidd_seq OWNER TO operatore;
 ALTER SEQUENCE street_gidd_seq OWNED BY street.gidd;
 
 
+CREATE TABLE ebw_address (
+  gidd integer NOT NULL,
+  geom public.geometry(Point,3003),
+  anno_text character varying(254),
+  anno_angle double precision,
+  anno_just integer,
+  ebw_numero bigint,
+  ui_totali_ bigint,
+  name character varying(40),
+  ebw_totale bigint,
+  ebw_codice character varying(250),
+  ebw_frazio character varying(50),
+  type character varying(30),
+  ebw_partic character varying(250),
+  ebw_comune character varying(250),
+  address_nu character varying(10),
+  unit_numbe character varying(10),
+  ebw_tipolo character varying(11),
+  ebw_indiri character varying(250),
+  ebw_fis_na character varying(100),
+  ui_rilegat bigint,
+  ebw_region character varying(250),
+  gis_id_add character varying(25),
+  ebw_stato_ character varying(250),
+  ebw_provin character varying(250),
+  ebw_log_na character varying(250),
+  ebw_street character varying(25)
+);
+ALTER TABLE ebw_address OWNER TO operatore;
+CREATE SEQUENCE ebw_address_gidd_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+ALTER TABLE ebw_address_gidd_seq OWNER TO operatore;
+ALTER SEQUENCE ebw_address_gidd_seq OWNED BY ebw_address.gidd;
+ALTER TABLE ONLY ebw_address ALTER COLUMN gidd SET DEFAULT nextval('ebw_address_gidd_seq'::regclass);
+ALTER TABLE ONLY ebw_address ADD CONSTRAINT ebw_address_pkey PRIMARY KEY (gidd);
+
+
 SET search_path = pni_aib_template, pg_catalog;
 
 --
@@ -1733,6 +1774,7 @@ GRANT SELECT ON TABLE tratta TO operatore;
 GRANT SELECT ON TABLE tratta_aerea TO operatore;
 
 SET search_path = pni_ced_template, pg_catalog;
+GRANT SELECT ON TABLE ebw_address TO operatore;
 GRANT SELECT ON TABLE ebw_cavo TO operatore;
 GRANT SELECT ON TABLE ebw_giunto TO operatore;
 GRANT SELECT ON TABLE ebw_location TO operatore;

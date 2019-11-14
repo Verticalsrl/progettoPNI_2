@@ -196,7 +196,7 @@
   <projectlayers>
     <maplayer type="vector" geometry="Point" simplifyDrawingTol="1" simplifyMaxScale="1" autoRefreshTime="0" simplifyLocal="1" autoRefreshEnabled="0" simplifyAlgorithm="0" refreshOnNotifyEnabled="0" refreshOnNotifyMessage="" simplifyDrawingHints="0" readOnly="0" styleCategories="AllStyleCategories" maxScale="0" labelsEnabled="1" hasScaleBasedVisibilityFlag="0" minScale="1e+08">
       <id>ebw_address_39f86757_5e49_46c2_8c77_0933fe1fc07c</id>
-      <datasource>dbname='pni_2' host=86.107.96.34 port=5432 user='postgres' password='Arpa@@2018' key='gidd' checkPrimaryKeyUnicity='1' table="pni_ced_template"."ebw_address" (geom) sql=</datasource>
+      <datasource>dbname='pni_2' host=86.107.96.34 port=5432 user='operatore' password='operatore_2k16' key='gidd' checkPrimaryKeyUnicity='1' table="pni_ced_template"."ebw_address" (geom) sql=</datasource>
       <keywordList>
         <value></value>
       </keywordList>
@@ -3228,7 +3228,7 @@ def my_form_open(dialog, layer, feature):
     </maplayer>
     <maplayer type="vector" geometry="Polygon" simplifyDrawingTol="1" simplifyMaxScale="1" autoRefreshTime="0" simplifyLocal="1" autoRefreshEnabled="0" simplifyAlgorithm="0" refreshOnNotifyEnabled="0" refreshOnNotifyMessage="" simplifyDrawingHints="1" readOnly="0" styleCategories="AllStyleCategories" maxScale="0" labelsEnabled="0" hasScaleBasedVisibilityFlag="0" minScale="1e+08">
       <id>ebw_pop_40a0cccf_9222_47fe_88b0_29e821675469</id>
-      <datasource>dbname='pni_2' host=86.107.96.34 port=5432 user='postgres' password='Arpa@@2018' key='gidd' checkPrimaryKeyUnicity='1' table="pni_ced_template"."ebw_pop" (geom) sql=</datasource>
+      <datasource>dbname='pni_2' host=86.107.96.34 port=5432 user='operatore' password='operatore_2k16' key='gidd' checkPrimaryKeyUnicity='1' table="pni_ced_template"."ebw_pop" (geom) sql=</datasource>
       <keywordList>
         <value></value>
       </keywordList>
