@@ -5,7 +5,7 @@
 -- Dumped from database version 9.6.12
 -- Dumped by pg_dump version 10.7 (Ubuntu 10.7-1.pgdg18.04+1)
 
--- Started on 2019-10-16 10:37:54 CEST
+-- Started on 2019-11-28 19:50:33 CET
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -22,7 +22,7 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
--- TOC entry 265 (class 1259 OID 33239)
+-- TOC entry 280 (class 1259 OID 33239)
 -- Name: mappa_valori_pni2; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -37,8 +37,8 @@ CREATE TABLE public.mappa_valori_pni2 (
 ALTER TABLE public.mappa_valori_pni2 OWNER TO postgres;
 
 --
--- TOC entry 3993 (class 0 OID 33239)
--- Dependencies: 265
+-- TOC entry 4706 (class 0 OID 33239)
+-- Dependencies: 280
 -- Data for Name: mappa_valori_pni2; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -266,11 +266,23 @@ pozzetti	type	Residential Access	character varying(28)
 pozzetti	type	Pedestal	character varying(28)
 pozzetti	type	Handhole	character varying(28)
 pozzetti	ebw_owner	ACEA	character varying(30)
+tratta	stato_cost	Progettato	character varying(14)
+tratta	stato_cost	Realizzato	character varying(14)
+pozzetti	stato_cost	Progettato	character varying(14)
+pozzetti	stato_cost	Realizzato	character varying(14)
+ebw_location	stato_cost	Progettato	character varying(14)
+ebw_location	stato_cost	Realizzato	character varying(14)
+ebw_route	stato_cost	Realizzato	character varying(14)
+ebw_route	stato_cost	Progettato	character varying(14)
+ebw_route	stato_cost	Sconosciuto	character varying(14)
+ebw_location	stato_cost	Sconosciuto	character varying(14)
+pozzetti	stato_cost	Sconosciuto	character varying(14)
+tratta	stato_cost	Sconosciuto	character varying(14)
 \.
 
 
 --
--- TOC entry 3868 (class 2606 OID 33386)
+-- TOC entry 4581 (class 2606 OID 33386)
 -- Name: mappa_valori_pni2 mappa_valori_pni2_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -279,15 +291,15 @@ ALTER TABLE ONLY public.mappa_valori_pni2
 
 
 --
--- TOC entry 3999 (class 0 OID 0)
--- Dependencies: 265
+-- TOC entry 4712 (class 0 OID 0)
+-- Dependencies: 280
 -- Name: TABLE mappa_valori_pni2; Type: ACL; Schema: public; Owner: postgres
 --
 
 GRANT SELECT ON TABLE public.mappa_valori_pni2 TO operatore;
 
 
--- Completed on 2019-10-16 10:38:22 CEST
+-- Completed on 2019-11-28 19:50:37 CET
 
 --
 -- PostgreSQL database dump complete

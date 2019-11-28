@@ -198,7 +198,7 @@ class ProgettoPNI_2:
         'PNI_PLANIMETRIA': 'planimetria',
         'PNI_STRADE': 'street'
     }
-    LAYER_OPZIONALI_ced = ['planimetria', 'street']
+    LAYER_OPZIONALI_ced = ['planimetria', 'street', 'ebw_address', 'ebw_pop', 'ebw_scorta', 'ebw_pte']
     
     #dizionario dei nomi da progetto QGIS_template (key) a tavole su DB (value):
     LAYER_NAME_PNI_aib_ita = {
