@@ -949,7 +949,7 @@ class ProgettoPNI_2:
                     
                     if error[0] != 0:
                         #iface.messageBar().pushMessage(u'Error', error[1], QgsMessageBar.CRITICAL, 5)
-                        iface.messageBar().pushMessage(u'Error', error[1], Qgs.Critical, 5)
+                        #iface.messageBar().pushMessage(u'Error', error[1], Qgs.Critical, 5)
                         msg.setText("Errore nell'importazione. Vedere il dettaglio dell'errore, contattare l'amministratore")
                         msg.setDetailedText(error[1])
                         msg.setIcon(QMessageBox.Critical)
