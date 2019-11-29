@@ -617,7 +617,7 @@ class ProgettoPNI_2:
                     error = QgsVectorLayerImport.importLayer(layer_loaded, uri, "postgres", crs, False, False, options)
                     if error[0] != 0:
                         #iface.messageBar().pushMessage(u'Error', error[1], QgsMessageBar.CRITICAL, 5)
-                        iface.messageBar().pushMessage(u'Error', error[1], Qgs.Critical, 5)
+                        #iface.messageBar().pushMessage(u'Error', error[1], Qgs.Critical, 5)
                         msg.setText("Errore nell'importazione. Vedere il dettaglio dell'errore, contattare l'amministratore")
                         msg.setDetailedText(error[1])
                         msg.setIcon(QMessageBox.Critical)
@@ -4124,7 +4124,7 @@ PFS: %(id_pfs)s"""
                 #TypeError: QgsVectorLayerImport.importLayer(QgsVectorLayer, QString uri, QString providerKey, QgsCoordinateReferenceSystem destCRS, bool onlySelected=False, bool skipAttributeCreation=False, dict-of-QString-QVariant options=None, QProgressDialog progress=None)
                 if error[0] != 0:
                     #iface.messageBar().pushMessage(u'Error', error[1], QgsMessageBar.CRITICAL, 5)
-                    iface.messageBar().pushMessage(u'Error', error[1], Qgs.Critical, 5)
+                    #iface.messageBar().pushMessage(u'Error', error[1], Qgs.Critical, 5)
                     msg.setText("Errore nell'importazione. Vedere il dettaglio dell'errore, contattare l'amministratore")
                     msg.setDetailedText(error[1])
                     msg.setIcon(QMessageBox.Critical)
