@@ -34,8 +34,11 @@ NUOVE NOTE PROGETTO PNI:
 
 
 OTTIMIZZAZIONI/DUBBI:
-- ATTENZIONE!! nelc cambio di datasource del progetto template devo omettere quei layer che non trovano esatto riscontro nel nome sul DB altrimenti QGis crasha. Vedi funzione import_shp2db
+- ATTENZIONE!! nel cambio di datasource del progetto template devo omettere quei layer che non trovano esatto riscontro nel nome sul DB altrimenti QGis crasha. Vedi funzione import_shp2db
 - creare maschere di editing sui progetti template con le dovute constraints sui campi (mappa valori) in modo tale da riportarle poi sui progetti salvati con i dati da DB
+- implementare funzione per caricare TUTTI i layers presenti sul DB, e non sono quelli mappati da LAYER_NAME_PNI_ced o LAYER_NAME_PNI_aib
+- join tra ebw_pte e ebw_location per progetti C&D???? Su quale campo? Chiedere a SINERGICA/GATTI
+
 
 - RIPULISCI questo codice dalle vecchie funzioni e vecchi richiami ad altri script, che dovrai eliminare dal plugin in modo che sia un po' piu' pulito
 
