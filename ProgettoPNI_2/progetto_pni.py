@@ -192,7 +192,8 @@ class ProgettoPNI_2:
     #LAYER_NAME_PNI = OrderedDict(list_of_tuples)
     
     LAYER_NAME_PNI_ced = { #in teoria la chiave del dict dovrebbe essere composta da PNI+<nome_del_layer_in_legenda> e il value del dict dovrebbe essere uguale al nome dello shp e quindi della tavola su DB. Nel caso di ced, la key la lascio uguale al nome tavola a meno di non modificare il progetto qgis ced_template....
-        'PNI_CIVICI': 'ebw_address',
+        'PNI_EBW_PTE': 'ebw_pte',
+		'PNI_CIVICI': 'ebw_address',
         'PNI_CAVI': 'ebw_cavo',
         'PNI_GIUNTI': 'ebw_giunto',
         'PNI_POZZETTI': 'ebw_location',
