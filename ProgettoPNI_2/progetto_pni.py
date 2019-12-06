@@ -193,7 +193,7 @@ class ProgettoPNI_2:
     
     LAYER_NAME_PNI_ced = { #in teoria la chiave del dict dovrebbe essere composta da PNI+<nome_del_layer_in_legenda> e il value del dict dovrebbe essere uguale al nome dello shp e quindi della tavola su DB. Nel caso di ced, la key la lascio uguale al nome tavola a meno di non modificare il progetto qgis ced_template....
         'PNI_EBW_PTE': 'ebw_pte',
-		'PNI_CIVICI': 'ebw_address',
+        'PNI_CIVICI': 'ebw_address',
         'PNI_CAVI': 'ebw_cavo',
         'PNI_GIUNTI': 'ebw_giunto',
         'PNI_POZZETTI': 'ebw_location',
@@ -403,7 +403,9 @@ class ProgettoPNI_2:
         
         #SELEZIONA CARTELLA
         self.dlg_config.dirBrowse_txt.clear()
+        self.dlg_config.dirBrowse_txt_parziale.clear()
         self.dlg_config.dirBrowse_btn.clicked.connect(self.select_output_dir)
+        self.dlg_config.dirBrowse_btn_parziale.clicked.connect(self.select_output_dir_parziale)
         #Seleziono layer SCALA per inizializza un nuovo progetto da zero:
         #self.dlg_config.shpBrowse_btn.clicked.connect(self.select_shp_scala)
         #self.dlg_config.cavoBrowse_btn.clicked.connect(self.select_shp_cavo)
@@ -413,12 +415,14 @@ class ProgettoPNI_2:
         #Verifico se i dati sono o meno gia' importati sul DB escludendo la doppia scelta:
         self.dlg_config.no_import.clicked.connect(self.toggle_no_import)
         self.dlg_config.si_import.clicked.connect(self.toggle_si_import)
+        self.dlg_config.si_import_parziale.clicked.connect(self.toggle_si_import_parziale)
         #che tipo di dati sto caricando e come vanno associati gli shp alle tabelle standard del PNI?
         #self.dlg_config.buttonGroup.buttonClicked.connect(self.toggle_ced_element)
         
         #self.dlg_config.si_inizializza.clicked.connect(self.toggle_si_inizializza)
         #Azioni sul tasto import per spostare gli shp su DB:
         self.dlg_config.import_shp.clicked.connect(self.import_shp2db)
+        self.dlg_config.import_shp_parziale.clicked.connect(self.import_shp2db_parziale)
         #Azioni sul tasto import_scala per inizializzare un nuovo progetto:
         #self.dlg_config.import_scala.clicked.connect(self.inizializza_DB)
         
@@ -433,7 +437,7 @@ class ProgettoPNI_2:
         
         #AZIONO PULSANTE PERSONALIZZATO:
         #self.dlg_config.aggiorna_variabiliBtn.clicked.connect(self.inizializzaDB)
-        self.dlg_config.importBtn.clicked.connect(self.load_layers_from_db)
+        #self.dlg_config.importBtn.clicked.connect(self.load_layers_from_db)
         self.dlg_config.createBtn.clicked.connect(self.load_project_from_db)
         
         #AZIONO pulsante per TESTARE CONNESSIONE AL DB:
@@ -500,28 +504,40 @@ class ProgettoPNI_2:
         tab_attivo = self.dlg_config.no_import.isChecked()
         if (tab_attivo==True):
             self.dlg_config.si_import.setChecked(False)
+            self.dlg_config.si_import_parziale.setChecked(False)
             #self.dlg_config.si_inizializza.setChecked(False)
             #self.dlg_config.variabili_DB.setEnabled(True) #attivo il toolbox delle variabili
-            self.dlg_config.importBtn.setEnabled(True) #attivo il pulsante di caricamento layer da DB sulla TOC
+            #self.dlg_config.importBtn.setEnabled(False) #attivo il pulsante di caricamento layer da DB sulla TOC
             self.dlg_config.createBtn.setEnabled(True) #attivo il pulsante di creazione e caricamento nuovo progetto con i dati da DB
         else:
-            self.dlg_config.si_import.setChecked(True) #insomma funziona alla stregua di un radio_button
+            #self.dlg_config.si_import.setChecked(True) #insomma funziona alla stregua di un radio_button
+            #self.dlg_config.si_import_parziale.setChecked(True)
             #self.dlg_config.variabili_DB.setEnabled(False)
-            self.dlg_config.importBtn.setEnabled(False)
+            #self.dlg_config.importBtn.setEnabled(False)
             self.dlg_config.createBtn.setEnabled(False)
             
     def toggle_si_import(self):
         tab_attivo = self.dlg_config.si_import.isChecked()
         if (tab_attivo==True):
             self.dlg_config.no_import.setChecked(False)
+            self.dlg_config.si_import_parziale.setChecked(False)
             #self.dlg_config.si_inizializza.setChecked(False)
             #self.dlg_config.variabili_DB.setEnabled(False)
-            self.dlg_config.importBtn.setEnabled(False)
+            #self.dlg_config.importBtn.setEnabled(False)
             self.dlg_config.createBtn.setEnabled(False)
         else:
-            self.dlg_config.no_import.setChecked(True) #insomma funziona alla stregua di un radio_button
+            #self.dlg_config.no_import.setChecked(True) #insomma funziona alla stregua di un radio_button
             #self.dlg_config.variabili_DB.setEnabled(True) #attivo il toolbox delle variabili
-            self.dlg_config.importBtn.setEnabled(True) #attivo il pulsante di caricamento layer da DB sulla TOC
+            #self.dlg_config.importBtn.setEnabled(False) #attivo il pulsante di caricamento layer da DB sulla TOC
+            self.dlg_config.createBtn.setEnabled(True) #attivo il pulsante di creazione e caricamento nuovo progetto con i dati da DB
+    
+    def toggle_si_import_parziale(self):
+        tab_attivo = self.dlg_config.si_import_parziale.isChecked()
+        if (tab_attivo==True):
+            self.dlg_config.no_import.setChecked(False)
+            self.dlg_config.si_import.setChecked(False)
+            self.dlg_config.createBtn.setEnabled(False)
+        else:
             self.dlg_config.createBtn.setEnabled(True) #attivo il pulsante di creazione e caricamento nuovo progetto con i dati da DB
             
     def toggle_si_inizializza(self):
@@ -529,14 +545,16 @@ class ProgettoPNI_2:
         if (tab_attivo==True):
             self.dlg_config.no_import.setChecked(False)
             self.dlg_config.si_import.setChecked(False)
+            self.dlg_config.si_import_parziale.setChecked(False)
             self.dlg_config.variabili_DB.setEnabled(False)
-            self.dlg_config.importBtn.setEnabled(False)
+            #self.dlg_config.importBtn.setEnabled(False)
             self.dlg_config.createBtn.setEnabled(False)
         else:
             self.dlg_config.no_import.setChecked(False)
             self.dlg_config.si_import.setChecked(False)
+            self.dlg_config.si_import_parziale.setChecked(False)
             self.dlg_config.variabili_DB.setEnabled(False) #attivo il toolbox delle variabili
-            self.dlg_config.importBtn.setEnabled(False) #attivo il pulsante di caricamento layer da DB sulla TOC
+            #self.dlg_config.importBtn.setEnabled(False) #attivo il pulsante di caricamento layer da DB sulla TOC
             self.dlg_config.createBtn.setEnabled(False)
     
     def inizializza_DB(self):
@@ -756,7 +774,7 @@ class ProgettoPNI_2:
                 self.dlg_config.chkDB.setEnabled(False)
                 self.dlg_config.import_DB.setEnabled(False)
                 self.dlg_config.variabili_DB.setEnabled(True)
-                self.dlg_config.importBtn.setEnabled(True)
+                #self.dlg_config.importBtn.setEnabled(False)
                 self.dlg_config.createBtn.setEnabled(True)
             finally:
                 if test_conn is not None:
@@ -768,8 +786,10 @@ class ProgettoPNI_2:
                         msg.setStandardButtons(QMessageBox.Ok)
                         retval = msg.exec_()
             
-        
-    def import_shp2db(self):
+    def import_shp2db_parziale(self):
+        self.import_shp2db(1)
+    
+    def import_shp2db(self, parziale=0):
         #dest_dir #percorso del DB SENZA lo schema pero'
         #bisogna prima importare gli shp sulla TOC di QGis...o almeno per semplificarsi la vita. Vedi:
         # http://ssrebelious.blogspot.it/2015/06/how-to-import-layer-into-postgis.html
@@ -797,7 +817,10 @@ class ProgettoPNI_2:
         msg = QMessageBox()
         try:
             schemaDB = self.dlg_config.schemaDB.text()
-            dirname_text = self.dlg_config.dirBrowse_txt.text()
+            if (parziale==1): #cioe' carico solo alcuni dati su DB per creare poi il progetto col pulsante C funzione load_project_from_db
+                dirname_text = self.dlg_config.dirBrowse_txt_parziale.text()
+            else:
+                dirname_text = self.dlg_config.dirBrowse_txt.text()
             
             if ( (dirname_text is None) or (dirname_text=='') ):
                 raise NameError('Specificare il percorso di origine da cui prelevare gli shp!')
@@ -821,6 +844,9 @@ class ProgettoPNI_2:
                         self.sciape_error.append(sciape)
             Utils.logMessage( 'shp NON presenti nella directory ma necessari alla composizione del progetto indicato: '+str(self.sciape_error) )
             
+            #se ho scelto di caricare solo alcuni dati su DB per creare poi il progetto col pulsante C funzione load_project_from_db SALTO questo controllo
+            if (parziale==1):
+                self.sciape_error = []
             if len(self.sciape_error)>0:
                 #SE nella lista sciape_error non ci sono solo layer opzionali, allora BLOCCO le successive operazioni. Altrimenti faccio scegliere all'utente:
                 sciape_essenziali = []
@@ -860,7 +886,7 @@ class ProgettoPNI_2:
             return 0
         else: #...se tutto ok proseguo:
             #Recupero i layers dalla TOC per svuotarla:
-            msg.setText("ATTENZIONE! Con questa azione svuoterai la TOC di QGis per caricare temporaneamente i nuovi shp, e se lo schema selezionato esiste gia' verra' SVUOTATO e ripopolato con gli shp selezionati: procedere?")
+            msg.setText("ATTENZIONE! Con questa azione svuoterai la TOC di QGis per caricare temporaneamente i nuovi shp, e se gli shp esistono gia' nello schema selezionato verranno SOVRASCRITTI con gli shp selezionati: procedere?")
             msg.setIcon(QMessageBox.Warning)
             msg.setWindowTitle("Svuotare la TOC e lo schema dai layers attuali?")
             msg.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
@@ -978,9 +1004,10 @@ class ProgettoPNI_2:
                 # Make the changes to the database persistent
                 test_conn.commit()
                 
-                cur.close()
-                test_conn.close()
-
+                #se sto caricando solo alcuni dati su DB per creare poi il progetto col pulsante C funzione load_project_from_db, allora salto la creazione del progetto ed esco da questa funzione
+                if (parziale==1):
+                    self.dlg_config.txtFeedback_import.setText("Dati importati con successo! Puoi passare alla creazione del progetto col pulsante C")
+                    return 1
                 self.dlg_config.txtFeedback_import.setText("Dati importati con successo! Passiamo alla creazione del progetto...")
                 #a questo punto dovrei importare il progetto template in base al tipo di dati importati
                 project = QgsProject.instance()
@@ -1000,24 +1027,57 @@ class ProgettoPNI_2:
                 layers_from_project_template = iface.mapCanvas().layers()
                 #ATTENZIONE!!! Se non dovesse esserci una tabella corrispondente su postgres QGis crasha direttamente e anche con try/except non si riesce a intercettare questo errore!!
                 #ATTENZIONE!!! iface.mapCanvas().layers() recupera solo i layers visibili, per questo motivo nel template li ho messi tutti visibili
+                #per ovviare a questo limite, nel caso in cui vi siano effettivamente questi layer sul DB:
+                #1-scarico la lista delle tavole con the_geom dal DB
+                layer_on_DB = list()
+                cur.execute( "SELECT table_name FROM information_schema.tables WHERE table_schema = '%s' AND table_type = 'BASE TABLE';" % (schemaDB) )
+                dataDB = cur.fetchall()
+                for row in dataDB:
+                    Utils.logMessage( 'Tabella sul DB: %s' % (row[0]) )
+                    layer_on_DB.append(row[0]) #avendo il risultato una sola colonna cioe' [0]
+                Utils.logMessage( 'layer_on_DB: %s' % str(layer_on_DB) )
+                
+                cur.close()
+                test_conn.close()
+                
                 for layer_imported in layers_from_project_template:
                     #new_uri = "%s key=gidd table=\"%s\".\"%s\" (geom) sql=" % (dest_dir, schemaDB, layer_imported.name().lower())
                     #sul progetto qgis i nomi dei layer sono in italiano. Uso il dizionario LAYER_NAME_PNI_aib per accoppiare i layer con la corretta tavola su DB:
                     chiave_da_ricercare = 'PNI_' + layer_imported.name().upper()
-                    if ('grid' in layer_imported.name()):
-                        continue
-                    elif ('mappa_valori' in layer_imported.name()):
-                        continue
-                    elif (ced_checked == True):
-                        #if ('planimetra' in layer_imported.name()): #non sempre e' presente
-                        if (layer_imported.name() in self.sciape_error): #se lo shp non e' stato importato su DB poiche' non presente salto il suo reindirizzamento sul progetto QGis
-                            continue
-                        else:
-                            new_uri = "%s key=gidd table=\"%s\".\"%s\" (geom) sql=" % (dest_dir, schemaDB, self.LAYER_NAME_PNI_ced[chiave_da_ricercare])
+                    if (ced_checked == True):
+                        tabella_da_importare = self.LAYER_NAME_PNI_ced[chiave_da_ricercare]
                     else:
-                        new_uri = "%s key=gidd table=\"%s\".\"%s\" (geom) sql=" % (dest_dir, schemaDB, self.LAYER_NAME_PNI_aib[chiave_da_ricercare])
+                        tabella_da_importare = self.LAYER_NAME_PNI_aib[chiave_da_ricercare]
+                    #2-confronto la lista delle tabelle su DB con la lista dei layer mappati e via via li sostituisco. Se il layer del progetto template NON E' PRESENTE  sul DB, salto e passo al successivo e TOLGO questo layer dal progetto:
+                    if (tabella_da_importare not in layer_on_DB):
+                        if (int(qgis_version[0]) >= 3):
+                            QgsProject.instance().removeMapLayer(layer_imported.id())
+                        else:
+                            QgsMapLayerRegistry.instance().removeMapLayer(layer_imported.id())
+                        continue
+                    else:
+                        #tolgo il layer da layer_on_DB:
+                        layer_on_DB.remove(tabella_da_importare)
+                    #mappa_valori non la ricarico perche' e' comune a tutti i progetti
+                    if ('mappa_valori' in layer_imported.name()):
+                        continue
+                    elif (layer_imported.name() in self.sciape_error): #se lo shp non e' stato importato su DB poiche' non presente salto il suo reindirizzamento sul progetto QGis -- in realta' duplica l'azione precedente di ricerca del layer sul DB
+                        continue
+                    else:
+                        new_uri = "%s key=gidd table=\"%s\".\"%s\" (geom) sql=" % (dest_dir, schemaDB, tabella_da_importare)
                     layer_imported.setDataSource(new_uri, layer_imported.name(), 'postgres')
+                    layer_imported.updateExtents()
+                    layer_imported.reload()
 
+                #3-quelle tavole che restano sul DB e che non sono state mappate, le aggiungo al progetto qgis con una visualizzazione di default
+                for table in layer_on_DB:
+                    uri = "%s key=gidd table=\"%s\".\"%s\" (geom) sql=" % (dest_dir, schemaDB, table.lower())
+                    layer_to_add = QgsVectorLayer(uri, table, "postgres")
+                    if (int(qgis_version[0]) >= 3):
+                        QgsProject.instance().addMapLayer(layer_to_add)
+                    else:
+                        QgsMapLayerRegistry.instance().addMapLayer(layer_to_add)
+                
                 #refresh del canvas e zoommo sull'estensione del progetto:
                 iface.mapCanvas().refresh()
                 iface.mapCanvas().zoomToFullExtent()
@@ -1056,6 +1116,7 @@ class ProgettoPNI_2:
     
     def load_project_from_db(self):
         #creo questa funzione a parte nel caso voglia staccare la fase in cui carico gli shp su DB da quella in cui creo il progetto
+        #questa funzione puo' risultare utile nel caso in cui abbia gia' caricato i layer su DB, ma abbia apportato delle modifiche ai progetti qgs_template oppure abbia caricato un nuovo layer su DB e non voglia ripetere la fase di caricamento, ma solo la fase di creazione del progetto
         schemaDB = self.dlg_config.schemaDB.text() #recupero lo schema da cui prelevare le tabelle
         nameDB = self.dlg_config.nameDB.text()
         dirname_text = self.dlg_config.dirBrowse_txt.text()
@@ -1082,24 +1143,60 @@ class ProgettoPNI_2:
             layers_from_project_template = iface.mapCanvas().layers()
             #ATTENZIONE!!! Se non dovesse esserci una tabella corrispondente su postgres QGis crasha direttamente e anche con try/except non si riesce a intercettare questo errore!!
             #ATTENZIONE!!! iface.mapCanvas().layers() recupera solo i layers visibili, per questo motivo nel template li ho messi tutti visibili
+            #per ovviare a questo limite, nel caso in cui vi siano effettivamente questi layer sul DB:
+            #apro il cursore per leggere/scrivere sul DB:
+            test_conn = psycopg2.connect(dest_dir)
+            cur = test_conn.cursor()
+            #1-scarico la lista delle tavole con the_geom dal DB
+            layer_on_DB = list()
+            cur.execute( "SELECT table_name FROM information_schema.tables WHERE table_schema = '%s' AND table_type = 'BASE TABLE';" % (schemaDB) )
+            dataDB = cur.fetchall()
+            for row in dataDB:
+                Utils.logMessage( 'Tabella sul DB: %s' % (row[0]) )
+                layer_on_DB.append(row[0]) #avendo il risultato una sola colonna cioe' [0]
+            Utils.logMessage( 'layer_on_DB: %s' % str(layer_on_DB) )
+            cur.close()
+            test_conn.close()
+            
             for layer_imported in layers_from_project_template:
                 #new_uri = "%s key=gidd table=\"%s\".\"%s\" (geom) sql=" % (dest_dir, schemaDB, layer_imported.name().lower())
                 #sul progetto qgis i nomi dei layer sono in italiano. Uso il dizionario LAYER_NAME_PNI_aib per accoppiare i layer con la corretta tavola su DB:
                 chiave_da_ricercare = 'PNI_' + layer_imported.name().upper()
-                if ('grid' in layer_imported.name()):
-                    continue
-                elif ('mappa_valori' in layer_imported.name()):
-                    continue
-                elif (ced_checked == True):
-                    #if ('planimetra' in layer_imported.name()): #non sempre e' presente
-                    if (layer_imported.name() in self.sciape_error): #se lo shp non e' stato importato su DB poiche' non presente salto il suo reindirizzamento sul progetto QGis
-                        continue
-                    else:
-                        new_uri = "%s key=gidd table=\"%s\".\"%s\" (geom) sql=" % (dest_dir, schemaDB, self.LAYER_NAME_PNI_ced[chiave_da_ricercare])
+                if (ced_checked == True):
+                    tabella_da_importare = self.LAYER_NAME_PNI_ced[chiave_da_ricercare]
                 else:
-                    new_uri = "%s key=gidd table=\"%s\".\"%s\" (geom) sql=" % (dest_dir, schemaDB, self.LAYER_NAME_PNI_aib[chiave_da_ricercare])
+                    tabella_da_importare = self.LAYER_NAME_PNI_aib[chiave_da_ricercare]
+                #2-confronto la lista delle tabelle su DB con la lista dei layer mappati e via via li sostituisco. Se il layer del progetto template NON E' PRESENTE  sul DB, salto e passo al successivo e TOLGO questo layer dal progetto:
+                if (tabella_da_importare not in layer_on_DB):
+                    if (int(qgis_version[0]) >= 3):
+                        QgsProject.instance().removeMapLayer(layer_imported.id())
+                    else:
+                        QgsMapLayerRegistry.instance().removeMapLayer(layer_imported.id())
+                    continue
+                else:
+                    #tolgo il layer da layer_on_DB:
+                    layer_on_DB.remove(tabella_da_importare)
+                #mappa_valori non la ricarico perche' e' comune a tutti i progetti
+                if ('mappa_valori' in layer_imported.name()):
+                    continue
+                elif (layer_imported.name() in self.sciape_error): #se lo shp non e' stato importato su DB poiche' non presente salto il suo reindirizzamento sul progetto QGis -- in realta' duplica l'azione precedente di ricerca del layer sul DB
+                    #sciape_error a questo livello POTREBBE NON ESISTERE! per cui e' fondamentale la parte precedente in cui si recuperano effettivamente le tavole da DB
+                    continue
+                else:
+                    new_uri = "%s key=gidd table=\"%s\".\"%s\" (geom) sql=" % (dest_dir, schemaDB, tabella_da_importare)
                 layer_imported.setDataSource(new_uri, layer_imported.name(), 'postgres')
+                layer_imported.updateExtents()
+                layer_imported.reload()
 
+            #3-quelle tavole che restano sul DB e che non sono state mappate, le aggiungo al progetto qgis con una visualizzazione di default
+            for table in layer_on_DB:
+                uri = "%s key=gidd table=\"%s\".\"%s\" (geom) sql=" % (dest_dir, schemaDB, table.lower())
+                layer_to_add = QgsVectorLayer(uri, table, "postgres")
+                if (int(qgis_version[0]) >= 3):
+                    QgsProject.instance().addMapLayer(layer_to_add)
+                else:
+                    QgsMapLayerRegistry.instance().addMapLayer(layer_to_add)
+            
             #refresh del canvas e zoommo sull'estensione del progetto:
             iface.mapCanvas().refresh()
             iface.mapCanvas().zoomToFullExtent()
@@ -1119,6 +1216,8 @@ class ProgettoPNI_2:
             return 1
     
     def load_layers_from_db(self):
+        #carica i layer mappati in LAYER_NAME_PNI_xxx con il loro stile ma in ordine casuale cioe' senza seguire i progetti template
+        #direi che per il momento questa funzione si puo' disattivare
         schemaDB = self.dlg_config.schemaDB.text() #recupero lo schema da cui prelevare le tabelle
         nameDB = self.dlg_config.nameDB.text()
         global epsg_srid
@@ -1445,6 +1544,12 @@ class ProgettoPNI_2:
     def select_output_dir(self):
         dirname = QFileDialog.getExistingDirectory(self.dlg_config, "Open source directory","", QFileDialog.ShowDirsOnly)
         self.dlg_config.dirBrowse_txt.setText(dirname)
+        #Verifico di avere tutte le informazioni necessarie per decidere se abilitare o meno il pulsante IMPORT
+        #self.activate_import()
+    
+    def select_output_dir_parziale(self):
+        dirname = QFileDialog.getExistingDirectory(self.dlg_config, "Open source directory","", QFileDialog.ShowDirsOnly)
+        self.dlg_config.dirBrowse_txt_parziale.setText(dirname)
         #Verifico di avere tutte le informazioni necessarie per decidere se abilitare o meno il pulsante IMPORT
         #self.activate_import()
         
@@ -3433,7 +3538,7 @@ PFS: %(id_pfs)s"""
             debug_text = "Connessione al DB fallita!! Rivedere i dati e riprovare"
             self.dlg_config.txtFeedback.setText(debug_text)
             self.dlg_config.testAnswer.setText("FAIL! Inserisci dei dati corretti e continua")
-            self.dlg_config.importBtn.setEnabled(False)
+            #self.dlg_config.importBtn.setEnabled(False)
             self.dlg_config.createBtn.setEnabled(False)
             return 0
             '''except dbConnection.DbError, e:
@@ -3444,7 +3549,7 @@ PFS: %(id_pfs)s"""
             debug_text = "Connessione al DB fallita!! Rivedere i dati e riprovare"
             self.dlg_config.txtFeedback.setText(debug_text)
             self.dlg_config.testAnswer.setText('FAIL!')
-            self.dlg_config.importBtn.setEnabled(False)
+            #self.dlg_config.importBtn.setEnabled(False)
             self.dlg_config.createBtn.setEnabled(False)
             return 0
         finally:
@@ -3758,6 +3863,7 @@ PFS: %(id_pfs)s"""
         self.dlg_config.txtFeedback.clear()
         self.dlg_config.txtFeedback_import.clear()
         self.dlg_config.dirBrowse_txt.clear()
+        self.dlg_config.dirBrowse_txt_parziale.clear()
         self.dlg_config.import_progressBar.setValue(0)
         #self.dlg_config.usrDB.clear()
         #self.dlg_config.pwdDB.clear()
@@ -3769,13 +3875,14 @@ PFS: %(id_pfs)s"""
         #self.dlg_config.codpopDB.clear()
         self.dlg_config.testAnswer.clear()
         self.dlg_config.chkDB.setEnabled(True);
-        self.dlg_config.importBtn.setEnabled(False);
+        #self.dlg_config.importBtn.setEnabled(False);
         self.dlg_config.createBtn.setEnabled(False)
         
         self.dlg_config.import_DB.setEnabled(False);
         #self.dlg_config.variabili_DB.setEnabled(False);
         self.dlg_config.si_import.setChecked(False)
         self.dlg_config.no_import.setChecked(False)
+        self.dlg_config.si_import_parziale.setChecked(False)
         #self.dlg_config.modifica_variabili.setChecked(False)
         
         #self.dlg_config.shpBrowse_txt.clear()
@@ -3869,10 +3976,10 @@ PFS: %(id_pfs)s"""
         #Verifico di avere tutte le informazioni necessarie per decidere se abilitare o meno il pulsante IMPORT
         filename_check = self.dlg_append.shpBrowse_txt.text()
         if (filename_check):
-            self.dlg_append.importBtn.setEnabled(True);
+            #self.dlg_append.importBtn.setEnabled(False);
             self.dlg_config.createBtn.setEnabled(True)
         else:
-            self.dlg_append.importBtn.setEnabled(False);
+            #self.dlg_append.importBtn.setEnabled(False);
             self.dlg_config.createBtn.setEnabled(False)
     
     def append_scala_DbManager(self):

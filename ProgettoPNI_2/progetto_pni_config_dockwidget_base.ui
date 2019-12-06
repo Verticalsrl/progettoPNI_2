@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>556</width>
-    <height>641</height>
+    <height>619</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,7 +17,7 @@
    <property name="geometry">
     <rect>
      <x>230</x>
-     <y>600</y>
+     <y>590</y>
      <width>91</width>
      <height>32</height>
     </rect>
@@ -46,29 +46,13 @@ p, li { white-space: pre-wrap; }
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8.15094pt;&quot;&gt;Caricamento su DB di un nuovo lotto da passare in cantiere per modifiche creando relativo progetto QGis&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
-  <widget class="QToolButton" name="importBtn">
-   <property name="enabled">
-    <bool>false</bool>
-   </property>
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>520</y>
-     <width>331</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Svuota il progetto corrente e carica i nuovi layer da DB</string>
-   </property>
-  </widget>
   <widget class="QTextBrowser" name="txtFeedback">
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>560</y>
+     <y>540</y>
      <width>521</width>
-     <height>41</height>
+     <height>51</height>
     </rect>
    </property>
   </widget>
@@ -92,7 +76,7 @@ p, li { white-space: pre-wrap; }
      <x>0</x>
      <y>60</y>
      <width>551</width>
-     <height>431</height>
+     <height>411</height>
     </rect>
    </property>
    <property name="toolTip">
@@ -107,7 +91,7 @@ p, li { white-space: pre-wrap; }
       <x>0</x>
       <y>0</y>
       <width>551</width>
-      <height>375</height>
+      <height>355</height>
      </rect>
     </property>
     <attribute name="label">
@@ -116,10 +100,10 @@ p, li { white-space: pre-wrap; }
     <widget class="QLabel" name="label">
      <property name="geometry">
       <rect>
-       <x>10</x>
+       <x>40</x>
        <y>20</y>
-       <width>54</width>
-       <height>14</height>
+       <width>41</width>
+       <height>16</height>
       </rect>
      </property>
      <property name="text">
@@ -129,9 +113,9 @@ p, li { white-space: pre-wrap; }
     <widget class="QLineEdit" name="hostDB">
      <property name="geometry">
       <rect>
-       <x>70</x>
+       <x>82</x>
        <y>20</y>
-       <width>113</width>
+       <width>101</width>
        <height>20</height>
       </rect>
      </property>
@@ -142,7 +126,7 @@ p, li { white-space: pre-wrap; }
     <widget class="QLineEdit" name="portDB">
      <property name="geometry">
       <rect>
-       <x>250</x>
+       <x>260</x>
        <y>20</y>
        <width>113</width>
        <height>20</height>
@@ -155,9 +139,9 @@ p, li { white-space: pre-wrap; }
     <widget class="QLineEdit" name="usrDB">
      <property name="geometry">
       <rect>
-       <x>70</x>
+       <x>82</x>
        <y>50</y>
-       <width>113</width>
+       <width>101</width>
        <height>20</height>
       </rect>
      </property>
@@ -168,7 +152,7 @@ p, li { white-space: pre-wrap; }
     <widget class="QLineEdit" name="pwdDB">
      <property name="geometry">
       <rect>
-       <x>250</x>
+       <x>260</x>
        <y>50</y>
        <width>113</width>
        <height>20</height>
@@ -181,9 +165,9 @@ p, li { white-space: pre-wrap; }
     <widget class="QLineEdit" name="nameDB">
      <property name="geometry">
       <rect>
-       <x>430</x>
+       <x>450</x>
        <y>20</y>
-       <width>111</width>
+       <width>101</width>
        <height>20</height>
       </rect>
      </property>
@@ -194,10 +178,10 @@ p, li { white-space: pre-wrap; }
     <widget class="QLabel" name="label_2">
      <property name="geometry">
       <rect>
-       <x>190</x>
+       <x>220</x>
        <y>20</y>
-       <width>54</width>
-       <height>14</height>
+       <width>41</width>
+       <height>16</height>
       </rect>
      </property>
      <property name="text">
@@ -209,8 +193,8 @@ p, li { white-space: pre-wrap; }
       <rect>
        <x>10</x>
        <y>50</y>
-       <width>54</width>
-       <height>14</height>
+       <width>71</width>
+       <height>16</height>
       </rect>
      </property>
      <property name="text">
@@ -222,8 +206,8 @@ p, li { white-space: pre-wrap; }
       <rect>
        <x>190</x>
        <y>50</y>
-       <width>54</width>
-       <height>14</height>
+       <width>61</width>
+       <height>16</height>
       </rect>
      </property>
      <property name="text">
@@ -233,10 +217,10 @@ p, li { white-space: pre-wrap; }
     <widget class="QLabel" name="label_5">
      <property name="geometry">
       <rect>
-       <x>370</x>
+       <x>380</x>
        <y>20</y>
-       <width>54</width>
-       <height>14</height>
+       <width>61</width>
+       <height>16</height>
       </rect>
      </property>
      <property name="text">
@@ -272,10 +256,10 @@ p, li { white-space: pre-wrap; }
     <widget class="QLabel" name="label_9">
      <property name="geometry">
       <rect>
-       <x>370</x>
+       <x>390</x>
        <y>50</y>
-       <width>54</width>
-       <height>14</height>
+       <width>61</width>
+       <height>16</height>
       </rect>
      </property>
      <property name="text">
@@ -285,9 +269,9 @@ p, li { white-space: pre-wrap; }
     <widget class="QLineEdit" name="schemaDB">
      <property name="geometry">
       <rect>
-       <x>430</x>
+       <x>450</x>
        <y>50</y>
-       <width>111</width>
+       <width>101</width>
        <height>20</height>
       </rect>
      </property>
@@ -318,7 +302,7 @@ p, li { white-space: pre-wrap; }
       <x>0</x>
       <y>0</y>
       <width>551</width>
-      <height>375</height>
+      <height>355</height>
      </rect>
     </property>
     <attribute name="label">
@@ -334,7 +318,7 @@ p, li { white-space: pre-wrap; }
       </rect>
      </property>
      <property name="text">
-      <string>I dati sono già stati importati sul DB secondo le informazioni riportate nel riquadro A</string>
+      <string>I dati sono già sul DB secondo le informazioni riportate nel riquadro A</string>
      </property>
     </widget>
     <widget class="QGroupBox" name="si_import">
@@ -343,11 +327,11 @@ p, li { white-space: pre-wrap; }
        <x>0</x>
        <y>70</y>
        <width>551</width>
-       <height>281</height>
+       <height>191</height>
       </rect>
      </property>
      <property name="title">
-      <string>Importa i dati sul DB</string>
+      <string>Importa i dati sul DB per creare un progetto completo</string>
      </property>
      <property name="checkable">
       <bool>true</bool>
@@ -365,55 +349,29 @@ p, li { white-space: pre-wrap; }
        </rect>
       </property>
       <property name="text">
-       <string>Prendi tutti i dati da una cartella secondo queste associazioni layer-nome shape:</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_59">
-      <property name="geometry">
-       <rect>
-        <x>30</x>
-        <y>60</y>
-        <width>151</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Scegli la cartella di origine:</string>
+       <string>Prendi tutti gli shapefiles dalla seguente cartella di origine:</string>
       </property>
      </widget>
      <widget class="QToolButton" name="dirBrowse_btn">
       <property name="geometry">
        <rect>
-        <x>190</x>
+        <x>30</x>
         <y>60</y>
-        <width>111</width>
+        <width>201</width>
         <height>20</height>
        </rect>
       </property>
       <property name="text">
-       <string>...Cartella dati ...</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_60">
-      <property name="geometry">
-       <rect>
-        <x>400</x>
-        <y>170</y>
-        <width>71</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Controllo:</string>
+       <string>...cartella di origine dati...</string>
       </property>
      </widget>
      <widget class="QTextBrowser" name="txtFeedback_import">
       <property name="geometry">
        <rect>
-        <x>340</x>
-        <y>190</y>
-        <width>201</width>
-        <height>71</height>
+        <x>310</x>
+        <y>90</y>
+        <width>231</width>
+        <height>91</height>
        </rect>
       </property>
       <property name="html">
@@ -427,9 +385,9 @@ p, li { white-space: pre-wrap; }
      <widget class="QToolButton" name="import_shp">
       <property name="geometry">
        <rect>
-        <x>30</x>
-        <y>199</y>
-        <width>261</width>
+        <x>20</x>
+        <y>100</y>
+        <width>271</width>
         <height>31</height>
        </rect>
       </property>
@@ -440,9 +398,9 @@ p, li { white-space: pre-wrap; }
      <widget class="QLineEdit" name="dirBrowse_txt">
       <property name="geometry">
        <rect>
-        <x>310</x>
+        <x>240</x>
         <y>60</y>
-        <width>231</width>
+        <width>301</width>
         <height>20</height>
        </rect>
       </property>
@@ -451,8 +409,8 @@ p, li { white-space: pre-wrap; }
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>240</y>
-        <width>321</width>
+        <y>140</y>
+        <width>291</width>
         <height>23</height>
        </rect>
       </property>
@@ -461,9 +419,7 @@ p, li { white-space: pre-wrap; }
       </property>
      </widget>
      <zorder>label_50</zorder>
-     <zorder>label_59</zorder>
      <zorder>dirBrowse_btn</zorder>
-     <zorder>label_60</zorder>
      <zorder>import_shp</zorder>
      <zorder>dirBrowse_txt</zorder>
      <zorder>import_progressBar</zorder>
@@ -472,9 +428,9 @@ p, li { white-space: pre-wrap; }
     <widget class="QLabel" name="label_68">
      <property name="geometry">
       <rect>
-       <x>30</x>
+       <x>20</x>
        <y>10</y>
-       <width>141</width>
+       <width>161</width>
        <height>16</height>
       </rect>
      </property>
@@ -490,12 +446,12 @@ p, li { white-space: pre-wrap; }
       <rect>
        <x>190</x>
        <y>10</y>
-       <width>131</width>
+       <width>151</width>
        <height>18</height>
       </rect>
      </property>
      <property name="text">
-      <string>CeD (piccoli comun)</string>
+      <string>CeD (piccoli comuni)</string>
      </property>
      <property name="checked">
       <bool>true</bool>
@@ -510,7 +466,7 @@ p, li { white-space: pre-wrap; }
      </property>
      <property name="geometry">
       <rect>
-       <x>350</x>
+       <x>370</x>
        <y>10</y>
        <width>90</width>
        <height>18</height>
@@ -523,19 +479,74 @@ p, li { white-space: pre-wrap; }
       <string notr="true">buttonGroup</string>
      </attribute>
     </widget>
+    <widget class="QGroupBox" name="si_import_parziale">
+     <property name="geometry">
+      <rect>
+       <x>9</x>
+       <y>270</y>
+       <width>541</width>
+       <height>91</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Importa solo dei dati parziali su DB per creare poi un progetto completo da pulsante C</string>
+     </property>
+     <property name="checkable">
+      <bool>true</bool>
+     </property>
+     <property name="checked">
+      <bool>false</bool>
+     </property>
+     <widget class="QToolButton" name="dirBrowse_btn_parziale">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>20</y>
+        <width>201</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>...cartella di origine dati...</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="dirBrowse_txt_parziale">
+      <property name="geometry">
+       <rect>
+        <x>220</x>
+        <y>20</y>
+        <width>301</width>
+        <height>20</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QToolButton" name="import_shp_parziale">
+      <property name="geometry">
+       <rect>
+        <x>130</x>
+        <y>50</y>
+        <width>281</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>IMPORTA shp su DB (non crea il progetto)</string>
+      </property>
+     </widget>
+    </widget>
    </widget>
   </widget>
   <widget class="QLabel" name="label_64">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>500</y>
-     <width>521</width>
+     <x>10</x>
+     <y>480</y>
+     <width>531</width>
      <height>20</height>
     </rect>
    </property>
    <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;C - PER ABILITARE QUESTI PULSANTI DEVI AVER COMPILATO LE SEZIONI A e B&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;C - PER ABILITARE QUESTO PULSANTE DEVI AVER COMPILATO LE SEZIONI A e B&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
   <widget class="QToolButton" name="createBtn">
@@ -544,20 +555,19 @@ p, li { white-space: pre-wrap; }
    </property>
    <property name="geometry">
     <rect>
-     <x>380</x>
-     <y>520</y>
-     <width>161</width>
+     <x>170</x>
+     <y>500</y>
+     <width>221</width>
      <height>31</height>
     </rect>
    </property>
    <property name="text">
-    <string>Crea e carica progetto</string>
+    <string>Crea e carica progetto da DB</string>
    </property>
   </widget>
   <zorder>layoutWidget</zorder>
   <zorder>button_box</zorder>
   <zorder>txtHelp</zorder>
-  <zorder>importBtn</zorder>
   <zorder>txtFeedback</zorder>
   <zorder>toolbox</zorder>
   <zorder>label_64</zorder>
@@ -571,7 +581,6 @@ p, li { white-space: pre-wrap; }
   <tabstop>nameDB</tabstop>
   <tabstop>testBtn</tabstop>
   <tabstop>testAnswer</tabstop>
-  <tabstop>importBtn</tabstop>
   <tabstop>txtFeedback</tabstop>
   <tabstop>txtHelp</tabstop>
  </tabstops>
