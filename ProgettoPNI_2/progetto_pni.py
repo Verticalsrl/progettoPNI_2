@@ -36,7 +36,7 @@ NUOVE NOTE PROGETTO PNI:
 OTTIMIZZAZIONI/DUBBI:
 - ATTENZIONE!! nel cambio di datasource del progetto template devo omettere quei layer che non trovano esatto riscontro nel nome sul DB altrimenti QGis crasha. Vedi funzione import_shp2db
 - creare maschere di editing sui progetti template con le dovute constraints sui campi (mappa valori) in modo tale da riportarle poi sui progetti salvati con i dati da DB
-- implementare funzione per caricare TUTTI i layers presenti sul DB, e non sono quelli mappati da LAYER_NAME_PNI_ced o LAYER_NAME_PNI_aib
+- creare maschere di editing con vari TAB per semplificare la compilazione/modifica dei campi, in base a quelli piu' frequentemente modificati dall'operatore in cantiere
 
 - join tra ebw_pte e ebw_location per progetti C&D???? Su quale campo? Chiedere a SINERGICA/GATTI
 RISPOSTA: sui campi nome, solo che su ebw_location il campo e' costituito da 2 parti. quindi con una formula QGis ad esempio posso creare un campo virtuale "nome_pte" su ebw_location:
@@ -1007,7 +1007,16 @@ class ProgettoPNI_2:
                 #se sto caricando solo alcuni dati su DB per creare poi il progetto col pulsante C funzione load_project_from_db, allora salto la creazione del progetto ed esco da questa funzione
                 if (parziale==1):
                     self.dlg_config.txtFeedback_import.setText("Dati importati con successo! Puoi passare alla creazione del progetto col pulsante C")
+                    #in questo caso devo creare adesso l'indice spaziale sulla tabella e farne il vacuum
+                    for layer_spatial in lista_layer_to_load:
+                        query_spatial = "CREATE INDEX %s_geoidx ON %s.%s USING gist (geom);" % (layer_spatial.name().lower(), schemaDB, layer_spatial.name().lower())
+                        cur.execute(query_spatial)
+                        #il VACUUM sarebbe bene metterlo sulla macchina a crontab come operazione giornaliera
+                        #query_vacuum = "VACUUM FULL ANALYZE %s.%s" % (schemaDB, layer_spatial.name().lower())
+                        #cur.execute(query_vacuum)
+                    test_conn.commit() #committo la creazione dell'indice spaziale
                     return 1
+                
                 self.dlg_config.txtFeedback_import.setText("Dati importati con successo! Passiamo alla creazione del progetto...")
                 #a questo punto dovrei importare il progetto template in base al tipo di dati importati
                 project = QgsProject.instance()
@@ -1029,15 +1038,23 @@ class ProgettoPNI_2:
                 #ATTENZIONE!!! iface.mapCanvas().layers() recupera solo i layers visibili, per questo motivo nel template li ho messi tutti visibili
                 #per ovviare a questo limite, nel caso in cui vi siano effettivamente questi layer sul DB:
                 #1-scarico la lista delle tavole con the_geom dal DB
+                #2-creo l'indice spaziale su ogni tabella
                 layer_on_DB = list()
                 cur.execute( "SELECT table_name FROM information_schema.tables WHERE table_schema = '%s' AND table_type = 'BASE TABLE';" % (schemaDB) )
                 dataDB = cur.fetchall()
                 for row in dataDB:
                     Utils.logMessage( 'Tabella sul DB: %s' % (row[0]) )
                     layer_on_DB.append(row[0]) #avendo il risultato una sola colonna cioe' [0]
-                Utils.logMessage( 'layer_on_DB: %s' % str(layer_on_DB) )
+                    #creo lo SPATIAL INDEX
+                    query_spatial = "CREATE INDEX %s_geoidx ON %s.%s USING gist (geom);" % (row[0], schemaDB, row[0])
+                    cur.execute(query_spatial)
+                    #il VACUUM sarebbe bene metterlo sulla macchina a crontab come operazione giornaliera
+                    #query_vacuum = "VACUUM FULL ANALYZE %s.%s" % (schemaDB, row[0])
+                    #cur.execute(query_vacuum)
+                Utils.logMessage( 'layer_on_DB, per i quali ho anche creato indice spaziale: %s' % str(layer_on_DB) )
                 
                 cur.close()
+                test_conn.commit() #committo la creazione dell'indice spaziale
                 test_conn.close()
                 
                 for layer_imported in layers_from_project_template:

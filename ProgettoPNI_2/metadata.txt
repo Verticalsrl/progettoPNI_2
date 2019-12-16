@@ -11,10 +11,10 @@ name=ProgettoPNI_2
 qgisMinimumVersion=2.14
 qgisMaximumVersion=3.99
 description=import dati progetto PNI versione 2
-version=1.0
+version=1.1
 author=A.R.Gaeta
 email=ar_gaeta@yahoo.it
-release_date=2019/12/06
+release_date=2019/12/16
 
 about=Questo plugin permette di gestire la progettazione della rete PNI per i cantieri - versione 2
 
@@ -33,6 +33,7 @@ changelog=
 	2019/11/14 0.5 definisco layer opzionali per i progetti in modo da interrompere o meno l'import degli shp
 	2019/11/28 0.6 ridefinisco lo stile dei layer ebw_route e ebw_location secondo quanto indicato da Nicola Guglielmi-Sinergica; aggiungo ulteriori layer opzionali per progetti ced quali pop, address, scorta e pte
 	2019/12/06 1.0 risolto zoom_to_layer nell creazione del progetto; carico su TOC di QGis quei layer caricati su DB anche se non mappati; risolto baco di caricamento di layer mappati anche se non presenti su DB; possibilita di caricare anche singoli shp e creare un progetto completo successivamento tramite il pulsante C; join tra ebw_location e ebw_pte con formula sul campo 'nome', in seguito modificato stile di ebw_location per PTA con numero_porte(derivato da ebw_pte)>=48
+	2019/12/16 1.1 creazione indice spaziale per ogni layer caricato su DB
 
 
 # Tags are comma separated with spaces allowed
