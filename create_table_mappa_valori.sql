@@ -2,31 +2,31 @@
 -- PostgreSQL database dump
 --
 
--- Dumped from database version 9.3.13
--- Dumped by pg_dump version 9.5.1
+-- Dumped from database version 9.6.12
+-- Dumped by pg_dump version 10.7 (Ubuntu 10.7-1.pgdg18.04+1)
 
--- Started on 2019-12-17 11:52:11
+-- Started on 2019-12-17 18:38:05 CET
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
 SET client_encoding = 'UTF8';
 SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
 SET check_function_bodies = false;
 SET client_min_messages = warning;
 SET row_security = off;
-
-SET search_path = public, pg_catalog;
 
 SET default_tablespace = '';
 
 SET default_with_oids = false;
 
 --
--- TOC entry 696 (class 1259 OID 2500687)
+-- TOC entry 701 (class 1259 OID 36766)
 -- Name: mappa_valori_pni2; Type: TABLE; Schema: public; Owner: postgres
 --
 
-CREATE TABLE mappa_valori_pni2 (
+CREATE TABLE public.mappa_valori_pni2 (
     tabella character varying(32) NOT NULL,
     campo character varying(32) NOT NULL,
     valore character varying(250) NOT NULL,
@@ -38,15 +38,15 @@ CREATE TABLE mappa_valori_pni2 (
 );
 
 
-ALTER TABLE mappa_valori_pni2 OWNER TO postgres;
+ALTER TABLE public.mappa_valori_pni2 OWNER TO postgres;
 
 --
--- TOC entry 5086 (class 0 OID 2500687)
--- Dependencies: 696
+-- TOC entry 5101 (class 0 OID 36766)
+-- Dependencies: 701
 -- Data for Name: mappa_valori_pni2; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY mappa_valori_pni2 (tabella, campo, valore, valore_tipo, not_null, note, campo_alias, tipo_progetto) FROM stdin;
+COPY public.mappa_valori_pni2 (tabella, campo, valore, valore_tipo, not_null, note, campo_alias, tipo_progetto) FROM stdin;
 ebw_cavo	numero_fib	12	integer	f	\N	\N	cd
 ebw_cavo	numero_fib	24	integer	f	\N	\N	cd
 ebw_cavo	numero_fib	48	integer	f	\N	\N	cd
@@ -279,31 +279,81 @@ tratta_aerea	ebw_propri	Privato	character varying(30)	t	\N	proprietario	ab
 tratta_aerea	ebw_propri	TIM	character varying(30)	t	\N	proprietario	ab
 tratta_aerea	ebw_propri	Vodafone	character varying(30)	t	\N	proprietario	ab
 tratta_aerea	ebw_propri	Wind	character varying(30)	t	\N	proprietario	ab
+tratta	surface_ma	asfalto	character varying(11)	f	tipologia di materiale	\N	ab
+tratta	surface_ma	pregiato	character varying(11)	f	tipologia di materiale	\N	b
+tratta	surface_ma	terreno	character varying(11)	f	tipologia di materiale	\N	ab
+tratta	num_tubi	1	character varying(100)	f	\N	numero tubi	ab
+tratta	num_tubi	4	character varying(100)	f	\N	numero tubi	ab
+tratta	num_tubi	3	character varying(100)	f	\N	numero tubi	ab
+tratta	num_tubi	2	character varying(100)	f	\N	numero tubi	ab
+tratta	num_tubi	0	character varying(100)	f	\N	numero tubi	ab
+tratta	num_mtubi	1x7	character varying(100)	f	\N	numero minitubi	ab
+tratta	num_mtubi	2x7	character varying(100)	f	\N	numero minitubi	ab
+tratta	num_mtubi	3x7	character varying(100)	f	\N	numero minitubi	ab
+tratta	num_mtubi	4x7	character varying(100)	f	\N	numero minitubi	ab
+tratta	num_mtubi	1	character varying(100)	f	\N	numero minitubi	ab
+tratta	num_mtubi	2	character varying(100)	f	\N	numero minitubi	ab
+tratta	num_mtubi	3	character varying(100)	f	\N	numero minitubi	ab
+tratta	num_mtubi	4	character varying(100)	f	\N	numero minitubi	ab
+tratta	num_mtubi	5	character varying(100)	f	\N	numero minitubi	ab
+tratta	num_mtubi	6	character varying(100)	f	\N	numero minitubi	ab
+tratta	num_mtubi	7	character varying(100)	f	\N	numero minitubi	ab
+tratta	num_mtubi	8	character varying(100)	f	\N	numero minitubi	ab
+tratta	num_mtubi	9	character varying(100)	f	\N	numero minitubi	ab
+tratta	num_mtubi	10	character varying(100)	f	\N	numero minitubi	ab
+tratta	num_mtubi	11	character varying(100)	f	\N	numero minitubi	ab
+tratta	num_mtubi	12	character varying(100)	f	\N	numero minitubi	ab
+tratta	num_mtubi	13	character varying(100)	f	\N	numero minitubi	ab
+tratta	num_mtubi	14	character varying(100)	f	\N	numero minitubi	ab
+tratta	num_mtubi	15	character varying(100)	f	\N	numero minitubi	ab
+tratta	num_mtubi	16	character varying(100)	f	\N	numero minitubi	ab
+tratta	num_mtubi	17	character varying(100)	f	\N	numero minitubi	ab
+tratta	num_mtubi	18	character varying(100)	f	\N	numero minitubi	ab
+tratta	num_mtubi	19	character varying(100)	f	\N	numero minitubi	ab
+tratta	num_mtubi	20	character varying(100)	f	\N	numero minitubi	ab
+tratta	num_cavi	0	character varying(100)	f	\N	cavi inseriti	ab
+tratta	num_cavi	1	character varying(100)	f	\N	cavi inseriti	ab
+tratta	num_cavi	2	character varying(100)	f	\N	cavi inseriti	ab
+tratta	num_cavi	3	character varying(100)	f	\N	cavi inseriti	ab
+tratta	num_cavi	4	character varying(100)	f	\N	cavi inseriti	ab
+tratta	num_cavi	5	character varying(100)	f	\N	cavi inseriti	ab
+tratta	num_cavi	6	character varying(100)	f	\N	cavi inseriti	ab
+tratta	num_cavi	7	character varying(100)	f	\N	cavi inseriti	ab
+tratta	num_cavi	8	character varying(100)	f	\N	cavi inseriti	ab
+tratta	num_cavi	9	character varying(100)	f	\N	cavi inseriti	ab
+tratta	num_cavi	10	character varying(100)	f	\N	cavi inseriti	ab
+tratta	num_cavi	11	character varying(100)	f	\N	cavi inseriti	ab
+tratta	num_cavi	12	character varying(100)	f	\N	cavi inseriti	ab
+tratta	num_cavi	13	character varying(100)	f	\N	cavi inseriti	ab
+tratta	num_cavi	14	character varying(100)	f	\N	cavi inseriti	ab
+tratta	num_cavi	15	character varying(100)	f	\N	cavi inseriti	ab
+tratta	num_cavi	16	character varying(100)	f	\N	cavi inseriti	ab
+tratta	num_cavi	17	character varying(100)	f	\N	cavi inseriti	ab
+tratta	num_cavi	18	character varying(100)	f	\N	cavi inseriti	ab
+tratta	num_cavi	19	character varying(100)	f	\N	cavi inseriti	ab
+tratta	num_cavi	20	character varying(100)	f	\N	cavi inseriti	ab
 \.
 
 
 --
--- TOC entry 4959 (class 2606 OID 2500716)
--- Name: mappa_valori_pni2_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- TOC entry 4976 (class 2606 OID 36774)
+-- Name: mappa_valori_pni2 mappa_valori_pni2_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
-ALTER TABLE ONLY mappa_valori_pni2
+ALTER TABLE ONLY public.mappa_valori_pni2
     ADD CONSTRAINT mappa_valori_pni2_pkey PRIMARY KEY (tabella, campo, valore, tipo_progetto);
 
 
 --
--- TOC entry 5091 (class 0 OID 0)
--- Dependencies: 696
--- Name: mappa_valori_pni2; Type: ACL; Schema: public; Owner: postgres
+-- TOC entry 5107 (class 0 OID 0)
+-- Dependencies: 701
+-- Name: TABLE mappa_valori_pni2; Type: ACL; Schema: public; Owner: postgres
 --
 
-REVOKE ALL ON TABLE mappa_valori_pni2 FROM PUBLIC;
-REVOKE ALL ON TABLE mappa_valori_pni2 FROM postgres;
-GRANT ALL ON TABLE mappa_valori_pni2 TO postgres;
-GRANT SELECT ON TABLE mappa_valori_pni2 TO operatore;
+GRANT SELECT ON TABLE public.mappa_valori_pni2 TO operatore;
 
 
--- Completed on 2019-12-17 11:52:11
+-- Completed on 2019-12-17 18:38:10 CET
 
 --
 -- PostgreSQL database dump complete
