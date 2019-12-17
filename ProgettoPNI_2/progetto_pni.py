@@ -43,6 +43,20 @@ RISPOSTA: sui campi nome, solo che su ebw_location il campo e' costituito da 2 p
 right( "nome", ( length( trim( "nome" ) ) -  strpos( "nome", ' ') ))
 e su di esso fare un join su ebw_pte (ammesso che esista, ma se non esiste non mi pare che QGis dia problemi) mostrando il campo "numero_porte". In base ad esso, visualizzare in maniera differente i ROE cioè i PTA di ebw_lcoation (colore? forma?)
 
+- SPATIAL INDEX: nel caso volessi aggiungere a posteriori indice spaziale su vecchi schemi, da consolle python di qgis:
+dest_dir = "dbname=pni_2 host=86.107.96.34 port=5432 user=operatore password=operatore_2k16"
+test_conn = psycopg2.connect(dest_dir)
+cur = test_conn.cursor()
+schemaDB='robbiate'
+cur.execute( "SELECT table_name FROM information_schema.tables WHERE table_schema = '%s' AND table_type = 'BASE TABLE';" % (schemaDB) )
+dataDB = cur.fetchall()
+for row in dataDB:
+    #creo lo SPATIAL INDEX
+    query_spatial = "CREATE INDEX %s_geoidx ON %s.%s USING gist (geom);" % (row[0], schemaDB, row[0])
+    cur.execute(query_spatial)
+
+test_conn.commit()
+
 
 - RIPULISCI questo codice dalle vecchie funzioni e vecchi richiami ad altri script, che dovrai eliminare dal plugin in modo che sia un po' piu' pulito
 
