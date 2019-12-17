@@ -1178,6 +1178,9 @@ class ProgettoPNI_2:
             for layer_imported in layers_from_project_template:
                 #new_uri = "%s key=gidd table=\"%s\".\"%s\" (geom) sql=" % (dest_dir, schemaDB, layer_imported.name().lower())
                 #sul progetto qgis i nomi dei layer sono in italiano. Uso il dizionario LAYER_NAME_PNI_aib per accoppiare i layer con la corretta tavola su DB:
+                #mappa_valori non la ricarico perche' e' comune a tutti i progetti --> ricarico questo controllo perche' su QGis 2.x da errore se lo lascio dopo
+                if ('mappa_valori' in layer_imported.name()):
+                    continue
                 chiave_da_ricercare = 'PNI_' + layer_imported.name().upper()
                 if (ced_checked == True):
                     tabella_da_importare = self.LAYER_NAME_PNI_ced[chiave_da_ricercare]
