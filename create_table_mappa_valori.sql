@@ -2,31 +2,31 @@
 -- PostgreSQL database dump
 --
 
--- Dumped from database version 9.6.12
--- Dumped by pg_dump version 10.7 (Ubuntu 10.7-1.pgdg18.04+1)
+-- Dumped from database version 9.3.13
+-- Dumped by pg_dump version 9.5.1
 
--- Started on 2019-12-17 18:38:05 CET
+-- Started on 2019-12-18 16:25:02
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
-SET idle_in_transaction_session_timeout = 0;
 SET client_encoding = 'UTF8';
 SET standard_conforming_strings = on;
-SELECT pg_catalog.set_config('search_path', '', false);
 SET check_function_bodies = false;
 SET client_min_messages = warning;
 SET row_security = off;
+
+SET search_path = public, pg_catalog;
 
 SET default_tablespace = '';
 
 SET default_with_oids = false;
 
 --
--- TOC entry 701 (class 1259 OID 36766)
+-- TOC entry 696 (class 1259 OID 2500726)
 -- Name: mappa_valori_pni2; Type: TABLE; Schema: public; Owner: postgres
 --
 
-CREATE TABLE public.mappa_valori_pni2 (
+CREATE TABLE mappa_valori_pni2 (
     tabella character varying(32) NOT NULL,
     campo character varying(32) NOT NULL,
     valore character varying(250) NOT NULL,
@@ -38,15 +38,15 @@ CREATE TABLE public.mappa_valori_pni2 (
 );
 
 
-ALTER TABLE public.mappa_valori_pni2 OWNER TO postgres;
+ALTER TABLE mappa_valori_pni2 OWNER TO postgres;
 
 --
--- TOC entry 5101 (class 0 OID 36766)
--- Dependencies: 701
+-- TOC entry 5095 (class 0 OID 2500726)
+-- Dependencies: 696
 -- Data for Name: mappa_valori_pni2; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.mappa_valori_pni2 (tabella, campo, valore, valore_tipo, not_null, note, campo_alias, tipo_progetto) FROM stdin;
+COPY mappa_valori_pni2 (tabella, campo, valore, valore_tipo, not_null, note, campo_alias, tipo_progetto) FROM stdin;
 ebw_cavo	numero_fib	12	integer	f	\N	\N	cd
 ebw_cavo	numero_fib	24	integer	f	\N	\N	cd
 ebw_cavo	numero_fib	48	integer	f	\N	\N	cd
@@ -117,11 +117,6 @@ access_point	ebw_propri	TIM	character varying(19)	f	\N	\N	ab
 access_point	spec_id	Accesso Edificio	character varying(16)	f	\N	\N	ab
 access_point	spec_id	Interno Edificio	character varying(16)	f	\N	\N	ab
 access_point	type	Aereo	character varying(16)	f	\N	\N	ab
-colonnine	spec_id	PFS	character varying(16)	f	\N	\N	ab
-colonnine	spec_id	POZZETTO	character varying(16)	f	\N	\N	ab
-colonnine	spec_id	PTA FACCIATA	character varying(16)	f	\N	\N	ab
-colonnine	constructi	Progettato	character varying(14)	f	\N	\N	ab
-colonnine	constructi	Realizzato	character varying(14)	f	\N	\N	ab
 delivery	ebw_propri	Altro	character varying(19)	f	\N	\N	ab
 civici	ebw_partic	PIAZZALE	character varying(250)	f	\N	\N	ab
 civici	ebw_partic	STRADA	character varying(250)	f	\N	\N	ab
@@ -139,30 +134,11 @@ giunti	spec_id	PD	character varying(30)	f	\N	\N	ab
 giunti	spec_id	PFP	character varying(30)	f	\N	\N	ab
 giunti	constructi	Progettato	character varying(14)	f	\N	\N	ab
 giunti	constructi	Realizzato	character varying(14)	f	\N	\N	ab
-pozzetti	spec_id	125x80	character varying(12)	f	\N	\N	ab
-pozzetti	spec_id	40x15	character varying(12)	f	\N	\N	ab
-pozzetti	spec_id	40x40	character varying(12)	f	\N	\N	ab
-pozzetti	spec_id	55x55	character varying(12)	f	\N	\N	ab
-pozzetti	spec_id	60x60	character varying(12)	f	\N	\N	ab
-pozzetti	spec_id	76x40	character varying(12)	f	\N	\N	ab
-pozzetti	spec_id	90x70	character varying(12)	f	\N	\N	ab
-pozzetti	spec_id	Virtuale	character varying(12)	f	\N	\N	ab
-pozzetti	constructi	Progettato	character varying(14)	f	\N	\N	ab
-pozzetti	constructi	Realizzato	character varying(14)	f	\N	\N	ab
-pozzetti	ebw_flag_p	False	character varying(10)	f	\N	\N	ab
-pozzetti	ebw_flag_p	True	character varying(10)	f	\N	\N	ab
-pozzetti	type	Manhole	character varying(28)	f	\N	\N	ab
-pozzetti	ebw_owner	_Altro	character varying(30)	f	\N	\N	ab
-pozzetti	ebw_owner	BT	character varying(30)	f	\N	\N	ab
-pozzetti	ebw_owner	Comune	character varying(30)	f	\N	\N	ab
-pozzetti	ebw_owner	Enel Distribuzione	character varying(30)	f	\N	\N	ab
-pozzetti	ebw_owner	EOF	character varying(30)	f	\N	\N	ab
-pozzetti	ebw_owner	Iren Tlr	character varying(30)	f	\N	\N	ab
-pozzetti	ebw_owner	Privato	character varying(30)	f	\N	\N	ab
-pozzetti	ebw_owner	Sconosciuto	character varying(30)	f	\N	\N	ab
-pozzetti	ebw_owner	TIM	character varying(30)	f	\N	\N	ab
-pozzetti	ebw_owner	Vodafone	character varying(30)	f	\N	\N	ab
-pozzetti	ebw_owner	Wind	character varying(30)	f	\N	\N	ab
+pozzetti	spec_id	125x80	character varying(12)	t	\N	tipologia	ab
+colonnine	spec_id	PFS	character varying(16)	t	\N	\N	ab
+colonnine	spec_id	POZZETTO	character varying(16)	t	\N	\N	ab
+colonnine	spec_id	PTA FACCIATA	character varying(16)	t	\N	\N	ab
+colonnine	constructi	Realizzato	character varying(14)	t	\N	stato	ab
 delivery	ebw_propri	Comune	character varying(19)	f	\N	\N	ab
 delivery	ebw_propri	Enel	character varying(19)	f	\N	\N	ab
 delivery	ebw_propri	Enel Distribuzione	character varying(19)	f	\N	\N	ab
@@ -205,48 +181,47 @@ tratta	ebw_propri	EOF	character varying(30)	t	\N	proprietario	ab
 tratta	ebw_propri	Privato	character varying(30)	t	\N	proprietario	ab
 tratta	ebw_propri	TIM	character varying(30)	t	\N	proprietario	ab
 tratta	ebw_propri	Vodafone	character varying(30)	t	\N	proprietario	ab
-tratta_aerea	ebw_flag_i	False	character varying(10)	f	\N	\N	ab
-tratta_aerea	ebw_flag_i	True	character varying(10)	f	\N	\N	ab
-tratta_aerea	ebw_flag_r	False	character varying(10)	f	\N	\N	ab
-tratta_aerea	ebw_flag_r	True	character varying(10)	f	\N	\N	ab
 tratta_aerea	tipo_posa	F	character varying(100)	f	\N	\N	ab
-pozzetti	type	Conduit Terminus	character varying(28)	f	\N	\N	ab
-pozzetti	type	Vault	character varying(28)	f	\N	\N	ab
-pozzetti	type	Residential Access	character varying(28)	f	\N	\N	ab
-pozzetti	type	Pedestal	character varying(28)	f	\N	\N	ab
-pozzetti	type	Handhole	character varying(28)	f	\N	\N	ab
-pozzetti	ebw_owner	ACEA	character varying(30)	f	\N	\N	ab
-pozzetti	stato_cost	Progettato	character varying(14)	f	\N	\N	ab
-pozzetti	stato_cost	Realizzato	character varying(14)	f	\N	\N	ab
-pozzetti	stato_cost	Sconosciuto	character varying(14)	f	\N	\N	ab
 access_point	type	Unknown	character varying(16)	f	\N	\N	ab
 access_point	type	Conduit Terminus	character varying(16)	f	\N	\N	ab
 access_point	spec_id	Interno PFS	character varying(16)	f	\N	\N	ab
-colonnine	spec_id	PTA ALTRO	character varying(16)	f	\N	\N	ab
-colonnine	spec_id	PALO	character varying(16)	f	\N	\N	ab
-colonnine	spec_id	MTCO	character varying(16)	f	\N	\N	ab
-colonnine	spec_id	IP	character varying(16)	f	\N	\N	ab
-colonnine	spec_id	Box Esterno (MW)	character varying(16)	f	\N	\N	ab
-colonnine	spec_id	RF	character varying(16)	f	\N	\N	ab
 tratta	ebw_tipo_p	Microtunnelling	character varying(28)	f	\N	tipologia	ab
 tratta	ebw_tipo_p	Minitrincea	character varying(28)	f	\N	tipologia	ab
 tratta	ebw_tipo_p	Virtuale	character varying(28)	f	\N	tipologia	ab
 tratta	ebw_tipo_p	Microtrincea	character varying(28)	f	\N	tipologia	ab
 tratta	ebw_tipo_p	Trincea	character varying(28)	f	unica opzione con proprietario diverso da EOF	tipologia	ab
+pozzetti	constructi	Progettato	character varying(14)	t	\N	stato	ab
+colonnine	spec_id	Box Esterno (MW)	character varying(16)	t	\N	\N	ab
+colonnine	spec_id	IP	character varying(16)	t	\N	\N	ab
+colonnine	spec_id	MTCO	character varying(16)	t	\N	\N	ab
+colonnine	spec_id	PALO	character varying(16)	t	\N	\N	ab
+pozzetti	ebw_owner	Privato	character varying(30)	t	\N	proprietario	ab
+pozzetti	ebw_owner	TIM	character varying(30)	t	\N	proprietario	ab
+pozzetti	ebw_owner	Vodafone	character varying(30)	t	\N	proprietario	ab
+pozzetti	ebw_owner	Comune	character varying(30)	t	\N	proprietario	ab
+pozzetti	spec_id	Virtuale	character varying(12)	t	\N	tipologia	ab
+pozzetti	spec_id	90x70	character varying(12)	t	\N	tipologia	ab
+pozzetti	spec_id	76x40	character varying(12)	t	\N	tipologia	ab
+pozzetti	spec_id	60x60	character varying(12)	t	\N	tipologia	ab
+pozzetti	spec_id	55x55	character varying(12)	t	\N	tipologia	ab
+pozzetti	constructi	Realizzato	character varying(14)	t	\N	stato	ab
+pozzetti	ebw_owner	Enel Distribuzione	character varying(30)	t	\N	proprietario	ab
+pozzetti	ebw_owner	EOF	character varying(30)	t	\N	proprietario	ab
+pozzetti	ebw_owner	Wind	character varying(30)	t	\N	proprietario	ab
+pozzetti	spec_id	40x40	character varying(12)	t	\N	tipologia	ab
+pozzetti	ebw_flag_p	False	character varying(10)	t	\N	nuova posa	ab
+pozzetti	ebw_flag_p	True	character varying(10)	t	\N	nuova posa	ab
+pozzetti	ebw_owner	_Altro	character varying(30)	t	obbligatorio specificare	proprietario	ab
+colonnine	spec_id	PTA ALTRO	character varying(16)	t	\N	\N	ab
+colonnine	spec_id	RF	character varying(16)	t	\N	\N	ab
 tratta	constructi	Progettato	character varying(14)	t	\N	stato	ab
 tratta	constructi	Realizzato	character varying(14)	t	\N	stato	ab
 tratta	ebw_propri	Wind	character varying(30)	t	\N	proprietario	ab
-tratta_aerea	ebw_propri	_Altro	character varying(30)	t	\N	proprietario	ab
-tratta_aerea	ebw_propri	BT	character varying(30)	t	\N	proprietario	ab
 tratta_aerea	ebw_propri	Comune	character varying(30)	t	\N	proprietario	ab
 tratta_aerea	ebw_propri	Enel Distribuzione	character varying(30)	t	\N	proprietario	ab
 tratta_aerea	ebw_propri	EOF	character varying(30)	t	\N	proprietario	ab
 tratta	ebw_propri	_Altro	character varying(30)	t	obbligatorio specificare	proprietario	ab
-tratta_aerea	ebw_flag_1	False	character varying(10)	f	\N	\N	ab
-tratta_aerea	ebw_flag_1	True	character varying(10)	f	\N	\N	ab
 tratta_aerea	guy_type	In Facciata	character varying(19)	f	\N	\N	ab
-tratta_aerea	constructi	Progettato	character varying(14)	f	\N	\N	ab
-tratta_aerea	constructi	Realizzato	character varying(14)	f	\N	\N	ab
 cavi	constructi	Progettato	character varying(16)	f	\N	\N	ab
 cavi	constructi	Realizzato	character varying(16)	f	\N	\N	ab
 cavi	spec_id	Cavo Multifibra 24FO	character varying(28)	f	\N	\N	ab
@@ -274,7 +249,6 @@ ebw_address	type	Passo Carrabile	character varying(30)	f	\N	\N	cd
 ebw_address	type	Residential	character varying(30)	f	\N	\N	cd
 ebw_address	ebw_tipolo	Walk In	character varying(11)	f	\N	\N	cd
 ebw_address	ebw_tipolo	Walk Out	character varying(11)	f	\N	\N	cd
-tratta_aerea	ebw_propri	Iren Tlr	character varying(30)	t	\N	proprietario	ab
 tratta_aerea	ebw_propri	Privato	character varying(30)	t	\N	proprietario	ab
 tratta_aerea	ebw_propri	TIM	character varying(30)	t	\N	proprietario	ab
 tratta_aerea	ebw_propri	Vodafone	character varying(30)	t	\N	proprietario	ab
@@ -320,6 +294,9 @@ tratta	num_cavi	5	character varying(100)	f	\N	cavi inseriti	ab
 tratta	num_cavi	6	character varying(100)	f	\N	cavi inseriti	ab
 tratta	num_cavi	7	character varying(100)	f	\N	cavi inseriti	ab
 tratta	num_cavi	8	character varying(100)	f	\N	cavi inseriti	ab
+tratta_aerea	ebw_propri	_Altro	character varying(30)	t	obbligatorio specificare	proprietario	ab
+tratta_aerea	constructi	Realizzato	character varying(14)	f	\N	stato	ab
+tratta_aerea	constructi	Progettato	character varying(14)	f	\N	stato	ab
 tratta	num_cavi	9	character varying(100)	f	\N	cavi inseriti	ab
 tratta	num_cavi	10	character varying(100)	f	\N	cavi inseriti	ab
 tratta	num_cavi	11	character varying(100)	f	\N	cavi inseriti	ab
@@ -332,28 +309,39 @@ tratta	num_cavi	17	character varying(100)	f	\N	cavi inseriti	ab
 tratta	num_cavi	18	character varying(100)	f	\N	cavi inseriti	ab
 tratta	num_cavi	19	character varying(100)	f	\N	cavi inseriti	ab
 tratta	num_cavi	20	character varying(100)	f	\N	cavi inseriti	ab
+tratta_aerea	guy_type	Altro	character varying(19)	f	\N	\N	ab
+tratta_aerea	guy_type	Tesata su Fune	character varying(19)	f	\N	\N	ab
+tratta_aerea	guy_type	In Palifica	character varying(19)	f	\N	\N	ab
+pozzetti	spec_id	_Altro	character varying(12)	t	obbligatorio specificare	tipologia	ab
+pozzetti	spec_id	220x170	character varying(12)	t	\N	tipologia	ab
+pozzetti	spec_id	40x15	character varying(12)	t	\N	tipologia	ab
+colonnine	constructi	Progettato	character varying(14)	t	\N	stato	ab
+colonnine	spec_id	PTA PALO	character varying(16)	t	\N	\N	ab
 \.
 
 
 --
--- TOC entry 4976 (class 2606 OID 36774)
--- Name: mappa_valori_pni2 mappa_valori_pni2_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- TOC entry 4968 (class 2606 OID 2500734)
+-- Name: mappa_valori_pni2_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
-ALTER TABLE ONLY public.mappa_valori_pni2
+ALTER TABLE ONLY mappa_valori_pni2
     ADD CONSTRAINT mappa_valori_pni2_pkey PRIMARY KEY (tabella, campo, valore, tipo_progetto);
 
 
 --
--- TOC entry 5107 (class 0 OID 0)
--- Dependencies: 701
--- Name: TABLE mappa_valori_pni2; Type: ACL; Schema: public; Owner: postgres
+-- TOC entry 5100 (class 0 OID 0)
+-- Dependencies: 696
+-- Name: mappa_valori_pni2; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT SELECT ON TABLE public.mappa_valori_pni2 TO operatore;
+REVOKE ALL ON TABLE mappa_valori_pni2 FROM PUBLIC;
+REVOKE ALL ON TABLE mappa_valori_pni2 FROM postgres;
+GRANT ALL ON TABLE mappa_valori_pni2 TO postgres;
+GRANT SELECT ON TABLE mappa_valori_pni2 TO operatore;
 
 
--- Completed on 2019-12-17 18:38:10 CET
+-- Completed on 2019-12-18 16:25:02
 
 --
 -- PostgreSQL database dump complete
