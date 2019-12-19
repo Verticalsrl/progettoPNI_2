@@ -1195,6 +1195,9 @@ class ProgettoPNI_2:
                 #mappa_valori non la ricarico perche' e' comune a tutti i progetti --> ricarico questo controllo perche' su QGis 2.x da errore se lo lascio dopo
                 if ('mappa_valori' in layer_imported.name()):
                     continue
+                #NON carico eventuali tabelle _history nel caso fossero presenti sullo schema poiche' sono le tabelle in cui tengo traccia delle modifiche sui layer:
+                if ('_history' in layer_imported.name()):
+                    continue
                 chiave_da_ricercare = 'PNI_' + layer_imported.name().upper()
                 if (ced_checked == True):
                     tabella_da_importare = self.LAYER_NAME_PNI_ced[chiave_da_ricercare]

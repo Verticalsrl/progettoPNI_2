@@ -5,7 +5,7 @@
 -- Dumped from database version 9.3.13
 -- Dumped by pg_dump version 9.5.1
 
--- Started on 2019-12-18 16:25:02
+-- Started on 2019-12-19 11:48:35
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -129,11 +129,6 @@ civici	type	Negozio in Civico Business	character varying(30)	f	\N	\N	ab
 civici	type	Negozio in Civico Residenziale	character varying(30)	f	\N	\N	ab
 civici	type	Passo Carrabile	character varying(30)	f	\N	\N	ab
 tratta	diam_tubo	>150	character varying(100)	f	editing multiplo ?	tipologia di tubo	ab
-giunti	spec_id	GL	character varying(30)	f	\N	\N	ab
-giunti	spec_id	PD	character varying(30)	f	\N	\N	ab
-giunti	spec_id	PFP	character varying(30)	f	\N	\N	ab
-giunti	constructi	Progettato	character varying(14)	f	\N	\N	ab
-giunti	constructi	Realizzato	character varying(14)	f	\N	\N	ab
 pozzetti	spec_id	125x80	character varying(12)	t	\N	tipologia	ab
 colonnine	spec_id	PFS	character varying(16)	t	\N	\N	ab
 colonnine	spec_id	POZZETTO	character varying(16)	t	\N	\N	ab
@@ -141,6 +136,9 @@ colonnine	spec_id	PTA FACCIATA	character varying(16)	t	\N	\N	ab
 colonnine	constructi	Realizzato	character varying(14)	t	\N	stato	ab
 delivery	ebw_propri	Comune	character varying(19)	f	\N	\N	ab
 delivery	ebw_propri	Enel	character varying(19)	f	\N	\N	ab
+giunti	spec_id	PFP	character varying(30)	t	\N	tipologia	ab
+giunti	spec_id	PD	character varying(30)	t	\N	tipologia	ab
+giunti	constructi	Realizzato	character varying(14)	t	\N	stato	ab
 delivery	ebw_propri	Enel Distribuzione	character varying(19)	f	\N	\N	ab
 delivery	ebw_propri	EOF	character varying(19)	f	\N	\N	ab
 delivery	ebw_propri	TIM	character varying(19)	f	\N	\N	ab
@@ -222,16 +220,11 @@ tratta_aerea	ebw_propri	Enel Distribuzione	character varying(30)	t	\N	proprietar
 tratta_aerea	ebw_propri	EOF	character varying(30)	t	\N	proprietario	ab
 tratta	ebw_propri	_Altro	character varying(30)	t	obbligatorio specificare	proprietario	ab
 tratta_aerea	guy_type	In Facciata	character varying(19)	f	\N	\N	ab
-cavi	constructi	Progettato	character varying(16)	f	\N	\N	ab
-cavi	constructi	Realizzato	character varying(16)	f	\N	\N	ab
-cavi	spec_id	Cavo Multifibra 24FO	character varying(28)	f	\N	\N	ab
-cavi	spec_id	Microcavo 144 24 FO G652D	character varying(28)	f	\N	\N	ab
-cavi	spec_id	Microcavo 192 24 FO G657A	character varying(28)	f	\N	\N	ab
-cavi	spec_id	Microcavo 24FO  CPR	character varying(28)	f	\N	\N	ab
-cavi	spec_id	Microcavo 24FO G652D	character varying(28)	f	\N	\N	ab
-cavi	spec_id	Microcavo 48FO G652D	character varying(28)	f	\N	\N	ab
-cavi	spec_id	Microcavo 96 12 FO G652D	character varying(28)	f	\N	\N	ab
-cavi	spec_id	Microcavo 96 24 FO G657A	character varying(28)	f	\N	\N	ab
+cavi	spec_id	Microcavo 192 24 FO G657A	character varying(28)	t	\N	tipologia	ab
+cavi	spec_id	Cavo Multifibra 24FO	character varying(28)	t	\N	tipologia	ab
+cavi	spec_id	Microcavo 144 24 FO G652D	character varying(28)	t	\N	tipologia	ab
+cavi	constructi	Realizzato	character varying(16)	t	\N	stato	ab
+cavi	constructi	Progettato	character varying(16)	t	\N	stato	ab
 access_point	type	Interrato	character varying(16)	f	\N	\N	ab
 civici	type	Residential	character varying(30)	f	\N	\N	ab
 civici	ebw_tipolo	Walk In	character varying(11)	f	\N	\N	ab
@@ -253,9 +246,6 @@ tratta_aerea	ebw_propri	Privato	character varying(30)	t	\N	proprietario	ab
 tratta_aerea	ebw_propri	TIM	character varying(30)	t	\N	proprietario	ab
 tratta_aerea	ebw_propri	Vodafone	character varying(30)	t	\N	proprietario	ab
 tratta_aerea	ebw_propri	Wind	character varying(30)	t	\N	proprietario	ab
-tratta	surface_ma	asfalto	character varying(11)	f	tipologia di materiale	\N	ab
-tratta	surface_ma	pregiato	character varying(11)	f	tipologia di materiale	\N	b
-tratta	surface_ma	terreno	character varying(11)	f	tipologia di materiale	\N	ab
 tratta	num_tubi	1	character varying(100)	f	\N	numero tubi	ab
 tratta	num_tubi	4	character varying(100)	f	\N	numero tubi	ab
 tratta	num_tubi	3	character varying(100)	f	\N	numero tubi	ab
@@ -309,14 +299,28 @@ tratta	num_cavi	17	character varying(100)	f	\N	cavi inseriti	ab
 tratta	num_cavi	18	character varying(100)	f	\N	cavi inseriti	ab
 tratta	num_cavi	19	character varying(100)	f	\N	cavi inseriti	ab
 tratta	num_cavi	20	character varying(100)	f	\N	cavi inseriti	ab
-tratta_aerea	guy_type	Altro	character varying(19)	f	\N	\N	ab
 tratta_aerea	guy_type	Tesata su Fune	character varying(19)	f	\N	\N	ab
 tratta_aerea	guy_type	In Palifica	character varying(19)	f	\N	\N	ab
 pozzetti	spec_id	_Altro	character varying(12)	t	obbligatorio specificare	tipologia	ab
 pozzetti	spec_id	220x170	character varying(12)	t	\N	tipologia	ab
 pozzetti	spec_id	40x15	character varying(12)	t	\N	tipologia	ab
+tratta_aerea	guy_type	Zancatura a Muro	character varying(19)	f	\N	\N	ab
+tratta	surface_ma	asfalto	character varying(11)	f	\N	tipologia di materiale	ab
+cavi	spec_id	Microcavo 96 24 FO G657A	character varying(28)	t	\N	tipologia	ab
+cavi	spec_id	Microcavo 96 12 FO G652D	character varying(28)	t	\N	tipologia	ab
+cavi	spec_id	Microcavo 48FO G652D	character varying(28)	t	\N	tipologia	ab
+cavi	spec_id	Microcavo 24FO G652D	character varying(28)	t	\N	tipologia	ab
 colonnine	constructi	Progettato	character varying(14)	t	\N	stato	ab
 colonnine	spec_id	PTA PALO	character varying(16)	t	\N	\N	ab
+tratta	surface_ma	terreno	character varying(11)	f	\N	tipologia di materiale	ab
+tratta	surface_ma	pregiato	character varying(11)	f	\N	tipologia di materiale	ab
+tratta	surface_ma	NULL	character varying(11)	f	NULL se ebw_propri diverso da EOF	tipologia di materiale	ab
+giunti	constructi	Progettato	character varying(14)	t	\N	stato	ab
+giunti	spec_id	GL	character varying(30)	t	\N	tipologia	ab
+giunti	tipo_posa	B	character varying(100)	t	editabile solo se si seleziona PD	muffola PD	ab
+giunti	tipo_posa	A	character varying(100)	t	editabile solo se si seleziona PD	muffola PD	ab
+cavi	nome	manuale	character varying(100)	t	da inserire manualmente	nome cavo	ab
+cavi	measured_f	manuale	double precision	t	da inserire maualmente	campo numerico da compilare (metri)	ab
 \.
 
 
@@ -341,7 +345,7 @@ GRANT ALL ON TABLE mappa_valori_pni2 TO postgres;
 GRANT SELECT ON TABLE mappa_valori_pni2 TO operatore;
 
 
--- Completed on 2019-12-18 16:25:02
+-- Completed on 2019-12-19 11:48:35
 
 --
 -- PostgreSQL database dump complete

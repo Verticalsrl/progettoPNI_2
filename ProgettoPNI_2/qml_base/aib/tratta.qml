@@ -1,53 +1,53 @@
 <!DOCTYPE qgis PUBLIC 'http://mrcc.com/qgis.dtd' 'SYSTEM'>
-<qgis simplifyDrawingHints="0" simplifyLocal="1" hasScaleBasedVisibilityFlag="0" readOnly="0" simplifyMaxScale="1" simplifyAlgorithm="0" styleCategories="AllStyleCategories" minScale="1e+8" labelsEnabled="1" maxScale="-4.65661e-10" version="3.8.1-Zanzibar" simplifyDrawingTol="1">
+<qgis version="3.8.1-Zanzibar" hasScaleBasedVisibilityFlag="0" maxScale="-4.65661e-10" simplifyLocal="1" simplifyMaxScale="1" styleCategories="AllStyleCategories" simplifyAlgorithm="0" readOnly="0" minScale="1e+8" labelsEnabled="1" simplifyDrawingHints="0" simplifyDrawingTol="1">
   <flags>
     <Identifiable>1</Identifiable>
     <Removable>1</Removable>
     <Searchable>1</Searchable>
   </flags>
-  <renderer-v2 symbollevels="0" forceraster="0" enableorderby="0" type="RuleRenderer">
+  <renderer-v2 forceraster="0" symbollevels="0" type="RuleRenderer" enableorderby="0">
     <rules key="{26772e1b-dd46-43c4-8f43-00b74e5a54fb}">
-      <rule filter=" &quot;ebw_propri&quot;  =  'EOF' and  &quot;ebw_tipo_p&quot;  =  'Microtunnelling' AND &quot;constructi&quot; = 'Realizzato' " symbol="0" label="EOF NO DIG REALIZZATO" key="{40cbfdac-f107-4a12-9d60-790c42ced326}"/>
-      <rule filter=" &quot;ebw_propri&quot;  =  'EOF' and  &quot;ebw_tipo_p&quot;  =  'Microtunnelling' AND &quot;constructi&quot; = 'Progettato' " symbol="1" label="EOF NO DIG PROGETTATO" key="{1bfceea7-a3c2-4989-8956-1401e291bcc9}"/>
-      <rule filter=" &quot;ebw_tipo_p&quot;  =  'Minitrincea' AND  &quot;ebw_propri&quot;  =  'EOF' AND &quot;constructi&quot; = 'Realizzato' " symbol="2" label="EOF MT REALIZZATO" key="{49db3401-04f0-47f8-a855-11f056754311}"/>
-      <rule filter=" &quot;ebw_tipo_p&quot;  =  'Minitrincea' AND  &quot;ebw_propri&quot;  =  'EOF' AND &quot;constructi&quot; = 'Progettato' " symbol="3" label="EOF MT PROGETTATO" key="{3a92afd8-0fa5-4dca-a8a6-6aafafad7c1e}"/>
-      <rule filter=" &quot;ebw_tipo_p&quot;  =  'Trincea' AND  &quot;ebw_propri&quot;  =  'EOF' AND &quot;constructi&quot; = 'Realizzato' " symbol="4" label="EOF TN REALIZZATO" key="{95348204-f1e8-49f5-822f-da86139d5171}"/>
-      <rule filter=" &quot;ebw_tipo_p&quot;  =  'Trincea' AND  &quot;ebw_propri&quot;  =  'EOF'AND &quot;constructi&quot; = 'Progettato'  " symbol="5" label="EOF TN PROGETTATO" key="{6f4cf40b-740e-4525-9873-38b0329cd9f2}"/>
-      <rule filter=" &quot;ebw_tipo_p&quot;  =  'Canaletta' AND  &quot;ebw_propri&quot;  =  'EOF' AND &quot;constructi&quot; = 'Realizzato' " symbol="6" label="EOF Canaletta REALIZZATO" key="{a2629cda-aced-4f98-91b4-70e50d070c6a}"/>
-      <rule filter=" &quot;ebw_tipo_p&quot;  =  'Canaletta' AND  &quot;ebw_propri&quot;  =  'EOF' AND &quot;constructi&quot; = 'Progettato'  " symbol="7" label="EOF Canaletta PROGETTATO" key="{ca3f29c4-2ac2-491c-aeda-1599c5e9c34c}"/>
-      <rule filter=" &quot;ebw_tipo_p&quot;  =  'Trincea' AND  &quot;ebw_propri&quot;  =  'Comune' AND &quot;constructi&quot; = 'Realizzato'  " symbol="8" label="COMUNE REALIZZATO" key="{5f473b99-70c9-4871-a257-9b4a68987013}"/>
-      <rule filter=" &quot;ebw_tipo_p&quot;  =  'Trincea' AND  &quot;ebw_propri&quot;  =  'Comune' AND &quot;constructi&quot; = 'Progettato' " symbol="9" label="COMUNE PROGETTATO" key="{ea165d50-b9b7-47a9-b910-3cc7a7dbd750}"/>
-      <rule filter=" &quot;ebw_tipo_p&quot;  =  'Trincea' AND  &quot;ebw_propri&quot;  =  'Enel Distribuzione' AND &quot;constructi&quot; = 'Realizzato' " symbol="10" label="ED REALIZZATO" key="{161b6edc-2f56-4f5c-9e13-3e610c506b7d}"/>
-      <rule filter=" &quot;ebw_tipo_p&quot;  =  'Trincea' AND  &quot;ebw_propri&quot;  =  'Enel Distribuzione' AND &quot;constructi&quot; = 'Progettato' " symbol="11" label="ED PROGETTATO" key="{3e6ea28e-320a-4300-b16a-999306afcc32}"/>
-      <rule filter=" &quot;ebw_tipo_p&quot;  =  'Trincea' AND  &quot;ebw_propri&quot;  =  'TIM' AND &quot;constructi&quot; = 'Realizzato' " symbol="12" label="TIM REALIZZATO" key="{5d62232e-77f1-4a35-961a-58dbff3c769b}"/>
-      <rule filter=" &quot;ebw_tipo_p&quot;  =  'Trincea' AND  &quot;ebw_propri&quot;  =  'TIM' AND &quot;constructi&quot; = 'Progettato' " symbol="13" label="TIM PROGETTATO" key="{48b7d42a-9d2d-4670-976e-8705dc2f95ad}"/>
-      <rule filter=" &quot;ebw_tipo_p&quot;  =  'Trincea' AND   &quot;ebw_propri&quot;  =  'BT' AND &quot;constructi&quot; = 'Realizzato' " symbol="14" label="BT REALIZZATO" key="{e125e255-667d-46a0-be3f-defc45174de4}"/>
-      <rule filter=" &quot;ebw_tipo_p&quot;  =  'Trincea' AND   &quot;ebw_propri&quot;  =  'BT' AND &quot;constructi&quot; = 'Progettato' " symbol="15" label="BT PROGETTATO" key="{edf59495-f767-4b0f-9871-890f00fb41f6}"/>
-      <rule filter=" &quot;ebw_tipo_p&quot;  =  'Trincea' AND   &quot;ebw_propri&quot;  =  'Wind' AND &quot;constructi&quot; = 'Realizzato' " symbol="16" label="WIND REALIZZATO" key="{7718d1c3-8540-4de7-8541-d3c6028708aa}"/>
-      <rule filter=" &quot;ebw_tipo_p&quot;  =  'Trincea' AND   &quot;ebw_propri&quot;  =  'Wind' AND &quot;constructi&quot; = 'Progettato' " symbol="17" label="WIND PROGETTATO" key="{899612f1-de55-4017-aaeb-cf7c4a0a3e94}"/>
-      <rule filter="&quot;ebw_propri&quot;  =  'Privato' AND &quot;constructi&quot; = 'Realizzato' " symbol="18" label="Privato realizzato" key="{8a7af52f-606d-4f2b-94a8-a0c9d689def9}"/>
-      <rule filter="&quot;ebw_propri&quot;  =  'Privato' AND &quot;constructi&quot; = 'Progettato'" symbol="19" label="Privato progettato" key="{e929fabd-35d9-403b-b78b-932a591f8b4d}"/>
-      <rule filter=" &quot;ebw_tipo_p&quot;  =  'Virtuale'" symbol="20" label="Virtuale" key="{69e83e1d-182e-418a-ba58-b519e4206b7d}"/>
+      <rule symbol="0" filter=" &quot;ebw_propri&quot;  =  'EOF' and  &quot;ebw_tipo_p&quot;  =  'Microtunnelling' AND &quot;constructi&quot; = 'Realizzato' " label="EOF NO DIG REALIZZATO" key="{40cbfdac-f107-4a12-9d60-790c42ced326}"/>
+      <rule symbol="1" filter=" &quot;ebw_propri&quot;  =  'EOF' and  &quot;ebw_tipo_p&quot;  =  'Microtunnelling' AND &quot;constructi&quot; = 'Progettato' " label="EOF NO DIG PROGETTATO" key="{1bfceea7-a3c2-4989-8956-1401e291bcc9}"/>
+      <rule symbol="2" filter=" &quot;ebw_tipo_p&quot;  =  'Minitrincea' AND  &quot;ebw_propri&quot;  =  'EOF' AND &quot;constructi&quot; = 'Realizzato' " label="EOF MT REALIZZATO" key="{49db3401-04f0-47f8-a855-11f056754311}"/>
+      <rule symbol="3" filter=" &quot;ebw_tipo_p&quot;  =  'Minitrincea' AND  &quot;ebw_propri&quot;  =  'EOF' AND &quot;constructi&quot; = 'Progettato' " label="EOF MT PROGETTATO" key="{3a92afd8-0fa5-4dca-a8a6-6aafafad7c1e}"/>
+      <rule symbol="4" filter=" &quot;ebw_tipo_p&quot;  =  'Trincea' AND  &quot;ebw_propri&quot;  =  'EOF' AND &quot;constructi&quot; = 'Realizzato' " label="EOF TN REALIZZATO" key="{95348204-f1e8-49f5-822f-da86139d5171}"/>
+      <rule symbol="5" filter=" &quot;ebw_tipo_p&quot;  =  'Trincea' AND  &quot;ebw_propri&quot;  =  'EOF'AND &quot;constructi&quot; = 'Progettato'  " label="EOF TN PROGETTATO" key="{6f4cf40b-740e-4525-9873-38b0329cd9f2}"/>
+      <rule symbol="6" filter=" &quot;ebw_tipo_p&quot;  =  'Canaletta' AND  &quot;ebw_propri&quot;  =  'EOF' AND &quot;constructi&quot; = 'Realizzato' " label="EOF Canaletta REALIZZATO" key="{a2629cda-aced-4f98-91b4-70e50d070c6a}"/>
+      <rule symbol="7" filter=" &quot;ebw_tipo_p&quot;  =  'Canaletta' AND  &quot;ebw_propri&quot;  =  'EOF' AND &quot;constructi&quot; = 'Progettato'  " label="EOF Canaletta PROGETTATO" key="{ca3f29c4-2ac2-491c-aeda-1599c5e9c34c}"/>
+      <rule symbol="8" filter=" &quot;ebw_tipo_p&quot;  =  'Trincea' AND  &quot;ebw_propri&quot;  =  'Comune' AND &quot;constructi&quot; = 'Realizzato'  " label="COMUNE REALIZZATO" key="{5f473b99-70c9-4871-a257-9b4a68987013}"/>
+      <rule symbol="9" filter=" &quot;ebw_tipo_p&quot;  =  'Trincea' AND  &quot;ebw_propri&quot;  =  'Comune' AND &quot;constructi&quot; = 'Progettato' " label="COMUNE PROGETTATO" key="{ea165d50-b9b7-47a9-b910-3cc7a7dbd750}"/>
+      <rule symbol="10" filter=" &quot;ebw_tipo_p&quot;  =  'Trincea' AND  &quot;ebw_propri&quot;  =  'Enel Distribuzione' AND &quot;constructi&quot; = 'Realizzato' " label="ED REALIZZATO" key="{161b6edc-2f56-4f5c-9e13-3e610c506b7d}"/>
+      <rule symbol="11" filter=" &quot;ebw_tipo_p&quot;  =  'Trincea' AND  &quot;ebw_propri&quot;  =  'Enel Distribuzione' AND &quot;constructi&quot; = 'Progettato' " label="ED PROGETTATO" key="{3e6ea28e-320a-4300-b16a-999306afcc32}"/>
+      <rule symbol="12" filter=" &quot;ebw_tipo_p&quot;  =  'Trincea' AND  &quot;ebw_propri&quot;  =  'TIM' AND &quot;constructi&quot; = 'Realizzato' " label="TIM REALIZZATO" key="{5d62232e-77f1-4a35-961a-58dbff3c769b}"/>
+      <rule symbol="13" filter=" &quot;ebw_tipo_p&quot;  =  'Trincea' AND  &quot;ebw_propri&quot;  =  'TIM' AND &quot;constructi&quot; = 'Progettato' " label="TIM PROGETTATO" key="{48b7d42a-9d2d-4670-976e-8705dc2f95ad}"/>
+      <rule symbol="14" filter=" &quot;ebw_tipo_p&quot;  =  'Trincea' AND   &quot;ebw_propri&quot;  =  'BT' AND &quot;constructi&quot; = 'Realizzato' " label="BT REALIZZATO" key="{e125e255-667d-46a0-be3f-defc45174de4}"/>
+      <rule symbol="15" filter=" &quot;ebw_tipo_p&quot;  =  'Trincea' AND   &quot;ebw_propri&quot;  =  'BT' AND &quot;constructi&quot; = 'Progettato' " label="BT PROGETTATO" key="{edf59495-f767-4b0f-9871-890f00fb41f6}"/>
+      <rule symbol="16" filter=" &quot;ebw_tipo_p&quot;  =  'Trincea' AND   &quot;ebw_propri&quot;  =  'Wind' AND &quot;constructi&quot; = 'Realizzato' " label="WIND REALIZZATO" key="{7718d1c3-8540-4de7-8541-d3c6028708aa}"/>
+      <rule symbol="17" filter=" &quot;ebw_tipo_p&quot;  =  'Trincea' AND   &quot;ebw_propri&quot;  =  'Wind' AND &quot;constructi&quot; = 'Progettato' " label="WIND PROGETTATO" key="{899612f1-de55-4017-aaeb-cf7c4a0a3e94}"/>
+      <rule symbol="18" filter="&quot;ebw_propri&quot;  =  'Privato' AND &quot;constructi&quot; = 'Realizzato' " label="Privato realizzato" key="{8a7af52f-606d-4f2b-94a8-a0c9d689def9}"/>
+      <rule symbol="19" filter="&quot;ebw_propri&quot;  =  'Privato' AND &quot;constructi&quot; = 'Progettato'" label="Privato progettato" key="{e929fabd-35d9-403b-b78b-932a591f8b4d}"/>
+      <rule symbol="20" filter=" &quot;ebw_tipo_p&quot;  =  'Virtuale'" label="Virtuale" key="{69e83e1d-182e-418a-ba58-b519e4206b7d}"/>
     </rules>
     <symbols>
-      <symbol alpha="1" force_rhr="0" type="line" name="0" clip_to_extent="1">
-        <layer locked="0" class="SimpleLine" enabled="1" pass="0">
-          <prop v="square" k="capstyle"/>
-          <prop v="5;2" k="customdash"/>
-          <prop v="3x:0,0,0,0,0,0" k="customdash_map_unit_scale"/>
-          <prop v="RenderMetersInMapUnits" k="customdash_unit"/>
-          <prop v="0" k="draw_inside_polygon"/>
-          <prop v="bevel" k="joinstyle"/>
-          <prop v="206,24,219,255" k="line_color"/>
-          <prop v="solid" k="line_style"/>
-          <prop v="1" k="line_width"/>
-          <prop v="RenderMetersInMapUnits" k="line_width_unit"/>
-          <prop v="0" k="offset"/>
-          <prop v="3x:0,0,0,0,0,0" k="offset_map_unit_scale"/>
-          <prop v="RenderMetersInMapUnits" k="offset_unit"/>
-          <prop v="0" k="ring_filter"/>
-          <prop v="0" k="use_custom_dash"/>
-          <prop v="3x:0,0,0,0,0,0" k="width_map_unit_scale"/>
+      <symbol clip_to_extent="1" force_rhr="0" type="line" name="0" alpha="1">
+        <layer enabled="1" pass="0" class="SimpleLine" locked="0">
+          <prop k="capstyle" v="square"/>
+          <prop k="customdash" v="5;2"/>
+          <prop k="customdash_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+          <prop k="customdash_unit" v="RenderMetersInMapUnits"/>
+          <prop k="draw_inside_polygon" v="0"/>
+          <prop k="joinstyle" v="bevel"/>
+          <prop k="line_color" v="206,24,219,255"/>
+          <prop k="line_style" v="solid"/>
+          <prop k="line_width" v="1"/>
+          <prop k="line_width_unit" v="RenderMetersInMapUnits"/>
+          <prop k="offset" v="0"/>
+          <prop k="offset_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+          <prop k="offset_unit" v="RenderMetersInMapUnits"/>
+          <prop k="ring_filter" v="0"/>
+          <prop k="use_custom_dash" v="0"/>
+          <prop k="width_map_unit_scale" v="3x:0,0,0,0,0,0"/>
           <data_defined_properties>
             <Option type="Map">
               <Option value="" type="QString" name="name"/>
@@ -57,24 +57,24 @@
           </data_defined_properties>
         </layer>
       </symbol>
-      <symbol alpha="1" force_rhr="0" type="line" name="1" clip_to_extent="1">
-        <layer locked="0" class="SimpleLine" enabled="1" pass="0">
-          <prop v="square" k="capstyle"/>
-          <prop v="5;2" k="customdash"/>
-          <prop v="3x:0,0,0,0,0,0" k="customdash_map_unit_scale"/>
-          <prop v="RenderMetersInMapUnits" k="customdash_unit"/>
-          <prop v="0" k="draw_inside_polygon"/>
-          <prop v="bevel" k="joinstyle"/>
-          <prop v="206,24,219,255" k="line_color"/>
-          <prop v="dot" k="line_style"/>
-          <prop v="1" k="line_width"/>
-          <prop v="RenderMetersInMapUnits" k="line_width_unit"/>
-          <prop v="0" k="offset"/>
-          <prop v="3x:0,0,0,0,0,0" k="offset_map_unit_scale"/>
-          <prop v="RenderMetersInMapUnits" k="offset_unit"/>
-          <prop v="0" k="ring_filter"/>
-          <prop v="0" k="use_custom_dash"/>
-          <prop v="3x:0,0,0,0,0,0" k="width_map_unit_scale"/>
+      <symbol clip_to_extent="1" force_rhr="0" type="line" name="1" alpha="1">
+        <layer enabled="1" pass="0" class="SimpleLine" locked="0">
+          <prop k="capstyle" v="square"/>
+          <prop k="customdash" v="5;2"/>
+          <prop k="customdash_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+          <prop k="customdash_unit" v="RenderMetersInMapUnits"/>
+          <prop k="draw_inside_polygon" v="0"/>
+          <prop k="joinstyle" v="bevel"/>
+          <prop k="line_color" v="206,24,219,255"/>
+          <prop k="line_style" v="dot"/>
+          <prop k="line_width" v="1"/>
+          <prop k="line_width_unit" v="RenderMetersInMapUnits"/>
+          <prop k="offset" v="0"/>
+          <prop k="offset_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+          <prop k="offset_unit" v="RenderMetersInMapUnits"/>
+          <prop k="ring_filter" v="0"/>
+          <prop k="use_custom_dash" v="0"/>
+          <prop k="width_map_unit_scale" v="3x:0,0,0,0,0,0"/>
           <data_defined_properties>
             <Option type="Map">
               <Option value="" type="QString" name="name"/>
@@ -84,24 +84,24 @@
           </data_defined_properties>
         </layer>
       </symbol>
-      <symbol alpha="1" force_rhr="0" type="line" name="10" clip_to_extent="1">
-        <layer locked="0" class="SimpleLine" enabled="1" pass="0">
-          <prop v="square" k="capstyle"/>
-          <prop v="5;2" k="customdash"/>
-          <prop v="3x:0,0,0,0,0,0" k="customdash_map_unit_scale"/>
-          <prop v="RenderMetersInMapUnits" k="customdash_unit"/>
-          <prop v="0" k="draw_inside_polygon"/>
-          <prop v="bevel" k="joinstyle"/>
-          <prop v="244,164,47,255" k="line_color"/>
-          <prop v="solid" k="line_style"/>
-          <prop v="0.3" k="line_width"/>
-          <prop v="RenderMetersInMapUnits" k="line_width_unit"/>
-          <prop v="0" k="offset"/>
-          <prop v="3x:0,0,0,0,0,0" k="offset_map_unit_scale"/>
-          <prop v="RenderMetersInMapUnits" k="offset_unit"/>
-          <prop v="0" k="ring_filter"/>
-          <prop v="0" k="use_custom_dash"/>
-          <prop v="3x:0,0,0,0,0,0" k="width_map_unit_scale"/>
+      <symbol clip_to_extent="1" force_rhr="0" type="line" name="10" alpha="1">
+        <layer enabled="1" pass="0" class="SimpleLine" locked="0">
+          <prop k="capstyle" v="square"/>
+          <prop k="customdash" v="5;2"/>
+          <prop k="customdash_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+          <prop k="customdash_unit" v="RenderMetersInMapUnits"/>
+          <prop k="draw_inside_polygon" v="0"/>
+          <prop k="joinstyle" v="bevel"/>
+          <prop k="line_color" v="244,164,47,255"/>
+          <prop k="line_style" v="solid"/>
+          <prop k="line_width" v="0.3"/>
+          <prop k="line_width_unit" v="RenderMetersInMapUnits"/>
+          <prop k="offset" v="0"/>
+          <prop k="offset_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+          <prop k="offset_unit" v="RenderMetersInMapUnits"/>
+          <prop k="ring_filter" v="0"/>
+          <prop k="use_custom_dash" v="0"/>
+          <prop k="width_map_unit_scale" v="3x:0,0,0,0,0,0"/>
           <data_defined_properties>
             <Option type="Map">
               <Option value="" type="QString" name="name"/>
@@ -111,24 +111,24 @@
           </data_defined_properties>
         </layer>
       </symbol>
-      <symbol alpha="1" force_rhr="0" type="line" name="11" clip_to_extent="1">
-        <layer locked="0" class="SimpleLine" enabled="1" pass="0">
-          <prop v="square" k="capstyle"/>
-          <prop v="5;2" k="customdash"/>
-          <prop v="3x:0,0,0,0,0,0" k="customdash_map_unit_scale"/>
-          <prop v="RenderMetersInMapUnits" k="customdash_unit"/>
-          <prop v="0" k="draw_inside_polygon"/>
-          <prop v="bevel" k="joinstyle"/>
-          <prop v="244,164,47,255" k="line_color"/>
-          <prop v="dot" k="line_style"/>
-          <prop v="0.3" k="line_width"/>
-          <prop v="RenderMetersInMapUnits" k="line_width_unit"/>
-          <prop v="0" k="offset"/>
-          <prop v="3x:0,0,0,0,0,0" k="offset_map_unit_scale"/>
-          <prop v="RenderMetersInMapUnits" k="offset_unit"/>
-          <prop v="0" k="ring_filter"/>
-          <prop v="0" k="use_custom_dash"/>
-          <prop v="3x:0,0,0,0,0,0" k="width_map_unit_scale"/>
+      <symbol clip_to_extent="1" force_rhr="0" type="line" name="11" alpha="1">
+        <layer enabled="1" pass="0" class="SimpleLine" locked="0">
+          <prop k="capstyle" v="square"/>
+          <prop k="customdash" v="5;2"/>
+          <prop k="customdash_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+          <prop k="customdash_unit" v="RenderMetersInMapUnits"/>
+          <prop k="draw_inside_polygon" v="0"/>
+          <prop k="joinstyle" v="bevel"/>
+          <prop k="line_color" v="244,164,47,255"/>
+          <prop k="line_style" v="dot"/>
+          <prop k="line_width" v="0.3"/>
+          <prop k="line_width_unit" v="RenderMetersInMapUnits"/>
+          <prop k="offset" v="0"/>
+          <prop k="offset_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+          <prop k="offset_unit" v="RenderMetersInMapUnits"/>
+          <prop k="ring_filter" v="0"/>
+          <prop k="use_custom_dash" v="0"/>
+          <prop k="width_map_unit_scale" v="3x:0,0,0,0,0,0"/>
           <data_defined_properties>
             <Option type="Map">
               <Option value="" type="QString" name="name"/>
@@ -138,24 +138,24 @@
           </data_defined_properties>
         </layer>
       </symbol>
-      <symbol alpha="1" force_rhr="0" type="line" name="12" clip_to_extent="1">
-        <layer locked="1" class="SimpleLine" enabled="1" pass="0">
-          <prop v="round" k="capstyle"/>
-          <prop v="5;2" k="customdash"/>
-          <prop v="3x:0,0,0,0,0,0" k="customdash_map_unit_scale"/>
-          <prop v="RenderMetersInMapUnits" k="customdash_unit"/>
-          <prop v="0" k="draw_inside_polygon"/>
-          <prop v="round" k="joinstyle"/>
-          <prop v="18,55,201,255" k="line_color"/>
-          <prop v="solid" k="line_style"/>
-          <prop v="0.3" k="line_width"/>
-          <prop v="RenderMetersInMapUnits" k="line_width_unit"/>
-          <prop v="0" k="offset"/>
-          <prop v="3x:0,0,0,0,0,0" k="offset_map_unit_scale"/>
-          <prop v="RenderMetersInMapUnits" k="offset_unit"/>
-          <prop v="0" k="ring_filter"/>
-          <prop v="0" k="use_custom_dash"/>
-          <prop v="3x:0,0,0,0,0,0" k="width_map_unit_scale"/>
+      <symbol clip_to_extent="1" force_rhr="0" type="line" name="12" alpha="1">
+        <layer enabled="1" pass="0" class="SimpleLine" locked="1">
+          <prop k="capstyle" v="round"/>
+          <prop k="customdash" v="5;2"/>
+          <prop k="customdash_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+          <prop k="customdash_unit" v="RenderMetersInMapUnits"/>
+          <prop k="draw_inside_polygon" v="0"/>
+          <prop k="joinstyle" v="round"/>
+          <prop k="line_color" v="18,55,201,255"/>
+          <prop k="line_style" v="solid"/>
+          <prop k="line_width" v="0.3"/>
+          <prop k="line_width_unit" v="RenderMetersInMapUnits"/>
+          <prop k="offset" v="0"/>
+          <prop k="offset_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+          <prop k="offset_unit" v="RenderMetersInMapUnits"/>
+          <prop k="ring_filter" v="0"/>
+          <prop k="use_custom_dash" v="0"/>
+          <prop k="width_map_unit_scale" v="3x:0,0,0,0,0,0"/>
           <data_defined_properties>
             <Option type="Map">
               <Option value="" type="QString" name="name"/>
@@ -164,75 +164,23 @@
             </Option>
           </data_defined_properties>
         </layer>
-        <layer locked="0" class="SimpleLine" enabled="1" pass="0">
-          <prop v="round" k="capstyle"/>
-          <prop v="5;2" k="customdash"/>
-          <prop v="3x:0,0,0,0,0,0" k="customdash_map_unit_scale"/>
-          <prop v="RenderMetersInMapUnits" k="customdash_unit"/>
-          <prop v="0" k="draw_inside_polygon"/>
-          <prop v="round" k="joinstyle"/>
-          <prop v="227,26,28,255" k="line_color"/>
-          <prop v="dash" k="line_style"/>
-          <prop v="0.3" k="line_width"/>
-          <prop v="RenderMetersInMapUnits" k="line_width_unit"/>
-          <prop v="0" k="offset"/>
-          <prop v="3x:0,0,0,0,0,0" k="offset_map_unit_scale"/>
-          <prop v="RenderMetersInMapUnits" k="offset_unit"/>
-          <prop v="0" k="ring_filter"/>
-          <prop v="0" k="use_custom_dash"/>
-          <prop v="3x:0,0,0,0,0,0" k="width_map_unit_scale"/>
-          <data_defined_properties>
-            <Option type="Map">
-              <Option value="" type="QString" name="name"/>
-              <Option name="properties"/>
-              <Option value="collection" type="QString" name="type"/>
-            </Option>
-          </data_defined_properties>
-        </layer>
-      </symbol>
-      <symbol alpha="1" force_rhr="0" type="line" name="13" clip_to_extent="1">
-        <layer locked="1" class="SimpleLine" enabled="1" pass="0">
-          <prop v="round" k="capstyle"/>
-          <prop v="0.5;0.5" k="customdash"/>
-          <prop v="3x:0,0,0,0,0,0" k="customdash_map_unit_scale"/>
-          <prop v="RenderMetersInMapUnits" k="customdash_unit"/>
-          <prop v="0" k="draw_inside_polygon"/>
-          <prop v="round" k="joinstyle"/>
-          <prop v="18,55,201,255" k="line_color"/>
-          <prop v="dot" k="line_style"/>
-          <prop v="0.3" k="line_width"/>
-          <prop v="RenderMetersInMapUnits" k="line_width_unit"/>
-          <prop v="0" k="offset"/>
-          <prop v="3x:0,0,0,0,0,0" k="offset_map_unit_scale"/>
-          <prop v="RenderMetersInMapUnits" k="offset_unit"/>
-          <prop v="0" k="ring_filter"/>
-          <prop v="1" k="use_custom_dash"/>
-          <prop v="3x:0,0,0,0,0,0" k="width_map_unit_scale"/>
-          <data_defined_properties>
-            <Option type="Map">
-              <Option value="" type="QString" name="name"/>
-              <Option name="properties"/>
-              <Option value="collection" type="QString" name="type"/>
-            </Option>
-          </data_defined_properties>
-        </layer>
-        <layer locked="0" class="SimpleLine" enabled="1" pass="0">
-          <prop v="round" k="capstyle"/>
-          <prop v="0.5;0.5" k="customdash"/>
-          <prop v="3x:0,0,0,0,0,0" k="customdash_map_unit_scale"/>
-          <prop v="RenderMetersInMapUnits" k="customdash_unit"/>
-          <prop v="0" k="draw_inside_polygon"/>
-          <prop v="round" k="joinstyle"/>
-          <prop v="227,26,28,255" k="line_color"/>
-          <prop v="dot" k="line_style"/>
-          <prop v="0.3" k="line_width"/>
-          <prop v="RenderMetersInMapUnits" k="line_width_unit"/>
-          <prop v="0" k="offset"/>
-          <prop v="3x:0,0,0,0,0,0" k="offset_map_unit_scale"/>
-          <prop v="RenderMetersInMapUnits" k="offset_unit"/>
-          <prop v="0" k="ring_filter"/>
-          <prop v="1" k="use_custom_dash"/>
-          <prop v="3x:0,0,0,0,0,0" k="width_map_unit_scale"/>
+        <layer enabled="1" pass="0" class="SimpleLine" locked="0">
+          <prop k="capstyle" v="round"/>
+          <prop k="customdash" v="5;2"/>
+          <prop k="customdash_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+          <prop k="customdash_unit" v="RenderMetersInMapUnits"/>
+          <prop k="draw_inside_polygon" v="0"/>
+          <prop k="joinstyle" v="round"/>
+          <prop k="line_color" v="227,26,28,255"/>
+          <prop k="line_style" v="dash"/>
+          <prop k="line_width" v="0.3"/>
+          <prop k="line_width_unit" v="RenderMetersInMapUnits"/>
+          <prop k="offset" v="0"/>
+          <prop k="offset_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+          <prop k="offset_unit" v="RenderMetersInMapUnits"/>
+          <prop k="ring_filter" v="0"/>
+          <prop k="use_custom_dash" v="0"/>
+          <prop k="width_map_unit_scale" v="3x:0,0,0,0,0,0"/>
           <data_defined_properties>
             <Option type="Map">
               <Option value="" type="QString" name="name"/>
@@ -242,24 +190,24 @@
           </data_defined_properties>
         </layer>
       </symbol>
-      <symbol alpha="1" force_rhr="0" type="line" name="14" clip_to_extent="1">
-        <layer locked="1" class="SimpleLine" enabled="1" pass="0">
-          <prop v="round" k="capstyle"/>
-          <prop v="0.5;0.5" k="customdash"/>
-          <prop v="3x:0,0,0,0,0,0" k="customdash_map_unit_scale"/>
-          <prop v="RenderMetersInMapUnits" k="customdash_unit"/>
-          <prop v="0" k="draw_inside_polygon"/>
-          <prop v="round" k="joinstyle"/>
-          <prop v="0,0,0,255" k="line_color"/>
-          <prop v="solid" k="line_style"/>
-          <prop v="0.3" k="line_width"/>
-          <prop v="RenderMetersInMapUnits" k="line_width_unit"/>
-          <prop v="0" k="offset"/>
-          <prop v="3x:0,0,0,0,0,0" k="offset_map_unit_scale"/>
-          <prop v="RenderMetersInMapUnits" k="offset_unit"/>
-          <prop v="0" k="ring_filter"/>
-          <prop v="0" k="use_custom_dash"/>
-          <prop v="3x:0,0,0,0,0,0" k="width_map_unit_scale"/>
+      <symbol clip_to_extent="1" force_rhr="0" type="line" name="13" alpha="1">
+        <layer enabled="1" pass="0" class="SimpleLine" locked="1">
+          <prop k="capstyle" v="round"/>
+          <prop k="customdash" v="0.5;0.5"/>
+          <prop k="customdash_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+          <prop k="customdash_unit" v="RenderMetersInMapUnits"/>
+          <prop k="draw_inside_polygon" v="0"/>
+          <prop k="joinstyle" v="round"/>
+          <prop k="line_color" v="18,55,201,255"/>
+          <prop k="line_style" v="dot"/>
+          <prop k="line_width" v="0.3"/>
+          <prop k="line_width_unit" v="RenderMetersInMapUnits"/>
+          <prop k="offset" v="0"/>
+          <prop k="offset_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+          <prop k="offset_unit" v="RenderMetersInMapUnits"/>
+          <prop k="ring_filter" v="0"/>
+          <prop k="use_custom_dash" v="1"/>
+          <prop k="width_map_unit_scale" v="3x:0,0,0,0,0,0"/>
           <data_defined_properties>
             <Option type="Map">
               <Option value="" type="QString" name="name"/>
@@ -268,75 +216,23 @@
             </Option>
           </data_defined_properties>
         </layer>
-        <layer locked="0" class="SimpleLine" enabled="1" pass="0">
-          <prop v="round" k="capstyle"/>
-          <prop v="0.5;0.5" k="customdash"/>
-          <prop v="3x:0,0,0,0,0,0" k="customdash_map_unit_scale"/>
-          <prop v="RenderMetersInMapUnits" k="customdash_unit"/>
-          <prop v="0" k="draw_inside_polygon"/>
-          <prop v="round" k="joinstyle"/>
-          <prop v="227,26,234,255" k="line_color"/>
-          <prop v="dash" k="line_style"/>
-          <prop v="0.3" k="line_width"/>
-          <prop v="RenderMetersInMapUnits" k="line_width_unit"/>
-          <prop v="0" k="offset"/>
-          <prop v="3x:0,0,0,0,0,0" k="offset_map_unit_scale"/>
-          <prop v="RenderMetersInMapUnits" k="offset_unit"/>
-          <prop v="0" k="ring_filter"/>
-          <prop v="0" k="use_custom_dash"/>
-          <prop v="3x:0,0,0,0,0,0" k="width_map_unit_scale"/>
-          <data_defined_properties>
-            <Option type="Map">
-              <Option value="" type="QString" name="name"/>
-              <Option name="properties"/>
-              <Option value="collection" type="QString" name="type"/>
-            </Option>
-          </data_defined_properties>
-        </layer>
-      </symbol>
-      <symbol alpha="1" force_rhr="0" type="line" name="15" clip_to_extent="1">
-        <layer locked="1" class="SimpleLine" enabled="1" pass="0">
-          <prop v="round" k="capstyle"/>
-          <prop v="0.5;0.5" k="customdash"/>
-          <prop v="3x:0,0,0,0,0,0" k="customdash_map_unit_scale"/>
-          <prop v="RenderMetersInMapUnits" k="customdash_unit"/>
-          <prop v="0" k="draw_inside_polygon"/>
-          <prop v="round" k="joinstyle"/>
-          <prop v="0,0,0,255" k="line_color"/>
-          <prop v="dot" k="line_style"/>
-          <prop v="0.3" k="line_width"/>
-          <prop v="RenderMetersInMapUnits" k="line_width_unit"/>
-          <prop v="0" k="offset"/>
-          <prop v="3x:0,0,0,0,0,0" k="offset_map_unit_scale"/>
-          <prop v="RenderMetersInMapUnits" k="offset_unit"/>
-          <prop v="0" k="ring_filter"/>
-          <prop v="1" k="use_custom_dash"/>
-          <prop v="3x:0,0,0,0,0,0" k="width_map_unit_scale"/>
-          <data_defined_properties>
-            <Option type="Map">
-              <Option value="" type="QString" name="name"/>
-              <Option name="properties"/>
-              <Option value="collection" type="QString" name="type"/>
-            </Option>
-          </data_defined_properties>
-        </layer>
-        <layer locked="0" class="SimpleLine" enabled="1" pass="0">
-          <prop v="round" k="capstyle"/>
-          <prop v="0.5;0.5" k="customdash"/>
-          <prop v="3x:0,0,0,0,0,0" k="customdash_map_unit_scale"/>
-          <prop v="RenderMetersInMapUnits" k="customdash_unit"/>
-          <prop v="0" k="draw_inside_polygon"/>
-          <prop v="round" k="joinstyle"/>
-          <prop v="227,26,234,255" k="line_color"/>
-          <prop v="dot" k="line_style"/>
-          <prop v="0.3" k="line_width"/>
-          <prop v="RenderMetersInMapUnits" k="line_width_unit"/>
-          <prop v="0" k="offset"/>
-          <prop v="3x:0,0,0,0,0,0" k="offset_map_unit_scale"/>
-          <prop v="RenderMetersInMapUnits" k="offset_unit"/>
-          <prop v="0" k="ring_filter"/>
-          <prop v="1" k="use_custom_dash"/>
-          <prop v="3x:0,0,0,0,0,0" k="width_map_unit_scale"/>
+        <layer enabled="1" pass="0" class="SimpleLine" locked="0">
+          <prop k="capstyle" v="round"/>
+          <prop k="customdash" v="0.5;0.5"/>
+          <prop k="customdash_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+          <prop k="customdash_unit" v="RenderMetersInMapUnits"/>
+          <prop k="draw_inside_polygon" v="0"/>
+          <prop k="joinstyle" v="round"/>
+          <prop k="line_color" v="227,26,28,255"/>
+          <prop k="line_style" v="dot"/>
+          <prop k="line_width" v="0.3"/>
+          <prop k="line_width_unit" v="RenderMetersInMapUnits"/>
+          <prop k="offset" v="0"/>
+          <prop k="offset_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+          <prop k="offset_unit" v="RenderMetersInMapUnits"/>
+          <prop k="ring_filter" v="0"/>
+          <prop k="use_custom_dash" v="1"/>
+          <prop k="width_map_unit_scale" v="3x:0,0,0,0,0,0"/>
           <data_defined_properties>
             <Option type="Map">
               <Option value="" type="QString" name="name"/>
@@ -346,24 +242,24 @@
           </data_defined_properties>
         </layer>
       </symbol>
-      <symbol alpha="1" force_rhr="0" type="line" name="16" clip_to_extent="1">
-        <layer locked="0" class="SimpleLine" enabled="1" pass="0">
-          <prop v="round" k="capstyle"/>
-          <prop v="5;2" k="customdash"/>
-          <prop v="3x:0,0,0,0,0,0" k="customdash_map_unit_scale"/>
-          <prop v="RenderMetersInMapUnits" k="customdash_unit"/>
-          <prop v="0" k="draw_inside_polygon"/>
-          <prop v="round" k="joinstyle"/>
-          <prop v="0,205,244,255" k="line_color"/>
-          <prop v="solid" k="line_style"/>
-          <prop v="0.3" k="line_width"/>
-          <prop v="RenderMetersInMapUnits" k="line_width_unit"/>
-          <prop v="0" k="offset"/>
-          <prop v="3x:0,0,0,0,0,0" k="offset_map_unit_scale"/>
-          <prop v="RenderMetersInMapUnits" k="offset_unit"/>
-          <prop v="0" k="ring_filter"/>
-          <prop v="0" k="use_custom_dash"/>
-          <prop v="3x:0,0,0,0,0,0" k="width_map_unit_scale"/>
+      <symbol clip_to_extent="1" force_rhr="0" type="line" name="14" alpha="1">
+        <layer enabled="1" pass="0" class="SimpleLine" locked="1">
+          <prop k="capstyle" v="round"/>
+          <prop k="customdash" v="0.5;0.5"/>
+          <prop k="customdash_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+          <prop k="customdash_unit" v="RenderMetersInMapUnits"/>
+          <prop k="draw_inside_polygon" v="0"/>
+          <prop k="joinstyle" v="round"/>
+          <prop k="line_color" v="0,0,0,255"/>
+          <prop k="line_style" v="solid"/>
+          <prop k="line_width" v="0.3"/>
+          <prop k="line_width_unit" v="RenderMetersInMapUnits"/>
+          <prop k="offset" v="0"/>
+          <prop k="offset_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+          <prop k="offset_unit" v="RenderMetersInMapUnits"/>
+          <prop k="ring_filter" v="0"/>
+          <prop k="use_custom_dash" v="0"/>
+          <prop k="width_map_unit_scale" v="3x:0,0,0,0,0,0"/>
           <data_defined_properties>
             <Option type="Map">
               <Option value="" type="QString" name="name"/>
@@ -372,75 +268,23 @@
             </Option>
           </data_defined_properties>
         </layer>
-        <layer locked="1" class="SimpleLine" enabled="1" pass="0">
-          <prop v="round" k="capstyle"/>
-          <prop v="5;2" k="customdash"/>
-          <prop v="3x:0,0,0,0,0,0" k="customdash_map_unit_scale"/>
-          <prop v="RenderMetersInMapUnits" k="customdash_unit"/>
-          <prop v="0" k="draw_inside_polygon"/>
-          <prop v="round" k="joinstyle"/>
-          <prop v="255,127,0,255" k="line_color"/>
-          <prop v="dot" k="line_style"/>
-          <prop v="0.3" k="line_width"/>
-          <prop v="RenderMetersInMapUnits" k="line_width_unit"/>
-          <prop v="0" k="offset"/>
-          <prop v="3x:0,0,0,0,0,0" k="offset_map_unit_scale"/>
-          <prop v="RenderMetersInMapUnits" k="offset_unit"/>
-          <prop v="0" k="ring_filter"/>
-          <prop v="0" k="use_custom_dash"/>
-          <prop v="3x:0,0,0,0,0,0" k="width_map_unit_scale"/>
-          <data_defined_properties>
-            <Option type="Map">
-              <Option value="" type="QString" name="name"/>
-              <Option name="properties"/>
-              <Option value="collection" type="QString" name="type"/>
-            </Option>
-          </data_defined_properties>
-        </layer>
-      </symbol>
-      <symbol alpha="1" force_rhr="0" type="line" name="17" clip_to_extent="1">
-        <layer locked="0" class="SimpleLine" enabled="1" pass="0">
-          <prop v="round" k="capstyle"/>
-          <prop v="0.3;0.3" k="customdash"/>
-          <prop v="3x:0,0,0,0,0,0" k="customdash_map_unit_scale"/>
-          <prop v="RenderMetersInMapUnits" k="customdash_unit"/>
-          <prop v="0" k="draw_inside_polygon"/>
-          <prop v="round" k="joinstyle"/>
-          <prop v="0,205,244,255" k="line_color"/>
-          <prop v="dash" k="line_style"/>
-          <prop v="0.3" k="line_width"/>
-          <prop v="RenderMetersInMapUnits" k="line_width_unit"/>
-          <prop v="0" k="offset"/>
-          <prop v="3x:0,0,0,0,0,0" k="offset_map_unit_scale"/>
-          <prop v="RenderMetersInMapUnits" k="offset_unit"/>
-          <prop v="0" k="ring_filter"/>
-          <prop v="1" k="use_custom_dash"/>
-          <prop v="3x:0,0,0,0,0,0" k="width_map_unit_scale"/>
-          <data_defined_properties>
-            <Option type="Map">
-              <Option value="" type="QString" name="name"/>
-              <Option name="properties"/>
-              <Option value="collection" type="QString" name="type"/>
-            </Option>
-          </data_defined_properties>
-        </layer>
-        <layer locked="1" class="SimpleLine" enabled="1" pass="0">
-          <prop v="round" k="capstyle"/>
-          <prop v="0.5;0.3" k="customdash"/>
-          <prop v="3x:0,0,0,0,0,0" k="customdash_map_unit_scale"/>
-          <prop v="RenderMetersInMapUnits" k="customdash_unit"/>
-          <prop v="0" k="draw_inside_polygon"/>
-          <prop v="round" k="joinstyle"/>
-          <prop v="255,127,0,255" k="line_color"/>
-          <prop v="dot" k="line_style"/>
-          <prop v="0.3" k="line_width"/>
-          <prop v="RenderMetersInMapUnits" k="line_width_unit"/>
-          <prop v="0" k="offset"/>
-          <prop v="3x:0,0,0,0,0,0" k="offset_map_unit_scale"/>
-          <prop v="RenderMetersInMapUnits" k="offset_unit"/>
-          <prop v="0" k="ring_filter"/>
-          <prop v="1" k="use_custom_dash"/>
-          <prop v="3x:0,0,0,0,0,0" k="width_map_unit_scale"/>
+        <layer enabled="1" pass="0" class="SimpleLine" locked="0">
+          <prop k="capstyle" v="round"/>
+          <prop k="customdash" v="0.5;0.5"/>
+          <prop k="customdash_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+          <prop k="customdash_unit" v="RenderMetersInMapUnits"/>
+          <prop k="draw_inside_polygon" v="0"/>
+          <prop k="joinstyle" v="round"/>
+          <prop k="line_color" v="227,26,234,255"/>
+          <prop k="line_style" v="dash"/>
+          <prop k="line_width" v="0.3"/>
+          <prop k="line_width_unit" v="RenderMetersInMapUnits"/>
+          <prop k="offset" v="0"/>
+          <prop k="offset_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+          <prop k="offset_unit" v="RenderMetersInMapUnits"/>
+          <prop k="ring_filter" v="0"/>
+          <prop k="use_custom_dash" v="0"/>
+          <prop k="width_map_unit_scale" v="3x:0,0,0,0,0,0"/>
           <data_defined_properties>
             <Option type="Map">
               <Option value="" type="QString" name="name"/>
@@ -450,24 +294,49 @@
           </data_defined_properties>
         </layer>
       </symbol>
-      <symbol alpha="1" force_rhr="0" type="line" name="18" clip_to_extent="1">
-        <layer locked="0" class="SimpleLine" enabled="1" pass="0">
-          <prop v="square" k="capstyle"/>
-          <prop v="5;2" k="customdash"/>
-          <prop v="3x:0,0,0,0,0,0" k="customdash_map_unit_scale"/>
-          <prop v="RenderMetersInMapUnits" k="customdash_unit"/>
-          <prop v="0" k="draw_inside_polygon"/>
-          <prop v="bevel" k="joinstyle"/>
-          <prop v="0,247,255,255" k="line_color"/>
-          <prop v="solid" k="line_style"/>
-          <prop v="0.3" k="line_width"/>
-          <prop v="RenderMetersInMapUnits" k="line_width_unit"/>
-          <prop v="0" k="offset"/>
-          <prop v="3x:0,0,0,0,0,0" k="offset_map_unit_scale"/>
-          <prop v="RenderMetersInMapUnits" k="offset_unit"/>
-          <prop v="0" k="ring_filter"/>
-          <prop v="0" k="use_custom_dash"/>
-          <prop v="3x:0,0,0,0,0,0" k="width_map_unit_scale"/>
+      <symbol clip_to_extent="1" force_rhr="0" type="line" name="15" alpha="1">
+        <layer enabled="1" pass="0" class="SimpleLine" locked="1">
+          <prop k="capstyle" v="round"/>
+          <prop k="customdash" v="0.5;0.5"/>
+          <prop k="customdash_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+          <prop k="customdash_unit" v="RenderMetersInMapUnits"/>
+          <prop k="draw_inside_polygon" v="0"/>
+          <prop k="joinstyle" v="round"/>
+          <prop k="line_color" v="0,0,0,255"/>
+          <prop k="line_style" v="dot"/>
+          <prop k="line_width" v="0.3"/>
+          <prop k="line_width_unit" v="RenderMetersInMapUnits"/>
+          <prop k="offset" v="0"/>
+          <prop k="offset_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+          <prop k="offset_unit" v="RenderMetersInMapUnits"/>
+          <prop k="ring_filter" v="0"/>
+          <prop k="use_custom_dash" v="1"/>
+          <prop k="width_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+          <data_defined_properties>
+            <Option type="Map">
+              <Option value="" type="QString" name="name"/>
+              <Option name="properties"/>
+              <Option value="collection" type="QString" name="type"/>
+            </Option>
+          </data_defined_properties>
+        </layer>
+        <layer enabled="1" pass="0" class="SimpleLine" locked="0">
+          <prop k="capstyle" v="round"/>
+          <prop k="customdash" v="0.5;0.5"/>
+          <prop k="customdash_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+          <prop k="customdash_unit" v="RenderMetersInMapUnits"/>
+          <prop k="draw_inside_polygon" v="0"/>
+          <prop k="joinstyle" v="round"/>
+          <prop k="line_color" v="227,26,234,255"/>
+          <prop k="line_style" v="dot"/>
+          <prop k="line_width" v="0.3"/>
+          <prop k="line_width_unit" v="RenderMetersInMapUnits"/>
+          <prop k="offset" v="0"/>
+          <prop k="offset_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+          <prop k="offset_unit" v="RenderMetersInMapUnits"/>
+          <prop k="ring_filter" v="0"/>
+          <prop k="use_custom_dash" v="1"/>
+          <prop k="width_map_unit_scale" v="3x:0,0,0,0,0,0"/>
           <data_defined_properties>
             <Option type="Map">
               <Option value="" type="QString" name="name"/>
@@ -477,24 +346,49 @@
           </data_defined_properties>
         </layer>
       </symbol>
-      <symbol alpha="1" force_rhr="0" type="line" name="19" clip_to_extent="1">
-        <layer locked="0" class="SimpleLine" enabled="1" pass="0">
-          <prop v="round" k="capstyle"/>
-          <prop v="0.5;0.5" k="customdash"/>
-          <prop v="3x:0,0,0,0,0,0" k="customdash_map_unit_scale"/>
-          <prop v="RenderMetersInMapUnits" k="customdash_unit"/>
-          <prop v="0" k="draw_inside_polygon"/>
-          <prop v="round" k="joinstyle"/>
-          <prop v="0,247,255,255" k="line_color"/>
-          <prop v="solid" k="line_style"/>
-          <prop v="0.3" k="line_width"/>
-          <prop v="RenderMetersInMapUnits" k="line_width_unit"/>
-          <prop v="0" k="offset"/>
-          <prop v="3x:0,0,0,0,0,0" k="offset_map_unit_scale"/>
-          <prop v="RenderMetersInMapUnits" k="offset_unit"/>
-          <prop v="0" k="ring_filter"/>
-          <prop v="1" k="use_custom_dash"/>
-          <prop v="3x:0,0,0,0,0,0" k="width_map_unit_scale"/>
+      <symbol clip_to_extent="1" force_rhr="0" type="line" name="16" alpha="1">
+        <layer enabled="1" pass="0" class="SimpleLine" locked="0">
+          <prop k="capstyle" v="round"/>
+          <prop k="customdash" v="5;2"/>
+          <prop k="customdash_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+          <prop k="customdash_unit" v="RenderMetersInMapUnits"/>
+          <prop k="draw_inside_polygon" v="0"/>
+          <prop k="joinstyle" v="round"/>
+          <prop k="line_color" v="0,205,244,255"/>
+          <prop k="line_style" v="solid"/>
+          <prop k="line_width" v="0.3"/>
+          <prop k="line_width_unit" v="RenderMetersInMapUnits"/>
+          <prop k="offset" v="0"/>
+          <prop k="offset_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+          <prop k="offset_unit" v="RenderMetersInMapUnits"/>
+          <prop k="ring_filter" v="0"/>
+          <prop k="use_custom_dash" v="0"/>
+          <prop k="width_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+          <data_defined_properties>
+            <Option type="Map">
+              <Option value="" type="QString" name="name"/>
+              <Option name="properties"/>
+              <Option value="collection" type="QString" name="type"/>
+            </Option>
+          </data_defined_properties>
+        </layer>
+        <layer enabled="1" pass="0" class="SimpleLine" locked="1">
+          <prop k="capstyle" v="round"/>
+          <prop k="customdash" v="5;2"/>
+          <prop k="customdash_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+          <prop k="customdash_unit" v="RenderMetersInMapUnits"/>
+          <prop k="draw_inside_polygon" v="0"/>
+          <prop k="joinstyle" v="round"/>
+          <prop k="line_color" v="255,127,0,255"/>
+          <prop k="line_style" v="dot"/>
+          <prop k="line_width" v="0.3"/>
+          <prop k="line_width_unit" v="RenderMetersInMapUnits"/>
+          <prop k="offset" v="0"/>
+          <prop k="offset_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+          <prop k="offset_unit" v="RenderMetersInMapUnits"/>
+          <prop k="ring_filter" v="0"/>
+          <prop k="use_custom_dash" v="0"/>
+          <prop k="width_map_unit_scale" v="3x:0,0,0,0,0,0"/>
           <data_defined_properties>
             <Option type="Map">
               <Option value="" type="QString" name="name"/>
@@ -504,24 +398,49 @@
           </data_defined_properties>
         </layer>
       </symbol>
-      <symbol alpha="1" force_rhr="0" type="line" name="2" clip_to_extent="1">
-        <layer locked="1" class="SimpleLine" enabled="1" pass="0">
-          <prop v="round" k="capstyle"/>
-          <prop v="5;2" k="customdash"/>
-          <prop v="3x:0,0,0,0,0,0" k="customdash_map_unit_scale"/>
-          <prop v="RenderMetersInMapUnits" k="customdash_unit"/>
-          <prop v="0" k="draw_inside_polygon"/>
-          <prop v="round" k="joinstyle"/>
-          <prop v="25,42,227,255" k="line_color"/>
-          <prop v="solid" k="line_style"/>
-          <prop v="0.3" k="line_width"/>
-          <prop v="RenderMetersInMapUnits" k="line_width_unit"/>
-          <prop v="0" k="offset"/>
-          <prop v="3x:0,0,0,0,0,0" k="offset_map_unit_scale"/>
-          <prop v="RenderMetersInMapUnits" k="offset_unit"/>
-          <prop v="0" k="ring_filter"/>
-          <prop v="0" k="use_custom_dash"/>
-          <prop v="3x:0,0,0,0,0,0" k="width_map_unit_scale"/>
+      <symbol clip_to_extent="1" force_rhr="0" type="line" name="17" alpha="1">
+        <layer enabled="1" pass="0" class="SimpleLine" locked="0">
+          <prop k="capstyle" v="round"/>
+          <prop k="customdash" v="0.3;0.3"/>
+          <prop k="customdash_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+          <prop k="customdash_unit" v="RenderMetersInMapUnits"/>
+          <prop k="draw_inside_polygon" v="0"/>
+          <prop k="joinstyle" v="round"/>
+          <prop k="line_color" v="0,205,244,255"/>
+          <prop k="line_style" v="dash"/>
+          <prop k="line_width" v="0.3"/>
+          <prop k="line_width_unit" v="RenderMetersInMapUnits"/>
+          <prop k="offset" v="0"/>
+          <prop k="offset_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+          <prop k="offset_unit" v="RenderMetersInMapUnits"/>
+          <prop k="ring_filter" v="0"/>
+          <prop k="use_custom_dash" v="1"/>
+          <prop k="width_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+          <data_defined_properties>
+            <Option type="Map">
+              <Option value="" type="QString" name="name"/>
+              <Option name="properties"/>
+              <Option value="collection" type="QString" name="type"/>
+            </Option>
+          </data_defined_properties>
+        </layer>
+        <layer enabled="1" pass="0" class="SimpleLine" locked="1">
+          <prop k="capstyle" v="round"/>
+          <prop k="customdash" v="0.5;0.3"/>
+          <prop k="customdash_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+          <prop k="customdash_unit" v="RenderMetersInMapUnits"/>
+          <prop k="draw_inside_polygon" v="0"/>
+          <prop k="joinstyle" v="round"/>
+          <prop k="line_color" v="255,127,0,255"/>
+          <prop k="line_style" v="dot"/>
+          <prop k="line_width" v="0.3"/>
+          <prop k="line_width_unit" v="RenderMetersInMapUnits"/>
+          <prop k="offset" v="0"/>
+          <prop k="offset_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+          <prop k="offset_unit" v="RenderMetersInMapUnits"/>
+          <prop k="ring_filter" v="0"/>
+          <prop k="use_custom_dash" v="1"/>
+          <prop k="width_map_unit_scale" v="3x:0,0,0,0,0,0"/>
           <data_defined_properties>
             <Option type="Map">
               <Option value="" type="QString" name="name"/>
@@ -531,24 +450,24 @@
           </data_defined_properties>
         </layer>
       </symbol>
-      <symbol alpha="1" force_rhr="0" type="line" name="20" clip_to_extent="1">
-        <layer locked="0" class="SimpleLine" enabled="1" pass="0">
-          <prop v="square" k="capstyle"/>
-          <prop v="5;2" k="customdash"/>
-          <prop v="3x:0,0,0,0,0,0" k="customdash_map_unit_scale"/>
-          <prop v="RenderMetersInMapUnits" k="customdash_unit"/>
-          <prop v="0" k="draw_inside_polygon"/>
-          <prop v="bevel" k="joinstyle"/>
-          <prop v="0,0,0,255" k="line_color"/>
-          <prop v="dot" k="line_style"/>
-          <prop v="0.1" k="line_width"/>
-          <prop v="RenderMetersInMapUnits" k="line_width_unit"/>
-          <prop v="0" k="offset"/>
-          <prop v="3x:0,0,0,0,0,0" k="offset_map_unit_scale"/>
-          <prop v="RenderMetersInMapUnits" k="offset_unit"/>
-          <prop v="0" k="ring_filter"/>
-          <prop v="0" k="use_custom_dash"/>
-          <prop v="3x:0,0,0,0,0,0" k="width_map_unit_scale"/>
+      <symbol clip_to_extent="1" force_rhr="0" type="line" name="18" alpha="1">
+        <layer enabled="1" pass="0" class="SimpleLine" locked="0">
+          <prop k="capstyle" v="square"/>
+          <prop k="customdash" v="5;2"/>
+          <prop k="customdash_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+          <prop k="customdash_unit" v="RenderMetersInMapUnits"/>
+          <prop k="draw_inside_polygon" v="0"/>
+          <prop k="joinstyle" v="bevel"/>
+          <prop k="line_color" v="0,247,255,255"/>
+          <prop k="line_style" v="solid"/>
+          <prop k="line_width" v="0.3"/>
+          <prop k="line_width_unit" v="RenderMetersInMapUnits"/>
+          <prop k="offset" v="0"/>
+          <prop k="offset_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+          <prop k="offset_unit" v="RenderMetersInMapUnits"/>
+          <prop k="ring_filter" v="0"/>
+          <prop k="use_custom_dash" v="0"/>
+          <prop k="width_map_unit_scale" v="3x:0,0,0,0,0,0"/>
           <data_defined_properties>
             <Option type="Map">
               <Option value="" type="QString" name="name"/>
@@ -558,24 +477,24 @@
           </data_defined_properties>
         </layer>
       </symbol>
-      <symbol alpha="1" force_rhr="0" type="line" name="3" clip_to_extent="1">
-        <layer locked="1" class="SimpleLine" enabled="1" pass="0">
-          <prop v="round" k="capstyle"/>
-          <prop v="0.5;0.5" k="customdash"/>
-          <prop v="3x:0,0,0,0,0,0" k="customdash_map_unit_scale"/>
-          <prop v="RenderMetersInMapUnits" k="customdash_unit"/>
-          <prop v="0" k="draw_inside_polygon"/>
-          <prop v="round" k="joinstyle"/>
-          <prop v="25,42,227,255" k="line_color"/>
-          <prop v="dot" k="line_style"/>
-          <prop v="0.3" k="line_width"/>
-          <prop v="RenderMetersInMapUnits" k="line_width_unit"/>
-          <prop v="0" k="offset"/>
-          <prop v="3x:0,0,0,0,0,0" k="offset_map_unit_scale"/>
-          <prop v="RenderMetersInMapUnits" k="offset_unit"/>
-          <prop v="0" k="ring_filter"/>
-          <prop v="1" k="use_custom_dash"/>
-          <prop v="3x:0,0,0,0,0,0" k="width_map_unit_scale"/>
+      <symbol clip_to_extent="1" force_rhr="0" type="line" name="19" alpha="1">
+        <layer enabled="1" pass="0" class="SimpleLine" locked="0">
+          <prop k="capstyle" v="round"/>
+          <prop k="customdash" v="0.5;0.5"/>
+          <prop k="customdash_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+          <prop k="customdash_unit" v="RenderMetersInMapUnits"/>
+          <prop k="draw_inside_polygon" v="0"/>
+          <prop k="joinstyle" v="round"/>
+          <prop k="line_color" v="0,247,255,255"/>
+          <prop k="line_style" v="solid"/>
+          <prop k="line_width" v="0.3"/>
+          <prop k="line_width_unit" v="RenderMetersInMapUnits"/>
+          <prop k="offset" v="0"/>
+          <prop k="offset_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+          <prop k="offset_unit" v="RenderMetersInMapUnits"/>
+          <prop k="ring_filter" v="0"/>
+          <prop k="use_custom_dash" v="1"/>
+          <prop k="width_map_unit_scale" v="3x:0,0,0,0,0,0"/>
           <data_defined_properties>
             <Option type="Map">
               <Option value="" type="QString" name="name"/>
@@ -585,24 +504,24 @@
           </data_defined_properties>
         </layer>
       </symbol>
-      <symbol alpha="1" force_rhr="0" type="line" name="4" clip_to_extent="1">
-        <layer locked="0" class="SimpleLine" enabled="1" pass="0">
-          <prop v="square" k="capstyle"/>
-          <prop v="5;2" k="customdash"/>
-          <prop v="3x:0,0,0,0,0,0" k="customdash_map_unit_scale"/>
-          <prop v="RenderMetersInMapUnits" k="customdash_unit"/>
-          <prop v="0" k="draw_inside_polygon"/>
-          <prop v="bevel" k="joinstyle"/>
-          <prop v="14,150,82,255" k="line_color"/>
-          <prop v="solid" k="line_style"/>
-          <prop v="0.3" k="line_width"/>
-          <prop v="RenderMetersInMapUnits" k="line_width_unit"/>
-          <prop v="0" k="offset"/>
-          <prop v="3x:0,0,0,0,0,0" k="offset_map_unit_scale"/>
-          <prop v="RenderMetersInMapUnits" k="offset_unit"/>
-          <prop v="0" k="ring_filter"/>
-          <prop v="0" k="use_custom_dash"/>
-          <prop v="3x:0,0,0,0,0,0" k="width_map_unit_scale"/>
+      <symbol clip_to_extent="1" force_rhr="0" type="line" name="2" alpha="1">
+        <layer enabled="1" pass="0" class="SimpleLine" locked="1">
+          <prop k="capstyle" v="round"/>
+          <prop k="customdash" v="5;2"/>
+          <prop k="customdash_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+          <prop k="customdash_unit" v="RenderMetersInMapUnits"/>
+          <prop k="draw_inside_polygon" v="0"/>
+          <prop k="joinstyle" v="round"/>
+          <prop k="line_color" v="25,42,227,255"/>
+          <prop k="line_style" v="solid"/>
+          <prop k="line_width" v="0.3"/>
+          <prop k="line_width_unit" v="RenderMetersInMapUnits"/>
+          <prop k="offset" v="0"/>
+          <prop k="offset_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+          <prop k="offset_unit" v="RenderMetersInMapUnits"/>
+          <prop k="ring_filter" v="0"/>
+          <prop k="use_custom_dash" v="0"/>
+          <prop k="width_map_unit_scale" v="3x:0,0,0,0,0,0"/>
           <data_defined_properties>
             <Option type="Map">
               <Option value="" type="QString" name="name"/>
@@ -612,24 +531,24 @@
           </data_defined_properties>
         </layer>
       </symbol>
-      <symbol alpha="1" force_rhr="0" type="line" name="5" clip_to_extent="1">
-        <layer locked="0" class="SimpleLine" enabled="1" pass="0">
-          <prop v="square" k="capstyle"/>
-          <prop v="0.5;0.5" k="customdash"/>
-          <prop v="3x:0,0,0,0,0,0" k="customdash_map_unit_scale"/>
-          <prop v="RenderMetersInMapUnits" k="customdash_unit"/>
-          <prop v="0" k="draw_inside_polygon"/>
-          <prop v="bevel" k="joinstyle"/>
-          <prop v="14,150,82,255" k="line_color"/>
-          <prop v="dot" k="line_style"/>
-          <prop v="0.3" k="line_width"/>
-          <prop v="RenderMetersInMapUnits" k="line_width_unit"/>
-          <prop v="0" k="offset"/>
-          <prop v="3x:0,0,0,0,0,0" k="offset_map_unit_scale"/>
-          <prop v="RenderMetersInMapUnits" k="offset_unit"/>
-          <prop v="0" k="ring_filter"/>
-          <prop v="1" k="use_custom_dash"/>
-          <prop v="3x:0,0,0,0,0,0" k="width_map_unit_scale"/>
+      <symbol clip_to_extent="1" force_rhr="0" type="line" name="20" alpha="1">
+        <layer enabled="1" pass="0" class="SimpleLine" locked="0">
+          <prop k="capstyle" v="square"/>
+          <prop k="customdash" v="5;2"/>
+          <prop k="customdash_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+          <prop k="customdash_unit" v="RenderMetersInMapUnits"/>
+          <prop k="draw_inside_polygon" v="0"/>
+          <prop k="joinstyle" v="bevel"/>
+          <prop k="line_color" v="0,0,0,255"/>
+          <prop k="line_style" v="dot"/>
+          <prop k="line_width" v="0.1"/>
+          <prop k="line_width_unit" v="RenderMetersInMapUnits"/>
+          <prop k="offset" v="0"/>
+          <prop k="offset_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+          <prop k="offset_unit" v="RenderMetersInMapUnits"/>
+          <prop k="ring_filter" v="0"/>
+          <prop k="use_custom_dash" v="0"/>
+          <prop k="width_map_unit_scale" v="3x:0,0,0,0,0,0"/>
           <data_defined_properties>
             <Option type="Map">
               <Option value="" type="QString" name="name"/>
@@ -639,24 +558,24 @@
           </data_defined_properties>
         </layer>
       </symbol>
-      <symbol alpha="1" force_rhr="0" type="line" name="6" clip_to_extent="1">
-        <layer locked="0" class="SimpleLine" enabled="1" pass="0">
-          <prop v="square" k="capstyle"/>
-          <prop v="5;2" k="customdash"/>
-          <prop v="3x:0,0,0,0,0,0" k="customdash_map_unit_scale"/>
-          <prop v="RenderMetersInMapUnits" k="customdash_unit"/>
-          <prop v="0" k="draw_inside_polygon"/>
-          <prop v="bevel" k="joinstyle"/>
-          <prop v="109,26,234,255" k="line_color"/>
-          <prop v="solid" k="line_style"/>
-          <prop v="0.3" k="line_width"/>
-          <prop v="RenderMetersInMapUnits" k="line_width_unit"/>
-          <prop v="0" k="offset"/>
-          <prop v="3x:0,0,0,0,0,0" k="offset_map_unit_scale"/>
-          <prop v="RenderMetersInMapUnits" k="offset_unit"/>
-          <prop v="0" k="ring_filter"/>
-          <prop v="0" k="use_custom_dash"/>
-          <prop v="3x:0,0,0,0,0,0" k="width_map_unit_scale"/>
+      <symbol clip_to_extent="1" force_rhr="0" type="line" name="3" alpha="1">
+        <layer enabled="1" pass="0" class="SimpleLine" locked="1">
+          <prop k="capstyle" v="round"/>
+          <prop k="customdash" v="0.5;0.5"/>
+          <prop k="customdash_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+          <prop k="customdash_unit" v="RenderMetersInMapUnits"/>
+          <prop k="draw_inside_polygon" v="0"/>
+          <prop k="joinstyle" v="round"/>
+          <prop k="line_color" v="25,42,227,255"/>
+          <prop k="line_style" v="dot"/>
+          <prop k="line_width" v="0.3"/>
+          <prop k="line_width_unit" v="RenderMetersInMapUnits"/>
+          <prop k="offset" v="0"/>
+          <prop k="offset_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+          <prop k="offset_unit" v="RenderMetersInMapUnits"/>
+          <prop k="ring_filter" v="0"/>
+          <prop k="use_custom_dash" v="1"/>
+          <prop k="width_map_unit_scale" v="3x:0,0,0,0,0,0"/>
           <data_defined_properties>
             <Option type="Map">
               <Option value="" type="QString" name="name"/>
@@ -666,24 +585,24 @@
           </data_defined_properties>
         </layer>
       </symbol>
-      <symbol alpha="1" force_rhr="0" type="line" name="7" clip_to_extent="1">
-        <layer locked="0" class="SimpleLine" enabled="1" pass="0">
-          <prop v="square" k="capstyle"/>
-          <prop v="0.5;0.5" k="customdash"/>
-          <prop v="3x:0,0,0,0,0,0" k="customdash_map_unit_scale"/>
-          <prop v="RenderMetersInMapUnits" k="customdash_unit"/>
-          <prop v="0" k="draw_inside_polygon"/>
-          <prop v="bevel" k="joinstyle"/>
-          <prop v="109,26,234,255" k="line_color"/>
-          <prop v="dot" k="line_style"/>
-          <prop v="0.3" k="line_width"/>
-          <prop v="RenderMetersInMapUnits" k="line_width_unit"/>
-          <prop v="0" k="offset"/>
-          <prop v="3x:0,0,0,0,0,0" k="offset_map_unit_scale"/>
-          <prop v="RenderMetersInMapUnits" k="offset_unit"/>
-          <prop v="0" k="ring_filter"/>
-          <prop v="1" k="use_custom_dash"/>
-          <prop v="3x:0,0,0,0,0,0" k="width_map_unit_scale"/>
+      <symbol clip_to_extent="1" force_rhr="0" type="line" name="4" alpha="1">
+        <layer enabled="1" pass="0" class="SimpleLine" locked="0">
+          <prop k="capstyle" v="square"/>
+          <prop k="customdash" v="5;2"/>
+          <prop k="customdash_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+          <prop k="customdash_unit" v="RenderMetersInMapUnits"/>
+          <prop k="draw_inside_polygon" v="0"/>
+          <prop k="joinstyle" v="bevel"/>
+          <prop k="line_color" v="14,150,82,255"/>
+          <prop k="line_style" v="solid"/>
+          <prop k="line_width" v="0.3"/>
+          <prop k="line_width_unit" v="RenderMetersInMapUnits"/>
+          <prop k="offset" v="0"/>
+          <prop k="offset_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+          <prop k="offset_unit" v="RenderMetersInMapUnits"/>
+          <prop k="ring_filter" v="0"/>
+          <prop k="use_custom_dash" v="0"/>
+          <prop k="width_map_unit_scale" v="3x:0,0,0,0,0,0"/>
           <data_defined_properties>
             <Option type="Map">
               <Option value="" type="QString" name="name"/>
@@ -693,24 +612,24 @@
           </data_defined_properties>
         </layer>
       </symbol>
-      <symbol alpha="1" force_rhr="0" type="line" name="8" clip_to_extent="1">
-        <layer locked="0" class="SimpleLine" enabled="1" pass="0">
-          <prop v="square" k="capstyle"/>
-          <prop v="5;2" k="customdash"/>
-          <prop v="3x:0,0,0,0,0,0" k="customdash_map_unit_scale"/>
-          <prop v="RenderMetersInMapUnits" k="customdash_unit"/>
-          <prop v="0" k="draw_inside_polygon"/>
-          <prop v="bevel" k="joinstyle"/>
-          <prop v="0,247,255,255" k="line_color"/>
-          <prop v="solid" k="line_style"/>
-          <prop v="0.3" k="line_width"/>
-          <prop v="RenderMetersInMapUnits" k="line_width_unit"/>
-          <prop v="0" k="offset"/>
-          <prop v="3x:0,0,0,0,0,0" k="offset_map_unit_scale"/>
-          <prop v="RenderMetersInMapUnits" k="offset_unit"/>
-          <prop v="0" k="ring_filter"/>
-          <prop v="0" k="use_custom_dash"/>
-          <prop v="3x:0,0,0,0,0,0" k="width_map_unit_scale"/>
+      <symbol clip_to_extent="1" force_rhr="0" type="line" name="5" alpha="1">
+        <layer enabled="1" pass="0" class="SimpleLine" locked="0">
+          <prop k="capstyle" v="square"/>
+          <prop k="customdash" v="0.5;0.5"/>
+          <prop k="customdash_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+          <prop k="customdash_unit" v="RenderMetersInMapUnits"/>
+          <prop k="draw_inside_polygon" v="0"/>
+          <prop k="joinstyle" v="bevel"/>
+          <prop k="line_color" v="14,150,82,255"/>
+          <prop k="line_style" v="dot"/>
+          <prop k="line_width" v="0.3"/>
+          <prop k="line_width_unit" v="RenderMetersInMapUnits"/>
+          <prop k="offset" v="0"/>
+          <prop k="offset_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+          <prop k="offset_unit" v="RenderMetersInMapUnits"/>
+          <prop k="ring_filter" v="0"/>
+          <prop k="use_custom_dash" v="1"/>
+          <prop k="width_map_unit_scale" v="3x:0,0,0,0,0,0"/>
           <data_defined_properties>
             <Option type="Map">
               <Option value="" type="QString" name="name"/>
@@ -720,24 +639,105 @@
           </data_defined_properties>
         </layer>
       </symbol>
-      <symbol alpha="1" force_rhr="0" type="line" name="9" clip_to_extent="1">
-        <layer locked="0" class="SimpleLine" enabled="1" pass="0">
-          <prop v="square" k="capstyle"/>
-          <prop v="0.5;0.5" k="customdash"/>
-          <prop v="3x:0,0,0,0,0,0" k="customdash_map_unit_scale"/>
-          <prop v="RenderMetersInMapUnits" k="customdash_unit"/>
-          <prop v="0" k="draw_inside_polygon"/>
-          <prop v="bevel" k="joinstyle"/>
-          <prop v="0,247,255,255" k="line_color"/>
-          <prop v="dot" k="line_style"/>
-          <prop v="0.3" k="line_width"/>
-          <prop v="RenderMetersInMapUnits" k="line_width_unit"/>
-          <prop v="0" k="offset"/>
-          <prop v="3x:0,0,0,0,0,0" k="offset_map_unit_scale"/>
-          <prop v="RenderMetersInMapUnits" k="offset_unit"/>
-          <prop v="0" k="ring_filter"/>
-          <prop v="1" k="use_custom_dash"/>
-          <prop v="3x:0,0,0,0,0,0" k="width_map_unit_scale"/>
+      <symbol clip_to_extent="1" force_rhr="0" type="line" name="6" alpha="1">
+        <layer enabled="1" pass="0" class="SimpleLine" locked="0">
+          <prop k="capstyle" v="square"/>
+          <prop k="customdash" v="5;2"/>
+          <prop k="customdash_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+          <prop k="customdash_unit" v="RenderMetersInMapUnits"/>
+          <prop k="draw_inside_polygon" v="0"/>
+          <prop k="joinstyle" v="bevel"/>
+          <prop k="line_color" v="109,26,234,255"/>
+          <prop k="line_style" v="solid"/>
+          <prop k="line_width" v="0.3"/>
+          <prop k="line_width_unit" v="RenderMetersInMapUnits"/>
+          <prop k="offset" v="0"/>
+          <prop k="offset_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+          <prop k="offset_unit" v="RenderMetersInMapUnits"/>
+          <prop k="ring_filter" v="0"/>
+          <prop k="use_custom_dash" v="0"/>
+          <prop k="width_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+          <data_defined_properties>
+            <Option type="Map">
+              <Option value="" type="QString" name="name"/>
+              <Option name="properties"/>
+              <Option value="collection" type="QString" name="type"/>
+            </Option>
+          </data_defined_properties>
+        </layer>
+      </symbol>
+      <symbol clip_to_extent="1" force_rhr="0" type="line" name="7" alpha="1">
+        <layer enabled="1" pass="0" class="SimpleLine" locked="0">
+          <prop k="capstyle" v="square"/>
+          <prop k="customdash" v="0.5;0.5"/>
+          <prop k="customdash_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+          <prop k="customdash_unit" v="RenderMetersInMapUnits"/>
+          <prop k="draw_inside_polygon" v="0"/>
+          <prop k="joinstyle" v="bevel"/>
+          <prop k="line_color" v="109,26,234,255"/>
+          <prop k="line_style" v="dot"/>
+          <prop k="line_width" v="0.3"/>
+          <prop k="line_width_unit" v="RenderMetersInMapUnits"/>
+          <prop k="offset" v="0"/>
+          <prop k="offset_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+          <prop k="offset_unit" v="RenderMetersInMapUnits"/>
+          <prop k="ring_filter" v="0"/>
+          <prop k="use_custom_dash" v="1"/>
+          <prop k="width_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+          <data_defined_properties>
+            <Option type="Map">
+              <Option value="" type="QString" name="name"/>
+              <Option name="properties"/>
+              <Option value="collection" type="QString" name="type"/>
+            </Option>
+          </data_defined_properties>
+        </layer>
+      </symbol>
+      <symbol clip_to_extent="1" force_rhr="0" type="line" name="8" alpha="1">
+        <layer enabled="1" pass="0" class="SimpleLine" locked="0">
+          <prop k="capstyle" v="square"/>
+          <prop k="customdash" v="5;2"/>
+          <prop k="customdash_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+          <prop k="customdash_unit" v="RenderMetersInMapUnits"/>
+          <prop k="draw_inside_polygon" v="0"/>
+          <prop k="joinstyle" v="bevel"/>
+          <prop k="line_color" v="0,247,255,255"/>
+          <prop k="line_style" v="solid"/>
+          <prop k="line_width" v="0.3"/>
+          <prop k="line_width_unit" v="RenderMetersInMapUnits"/>
+          <prop k="offset" v="0"/>
+          <prop k="offset_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+          <prop k="offset_unit" v="RenderMetersInMapUnits"/>
+          <prop k="ring_filter" v="0"/>
+          <prop k="use_custom_dash" v="0"/>
+          <prop k="width_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+          <data_defined_properties>
+            <Option type="Map">
+              <Option value="" type="QString" name="name"/>
+              <Option name="properties"/>
+              <Option value="collection" type="QString" name="type"/>
+            </Option>
+          </data_defined_properties>
+        </layer>
+      </symbol>
+      <symbol clip_to_extent="1" force_rhr="0" type="line" name="9" alpha="1">
+        <layer enabled="1" pass="0" class="SimpleLine" locked="0">
+          <prop k="capstyle" v="square"/>
+          <prop k="customdash" v="0.5;0.5"/>
+          <prop k="customdash_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+          <prop k="customdash_unit" v="RenderMetersInMapUnits"/>
+          <prop k="draw_inside_polygon" v="0"/>
+          <prop k="joinstyle" v="bevel"/>
+          <prop k="line_color" v="0,247,255,255"/>
+          <prop k="line_style" v="dot"/>
+          <prop k="line_width" v="0.3"/>
+          <prop k="line_width_unit" v="RenderMetersInMapUnits"/>
+          <prop k="offset" v="0"/>
+          <prop k="offset_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+          <prop k="offset_unit" v="RenderMetersInMapUnits"/>
+          <prop k="ring_filter" v="0"/>
+          <prop k="use_custom_dash" v="1"/>
+          <prop k="width_map_unit_scale" v="3x:0,0,0,0,0,0"/>
           <data_defined_properties>
             <Option type="Map">
               <Option value="" type="QString" name="name"/>
@@ -750,18 +750,18 @@
     </symbols>
   </renderer-v2>
   <labeling type="rule-based">
-    <rules key="{dcbfeef2-9e9c-4fcb-a62b-c58370f3b65f}">
-      <rule key="{9d9419de-fa72-4e79-b395-1efdf0baf329}">
+    <rules key="{16a91b69-71af-4456-bb08-b6a5e08773b6}">
+      <rule key="{cdd66f63-baa4-4e28-bf1f-a5a9d42bfecb}">
         <settings>
-          <text-style fontUnderline="0" fontWordSpacing="0" fontItalic="0" fontWeight="50" multilineHeight="1" textColor="0,0,0,255" isExpression="1" textOpacity="1" fontFamily="Sans Serif" fontSizeUnit="RenderMetersInMapUnits" fontSizeMapUnitScale="3x:0,0,0,0,0,0" fontSize="1" useSubstitutions="0" previewBkgrdColor="#ffffff" fontLetterSpacing="0" namedStyle="Regular" fontStrikeout="0" fontCapitals="0" blendMode="0" fieldName="measured_l||' m '">
-            <text-buffer bufferOpacity="1" bufferNoFill="1" bufferSizeUnits="MM" bufferColor="255,255,255,255" bufferSizeMapUnitScale="3x:0,0,0,0,0,0" bufferDraw="0" bufferSize="1" bufferJoinStyle="128" bufferBlendMode="0"/>
-            <background shapeBorderWidthUnit="MM" shapeSizeUnit="MM" shapeRadiiMapUnitScale="3x:0,0,0,0,0,0" shapeOpacity="1" shapeBorderColor="128,128,128,255" shapeSizeType="0" shapeBlendMode="0" shapeSizeX="0" shapeOffsetMapUnitScale="3x:0,0,0,0,0,0" shapeBorderWidth="0" shapeJoinStyle="64" shapeType="0" shapeOffsetUnit="MM" shapeDraw="0" shapeRotationType="0" shapeFillColor="255,255,255,255" shapeBorderWidthMapUnitScale="3x:0,0,0,0,0,0" shapeSizeY="0" shapeSizeMapUnitScale="3x:0,0,0,0,0,0" shapeRadiiX="0" shapeRadiiY="0" shapeSVGFile="" shapeOffsetX="0" shapeRadiiUnit="MM" shapeOffsetY="0" shapeRotation="0"/>
-            <shadow shadowOffsetAngle="135" shadowOffsetMapUnitScale="3x:0,0,0,0,0,0" shadowRadiusUnit="MM" shadowOpacity="0.7" shadowOffsetUnit="MM" shadowOffsetDist="1" shadowRadiusMapUnitScale="3x:0,0,0,0,0,0" shadowScale="100" shadowOffsetGlobal="1" shadowDraw="0" shadowUnder="0" shadowRadiusAlphaOnly="0" shadowColor="0,0,0,255" shadowBlendMode="6" shadowRadius="1.5"/>
+          <text-style fontItalic="0" multilineHeight="1" previewBkgrdColor="#ffffff" fontSizeUnit="RenderMetersInMapUnits" fieldName="measured_l||' m '" fontSize="1" blendMode="0" fontWordSpacing="0" namedStyle="Regular" textOpacity="1" fontWeight="50" fontFamily="Sans Serif" textColor="0,0,0,255" isExpression="1" fontSizeMapUnitScale="3x:0,0,0,0,0,0" useSubstitutions="0" fontCapitals="0" fontLetterSpacing="0" fontStrikeout="0" fontUnderline="0">
+            <text-buffer bufferOpacity="1" bufferJoinStyle="128" bufferBlendMode="0" bufferSizeUnits="MM" bufferColor="255,255,255,255" bufferSize="1" bufferSizeMapUnitScale="3x:0,0,0,0,0,0" bufferNoFill="1" bufferDraw="0"/>
+            <background shapeDraw="0" shapeJoinStyle="64" shapeOffsetX="0" shapeBorderWidthMapUnitScale="3x:0,0,0,0,0,0" shapeRotation="0" shapeRadiiY="0" shapeOffsetUnit="MM" shapeFillColor="255,255,255,255" shapeOffsetMapUnitScale="3x:0,0,0,0,0,0" shapeOpacity="1" shapeSizeY="0" shapeOffsetY="0" shapeBorderColor="128,128,128,255" shapeRadiiUnit="MM" shapeRotationType="0" shapeSizeX="0" shapeRadiiMapUnitScale="3x:0,0,0,0,0,0" shapeType="0" shapeSizeUnit="MM" shapeSVGFile="" shapeSizeMapUnitScale="3x:0,0,0,0,0,0" shapeBorderWidth="0" shapeBlendMode="0" shapeSizeType="0" shapeRadiiX="0" shapeBorderWidthUnit="MM"/>
+            <shadow shadowRadiusUnit="MM" shadowScale="100" shadowRadius="1.5" shadowRadiusMapUnitScale="3x:0,0,0,0,0,0" shadowOffsetGlobal="1" shadowBlendMode="6" shadowColor="0,0,0,255" shadowDraw="0" shadowOffsetDist="1" shadowRadiusAlphaOnly="0" shadowOpacity="0.7" shadowUnder="0" shadowOffsetAngle="135" shadowOffsetUnit="MM" shadowOffsetMapUnitScale="3x:0,0,0,0,0,0"/>
             <substitutions/>
           </text-style>
-          <text-format decimals="3" leftDirectionSymbol="&lt;" reverseDirectionSymbol="0" multilineAlign="4294967295" formatNumbers="0" placeDirectionSymbol="0" wrapChar="" autoWrapLength="0" rightDirectionSymbol=">" plussign="0" addDirectionSymbol="0" useMaxLineLengthForAutoWrap="1"/>
-          <placement placementFlags="10" preserveRotation="1" maxCurvedCharAngleIn="25" geometryGeneratorType="PointGeometry" geometryGenerator="" geometryGeneratorEnabled="0" dist="0.3" labelOffsetMapUnitScale="3x:0,0,0,0,0,0" quadOffset="4" repeatDistanceMapUnitScale="3x:0,0,0,0,0,0" priority="7" repeatDistanceUnits="MM" repeatDistance="0" centroidInside="0" fitInPolygonOnly="0" maxCurvedCharAngleOut="-25" placement="2" offsetUnits="MM" distUnits="RenderMetersInMapUnits" predefinedPositionOrder="TR,TL,BR,BL,R,L,TSR,BSR" yOffset="0" distMapUnitScale="3x:0,0,0,0,0,0" rotationAngle="0" offsetType="0" xOffset="0" centroidWhole="0"/>
-          <rendering fontLimitPixelSize="0" obstacleType="0" zIndex="0" scaleVisibility="0" scaleMin="0" fontMinPixelSize="3" mergeLines="0" limitNumLabels="0" scaleMax="0" obstacle="1" drawLabels="1" displayAll="0" minFeatureSize="1" obstacleFactor="1" upsidedownLabels="0" maxNumLabels="2000" fontMaxPixelSize="10000" labelPerPart="0"/>
+          <text-format addDirectionSymbol="0" decimals="3" plussign="0" multilineAlign="4294967295" reverseDirectionSymbol="0" autoWrapLength="0" leftDirectionSymbol="&lt;" rightDirectionSymbol=">" formatNumbers="0" placeDirectionSymbol="0" wrapChar="" useMaxLineLengthForAutoWrap="1"/>
+          <placement rotationAngle="0" preserveRotation="1" distUnits="RenderMetersInMapUnits" geometryGenerator="" centroidWhole="0" maxCurvedCharAngleOut="-25" placement="2" geometryGeneratorType="PointGeometry" repeatDistanceUnits="MM" labelOffsetMapUnitScale="3x:0,0,0,0,0,0" predefinedPositionOrder="TR,TL,BR,BL,R,L,TSR,BSR" distMapUnitScale="3x:0,0,0,0,0,0" offsetType="0" xOffset="0" priority="7" geometryGeneratorEnabled="0" offsetUnits="MM" fitInPolygonOnly="0" repeatDistanceMapUnitScale="3x:0,0,0,0,0,0" dist="0.3" centroidInside="0" repeatDistance="0" yOffset="0" quadOffset="4" placementFlags="10" maxCurvedCharAngleIn="25"/>
+          <rendering fontMinPixelSize="3" obstacleType="0" zIndex="0" fontMaxPixelSize="10000" scaleMax="0" obstacle="1" mergeLines="0" drawLabels="1" labelPerPart="0" limitNumLabels="0" minFeatureSize="1" obstacleFactor="1" fontLimitPixelSize="0" scaleVisibility="0" maxNumLabels="2000" displayAll="0" upsidedownLabels="0" scaleMin="0"/>
           <dd_properties>
             <Option type="Map">
               <Option value="" type="QString" name="name"/>
@@ -771,17 +771,17 @@
           </dd_properties>
         </settings>
       </rule>
-      <rule key="{ebe1ae30-5031-4121-9643-282f248b94d4}">
+      <rule key="{2c24b77f-e1d3-4cfb-aee7-e1d36a9a180b}">
         <settings>
-          <text-style fontUnderline="0" fontWordSpacing="0" fontItalic="0" fontWeight="50" multilineHeight="1" textColor="0,0,0,255" isExpression="0" textOpacity="1" fontFamily="Sans Serif" fontSizeUnit="RenderMetersInMapUnits" fontSizeMapUnitScale="3x:0,0,0,0,0,0" fontSize="1" useSubstitutions="0" previewBkgrdColor="#ffffff" fontLetterSpacing="0" namedStyle="Regular" fontStrikeout="0" fontCapitals="0" blendMode="0" fieldName="tipo_mtubi">
-            <text-buffer bufferOpacity="1" bufferNoFill="1" bufferSizeUnits="MM" bufferColor="255,255,255,255" bufferSizeMapUnitScale="3x:0,0,0,0,0,0" bufferDraw="0" bufferSize="1" bufferJoinStyle="128" bufferBlendMode="0"/>
-            <background shapeBorderWidthUnit="MM" shapeSizeUnit="MM" shapeRadiiMapUnitScale="3x:0,0,0,0,0,0" shapeOpacity="1" shapeBorderColor="128,128,128,255" shapeSizeType="0" shapeBlendMode="0" shapeSizeX="0" shapeOffsetMapUnitScale="3x:0,0,0,0,0,0" shapeBorderWidth="0" shapeJoinStyle="64" shapeType="0" shapeOffsetUnit="MM" shapeDraw="0" shapeRotationType="0" shapeFillColor="255,255,255,255" shapeBorderWidthMapUnitScale="3x:0,0,0,0,0,0" shapeSizeY="0" shapeSizeMapUnitScale="3x:0,0,0,0,0,0" shapeRadiiX="0" shapeRadiiY="0" shapeSVGFile="" shapeOffsetX="0" shapeRadiiUnit="MM" shapeOffsetY="0" shapeRotation="0"/>
-            <shadow shadowOffsetAngle="135" shadowOffsetMapUnitScale="3x:0,0,0,0,0,0" shadowRadiusUnit="MM" shadowOpacity="0.7" shadowOffsetUnit="MM" shadowOffsetDist="1" shadowRadiusMapUnitScale="3x:0,0,0,0,0,0" shadowScale="100" shadowOffsetGlobal="1" shadowDraw="0" shadowUnder="0" shadowRadiusAlphaOnly="0" shadowColor="0,0,0,255" shadowBlendMode="6" shadowRadius="1.5"/>
+          <text-style fontItalic="0" multilineHeight="1" previewBkgrdColor="#ffffff" fontSizeUnit="RenderMetersInMapUnits" fieldName="tipo_mtubi" fontSize="1" blendMode="0" fontWordSpacing="0" namedStyle="Regular" textOpacity="1" fontWeight="50" fontFamily="Sans Serif" textColor="0,0,0,255" isExpression="0" fontSizeMapUnitScale="3x:0,0,0,0,0,0" useSubstitutions="0" fontCapitals="0" fontLetterSpacing="0" fontStrikeout="0" fontUnderline="0">
+            <text-buffer bufferOpacity="1" bufferJoinStyle="128" bufferBlendMode="0" bufferSizeUnits="MM" bufferColor="255,255,255,255" bufferSize="1" bufferSizeMapUnitScale="3x:0,0,0,0,0,0" bufferNoFill="1" bufferDraw="0"/>
+            <background shapeDraw="0" shapeJoinStyle="64" shapeOffsetX="0" shapeBorderWidthMapUnitScale="3x:0,0,0,0,0,0" shapeRotation="0" shapeRadiiY="0" shapeOffsetUnit="MM" shapeFillColor="255,255,255,255" shapeOffsetMapUnitScale="3x:0,0,0,0,0,0" shapeOpacity="1" shapeSizeY="0" shapeOffsetY="0" shapeBorderColor="128,128,128,255" shapeRadiiUnit="MM" shapeRotationType="0" shapeSizeX="0" shapeRadiiMapUnitScale="3x:0,0,0,0,0,0" shapeType="0" shapeSizeUnit="MM" shapeSVGFile="" shapeSizeMapUnitScale="3x:0,0,0,0,0,0" shapeBorderWidth="0" shapeBlendMode="0" shapeSizeType="0" shapeRadiiX="0" shapeBorderWidthUnit="MM"/>
+            <shadow shadowRadiusUnit="MM" shadowScale="100" shadowRadius="1.5" shadowRadiusMapUnitScale="3x:0,0,0,0,0,0" shadowOffsetGlobal="1" shadowBlendMode="6" shadowColor="0,0,0,255" shadowDraw="0" shadowOffsetDist="1" shadowRadiusAlphaOnly="0" shadowOpacity="0.7" shadowUnder="0" shadowOffsetAngle="135" shadowOffsetUnit="MM" shadowOffsetMapUnitScale="3x:0,0,0,0,0,0"/>
             <substitutions/>
           </text-style>
-          <text-format decimals="3" leftDirectionSymbol="&lt;" reverseDirectionSymbol="0" multilineAlign="4294967295" formatNumbers="0" placeDirectionSymbol="0" wrapChar="" autoWrapLength="0" rightDirectionSymbol=">" plussign="0" addDirectionSymbol="0" useMaxLineLengthForAutoWrap="1"/>
-          <placement placementFlags="12" preserveRotation="1" maxCurvedCharAngleIn="25" geometryGeneratorType="PointGeometry" geometryGenerator="" geometryGeneratorEnabled="0" dist="0.3" labelOffsetMapUnitScale="3x:0,0,0,0,0,0" quadOffset="4" repeatDistanceMapUnitScale="3x:0,0,0,0,0,0" priority="5" repeatDistanceUnits="MM" repeatDistance="0" centroidInside="0" fitInPolygonOnly="0" maxCurvedCharAngleOut="-25" placement="2" offsetUnits="MM" distUnits="RenderMetersInMapUnits" predefinedPositionOrder="TR,TL,BR,BL,R,L,TSR,BSR" yOffset="0" distMapUnitScale="3x:0,0,0,0,0,0" rotationAngle="0" offsetType="0" xOffset="0" centroidWhole="0"/>
-          <rendering fontLimitPixelSize="0" obstacleType="0" zIndex="0" scaleVisibility="0" scaleMin="0" fontMinPixelSize="3" mergeLines="0" limitNumLabels="0" scaleMax="0" obstacle="1" drawLabels="1" displayAll="0" minFeatureSize="0" obstacleFactor="1" upsidedownLabels="0" maxNumLabels="2000" fontMaxPixelSize="10000" labelPerPart="0"/>
+          <text-format addDirectionSymbol="0" decimals="3" plussign="0" multilineAlign="4294967295" reverseDirectionSymbol="0" autoWrapLength="0" leftDirectionSymbol="&lt;" rightDirectionSymbol=">" formatNumbers="0" placeDirectionSymbol="0" wrapChar="" useMaxLineLengthForAutoWrap="1"/>
+          <placement rotationAngle="0" preserveRotation="1" distUnits="RenderMetersInMapUnits" geometryGenerator="" centroidWhole="0" maxCurvedCharAngleOut="-25" placement="2" geometryGeneratorType="PointGeometry" repeatDistanceUnits="MM" labelOffsetMapUnitScale="3x:0,0,0,0,0,0" predefinedPositionOrder="TR,TL,BR,BL,R,L,TSR,BSR" distMapUnitScale="3x:0,0,0,0,0,0" offsetType="0" xOffset="0" priority="5" geometryGeneratorEnabled="0" offsetUnits="MM" fitInPolygonOnly="0" repeatDistanceMapUnitScale="3x:0,0,0,0,0,0" dist="0.3" centroidInside="0" repeatDistance="0" yOffset="0" quadOffset="4" placementFlags="12" maxCurvedCharAngleIn="25"/>
+          <rendering fontMinPixelSize="3" obstacleType="0" zIndex="0" fontMaxPixelSize="10000" scaleMax="0" obstacle="1" mergeLines="0" drawLabels="1" labelPerPart="0" limitNumLabels="0" minFeatureSize="0" obstacleFactor="1" fontLimitPixelSize="0" scaleVisibility="0" maxNumLabels="2000" displayAll="0" upsidedownLabels="0" scaleMin="0"/>
           <dd_properties>
             <Option type="Map">
               <Option value="" type="QString" name="name"/>
@@ -791,17 +791,17 @@
           </dd_properties>
         </settings>
       </rule>
-      <rule active="0" key="{82034ae9-75f5-4dae-b29f-841df65f7a8b}">
+      <rule active="0" key="{f833269a-8109-4b5c-b9a5-9c9196333389}">
         <settings>
-          <text-style fontUnderline="0" fontWordSpacing="0" fontItalic="0" fontWeight="50" multilineHeight="1" textColor="0,0,0,255" isExpression="1" textOpacity="1" fontFamily="Sans Serif" fontSizeUnit="Point" fontSizeMapUnitScale="3x:0,0,0,0,0,0" fontSize="10" useSubstitutions="0" previewBkgrdColor="#ffffff" fontLetterSpacing="0" namedStyle="Normale" fontStrikeout="0" fontCapitals="0" blendMode="0" fieldName=" &quot;tipo_mtubi&quot;  || ' / ' || &quot;num_fibre&quot; ">
-            <text-buffer bufferOpacity="1" bufferNoFill="1" bufferSizeUnits="MM" bufferColor="255,255,255,255" bufferSizeMapUnitScale="3x:0,0,0,0,0,0" bufferDraw="0" bufferSize="1" bufferJoinStyle="128" bufferBlendMode="0"/>
-            <background shapeBorderWidthUnit="MM" shapeSizeUnit="MM" shapeRadiiMapUnitScale="3x:0,0,0,0,0,0" shapeOpacity="1" shapeBorderColor="128,128,128,255" shapeSizeType="0" shapeBlendMode="0" shapeSizeX="0" shapeOffsetMapUnitScale="3x:0,0,0,0,0,0" shapeBorderWidth="0" shapeJoinStyle="64" shapeType="0" shapeOffsetUnit="MM" shapeDraw="0" shapeRotationType="0" shapeFillColor="255,255,255,255" shapeBorderWidthMapUnitScale="3x:0,0,0,0,0,0" shapeSizeY="0" shapeSizeMapUnitScale="3x:0,0,0,0,0,0" shapeRadiiX="0" shapeRadiiY="0" shapeSVGFile="" shapeOffsetX="0" shapeRadiiUnit="MM" shapeOffsetY="0" shapeRotation="0"/>
-            <shadow shadowOffsetAngle="135" shadowOffsetMapUnitScale="3x:0,0,0,0,0,0" shadowRadiusUnit="MM" shadowOpacity="0.7" shadowOffsetUnit="MM" shadowOffsetDist="1" shadowRadiusMapUnitScale="3x:0,0,0,0,0,0" shadowScale="100" shadowOffsetGlobal="1" shadowDraw="0" shadowUnder="0" shadowRadiusAlphaOnly="0" shadowColor="0,0,0,255" shadowBlendMode="6" shadowRadius="1.5"/>
+          <text-style fontItalic="0" multilineHeight="1" previewBkgrdColor="#ffffff" fontSizeUnit="Point" fieldName=" &quot;tipo_mtubi&quot;  || ' / ' || &quot;num_fibre&quot; " fontSize="10" blendMode="0" fontWordSpacing="0" namedStyle="Normale" textOpacity="1" fontWeight="50" fontFamily="Sans Serif" textColor="0,0,0,255" isExpression="1" fontSizeMapUnitScale="3x:0,0,0,0,0,0" useSubstitutions="0" fontCapitals="0" fontLetterSpacing="0" fontStrikeout="0" fontUnderline="0">
+            <text-buffer bufferOpacity="1" bufferJoinStyle="128" bufferBlendMode="0" bufferSizeUnits="MM" bufferColor="255,255,255,255" bufferSize="1" bufferSizeMapUnitScale="3x:0,0,0,0,0,0" bufferNoFill="1" bufferDraw="0"/>
+            <background shapeDraw="0" shapeJoinStyle="64" shapeOffsetX="0" shapeBorderWidthMapUnitScale="3x:0,0,0,0,0,0" shapeRotation="0" shapeRadiiY="0" shapeOffsetUnit="MM" shapeFillColor="255,255,255,255" shapeOffsetMapUnitScale="3x:0,0,0,0,0,0" shapeOpacity="1" shapeSizeY="0" shapeOffsetY="0" shapeBorderColor="128,128,128,255" shapeRadiiUnit="MM" shapeRotationType="0" shapeSizeX="0" shapeRadiiMapUnitScale="3x:0,0,0,0,0,0" shapeType="0" shapeSizeUnit="MM" shapeSVGFile="" shapeSizeMapUnitScale="3x:0,0,0,0,0,0" shapeBorderWidth="0" shapeBlendMode="0" shapeSizeType="0" shapeRadiiX="0" shapeBorderWidthUnit="MM"/>
+            <shadow shadowRadiusUnit="MM" shadowScale="100" shadowRadius="1.5" shadowRadiusMapUnitScale="3x:0,0,0,0,0,0" shadowOffsetGlobal="1" shadowBlendMode="6" shadowColor="0,0,0,255" shadowDraw="0" shadowOffsetDist="1" shadowRadiusAlphaOnly="0" shadowOpacity="0.7" shadowUnder="0" shadowOffsetAngle="135" shadowOffsetUnit="MM" shadowOffsetMapUnitScale="3x:0,0,0,0,0,0"/>
             <substitutions/>
           </text-style>
-          <text-format decimals="3" leftDirectionSymbol="&lt;" reverseDirectionSymbol="0" multilineAlign="4294967295" formatNumbers="0" placeDirectionSymbol="0" wrapChar="" autoWrapLength="0" rightDirectionSymbol=">" plussign="0" addDirectionSymbol="0" useMaxLineLengthForAutoWrap="1"/>
-          <placement placementFlags="10" preserveRotation="1" maxCurvedCharAngleIn="25" geometryGeneratorType="PointGeometry" geometryGenerator="" geometryGeneratorEnabled="0" dist="0" labelOffsetMapUnitScale="3x:0,0,0,0,0,0" quadOffset="4" repeatDistanceMapUnitScale="3x:0,0,0,0,0,0" priority="5" repeatDistanceUnits="MM" repeatDistance="0" centroidInside="0" fitInPolygonOnly="0" maxCurvedCharAngleOut="-25" placement="2" offsetUnits="MM" distUnits="MM" predefinedPositionOrder="TR,TL,BR,BL,R,L,TSR,BSR" yOffset="0" distMapUnitScale="3x:0,0,0,0,0,0" rotationAngle="0" offsetType="0" xOffset="0" centroidWhole="0"/>
-          <rendering fontLimitPixelSize="0" obstacleType="0" zIndex="0" scaleVisibility="0" scaleMin="0" fontMinPixelSize="3" mergeLines="0" limitNumLabels="0" scaleMax="0" obstacle="1" drawLabels="1" displayAll="0" minFeatureSize="0" obstacleFactor="1" upsidedownLabels="0" maxNumLabels="2000" fontMaxPixelSize="10000" labelPerPart="0"/>
+          <text-format addDirectionSymbol="0" decimals="3" plussign="0" multilineAlign="4294967295" reverseDirectionSymbol="0" autoWrapLength="0" leftDirectionSymbol="&lt;" rightDirectionSymbol=">" formatNumbers="0" placeDirectionSymbol="0" wrapChar="" useMaxLineLengthForAutoWrap="1"/>
+          <placement rotationAngle="0" preserveRotation="1" distUnits="MM" geometryGenerator="" centroidWhole="0" maxCurvedCharAngleOut="-25" placement="2" geometryGeneratorType="PointGeometry" repeatDistanceUnits="MM" labelOffsetMapUnitScale="3x:0,0,0,0,0,0" predefinedPositionOrder="TR,TL,BR,BL,R,L,TSR,BSR" distMapUnitScale="3x:0,0,0,0,0,0" offsetType="0" xOffset="0" priority="5" geometryGeneratorEnabled="0" offsetUnits="MM" fitInPolygonOnly="0" repeatDistanceMapUnitScale="3x:0,0,0,0,0,0" dist="0" centroidInside="0" repeatDistance="0" yOffset="0" quadOffset="4" placementFlags="10" maxCurvedCharAngleIn="25"/>
+          <rendering fontMinPixelSize="3" obstacleType="0" zIndex="0" fontMaxPixelSize="10000" scaleMax="0" obstacle="1" mergeLines="0" drawLabels="1" labelPerPart="0" limitNumLabels="0" minFeatureSize="0" obstacleFactor="1" fontLimitPixelSize="0" scaleVisibility="0" maxNumLabels="2000" displayAll="0" upsidedownLabels="0" scaleMin="0"/>
           <dd_properties>
             <Option type="Map">
               <Option value="" type="QString" name="name"/>
@@ -826,13 +826,13 @@
   <blendMode>0</blendMode>
   <featureBlendMode>0</featureBlendMode>
   <layerOpacity>1</layerOpacity>
-  <LinearlyInterpolatedDiagramRenderer lowerWidth="0" classificationAttributeExpression="" attributeLegend="1" upperValue="0" diagramType="Histogram" lowerValue="0" upperHeight="50" lowerHeight="0" upperWidth="50">
-    <DiagramCategory lineSizeScale="3x:0,0,0,0,0,0" height="15" scaleDependency="Area" backgroundAlpha="255" penAlpha="255" opacity="1" diagramOrientation="Up" minimumSize="0" rotationOffset="270" sizeType="MM" enabled="0" maxScaleDenominator="1e+8" minScaleDenominator="-4.65661e-10" penColor="#000000" penWidth="0" sizeScale="3x:0,0,0,0,0,0" barWidth="5" scaleBasedVisibility="0" width="15" lineSizeType="MM" backgroundColor="#ffffff" labelPlacementMethod="XHeight">
+  <LinearlyInterpolatedDiagramRenderer diagramType="Histogram" lowerValue="0" upperHeight="50" attributeLegend="1" lowerWidth="0" lowerHeight="0" upperValue="0" upperWidth="50" classificationAttributeExpression="">
+    <DiagramCategory barWidth="5" enabled="0" lineSizeType="MM" scaleBasedVisibility="0" penColor="#000000" labelPlacementMethod="XHeight" backgroundColor="#ffffff" minimumSize="0" minScaleDenominator="-4.65661e-10" backgroundAlpha="255" sizeScale="3x:0,0,0,0,0,0" sizeType="MM" height="15" penWidth="0" penAlpha="255" diagramOrientation="Up" scaleDependency="Area" maxScaleDenominator="1e+8" rotationOffset="270" width="15" opacity="1" lineSizeScale="3x:0,0,0,0,0,0">
       <fontProperties description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" style=""/>
-      <attribute color="#000000" label="" field=""/>
+      <attribute field="" color="#000000" label=""/>
     </DiagramCategory>
   </LinearlyInterpolatedDiagramRenderer>
-  <DiagramLayerSettings showAll="1" placement="2" dist="0" zIndex="0" linePlacementFlags="2" priority="0" obstacle="0">
+  <DiagramLayerSettings priority="0" linePlacementFlags="2" dist="0" zIndex="0" showAll="1" placement="2" obstacle="0">
     <properties>
       <Option type="Map">
         <Option value="" type="QString" name="name"/>
@@ -841,7 +841,7 @@
       </Option>
     </properties>
   </DiagramLayerSettings>
-  <geometryOptions removeDuplicateNodes="0" geometryPrecision="0">
+  <geometryOptions geometryPrecision="0" removeDuplicateNodes="0">
     <activeChecks/>
     <checkConfiguration/>
   </geometryOptions>
@@ -1382,308 +1382,308 @@
     </field>
   </fieldConfiguration>
   <aliases>
-    <alias name="" index="0" field="gidd"/>
-    <alias name="" index="1" field="num_fibre"/>
-    <alias name="" index="2" field="diameter"/>
-    <alias name="numero tubi" index="3" field="num_tubi"/>
-    <alias name="tipologia tubo" index="4" field="diam_tubo"/>
-    <alias name="" index="5" field="ebw_codice"/>
-    <alias name="" index="6" field="base_mater"/>
-    <alias name="" index="7" field="width"/>
-    <alias name="" index="8" field="upper_mate"/>
-    <alias name="" index="9" field="idinfratel"/>
-    <alias name="lunghezza tratta (m)" index="10" field="measured_l"/>
-    <alias name="" index="11" field="upper_ma_1"/>
-    <alias name="" index="12" field="tubi_occup"/>
-    <alias name="numero minitubi" index="13" field="num_mtubi"/>
-    <alias name="tipologia" index="14" field="ebw_tipo_p"/>
-    <alias name="" index="15" field="minitubi_o"/>
-    <alias name="" index="16" field="name"/>
-    <alias name="" index="17" field="restrictio"/>
-    <alias name="cavi inseriti" index="18" field="num_cavi"/>
-    <alias name="" index="19" field="undergroun"/>
-    <alias name="" index="20" field="ebw_flag_i"/>
-    <alias name="" index="21" field="base_mat_1"/>
-    <alias name="" index="22" field="calculated"/>
-    <alias name="" index="23" field="tipo_mtubi"/>
-    <alias name="" index="24" field="ebw_flag_o"/>
-    <alias name="" index="25" field="surroundin"/>
-    <alias name="stato" index="26" field="constructi"/>
-    <alias name="" index="27" field="ebw_posa_d"/>
-    <alias name="proprietario" index="28" field="ebw_propri"/>
-    <alias name="tipologia minitubi" index="29" field="diam_minit"/>
-    <alias name="" index="30" field="ripristino"/>
-    <alias name="" index="31" field="centre_poi"/>
-    <alias name="" index="32" field="shp_id"/>
-    <alias name="" index="33" field="core_mater"/>
-    <alias name="" index="34" field="num_minitu"/>
-    <alias name="" index="35" field="ebw_flag_1"/>
-    <alias name="note varie" index="36" field="notes"/>
-    <alias name="tipologia materiale" index="37" field="surface_ma"/>
-    <alias name="" index="38" field="notes_1"/>
-    <alias name="" index="39" field="lungh_infr"/>
-    <alias name="" index="40" field="gid"/>
-    <alias name="" index="41" field="owner"/>
-    <alias name="" index="42" field="core_mat_1"/>
-    <alias name="" index="43" field="lun_tratta"/>
+    <alias field="gidd" index="0" name=""/>
+    <alias field="num_fibre" index="1" name=""/>
+    <alias field="diameter" index="2" name=""/>
+    <alias field="num_tubi" index="3" name="numero tubi"/>
+    <alias field="diam_tubo" index="4" name="tipologia tubo"/>
+    <alias field="ebw_codice" index="5" name=""/>
+    <alias field="base_mater" index="6" name=""/>
+    <alias field="width" index="7" name=""/>
+    <alias field="upper_mate" index="8" name=""/>
+    <alias field="idinfratel" index="9" name=""/>
+    <alias field="measured_l" index="10" name="lunghezza tratta (m)"/>
+    <alias field="upper_ma_1" index="11" name=""/>
+    <alias field="tubi_occup" index="12" name=""/>
+    <alias field="num_mtubi" index="13" name="numero minitubi"/>
+    <alias field="ebw_tipo_p" index="14" name="tipologia"/>
+    <alias field="minitubi_o" index="15" name=""/>
+    <alias field="name" index="16" name=""/>
+    <alias field="restrictio" index="17" name=""/>
+    <alias field="num_cavi" index="18" name="cavi inseriti"/>
+    <alias field="undergroun" index="19" name=""/>
+    <alias field="ebw_flag_i" index="20" name=""/>
+    <alias field="base_mat_1" index="21" name=""/>
+    <alias field="calculated" index="22" name=""/>
+    <alias field="tipo_mtubi" index="23" name=""/>
+    <alias field="ebw_flag_o" index="24" name=""/>
+    <alias field="surroundin" index="25" name=""/>
+    <alias field="constructi" index="26" name="stato"/>
+    <alias field="ebw_posa_d" index="27" name=""/>
+    <alias field="ebw_propri" index="28" name="proprietario"/>
+    <alias field="diam_minit" index="29" name="tipologia minitubi"/>
+    <alias field="ripristino" index="30" name=""/>
+    <alias field="centre_poi" index="31" name=""/>
+    <alias field="shp_id" index="32" name=""/>
+    <alias field="core_mater" index="33" name=""/>
+    <alias field="num_minitu" index="34" name=""/>
+    <alias field="ebw_flag_1" index="35" name=""/>
+    <alias field="notes" index="36" name="note varie"/>
+    <alias field="surface_ma" index="37" name="tipologia materiale"/>
+    <alias field="notes_1" index="38" name=""/>
+    <alias field="lungh_infr" index="39" name=""/>
+    <alias field="gid" index="40" name=""/>
+    <alias field="owner" index="41" name=""/>
+    <alias field="core_mat_1" index="42" name=""/>
+    <alias field="lun_tratta" index="43" name=""/>
   </aliases>
   <excludeAttributesWMS>
-    <attribute>num_fibre</attribute>
-    <attribute>surroundin</attribute>
-    <attribute>centre_poi</attribute>
-    <attribute>restrictio</attribute>
-    <attribute>ebw_flag_1</attribute>
-    <attribute>undergroun</attribute>
-    <attribute>base_mater</attribute>
-    <attribute>upper_mate</attribute>
-    <attribute>ebw_flag_i</attribute>
-    <attribute>ebw_posa_d</attribute>
-    <attribute>core_mat_1</attribute>
-    <attribute>gidd</attribute>
     <attribute>minitubi_o</attribute>
-    <attribute>tubi_occup</attribute>
-    <attribute>idinfratel</attribute>
-    <attribute>calculated</attribute>
-    <attribute>lun_tratta</attribute>
-    <attribute>tipo_mtubi</attribute>
-    <attribute>ripristino</attribute>
-    <attribute>ebw_flag_o</attribute>
-    <attribute>diameter</attribute>
-    <attribute>ebw_codice</attribute>
+    <attribute>upper_mate</attribute>
     <attribute>num_minitu</attribute>
-    <attribute>lungh_infr</attribute>
-    <attribute>base_mat_1</attribute>
-    <attribute>width</attribute>
-    <attribute>name</attribute>
+    <attribute>ebw_flag_i</attribute>
+    <attribute>num_fibre</attribute>
+    <attribute>ebw_flag_o</attribute>
+    <attribute>centre_poi</attribute>
     <attribute>core_mater</attribute>
-    <attribute>gid</attribute>
+    <attribute>lungh_infr</attribute>
+    <attribute>undergroun</attribute>
+    <attribute>restrictio</attribute>
+    <attribute>tipo_mtubi</attribute>
+    <attribute>core_mat_1</attribute>
+    <attribute>ebw_codice</attribute>
     <attribute>owner</attribute>
-    <attribute>notes_1</attribute>
     <attribute>upper_ma_1</attribute>
+    <attribute>gid</attribute>
+    <attribute>diameter</attribute>
+    <attribute>lun_tratta</attribute>
+    <attribute>base_mater</attribute>
+    <attribute>ebw_posa_d</attribute>
+    <attribute>base_mat_1</attribute>
+    <attribute>calculated</attribute>
+    <attribute>idinfratel</attribute>
+    <attribute>ebw_flag_1</attribute>
+    <attribute>ripristino</attribute>
+    <attribute>width</attribute>
+    <attribute>tubi_occup</attribute>
+    <attribute>name</attribute>
+    <attribute>surroundin</attribute>
+    <attribute>gidd</attribute>
+    <attribute>notes_1</attribute>
   </excludeAttributesWMS>
   <excludeAttributesWFS>
-    <attribute>num_fibre</attribute>
-    <attribute>surroundin</attribute>
-    <attribute>centre_poi</attribute>
-    <attribute>restrictio</attribute>
-    <attribute>ebw_flag_1</attribute>
-    <attribute>undergroun</attribute>
-    <attribute>base_mater</attribute>
-    <attribute>upper_mate</attribute>
-    <attribute>ebw_flag_i</attribute>
-    <attribute>ebw_posa_d</attribute>
-    <attribute>core_mat_1</attribute>
-    <attribute>gidd</attribute>
     <attribute>minitubi_o</attribute>
-    <attribute>tubi_occup</attribute>
-    <attribute>idinfratel</attribute>
-    <attribute>calculated</attribute>
-    <attribute>lun_tratta</attribute>
-    <attribute>tipo_mtubi</attribute>
-    <attribute>ripristino</attribute>
-    <attribute>ebw_flag_o</attribute>
-    <attribute>diameter</attribute>
-    <attribute>ebw_codice</attribute>
+    <attribute>upper_mate</attribute>
     <attribute>num_minitu</attribute>
-    <attribute>lungh_infr</attribute>
-    <attribute>base_mat_1</attribute>
-    <attribute>width</attribute>
-    <attribute>name</attribute>
+    <attribute>ebw_flag_i</attribute>
+    <attribute>num_fibre</attribute>
+    <attribute>ebw_flag_o</attribute>
+    <attribute>centre_poi</attribute>
     <attribute>core_mater</attribute>
-    <attribute>gid</attribute>
+    <attribute>lungh_infr</attribute>
+    <attribute>undergroun</attribute>
+    <attribute>restrictio</attribute>
+    <attribute>tipo_mtubi</attribute>
+    <attribute>core_mat_1</attribute>
+    <attribute>ebw_codice</attribute>
     <attribute>owner</attribute>
-    <attribute>notes_1</attribute>
     <attribute>upper_ma_1</attribute>
+    <attribute>gid</attribute>
+    <attribute>diameter</attribute>
+    <attribute>lun_tratta</attribute>
+    <attribute>base_mater</attribute>
+    <attribute>ebw_posa_d</attribute>
+    <attribute>base_mat_1</attribute>
+    <attribute>calculated</attribute>
+    <attribute>idinfratel</attribute>
+    <attribute>ebw_flag_1</attribute>
+    <attribute>ripristino</attribute>
+    <attribute>width</attribute>
+    <attribute>tubi_occup</attribute>
+    <attribute>name</attribute>
+    <attribute>surroundin</attribute>
+    <attribute>gidd</attribute>
+    <attribute>notes_1</attribute>
   </excludeAttributesWFS>
   <defaults>
-    <default expression="" field="gidd" applyOnUpdate="0"/>
-    <default expression="" field="num_fibre" applyOnUpdate="0"/>
-    <default expression="" field="diameter" applyOnUpdate="0"/>
-    <default expression="" field="num_tubi" applyOnUpdate="0"/>
-    <default expression="" field="diam_tubo" applyOnUpdate="0"/>
-    <default expression="" field="ebw_codice" applyOnUpdate="0"/>
-    <default expression="" field="base_mater" applyOnUpdate="0"/>
-    <default expression="" field="width" applyOnUpdate="0"/>
-    <default expression="" field="upper_mate" applyOnUpdate="0"/>
-    <default expression="" field="idinfratel" applyOnUpdate="0"/>
-    <default expression="" field="measured_l" applyOnUpdate="0"/>
-    <default expression="" field="upper_ma_1" applyOnUpdate="0"/>
-    <default expression="" field="tubi_occup" applyOnUpdate="0"/>
-    <default expression="" field="num_mtubi" applyOnUpdate="0"/>
-    <default expression=" if(&quot;ebw_propri&quot; &lt;>'EOF', 'Trincea','')" field="ebw_tipo_p" applyOnUpdate="1"/>
-    <default expression="" field="minitubi_o" applyOnUpdate="0"/>
-    <default expression="" field="name" applyOnUpdate="0"/>
-    <default expression="" field="restrictio" applyOnUpdate="0"/>
-    <default expression="" field="num_cavi" applyOnUpdate="0"/>
-    <default expression="" field="undergroun" applyOnUpdate="0"/>
-    <default expression="" field="ebw_flag_i" applyOnUpdate="0"/>
-    <default expression="" field="base_mat_1" applyOnUpdate="0"/>
-    <default expression="" field="calculated" applyOnUpdate="0"/>
-    <default expression="" field="tipo_mtubi" applyOnUpdate="0"/>
-    <default expression="" field="ebw_flag_o" applyOnUpdate="0"/>
-    <default expression="" field="surroundin" applyOnUpdate="0"/>
-    <default expression="" field="constructi" applyOnUpdate="0"/>
-    <default expression="" field="ebw_posa_d" applyOnUpdate="0"/>
-    <default expression="" field="ebw_propri" applyOnUpdate="0"/>
-    <default expression="" field="diam_minit" applyOnUpdate="0"/>
-    <default expression="" field="ripristino" applyOnUpdate="0"/>
-    <default expression="" field="centre_poi" applyOnUpdate="0"/>
-    <default expression="" field="shp_id" applyOnUpdate="0"/>
-    <default expression="" field="core_mater" applyOnUpdate="0"/>
-    <default expression="" field="num_minitu" applyOnUpdate="0"/>
-    <default expression="" field="ebw_flag_1" applyOnUpdate="0"/>
-    <default expression="" field="notes" applyOnUpdate="0"/>
-    <default expression="" field="surface_ma" applyOnUpdate="0"/>
-    <default expression="" field="notes_1" applyOnUpdate="0"/>
-    <default expression="" field="lungh_infr" applyOnUpdate="0"/>
-    <default expression="" field="gid" applyOnUpdate="0"/>
-    <default expression="" field="owner" applyOnUpdate="0"/>
-    <default expression="" field="core_mat_1" applyOnUpdate="0"/>
-    <default expression="" field="lun_tratta" applyOnUpdate="0"/>
+    <default field="gidd" expression="" applyOnUpdate="0"/>
+    <default field="num_fibre" expression="" applyOnUpdate="0"/>
+    <default field="diameter" expression="" applyOnUpdate="0"/>
+    <default field="num_tubi" expression="" applyOnUpdate="0"/>
+    <default field="diam_tubo" expression="" applyOnUpdate="0"/>
+    <default field="ebw_codice" expression="" applyOnUpdate="0"/>
+    <default field="base_mater" expression="" applyOnUpdate="0"/>
+    <default field="width" expression="" applyOnUpdate="0"/>
+    <default field="upper_mate" expression="" applyOnUpdate="0"/>
+    <default field="idinfratel" expression="" applyOnUpdate="0"/>
+    <default field="measured_l" expression="" applyOnUpdate="0"/>
+    <default field="upper_ma_1" expression="" applyOnUpdate="0"/>
+    <default field="tubi_occup" expression="" applyOnUpdate="0"/>
+    <default field="num_mtubi" expression="" applyOnUpdate="0"/>
+    <default field="ebw_tipo_p" expression=" if(&quot;ebw_propri&quot; &lt;>'EOF', 'Trincea','')" applyOnUpdate="1"/>
+    <default field="minitubi_o" expression="" applyOnUpdate="0"/>
+    <default field="name" expression="" applyOnUpdate="0"/>
+    <default field="restrictio" expression="" applyOnUpdate="0"/>
+    <default field="num_cavi" expression="" applyOnUpdate="0"/>
+    <default field="undergroun" expression="" applyOnUpdate="0"/>
+    <default field="ebw_flag_i" expression="" applyOnUpdate="0"/>
+    <default field="base_mat_1" expression="" applyOnUpdate="0"/>
+    <default field="calculated" expression="" applyOnUpdate="0"/>
+    <default field="tipo_mtubi" expression="" applyOnUpdate="0"/>
+    <default field="ebw_flag_o" expression="" applyOnUpdate="0"/>
+    <default field="surroundin" expression="" applyOnUpdate="0"/>
+    <default field="constructi" expression="" applyOnUpdate="0"/>
+    <default field="ebw_posa_d" expression="" applyOnUpdate="0"/>
+    <default field="ebw_propri" expression="" applyOnUpdate="0"/>
+    <default field="diam_minit" expression="" applyOnUpdate="0"/>
+    <default field="ripristino" expression="" applyOnUpdate="0"/>
+    <default field="centre_poi" expression="" applyOnUpdate="0"/>
+    <default field="shp_id" expression="" applyOnUpdate="0"/>
+    <default field="core_mater" expression="" applyOnUpdate="0"/>
+    <default field="num_minitu" expression="" applyOnUpdate="0"/>
+    <default field="ebw_flag_1" expression="" applyOnUpdate="0"/>
+    <default field="notes" expression="" applyOnUpdate="0"/>
+    <default field="surface_ma" expression="" applyOnUpdate="0"/>
+    <default field="notes_1" expression="" applyOnUpdate="0"/>
+    <default field="lungh_infr" expression="" applyOnUpdate="0"/>
+    <default field="gid" expression="" applyOnUpdate="0"/>
+    <default field="owner" expression="" applyOnUpdate="0"/>
+    <default field="core_mat_1" expression="" applyOnUpdate="0"/>
+    <default field="lun_tratta" expression="" applyOnUpdate="0"/>
   </defaults>
   <constraints>
-    <constraint exp_strength="0" constraints="3" unique_strength="1" field="gidd" notnull_strength="1"/>
-    <constraint exp_strength="0" constraints="0" unique_strength="0" field="num_fibre" notnull_strength="0"/>
-    <constraint exp_strength="0" constraints="0" unique_strength="0" field="diameter" notnull_strength="0"/>
-    <constraint exp_strength="0" constraints="0" unique_strength="0" field="num_tubi" notnull_strength="0"/>
-    <constraint exp_strength="0" constraints="0" unique_strength="0" field="diam_tubo" notnull_strength="0"/>
-    <constraint exp_strength="0" constraints="0" unique_strength="0" field="ebw_codice" notnull_strength="0"/>
-    <constraint exp_strength="0" constraints="0" unique_strength="0" field="base_mater" notnull_strength="0"/>
-    <constraint exp_strength="0" constraints="0" unique_strength="0" field="width" notnull_strength="0"/>
-    <constraint exp_strength="0" constraints="0" unique_strength="0" field="upper_mate" notnull_strength="0"/>
-    <constraint exp_strength="0" constraints="0" unique_strength="0" field="idinfratel" notnull_strength="0"/>
-    <constraint exp_strength="0" constraints="1" unique_strength="0" field="measured_l" notnull_strength="1"/>
-    <constraint exp_strength="0" constraints="0" unique_strength="0" field="upper_ma_1" notnull_strength="0"/>
-    <constraint exp_strength="0" constraints="0" unique_strength="0" field="tubi_occup" notnull_strength="0"/>
-    <constraint exp_strength="0" constraints="0" unique_strength="0" field="num_mtubi" notnull_strength="0"/>
-    <constraint exp_strength="1" constraints="5" unique_strength="0" field="ebw_tipo_p" notnull_strength="2"/>
-    <constraint exp_strength="0" constraints="0" unique_strength="0" field="minitubi_o" notnull_strength="0"/>
-    <constraint exp_strength="0" constraints="0" unique_strength="0" field="name" notnull_strength="0"/>
-    <constraint exp_strength="0" constraints="0" unique_strength="0" field="restrictio" notnull_strength="0"/>
-    <constraint exp_strength="0" constraints="0" unique_strength="0" field="num_cavi" notnull_strength="0"/>
-    <constraint exp_strength="0" constraints="0" unique_strength="0" field="undergroun" notnull_strength="0"/>
-    <constraint exp_strength="0" constraints="0" unique_strength="0" field="ebw_flag_i" notnull_strength="0"/>
-    <constraint exp_strength="0" constraints="0" unique_strength="0" field="base_mat_1" notnull_strength="0"/>
-    <constraint exp_strength="0" constraints="0" unique_strength="0" field="calculated" notnull_strength="0"/>
-    <constraint exp_strength="0" constraints="0" unique_strength="0" field="tipo_mtubi" notnull_strength="0"/>
-    <constraint exp_strength="0" constraints="0" unique_strength="0" field="ebw_flag_o" notnull_strength="0"/>
-    <constraint exp_strength="0" constraints="0" unique_strength="0" field="surroundin" notnull_strength="0"/>
-    <constraint exp_strength="0" constraints="1" unique_strength="0" field="constructi" notnull_strength="1"/>
-    <constraint exp_strength="0" constraints="0" unique_strength="0" field="ebw_posa_d" notnull_strength="0"/>
-    <constraint exp_strength="0" constraints="1" unique_strength="0" field="ebw_propri" notnull_strength="1"/>
-    <constraint exp_strength="0" constraints="0" unique_strength="0" field="diam_minit" notnull_strength="0"/>
-    <constraint exp_strength="0" constraints="0" unique_strength="0" field="ripristino" notnull_strength="0"/>
-    <constraint exp_strength="0" constraints="0" unique_strength="0" field="centre_poi" notnull_strength="0"/>
-    <constraint exp_strength="0" constraints="0" unique_strength="0" field="shp_id" notnull_strength="0"/>
-    <constraint exp_strength="0" constraints="0" unique_strength="0" field="core_mater" notnull_strength="0"/>
-    <constraint exp_strength="0" constraints="0" unique_strength="0" field="num_minitu" notnull_strength="0"/>
-    <constraint exp_strength="0" constraints="0" unique_strength="0" field="ebw_flag_1" notnull_strength="0"/>
-    <constraint exp_strength="0" constraints="0" unique_strength="0" field="notes" notnull_strength="0"/>
-    <constraint exp_strength="0" constraints="0" unique_strength="0" field="surface_ma" notnull_strength="0"/>
-    <constraint exp_strength="0" constraints="0" unique_strength="0" field="notes_1" notnull_strength="0"/>
-    <constraint exp_strength="0" constraints="0" unique_strength="0" field="lungh_infr" notnull_strength="0"/>
-    <constraint exp_strength="0" constraints="0" unique_strength="0" field="gid" notnull_strength="0"/>
-    <constraint exp_strength="0" constraints="0" unique_strength="0" field="owner" notnull_strength="0"/>
-    <constraint exp_strength="0" constraints="0" unique_strength="0" field="core_mat_1" notnull_strength="0"/>
-    <constraint exp_strength="0" constraints="0" unique_strength="0" field="lun_tratta" notnull_strength="0"/>
+    <constraint notnull_strength="1" field="gidd" exp_strength="0" constraints="3" unique_strength="1"/>
+    <constraint notnull_strength="0" field="num_fibre" exp_strength="0" constraints="0" unique_strength="0"/>
+    <constraint notnull_strength="0" field="diameter" exp_strength="0" constraints="0" unique_strength="0"/>
+    <constraint notnull_strength="0" field="num_tubi" exp_strength="0" constraints="0" unique_strength="0"/>
+    <constraint notnull_strength="0" field="diam_tubo" exp_strength="0" constraints="0" unique_strength="0"/>
+    <constraint notnull_strength="0" field="ebw_codice" exp_strength="0" constraints="0" unique_strength="0"/>
+    <constraint notnull_strength="0" field="base_mater" exp_strength="0" constraints="0" unique_strength="0"/>
+    <constraint notnull_strength="0" field="width" exp_strength="0" constraints="0" unique_strength="0"/>
+    <constraint notnull_strength="0" field="upper_mate" exp_strength="0" constraints="0" unique_strength="0"/>
+    <constraint notnull_strength="0" field="idinfratel" exp_strength="0" constraints="0" unique_strength="0"/>
+    <constraint notnull_strength="1" field="measured_l" exp_strength="0" constraints="1" unique_strength="0"/>
+    <constraint notnull_strength="0" field="upper_ma_1" exp_strength="0" constraints="0" unique_strength="0"/>
+    <constraint notnull_strength="0" field="tubi_occup" exp_strength="0" constraints="0" unique_strength="0"/>
+    <constraint notnull_strength="0" field="num_mtubi" exp_strength="0" constraints="0" unique_strength="0"/>
+    <constraint notnull_strength="1" field="ebw_tipo_p" exp_strength="2" constraints="5" unique_strength="0"/>
+    <constraint notnull_strength="0" field="minitubi_o" exp_strength="0" constraints="0" unique_strength="0"/>
+    <constraint notnull_strength="0" field="name" exp_strength="0" constraints="0" unique_strength="0"/>
+    <constraint notnull_strength="0" field="restrictio" exp_strength="0" constraints="0" unique_strength="0"/>
+    <constraint notnull_strength="0" field="num_cavi" exp_strength="0" constraints="0" unique_strength="0"/>
+    <constraint notnull_strength="0" field="undergroun" exp_strength="0" constraints="0" unique_strength="0"/>
+    <constraint notnull_strength="0" field="ebw_flag_i" exp_strength="0" constraints="0" unique_strength="0"/>
+    <constraint notnull_strength="0" field="base_mat_1" exp_strength="0" constraints="0" unique_strength="0"/>
+    <constraint notnull_strength="0" field="calculated" exp_strength="0" constraints="0" unique_strength="0"/>
+    <constraint notnull_strength="0" field="tipo_mtubi" exp_strength="0" constraints="0" unique_strength="0"/>
+    <constraint notnull_strength="0" field="ebw_flag_o" exp_strength="0" constraints="0" unique_strength="0"/>
+    <constraint notnull_strength="0" field="surroundin" exp_strength="0" constraints="0" unique_strength="0"/>
+    <constraint notnull_strength="1" field="constructi" exp_strength="0" constraints="1" unique_strength="0"/>
+    <constraint notnull_strength="0" field="ebw_posa_d" exp_strength="0" constraints="0" unique_strength="0"/>
+    <constraint notnull_strength="1" field="ebw_propri" exp_strength="0" constraints="1" unique_strength="0"/>
+    <constraint notnull_strength="0" field="diam_minit" exp_strength="0" constraints="0" unique_strength="0"/>
+    <constraint notnull_strength="0" field="ripristino" exp_strength="0" constraints="0" unique_strength="0"/>
+    <constraint notnull_strength="0" field="centre_poi" exp_strength="0" constraints="0" unique_strength="0"/>
+    <constraint notnull_strength="0" field="shp_id" exp_strength="0" constraints="0" unique_strength="0"/>
+    <constraint notnull_strength="0" field="core_mater" exp_strength="0" constraints="0" unique_strength="0"/>
+    <constraint notnull_strength="0" field="num_minitu" exp_strength="0" constraints="0" unique_strength="0"/>
+    <constraint notnull_strength="0" field="ebw_flag_1" exp_strength="0" constraints="0" unique_strength="0"/>
+    <constraint notnull_strength="0" field="notes" exp_strength="0" constraints="0" unique_strength="0"/>
+    <constraint notnull_strength="0" field="surface_ma" exp_strength="2" constraints="4" unique_strength="0"/>
+    <constraint notnull_strength="0" field="notes_1" exp_strength="0" constraints="0" unique_strength="0"/>
+    <constraint notnull_strength="0" field="lungh_infr" exp_strength="0" constraints="0" unique_strength="0"/>
+    <constraint notnull_strength="0" field="gid" exp_strength="0" constraints="0" unique_strength="0"/>
+    <constraint notnull_strength="0" field="owner" exp_strength="0" constraints="0" unique_strength="0"/>
+    <constraint notnull_strength="0" field="core_mat_1" exp_strength="0" constraints="0" unique_strength="0"/>
+    <constraint notnull_strength="0" field="lun_tratta" exp_strength="0" constraints="0" unique_strength="0"/>
   </constraints>
   <constraintExpressions>
-    <constraint exp="" field="gidd" desc=""/>
-    <constraint exp="" field="num_fibre" desc=""/>
-    <constraint exp="" field="diameter" desc=""/>
-    <constraint exp="" field="num_tubi" desc=""/>
-    <constraint exp="" field="diam_tubo" desc=""/>
-    <constraint exp="" field="ebw_codice" desc=""/>
-    <constraint exp="" field="base_mater" desc=""/>
-    <constraint exp="" field="width" desc=""/>
-    <constraint exp="" field="upper_mate" desc=""/>
-    <constraint exp="" field="idinfratel" desc=""/>
-    <constraint exp="" field="measured_l" desc=""/>
-    <constraint exp="" field="upper_ma_1" desc=""/>
-    <constraint exp="" field="tubi_occup" desc=""/>
-    <constraint exp="" field="num_mtubi" desc=""/>
-    <constraint exp=" if(&quot;ebw_propri&quot; &lt;>'EOF', 'Trincea','')" field="ebw_tipo_p" desc="se proprietario != EOF allora unica opzione Trincea"/>
-    <constraint exp="" field="minitubi_o" desc=""/>
-    <constraint exp="" field="name" desc=""/>
-    <constraint exp="" field="restrictio" desc=""/>
-    <constraint exp="" field="num_cavi" desc=""/>
-    <constraint exp="" field="undergroun" desc=""/>
-    <constraint exp="" field="ebw_flag_i" desc=""/>
-    <constraint exp="" field="base_mat_1" desc=""/>
-    <constraint exp="" field="calculated" desc=""/>
-    <constraint exp="" field="tipo_mtubi" desc=""/>
-    <constraint exp="" field="ebw_flag_o" desc=""/>
-    <constraint exp="" field="surroundin" desc=""/>
-    <constraint exp="" field="constructi" desc=""/>
-    <constraint exp="" field="ebw_posa_d" desc=""/>
-    <constraint exp="" field="ebw_propri" desc=""/>
-    <constraint exp="" field="diam_minit" desc=""/>
-    <constraint exp="" field="ripristino" desc=""/>
-    <constraint exp="" field="centre_poi" desc=""/>
-    <constraint exp="" field="shp_id" desc=""/>
-    <constraint exp="" field="core_mater" desc=""/>
-    <constraint exp="" field="num_minitu" desc=""/>
-    <constraint exp="" field="ebw_flag_1" desc=""/>
-    <constraint exp="" field="notes" desc=""/>
-    <constraint exp="" field="surface_ma" desc=""/>
-    <constraint exp="" field="notes_1" desc=""/>
-    <constraint exp="" field="lungh_infr" desc=""/>
-    <constraint exp="" field="gid" desc=""/>
-    <constraint exp="" field="owner" desc=""/>
-    <constraint exp="" field="core_mat_1" desc=""/>
-    <constraint exp="" field="lun_tratta" desc=""/>
+    <constraint desc="" field="gidd" exp=""/>
+    <constraint desc="" field="num_fibre" exp=""/>
+    <constraint desc="" field="diameter" exp=""/>
+    <constraint desc="" field="num_tubi" exp=""/>
+    <constraint desc="" field="diam_tubo" exp=""/>
+    <constraint desc="" field="ebw_codice" exp=""/>
+    <constraint desc="" field="base_mater" exp=""/>
+    <constraint desc="" field="width" exp=""/>
+    <constraint desc="" field="upper_mate" exp=""/>
+    <constraint desc="" field="idinfratel" exp=""/>
+    <constraint desc="" field="measured_l" exp=""/>
+    <constraint desc="" field="upper_ma_1" exp=""/>
+    <constraint desc="" field="tubi_occup" exp=""/>
+    <constraint desc="" field="num_mtubi" exp=""/>
+    <constraint desc="se proprietario != EOF allora unica opzione Trincea" field="ebw_tipo_p" exp=" if(&quot;ebw_propri&quot; &lt;>'EOF', 'Trincea','')"/>
+    <constraint desc="" field="minitubi_o" exp=""/>
+    <constraint desc="" field="name" exp=""/>
+    <constraint desc="" field="restrictio" exp=""/>
+    <constraint desc="" field="num_cavi" exp=""/>
+    <constraint desc="" field="undergroun" exp=""/>
+    <constraint desc="" field="ebw_flag_i" exp=""/>
+    <constraint desc="" field="base_mat_1" exp=""/>
+    <constraint desc="" field="calculated" exp=""/>
+    <constraint desc="" field="tipo_mtubi" exp=""/>
+    <constraint desc="" field="ebw_flag_o" exp=""/>
+    <constraint desc="" field="surroundin" exp=""/>
+    <constraint desc="" field="constructi" exp=""/>
+    <constraint desc="" field="ebw_posa_d" exp=""/>
+    <constraint desc="" field="ebw_propri" exp=""/>
+    <constraint desc="" field="diam_minit" exp=""/>
+    <constraint desc="" field="ripristino" exp=""/>
+    <constraint desc="" field="centre_poi" exp=""/>
+    <constraint desc="" field="shp_id" exp=""/>
+    <constraint desc="" field="core_mater" exp=""/>
+    <constraint desc="" field="num_minitu" exp=""/>
+    <constraint desc="" field="ebw_flag_1" exp=""/>
+    <constraint desc="" field="notes" exp=""/>
+    <constraint desc="se proprietario != EOF allora unica opzione NULL" field="surface_ma" exp="if( &quot;ebw_propri&quot; &lt;>'EOF', NULL, '')"/>
+    <constraint desc="" field="notes_1" exp=""/>
+    <constraint desc="" field="lungh_infr" exp=""/>
+    <constraint desc="" field="gid" exp=""/>
+    <constraint desc="" field="owner" exp=""/>
+    <constraint desc="" field="core_mat_1" exp=""/>
+    <constraint desc="" field="lun_tratta" exp=""/>
   </constraintExpressions>
   <expressionfields/>
   <attributeactions>
     <defaultAction value="{00000000-0000-0000-0000-000000000000}" key="Canvas"/>
   </attributeactions>
-  <attributetableconfig sortOrder="0" actionWidgetStyle="dropDown" sortExpression="&quot;measured_l&quot;">
+  <attributetableconfig sortExpression="&quot;measured_l&quot;" sortOrder="0" actionWidgetStyle="dropDown">
     <columns>
-      <column width="-1" type="field" name="owner" hidden="0"/>
-      <column width="-1" type="field" name="surface_ma" hidden="0"/>
-      <column width="-1" type="field" name="notes" hidden="0"/>
-      <column width="-1" type="field" name="num_tubi" hidden="0"/>
-      <column width="-1" type="field" name="diam_tubo" hidden="0"/>
-      <column width="-1" type="field" name="measured_l" hidden="0"/>
-      <column width="101" type="field" name="ebw_propri" hidden="0"/>
-      <column width="100" type="field" name="ebw_tipo_p" hidden="0"/>
-      <column width="100" type="field" name="diam_minit" hidden="0"/>
-      <column width="-1" type="field" name="num_mtubi" hidden="0"/>
-      <column width="-1" type="field" name="num_cavi" hidden="0"/>
-      <column width="60" type="field" name="shp_id" hidden="0"/>
-      <column width="-1" type="field" name="tipo_mtubi" hidden="0"/>
-      <column width="-1" type="field" name="constructi" hidden="0"/>
-      <column width="-1" type="field" name="lun_tratta" hidden="0"/>
-      <column width="-1" type="field" name="num_fibre" hidden="0"/>
-      <column width="-1" type="field" name="calculated" hidden="0"/>
+      <column width="-1" type="field" hidden="0" name="owner"/>
+      <column width="-1" type="field" hidden="0" name="surface_ma"/>
+      <column width="-1" type="field" hidden="0" name="notes"/>
+      <column width="-1" type="field" hidden="0" name="num_tubi"/>
+      <column width="-1" type="field" hidden="0" name="diam_tubo"/>
+      <column width="-1" type="field" hidden="0" name="measured_l"/>
+      <column width="101" type="field" hidden="0" name="ebw_propri"/>
+      <column width="100" type="field" hidden="0" name="ebw_tipo_p"/>
+      <column width="100" type="field" hidden="0" name="diam_minit"/>
+      <column width="-1" type="field" hidden="0" name="num_mtubi"/>
+      <column width="-1" type="field" hidden="0" name="num_cavi"/>
+      <column width="60" type="field" hidden="0" name="shp_id"/>
+      <column width="-1" type="field" hidden="0" name="tipo_mtubi"/>
+      <column width="-1" type="field" hidden="0" name="constructi"/>
+      <column width="-1" type="field" hidden="0" name="lun_tratta"/>
+      <column width="-1" type="field" hidden="0" name="num_fibre"/>
+      <column width="-1" type="field" hidden="0" name="calculated"/>
       <column width="-1" type="actions" hidden="1"/>
-      <column width="-1" type="field" name="ebw_flag_i" hidden="0"/>
-      <column width="-1" type="field" name="core_mater" hidden="0"/>
-      <column width="-1" type="field" name="idinfratel" hidden="0"/>
-      <column width="-1" type="field" name="num_minitu" hidden="0"/>
-      <column width="-1" type="field" name="tubi_occup" hidden="0"/>
-      <column width="-1" type="field" name="ebw_codice" hidden="0"/>
-      <column width="-1" type="field" name="minitubi_o" hidden="0"/>
-      <column width="-1" type="field" name="ebw_flag_o" hidden="0"/>
-      <column width="-1" type="field" name="core_mat_1" hidden="0"/>
-      <column width="-1" type="field" name="upper_mate" hidden="0"/>
-      <column width="-1" type="field" name="width" hidden="0"/>
-      <column width="-1" type="field" name="ebw_posa_d" hidden="0"/>
-      <column width="-1" type="field" name="restrictio" hidden="0"/>
-      <column width="-1" type="field" name="name" hidden="0"/>
-      <column width="-1" type="field" name="base_mater" hidden="0"/>
-      <column width="-1" type="field" name="base_mat_1" hidden="0"/>
-      <column width="-1" type="field" name="undergroun" hidden="0"/>
-      <column width="-1" type="field" name="upper_ma_1" hidden="0"/>
-      <column width="-1" type="field" name="diameter" hidden="0"/>
-      <column width="-1" type="field" name="centre_poi" hidden="0"/>
-      <column width="-1" type="field" name="ebw_flag_1" hidden="0"/>
-      <column width="-1" type="field" name="surroundin" hidden="0"/>
-      <column width="-1" type="field" name="lungh_infr" hidden="0"/>
-      <column width="-1" type="field" name="gid" hidden="0"/>
-      <column width="-1" type="field" name="notes_1" hidden="0"/>
-      <column width="-1" type="field" name="ripristino" hidden="0"/>
-      <column width="-1" type="field" name="gidd" hidden="0"/>
+      <column width="-1" type="field" hidden="0" name="ebw_flag_i"/>
+      <column width="-1" type="field" hidden="0" name="core_mater"/>
+      <column width="-1" type="field" hidden="0" name="idinfratel"/>
+      <column width="-1" type="field" hidden="0" name="num_minitu"/>
+      <column width="-1" type="field" hidden="0" name="tubi_occup"/>
+      <column width="-1" type="field" hidden="0" name="ebw_codice"/>
+      <column width="-1" type="field" hidden="0" name="minitubi_o"/>
+      <column width="-1" type="field" hidden="0" name="ebw_flag_o"/>
+      <column width="-1" type="field" hidden="0" name="core_mat_1"/>
+      <column width="-1" type="field" hidden="0" name="upper_mate"/>
+      <column width="-1" type="field" hidden="0" name="width"/>
+      <column width="-1" type="field" hidden="0" name="ebw_posa_d"/>
+      <column width="-1" type="field" hidden="0" name="restrictio"/>
+      <column width="-1" type="field" hidden="0" name="name"/>
+      <column width="-1" type="field" hidden="0" name="base_mater"/>
+      <column width="-1" type="field" hidden="0" name="base_mat_1"/>
+      <column width="-1" type="field" hidden="0" name="undergroun"/>
+      <column width="-1" type="field" hidden="0" name="upper_ma_1"/>
+      <column width="-1" type="field" hidden="0" name="diameter"/>
+      <column width="-1" type="field" hidden="0" name="centre_poi"/>
+      <column width="-1" type="field" hidden="0" name="ebw_flag_1"/>
+      <column width="-1" type="field" hidden="0" name="surroundin"/>
+      <column width="-1" type="field" hidden="0" name="lungh_infr"/>
+      <column width="-1" type="field" hidden="0" name="gid"/>
+      <column width="-1" type="field" hidden="0" name="notes_1"/>
+      <column width="-1" type="field" hidden="0" name="ripristino"/>
+      <column width="-1" type="field" hidden="0" name="gidd"/>
     </columns>
   </attributetableconfig>
   <conditionalstyles>
@@ -1713,69 +1713,69 @@ def my_form_open(dialog, layer, feature):
   <featformsuppress>0</featformsuppress>
   <editorlayout>tablayout</editorlayout>
   <attributeEditorForm>
-    <attributeEditorField showLabel="1" name="ebw_tipo_p" index="14"/>
-    <attributeEditorField showLabel="1" name="num_tubi" index="3"/>
-    <attributeEditorField showLabel="1" name="diam_tubo" index="4"/>
-    <attributeEditorField showLabel="1" name="ebw_propri" index="28"/>
-    <attributeEditorField showLabel="1" name="diam_minit" index="29"/>
-    <attributeEditorField showLabel="1" name="notes" index="36"/>
-    <attributeEditorField showLabel="1" name="num_cavi" index="18"/>
-    <attributeEditorField showLabel="1" name="shp_id" index="32"/>
-    <attributeEditorField showLabel="1" name="constructi" index="26"/>
-    <attributeEditorField showLabel="1" name="measured_l" index="10"/>
-    <attributeEditorField showLabel="1" name="surface_ma" index="37"/>
-    <attributeEditorField showLabel="1" name="num_mtubi" index="13"/>
+    <attributeEditorField index="14" showLabel="1" name="ebw_tipo_p"/>
+    <attributeEditorField index="3" showLabel="1" name="num_tubi"/>
+    <attributeEditorField index="4" showLabel="1" name="diam_tubo"/>
+    <attributeEditorField index="28" showLabel="1" name="ebw_propri"/>
+    <attributeEditorField index="29" showLabel="1" name="diam_minit"/>
+    <attributeEditorField index="36" showLabel="1" name="notes"/>
+    <attributeEditorField index="18" showLabel="1" name="num_cavi"/>
+    <attributeEditorField index="32" showLabel="1" name="shp_id"/>
+    <attributeEditorField index="26" showLabel="1" name="constructi"/>
+    <attributeEditorField index="10" showLabel="1" name="measured_l"/>
+    <attributeEditorField index="37" showLabel="1" name="surface_ma"/>
+    <attributeEditorField index="13" showLabel="1" name="num_mtubi"/>
   </attributeEditorForm>
   <editable>
-    <field name="DATA CHECK" editable="1"/>
-    <field name="LUNGH_VAR" editable="1"/>
-    <field name="NOTE" editable="1"/>
-    <field name="OPERATORE" editable="1"/>
-    <field name="VERIFICATA" editable="1"/>
-    <field name="base_mat_1" editable="1"/>
-    <field name="base_mater" editable="1"/>
-    <field name="calculated" editable="1"/>
-    <field name="centre_poi" editable="1"/>
-    <field name="constructi" editable="1"/>
-    <field name="core_mat_1" editable="1"/>
-    <field name="core_mater" editable="1"/>
-    <field name="diam_minit" editable="1"/>
-    <field name="diam_tubo" editable="1"/>
-    <field name="diameter" editable="1"/>
-    <field name="ebw_codice" editable="1"/>
-    <field name="ebw_flag_1" editable="1"/>
-    <field name="ebw_flag_i" editable="1"/>
-    <field name="ebw_flag_o" editable="1"/>
-    <field name="ebw_posa_d" editable="1"/>
-    <field name="ebw_propri" editable="1"/>
-    <field name="ebw_tipo_p" editable="1"/>
-    <field name="gid" editable="1"/>
-    <field name="gidd" editable="1"/>
-    <field name="idinfratel" editable="1"/>
-    <field name="lun_tratta" editable="1"/>
-    <field name="lungh_infr" editable="1"/>
-    <field name="measured_l" editable="1"/>
-    <field name="minitubi_o" editable="1"/>
-    <field name="name" editable="1"/>
-    <field name="notes" editable="1"/>
-    <field name="notes_1" editable="1"/>
-    <field name="num_cavi" editable="1"/>
-    <field name="num_fibre" editable="1"/>
-    <field name="num_minitu" editable="1"/>
-    <field name="num_mtubi" editable="1"/>
-    <field name="num_tubi" editable="1"/>
-    <field name="owner" editable="1"/>
-    <field name="restrictio" editable="1"/>
-    <field name="ripristino" editable="1"/>
-    <field name="shp_id" editable="0"/>
-    <field name="surface_ma" editable="1"/>
-    <field name="surroundin" editable="1"/>
-    <field name="tipo_mtubi" editable="1"/>
-    <field name="tubi_occup" editable="1"/>
-    <field name="undergroun" editable="1"/>
-    <field name="upper_ma_1" editable="1"/>
-    <field name="upper_mate" editable="1"/>
-    <field name="width" editable="1"/>
+    <field editable="1" name="DATA CHECK"/>
+    <field editable="1" name="LUNGH_VAR"/>
+    <field editable="1" name="NOTE"/>
+    <field editable="1" name="OPERATORE"/>
+    <field editable="1" name="VERIFICATA"/>
+    <field editable="1" name="base_mat_1"/>
+    <field editable="1" name="base_mater"/>
+    <field editable="1" name="calculated"/>
+    <field editable="1" name="centre_poi"/>
+    <field editable="1" name="constructi"/>
+    <field editable="1" name="core_mat_1"/>
+    <field editable="1" name="core_mater"/>
+    <field editable="1" name="diam_minit"/>
+    <field editable="1" name="diam_tubo"/>
+    <field editable="1" name="diameter"/>
+    <field editable="1" name="ebw_codice"/>
+    <field editable="1" name="ebw_flag_1"/>
+    <field editable="1" name="ebw_flag_i"/>
+    <field editable="1" name="ebw_flag_o"/>
+    <field editable="1" name="ebw_posa_d"/>
+    <field editable="1" name="ebw_propri"/>
+    <field editable="1" name="ebw_tipo_p"/>
+    <field editable="1" name="gid"/>
+    <field editable="1" name="gidd"/>
+    <field editable="1" name="idinfratel"/>
+    <field editable="1" name="lun_tratta"/>
+    <field editable="1" name="lungh_infr"/>
+    <field editable="1" name="measured_l"/>
+    <field editable="1" name="minitubi_o"/>
+    <field editable="1" name="name"/>
+    <field editable="1" name="notes"/>
+    <field editable="1" name="notes_1"/>
+    <field editable="1" name="num_cavi"/>
+    <field editable="1" name="num_fibre"/>
+    <field editable="1" name="num_minitu"/>
+    <field editable="1" name="num_mtubi"/>
+    <field editable="1" name="num_tubi"/>
+    <field editable="1" name="owner"/>
+    <field editable="1" name="restrictio"/>
+    <field editable="1" name="ripristino"/>
+    <field editable="0" name="shp_id"/>
+    <field editable="1" name="surface_ma"/>
+    <field editable="1" name="surroundin"/>
+    <field editable="1" name="tipo_mtubi"/>
+    <field editable="1" name="tubi_occup"/>
+    <field editable="1" name="undergroun"/>
+    <field editable="1" name="upper_ma_1"/>
+    <field editable="1" name="upper_mate"/>
+    <field editable="1" name="width"/>
   </editable>
   <labelOnTop>
     <field labelOnTop="0" name="DATA CHECK"/>
