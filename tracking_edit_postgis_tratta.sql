@@ -4,8 +4,8 @@
 --DROP TABLE underground_route_history;
 --Create history table. This is the table we will use to store all the historical edit information. In addition to all the fields from underground_route, we add five more fields:
 CREATE TABLE underground_route_history ( like  underground_route, hid serial PRIMARY KEY, created timestamp without time zone, created_by character varying(64), deleted timestamp without time zone, deleted_by character varying(64));
-GRANT SELECT, UPDATE, INSERT, TRIGGER ON TABLE underground_route_history TO operatore;
-GRANT ALL ON TABLE underground_route_history_hid_seq TO operatore;
+GRANT SELECT, UPDATE, INSERT, TRIGGER ON TABLE underground_route_history TO operatore_r;
+GRANT ALL ON TABLE underground_route_history_hid_seq TO operatore_r;
 
 --we import the current state of the active table into the history table, so we have a starting point to trace history from. Note that we fill in the creation time and creation user, but leave the deletion records NULL:
 INSERT INTO underground_route_history (gidd, geom, core_mater, ebw_flag_i, diameter, base_mater, ebw_tipo_p, 
