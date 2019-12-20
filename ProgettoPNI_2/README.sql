@@ -28,10 +28,19 @@ DO
 $body$
 BEGIN
    IF NOT EXISTS (
-      SELECT *
-      FROM   pg_catalog.pg_user
-      WHERE  usename = 'operatore') THEN
+      SELECT DISTINCT b.rolname rname FROM pg_auth_members a, pg_roles b WHERE a.roleid=b.oid AND b.rolname = 'operatore_r') THEN
+      CREATE ROLE operatore_r NOSUPERUSER INHERIT NOCREATEDB NOCREATEROLE NOREPLICATION;
+   END IF;
+   IF NOT EXISTS (
+      SELECT * FROM pg_catalog.pg_user WHERE  usename = 'operatore') THEN
       CREATE ROLE operatore LOGIN ENCRYPTED PASSWORD 'operatore_2k16' NOSUPERUSER INHERIT NOCREATEDB NOCREATEROLE;
+      GRANT operatore_r TO operatore;
+   END IF;
+   IF NOT EXISTS (
+      SELECT * FROM pg_catalog.pg_user WHERE  usename = 'sinergica') THEN
+      CREATE ROLE sinergica LOGIN ENCRYPTED PASSWORD 'sinergica_2k19' NOSUPERUSER INHERIT NOCREATEDB NOCREATEROLE;
+      GRANT operatore_r TO sinergica;
+	  GRANT ALL ON TABLE mappa_valori_pni2 TO sinergica;
    END IF;
 END
 $body$;

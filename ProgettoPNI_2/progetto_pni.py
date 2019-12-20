@@ -223,7 +223,7 @@ class ProgettoPNI_2:
     LAYER_OPZIONALI_ced = ['planimetria', 'street', 'ebw_address', 'ebw_pop', 'ebw_scorta', 'ebw_pte']
     
     #dizionario dei nomi da progetto QGIS_template (key) a tavole su DB (value):
-    LAYER_NAME_PNI_aib_ita = {
+    '''LAYER_NAME_PNI_aib_ita = {
         'PNI_ACCESS_POINT': 'access_point',
         'PNI_AREA_CAVO': 'area_cavo',
         'PNI_AREE_PFP': 'aree_pfp',
@@ -240,7 +240,7 @@ class ProgettoPNI_2:
         'PNI_STRADE': 'strade',
         'PNI_TRATTA': 'tratta',
         'PNI_TRATTA_AEREA': 'tratta_aerea'
-    }
+    }'''
     #questo e' il dictionary in PRODUZIONE!!
     LAYER_NAME_PNI_aib = {
         'PNI_ACCESS_POINT': 'access_point',
@@ -248,6 +248,7 @@ class ProgettoPNI_2:
         'PNI_AREE_PFP': 'ebw_area_pfp',
         'PNI_AREE_PFS': 'ebw_area_pfs',
         'PNI_AREA_ANELLO': 'ebw_area_anello',
+        'PNI_AREA_POP': 'ebw_area_pop',
         'PNI_CAVI': 'sheath_with_loc',
         'PNI_CIVICI': 'address',
         'PNI_COLONNINE': 'mit_terminal_enclosure',
@@ -258,7 +259,8 @@ class ProgettoPNI_2:
         'PNI_POZZETTI': 'uub',
         'PNI_STRADE': 'street',
         'PNI_TRATTA': 'underground_route',
-        'PNI_TRATTA_AEREA': 'aerial_route'
+        'PNI_TRATTA_AEREA': 'aerial_route',
+        'PNI_MIT_BAY': 'mit_bay'
     }
     LAYER_OPZIONALI_aib = []
     
