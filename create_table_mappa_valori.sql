@@ -5,7 +5,7 @@
 -- Dumped from database version 9.3.13
 -- Dumped by pg_dump version 9.5.1
 
--- Started on 2019-12-19 11:48:35
+-- Started on 2019-12-20 16:31:34
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -22,7 +22,7 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
--- TOC entry 696 (class 1259 OID 2500726)
+-- TOC entry 698 (class 1259 OID 2500726)
 -- Name: mappa_valori_pni2; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -41,8 +41,8 @@ CREATE TABLE mappa_valori_pni2 (
 ALTER TABLE mappa_valori_pni2 OWNER TO postgres;
 
 --
--- TOC entry 5095 (class 0 OID 2500726)
--- Dependencies: 696
+-- TOC entry 5337 (class 0 OID 2500726)
+-- Dependencies: 698
 -- Data for Name: mappa_valori_pni2; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -321,11 +321,19 @@ giunti	tipo_posa	B	character varying(100)	t	editabile solo se si seleziona PD	mu
 giunti	tipo_posa	A	character varying(100)	t	editabile solo se si seleziona PD	muffola PD	ab
 cavi	nome	manuale	character varying(100)	t	da inserire manualmente	nome cavo	ab
 cavi	measured_f	manuale	double precision	t	da inserire maualmente	campo numerico da compilare (metri)	ab
+mit_bay	descriptio	manuale	character varying(50)	t	da inserire manualmente	nome PTE	ab
+mit_bay	numero_por	8	integer	t	\N	porte	ab
+mit_bay	numero_por	16	integer	t	\N	porte	ab
+mit_bay	numero_por	24	integer	t	\N	porte	ab
+mit_bay	numero_por	36	integer	t	\N	porte	ab
+mit_bay	numero_por	48	integer	t	\N	porte	ab
+mit_bay	constructi	Realizzato	character varying(14)	t	\N	stato	ab
+mit_bay	constructi	Progettato	character varying(14)	t	\N	stato	ab
 \.
 
 
 --
--- TOC entry 4968 (class 2606 OID 2500734)
+-- TOC entry 5210 (class 2606 OID 2500734)
 -- Name: mappa_valori_pni2_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -334,8 +342,8 @@ ALTER TABLE ONLY mappa_valori_pni2
 
 
 --
--- TOC entry 5100 (class 0 OID 0)
--- Dependencies: 696
+-- TOC entry 5342 (class 0 OID 0)
+-- Dependencies: 698
 -- Name: mappa_valori_pni2; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -343,9 +351,10 @@ REVOKE ALL ON TABLE mappa_valori_pni2 FROM PUBLIC;
 REVOKE ALL ON TABLE mappa_valori_pni2 FROM postgres;
 GRANT ALL ON TABLE mappa_valori_pni2 TO postgres;
 GRANT SELECT ON TABLE mappa_valori_pni2 TO operatore;
+GRANT ALL ON TABLE mappa_valori_pni2 TO sinergica;
 
 
--- Completed on 2019-12-19 11:48:35
+-- Completed on 2019-12-20 16:31:34
 
 --
 -- PostgreSQL database dump complete
