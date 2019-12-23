@@ -100,7 +100,7 @@ p, li { white-space: pre-wrap; }
     <widget class="QLabel" name="label">
      <property name="geometry">
       <rect>
-       <x>40</x>
+       <x>28</x>
        <y>20</y>
        <width>41</width>
        <height>16</height>
@@ -113,7 +113,7 @@ p, li { white-space: pre-wrap; }
     <widget class="QLineEdit" name="hostDB">
      <property name="geometry">
       <rect>
-       <x>82</x>
+       <x>70</x>
        <y>20</y>
        <width>101</width>
        <height>20</height>
@@ -126,9 +126,9 @@ p, li { white-space: pre-wrap; }
     <widget class="QLineEdit" name="portDB">
      <property name="geometry">
       <rect>
-       <x>260</x>
+       <x>240</x>
        <y>20</y>
-       <width>113</width>
+       <width>81</width>
        <height>20</height>
       </rect>
      </property>
@@ -139,7 +139,7 @@ p, li { white-space: pre-wrap; }
     <widget class="QLineEdit" name="usrDB">
      <property name="geometry">
       <rect>
-       <x>82</x>
+       <x>152</x>
        <y>50</y>
        <width>101</width>
        <height>20</height>
@@ -152,7 +152,7 @@ p, li { white-space: pre-wrap; }
     <widget class="QLineEdit" name="pwdDB">
      <property name="geometry">
       <rect>
-       <x>260</x>
+       <x>330</x>
        <y>50</y>
        <width>113</width>
        <height>20</height>
@@ -165,9 +165,9 @@ p, li { white-space: pre-wrap; }
     <widget class="QLineEdit" name="nameDB">
      <property name="geometry">
       <rect>
-       <x>450</x>
+       <x>420</x>
        <y>20</y>
-       <width>101</width>
+       <width>111</width>
        <height>20</height>
       </rect>
      </property>
@@ -178,7 +178,7 @@ p, li { white-space: pre-wrap; }
     <widget class="QLabel" name="label_2">
      <property name="geometry">
       <rect>
-       <x>220</x>
+       <x>200</x>
        <y>20</y>
        <width>41</width>
        <height>16</height>
@@ -191,7 +191,7 @@ p, li { white-space: pre-wrap; }
     <widget class="QLabel" name="label_3">
      <property name="geometry">
       <rect>
-       <x>10</x>
+       <x>80</x>
        <y>50</y>
        <width>71</width>
        <height>16</height>
@@ -204,7 +204,7 @@ p, li { white-space: pre-wrap; }
     <widget class="QLabel" name="label_4">
      <property name="geometry">
       <rect>
-       <x>190</x>
+       <x>260</x>
        <y>50</y>
        <width>61</width>
        <height>16</height>
@@ -217,7 +217,7 @@ p, li { white-space: pre-wrap; }
     <widget class="QLabel" name="label_5">
      <property name="geometry">
       <rect>
-       <x>380</x>
+       <x>350</x>
        <y>20</y>
        <width>61</width>
        <height>16</height>
@@ -256,22 +256,25 @@ p, li { white-space: pre-wrap; }
     <widget class="QLabel" name="label_9">
      <property name="geometry">
       <rect>
-       <x>390</x>
-       <y>50</y>
-       <width>61</width>
-       <height>16</height>
+       <x>40</x>
+       <y>140</y>
+       <width>191</width>
+       <height>20</height>
       </rect>
      </property>
      <property name="text">
-      <string>schema</string>
+      <string>Seleziona uno schema esistente:</string>
      </property>
     </widget>
     <widget class="QLineEdit" name="schemaDB">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
      <property name="geometry">
       <rect>
-       <x>450</x>
-       <y>50</y>
-       <width>101</width>
+       <x>240</x>
+       <y>170</y>
+       <width>141</width>
        <height>20</height>
       </rect>
      </property>
@@ -283,16 +286,58 @@ p, li { white-space: pre-wrap; }
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>150</y>
+       <y>260</y>
        <width>521</width>
        <height>51</height>
       </rect>
      </property>
      <property name="text">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;* Se al punto B si dovesse decidere di reimportare nuovi dati, eventuali altri dati di un precedente progetto già presenti in questo DB-schema verranno sovrascritti&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;* Se al punto B si dovesse decidere di reimportare nuovi dati, eventuali altri dati con lo stesso nome di un precedente progetto già presenti in questo DB-schema verranno sovrascritti&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
      <property name="wordWrap">
       <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_10">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>170</y>
+       <width>191</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>oppure creane uno nuovo:</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="schemaDB_combo">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>240</x>
+       <y>140</y>
+       <width>141</width>
+       <height>22</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QToolButton" name="testBtn_schema">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>140</x>
+       <y>200</y>
+       <width>271</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Conferma schema e passa alla sezione B</string>
      </property>
     </widget>
    </widget>
@@ -489,7 +534,7 @@ p, li { white-space: pre-wrap; }
       </rect>
      </property>
      <property name="title">
-      <string>Importa solo dei dati parziali su DB per creare poi un progetto completo da pulsante C</string>
+      <string>Importa dati parziali su DB per poi creare progetto completo da pulsante C</string>
      </property>
      <property name="checkable">
       <bool>true</bool>
