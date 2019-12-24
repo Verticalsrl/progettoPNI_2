@@ -574,6 +574,14 @@ class ProgettoPNI_2:
             #self.dlg_config.importBtn.setEnabled(False) #attivo il pulsante di caricamento layer da DB sulla TOC
             self.dlg_config.createBtn.setEnabled(False)
 
+    def tracking_sql(self, sql_track_file, schemaDB, cur, test_conn):
+        with open(sql_track_file, 'r', encoding='utf-8-sig') as file:
+            filedata = file.read()
+        # Replace the target string
+        filedata = filedata.replace('schemaDB', schemaDB)
+        cur.execute( filedata )
+        test_conn.commit()
+    
     def import_shp2db_parziale(self):
         self.import_shp2db(1)
     
@@ -604,7 +612,8 @@ class ProgettoPNI_2:
         #importo gli shp su db. Controllo che tutti i campi siano compilati prima di procedere:
         msg = QMessageBox()
         try:
-            schemaDB = self.dlg_config.schemaDB.text()
+            #schemaDB = self.dlg_config.schemaDB.text()
+            #recupero lo schema dalla variabile globale definita sotto la funzione test_schema
             if (parziale==1): #cioe' carico solo alcuni dati su DB per creare poi il progetto col pulsante C funzione load_project_from_db
                 dirname_text = self.dlg_config.dirBrowse_txt_parziale.text()
             else:
@@ -697,9 +706,11 @@ class ProgettoPNI_2:
             
             #ciclo dentro gli shp trovati nella cartella e li carico su QGis:
             lista_layer_to_load = []
+            shp_name_to_load = []
             for shps in shp_to_load:
                 qgs_shp = QgsVectorLayer(dirname_text+"/"+shps, shps[:-4], "ogr")
                 lista_layer_to_load.append( qgs_shp )
+                shp_name_to_load.append( shps[:-4].lower() )
             if (int(qgis_version[0]) >= 3):
                 QgsProject.instance().addMapLayers(lista_layer_to_load)
             else:
@@ -780,20 +791,51 @@ class ProgettoPNI_2:
                 
                 #devo assegnare tutte le tavole di questo schema al nuovo gruppo operatore_r
                 query_grant = "GRANT ALL ON ALL TABLES IN SCHEMA %s TO operatore_r;" % (schemaDB)
+                Utils.logMessage('query_grant '+str(query_grant))
                 cur.execute(query_grant)
                 test_conn.commit()
+                
+                #SPATIAL INDEX
+                #creo lo SPATIAL INDEX sugli shp appena caricati
+                for shp_geoidx in shp_name_to_load:
+                    query_spatial = "CREATE INDEX ON %s.%s USING gist (geom);" % (schemaDB, shp_geoidx)
+                    cur.execute(query_spatial)
+                    #il VACUUM sarebbe bene metterlo sulla macchina a crontab come operazione giornaliera
+                    #query_vacuum = "VACUUM FULL ANALYZE %s.%s" % (schemaDB, row[0])
+                    #cur.execute(query_vacuum)
+                test_conn.commit() #committo la creazione dell'indice spaziale
+                
+                #TRACKING modifiche sui layer
+                #devo attivare gli script in base ai layer effettivamente caricati
+                Utils.logMessage('shp_name_to_load, per i quali ho anche creato indice spaziale '+str(shp_name_to_load))
+                query_path = "SET search_path = %s, pg_catalog;" % (schemaDB)
+                Utils.logMessage('Adesso se il caso creo il tracking sulle tabelle nello schema ' + str(schemaDB))
+                cur.execute(query_path)
+                if ('underground_route' in shp_name_to_load):
+                    sql_track_file = self.plugin_dir + '/tracking_edit_postgis_tratta.sql'
+                    self.tracking_sql(sql_track_file, schemaDB, cur, test_conn)
+                if ('aerial_route' in shp_name_to_load):
+                    sql_track_file = self.plugin_dir + '/tracking_edit_postgis_tratta_aerea.sql'
+                    self.tracking_sql(sql_track_file, schemaDB, cur, test_conn)
+                if ('mit_terminal_enclosure' in shp_name_to_load):
+                    sql_track_file = self.plugin_dir + '/tracking_edit_postgis_colonnine.sql'
+                    self.tracking_sql(sql_track_file, schemaDB, cur, test_conn)
+                if ('uub' in shp_name_to_load):
+                    sql_track_file = self.plugin_dir + '/tracking_edit_postgis_pozzetti.sql'
+                    self.tracking_sql(sql_track_file, schemaDB, cur, test_conn)
+                if ('sheat_splice' in shp_name_to_load):
+                    sql_track_file = self.plugin_dir + '/tracking_edit_postgis_giunti.sql'
+                    self.tracking_sql(sql_track_file, schemaDB, cur, test_conn)
+                if ('sheat_with_loc' in shp_name_to_load):
+                    sql_track_file = self.plugin_dir + '/tracking_edit_postgis_cavi.sql'
+                    self.tracking_sql(sql_track_file, schemaDB, cur, test_conn)
+                if ('mit_bay' in shp_name_to_load):
+                    sql_track_file = self.plugin_dir + '/tracking_edit_postgis_mit_bay.sql'
+                    self.tracking_sql(sql_track_file, schemaDB, cur, test_conn)
                 
                 #se sto caricando solo alcuni dati su DB per creare poi il progetto col pulsante C funzione load_project_from_db, allora salto la creazione del progetto ed esco da questa funzione
                 if (parziale==1):
                     self.dlg_config.txtFeedback_import.setText("Dati importati con successo! Puoi passare alla creazione del progetto col pulsante C")
-                    #in questo caso devo creare adesso l'indice spaziale sulla tabella e farne il vacuum
-                    for layer_spatial in lista_layer_to_load:
-                        query_spatial = "CREATE INDEX %s_geoidx ON %s.%s USING gist (geom);" % (layer_spatial.name().lower(), schemaDB, layer_spatial.name().lower())
-                        cur.execute(query_spatial)
-                        #il VACUUM sarebbe bene metterlo sulla macchina a crontab come operazione giornaliera
-                        #query_vacuum = "VACUUM FULL ANALYZE %s.%s" % (schemaDB, layer_spatial.name().lower())
-                        #cur.execute(query_vacuum)
-                    test_conn.commit() #committo la creazione dell'indice spaziale
                     return 1
                 
                 self.dlg_config.txtFeedback_import.setText("Dati importati con successo! Passiamo alla creazione del progetto...")
@@ -817,23 +859,17 @@ class ProgettoPNI_2:
                 #ATTENZIONE!!! iface.mapCanvas().layers() recupera solo i layers visibili, per questo motivo nel template li ho messi tutti visibili
                 #per ovviare a questo limite, nel caso in cui vi siano effettivamente questi layer sul DB:
                 #1-scarico la lista delle tavole con the_geom dal DB
-                #2-creo l'indice spaziale su ogni tabella
                 layer_on_DB = list()
-                cur.execute( "SELECT table_name FROM information_schema.tables WHERE table_schema = '%s' AND table_type = 'BASE TABLE';" % (schemaDB) )
+                #cur.execute( "SELECT table_name FROM information_schema.tables WHERE table_schema = '%s' AND table_type = 'BASE TABLE';" % (schemaDB) )
+                cur.execute( "SELECT f_table_name FROM public.geometry_columns WHERE f_table_schema='%s';" % (schemaDB) )
                 dataDB = cur.fetchall()
                 for row in dataDB:
                     Utils.logMessage( 'Tabella sul DB: %s' % (row[0]) )
                     layer_on_DB.append(row[0]) #avendo il risultato una sola colonna cioe' [0]
-                    #creo lo SPATIAL INDEX
-                    query_spatial = "CREATE INDEX %s_geoidx ON %s.%s USING gist (geom);" % (row[0], schemaDB, row[0])
-                    cur.execute(query_spatial)
-                    #il VACUUM sarebbe bene metterlo sulla macchina a crontab come operazione giornaliera
-                    #query_vacuum = "VACUUM FULL ANALYZE %s.%s" % (schemaDB, row[0])
-                    #cur.execute(query_vacuum)
-                Utils.logMessage( 'layer_on_DB, per i quali ho anche creato indice spaziale: %s' % str(layer_on_DB) )
+                Utils.logMessage( 'layer_on_DB: %s' % str(layer_on_DB) )
                 
                 cur.close()
-                test_conn.commit() #committo la creazione dell'indice spaziale
+                #test_conn.commit() #committo la creazione dell'indice spaziale
                 test_conn.close()
                 
                 for layer_imported in layers_from_project_template:
