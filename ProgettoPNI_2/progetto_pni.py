@@ -829,6 +829,12 @@ class ProgettoPNI_2:
                 if ('sheat_with_loc' in shp_name_to_load):
                     sql_track_file = self.plugin_dir + '/tracking_edit_postgis_cavi.sql'
                     self.tracking_sql(sql_track_file, schemaDB, cur, test_conn)
+                if ('sheath_splice' in shp_name_to_load):
+                    sql_track_file = self.plugin_dir + '/tracking_edit_postgis_giunti_sheath.sql'
+                    self.tracking_sql(sql_track_file, schemaDB, cur, test_conn)
+                if ('sheath_with_loc' in shp_name_to_load):
+                    sql_track_file = self.plugin_dir + '/tracking_edit_postgis_cavi_sheath.sql'
+                    self.tracking_sql(sql_track_file, schemaDB, cur, test_conn)
                 if ('mit_bay' in shp_name_to_load):
                     sql_track_file = self.plugin_dir + '/tracking_edit_postgis_mit_bay.sql'
                     self.tracking_sql(sql_track_file, schemaDB, cur, test_conn)
