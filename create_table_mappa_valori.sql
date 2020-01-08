@@ -246,15 +246,37 @@ tratta_aerea	ebw_propri	Privato	character varying(30)	t	\N	proprietario	ab
 tratta_aerea	ebw_propri	TIM	character varying(30)	t	\N	proprietario	ab
 tratta_aerea	ebw_propri	Vodafone	character varying(30)	t	\N	proprietario	ab
 tratta_aerea	ebw_propri	Wind	character varying(30)	t	\N	proprietario	ab
+tratta_aerea	num_cavi	0	character varying(100)	f	\N	cavi inseriti	ab
+tratta_aerea	num_cavi	1	character varying(100)	f	\N	cavi inseriti	ab
+tratta_aerea	num_cavi	2	character varying(100)	f	\N	cavi inseriti	ab
+tratta_aerea	num_cavi	3	character varying(100)	f	\N	cavi inseriti	ab
+tratta_aerea	num_cavi	4	character varying(100)	f	\N	cavi inseriti	ab
+tratta_aerea	num_cavi	5	character varying(100)	f	\N	cavi inseriti	ab
+tratta_aerea	num_cavi	6	character varying(100)	f	\N	cavi inseriti	ab
+tratta_aerea	num_cavi	7	character varying(100)	f	\N	cavi inseriti	ab
+tratta_aerea	num_cavi	8	character varying(100)	f	\N	cavi inseriti	ab
+tratta_aerea	num_cavi	9	character varying(100)	f	\N	cavi inseriti	ab
+tratta_aerea	num_cavi	10	character varying(100)	f	\N	cavi inseriti	ab
+tratta_aerea	num_cavi	11	character varying(100)	f	\N	cavi inseriti	ab
+tratta_aerea	num_cavi	12	character varying(100)	f	\N	cavi inseriti	ab
+tratta_aerea	num_cavi	13	character varying(100)	f	\N	cavi inseriti	ab
+tratta_aerea	num_cavi	14	character varying(100)	f	\N	cavi inseriti	ab
+tratta_aerea	num_cavi	15	character varying(100)	f	\N	cavi inseriti	ab
+tratta_aerea	num_cavi	16	character varying(100)	f	\N	cavi inseriti	ab
+tratta_aerea	num_cavi	17	character varying(100)	f	\N	cavi inseriti	ab
+tratta_aerea	num_cavi	18	character varying(100)	f	\N	cavi inseriti	ab
+tratta_aerea	num_cavi	19	character varying(100)	f	\N	cavi inseriti	ab
+tratta_aerea	num_cavi	20	character varying(100)	f	\N	cavi inseriti	ab
+tratta	num_tubi	0	character varying(100)	f	\N	numero tubi	ab
 tratta	num_tubi	1	character varying(100)	f	\N	numero tubi	ab
 tratta	num_tubi	4	character varying(100)	f	\N	numero tubi	ab
 tratta	num_tubi	3	character varying(100)	f	\N	numero tubi	ab
 tratta	num_tubi	2	character varying(100)	f	\N	numero tubi	ab
-tratta	num_tubi	0	character varying(100)	f	\N	numero tubi	ab
 tratta	num_mtubi	1x7	character varying(100)	f	\N	numero minitubi	ab
 tratta	num_mtubi	2x7	character varying(100)	f	\N	numero minitubi	ab
 tratta	num_mtubi	3x7	character varying(100)	f	\N	numero minitubi	ab
 tratta	num_mtubi	4x7	character varying(100)	f	\N	numero minitubi	ab
+tratta	num_mtubi	0	character varying(100)	f	\N	numero minitubi	ab
 tratta	num_mtubi	1	character varying(100)	f	\N	numero minitubi	ab
 tratta	num_mtubi	2	character varying(100)	f	\N	numero minitubi	ab
 tratta	num_mtubi	3	character varying(100)	f	\N	numero minitubi	ab
@@ -319,6 +341,7 @@ giunti	constructi	Progettato	character varying(14)	t	\N	stato	ab
 giunti	spec_id	GL	character varying(30)	t	\N	tipologia	ab
 giunti	tipo_posa	B	character varying(100)	t	editabile solo se si seleziona PD	muffola PD	ab
 giunti	tipo_posa	A	character varying(100)	t	editabile solo se si seleziona PD	muffola PD	ab
+giunti	name	specificare	character varying(100)	t	campo libero di testo	nome giunto	ab
 cavi	nome	manuale	character varying(100)	t	da inserire manualmente	nome cavo	ab
 cavi	measured_f	manuale	double precision	t	da inserire maualmente	campo numerico da compilare (metri)	ab
 mit_bay	descriptio	manuale	character varying(50)	t	da inserire manualmente	nome PTE	ab
