@@ -10355,11 +10355,21 @@ Proprietario:&#xd;
           </editWidget>
         </field>
         <field name="num_cavi">
-          <editWidget type="TextEdit">
+          <editWidget type="ValueRelation">
             <config>
               <Option type="Map">
-                <Option value="false" type="bool" name="IsMultiline"/>
-                <Option value="false" type="bool" name="UseHtml"/>
+                <Option value="false" type="bool" name="AllowMulti"/>
+                <Option value="false" type="bool" name="AllowNull"/>
+                <Option value="&quot;tabella&quot; = 'tratta_aerea'  AND &quot;campo&quot; = 'num_cavi'" type="QString" name="FilterExpression"/>
+                <Option value="valore" type="QString" name="Key"/>
+                <Option value="mappa_valori_pni2_7a0eee1d_35f4_4b5f_baff_61c4433fcf53" type="QString" name="Layer"/>
+                <Option value="mappa_valori_pni2" type="QString" name="LayerName"/>
+                <Option value="postgres" type="QString" name="LayerProviderName"/>
+                <Option value="dbname='pni_2' host=86.107.96.34 port=5432 user='operatore' sslmode=disable key='tabella,campo,valore,tipo_progetto' checkPrimaryKeyUnicity='1' table=&quot;public&quot;.&quot;mappa_valori_pni2&quot; sql=" type="QString" name="LayerSource"/>
+                <Option value="1" type="int" name="NofColumns"/>
+                <Option value="true" type="bool" name="OrderByValue"/>
+                <Option value="false" type="bool" name="UseCompleter"/>
+                <Option value="valore" type="QString" name="Value"/>
               </Option>
             </config>
           </editWidget>
@@ -10679,14 +10689,14 @@ Proprietario:&#xd;
         <alias index="0" field="gidd" name=""/>
         <alias index="1" field="peso_cavi" name=""/>
         <alias index="2" field="tipo_cavi" name=""/>
-        <alias index="3" field="num_cavi" name=""/>
+        <alias index="3" field="num_cavi" name="cavi posati"/>
         <alias index="4" field="calculated" name=""/>
         <alias index="5" field="idinfratel" name=""/>
         <alias index="6" field="ebw_propri" name="proprietario"/>
         <alias index="7" field="ebw_flag_i" name=""/>
         <alias index="8" field="ebw_flag_r" name=""/>
         <alias index="9" field="gid" name=""/>
-        <alias index="10" field="notes" name=""/>
+        <alias index="10" field="notes" name="note"/>
         <alias index="11" field="ebw_nome" name=""/>
         <alias index="12" field="ebw_codice" name=""/>
         <alias index="13" field="tipo_posa" name=""/>
@@ -10712,7 +10722,6 @@ Proprietario:&#xd;
       <excludeAttributesWMS>
         <attribute>minitubi_o</attribute>
         <attribute>gidd</attribute>
-        <attribute>num_cavi</attribute>
         <attribute>ebw_owner</attribute>
         <attribute>notes</attribute>
         <attribute>ebw_nome</attribute>
@@ -10723,15 +10732,15 @@ Proprietario:&#xd;
         <attribute>tubi_occup</attribute>
         <attribute>num_fibre</attribute>
         <attribute>lun_tratta</attribute>
-        <attribute>diam_minit</attribute>
         <attribute>ebw_codice</attribute>
-        <attribute>lungh_infr</attribute>
+        <attribute>diam_minit</attribute>
         <attribute>gid</attribute>
         <attribute>diam_cavi</attribute>
+        <attribute>lungh_infr</attribute>
         <attribute>ebw_data_i</attribute>
         <attribute>calculated</attribute>
-        <attribute>ebw_flag_1</attribute>
         <attribute>ebw_flag_i</attribute>
+        <attribute>ebw_flag_1</attribute>
         <attribute>tipo_posa</attribute>
         <attribute>tipo_cavi</attribute>
         <attribute>num_cavi_1</attribute>
@@ -10741,7 +10750,6 @@ Proprietario:&#xd;
       <excludeAttributesWFS>
         <attribute>minitubi_o</attribute>
         <attribute>gidd</attribute>
-        <attribute>num_cavi</attribute>
         <attribute>ebw_owner</attribute>
         <attribute>notes</attribute>
         <attribute>ebw_nome</attribute>
@@ -10752,15 +10760,15 @@ Proprietario:&#xd;
         <attribute>tubi_occup</attribute>
         <attribute>num_fibre</attribute>
         <attribute>lun_tratta</attribute>
-        <attribute>diam_minit</attribute>
         <attribute>ebw_codice</attribute>
-        <attribute>lungh_infr</attribute>
+        <attribute>diam_minit</attribute>
         <attribute>gid</attribute>
         <attribute>diam_cavi</attribute>
+        <attribute>lungh_infr</attribute>
         <attribute>ebw_data_i</attribute>
         <attribute>calculated</attribute>
-        <attribute>ebw_flag_1</attribute>
         <attribute>ebw_flag_i</attribute>
+        <attribute>ebw_flag_1</attribute>
         <attribute>tipo_posa</attribute>
         <attribute>tipo_cavi</attribute>
         <attribute>num_cavi_1</attribute>
@@ -10938,11 +10946,15 @@ def my_form_open(dialog, layer, feature):
       <featformsuppress>0</featformsuppress>
       <editorlayout>tablayout</editorlayout>
       <attributeEditorForm>
-        <attributeEditorField index="16" showLabel="1" name="shp_id"/>
-        <attributeEditorField index="6" showLabel="1" name="ebw_propri"/>
-        <attributeEditorField index="25" showLabel="1" name="guy_type"/>
-        <attributeEditorField index="18" showLabel="1" name="measured_l"/>
-        <attributeEditorField index="31" showLabel="1" name="constructi"/>
+        <attributeEditorContainer columnCount="1" visibilityExpressionEnabled="0" showLabel="1" name="Edit tratta aerea" groupBox="0" visibilityExpression="">
+          <attributeEditorField index="16" showLabel="1" name="shp_id"/>
+          <attributeEditorField index="6" showLabel="1" name="ebw_propri"/>
+          <attributeEditorField index="25" showLabel="1" name="guy_type"/>
+          <attributeEditorField index="18" showLabel="1" name="measured_l"/>
+          <attributeEditorField index="3" showLabel="1" name="num_cavi"/>
+          <attributeEditorField index="10" showLabel="1" name="notes"/>
+          <attributeEditorField index="31" showLabel="1" name="constructi"/>
+        </attributeEditorContainer>
       </attributeEditorForm>
       <editable>
         <field editable="1" name="calculated"/>
