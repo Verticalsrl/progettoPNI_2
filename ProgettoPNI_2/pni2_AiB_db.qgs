@@ -22,20 +22,20 @@
     <layer-tree-layer expanded="1" id="mappa_valori_pni2_7a0eee1d_35f4_4b5f_baff_61c4433fcf53" providerKey="postgres" checked="Qt::Checked" name="mappa_valori_pni2" source="dbname='pni_2' host=86.107.96.34 port=5432 user='operatore' sslmode=disable key='tabella,campo,valore,tipo_progetto' checkPrimaryKeyUnicity='1' table=&quot;public&quot;.&quot;mappa_valori_pni2&quot; sql=">
       <customproperties/>
     </layer-tree-layer>
-    <layer-tree-group expanded="1" checked="Qt::Checked" name="OTTICO">
-      <customproperties/>
-      <layer-tree-layer expanded="1" id="mit_bay_3858213d_af6d_4fbe_9229_71aab1387375" providerKey="postgres" checked="Qt::Checked" name="mit_bay" source="dbname='pni_2' host=86.107.96.34 port=5432 user='operatore' key='gidd' srid=3003 type=Point checkPrimaryKeyUnicity='1' table=&quot;pni_aib_template&quot;.&quot;mit_bay&quot; (geom) sql=">
-        <customproperties/>
-      </layer-tree-layer>
-      <layer-tree-layer expanded="1" id="cavi_8d201faf_df84_4d64_a17b_e6e96a4f70e1" providerKey="postgres" checked="Qt::Checked" name="cavi" source="dbname='pni_2' host=86.107.96.34 port=5432 user='operatore' sslmode=disable key='gidd' srid=3003 type=LineString checkPrimaryKeyUnicity='1' table=&quot;pni_aib_template&quot;.&quot;cavi&quot; (geom) sql=">
-        <customproperties/>
-      </layer-tree-layer>
-      <layer-tree-layer expanded="0" id="giunti_c108ad70_c0e8_455c_8beb_731a9ca2c0b8" providerKey="postgres" checked="Qt::Checked" name="giunti" source="dbname='pni_2' host=86.107.96.34 port=5432 user='operatore' sslmode=disable key='gidd' srid=3003 type=Point checkPrimaryKeyUnicity='1' table=&quot;pni_aib_template&quot;.&quot;giunti&quot; (geom) sql=">
-        <customproperties/>
-      </layer-tree-layer>
-    </layer-tree-group>
     <layer-tree-group expanded="1" checked="Qt::Checked" name="PROGETTO CIVILE">
       <customproperties/>
+      <layer-tree-group expanded="1" checked="Qt::Checked" name="OTTICO">
+        <customproperties/>
+        <layer-tree-layer expanded="1" id="mit_bay_3858213d_af6d_4fbe_9229_71aab1387375" providerKey="postgres" checked="Qt::Checked" name="mit_bay" source="dbname='pni_2' host=86.107.96.34 port=5432 user='operatore' key='gidd' srid=3003 type=Point checkPrimaryKeyUnicity='1' table=&quot;pni_aib_template&quot;.&quot;mit_bay&quot; (geom) sql=">
+          <customproperties/>
+        </layer-tree-layer>
+        <layer-tree-layer expanded="1" id="cavi_8d201faf_df84_4d64_a17b_e6e96a4f70e1" providerKey="postgres" checked="Qt::Checked" name="cavi" source="dbname='pni_2' host=86.107.96.34 port=5432 user='operatore' sslmode=disable key='gidd' srid=3003 type=LineString checkPrimaryKeyUnicity='1' table=&quot;pni_aib_template&quot;.&quot;cavi&quot; (geom) sql=">
+          <customproperties/>
+        </layer-tree-layer>
+        <layer-tree-layer expanded="0" id="giunti_c108ad70_c0e8_455c_8beb_731a9ca2c0b8" providerKey="postgres" checked="Qt::Checked" name="giunti" source="dbname='pni_2' host=86.107.96.34 port=5432 user='operatore' sslmode=disable key='gidd' srid=3003 type=Point checkPrimaryKeyUnicity='1' table=&quot;pni_aib_template&quot;.&quot;giunti&quot; (geom) sql=">
+          <customproperties/>
+        </layer-tree-layer>
+      </layer-tree-group>
       <layer-tree-layer expanded="1" id="access_point_25b43332_5abb_436b_9f0b_4cf243083d0f" providerKey="postgres" checked="Qt::Checked" name="access_point" source="dbname='pni_2' host=86.107.96.34 port=5432 user='operatore' sslmode=disable key='gidd' srid=3003 type=Point checkPrimaryKeyUnicity='1' table=&quot;pni_aib_template&quot;.&quot;access_point&quot; (geom) sql=">
         <customproperties/>
       </layer-tree-layer>
@@ -243,24 +243,24 @@
         <legendlayerfile visible="1" layerid="mappa_valori_pni2_7a0eee1d_35f4_4b5f_baff_61c4433fcf53" isInOverview="0"/>
       </filegroup>
     </legendlayer>
-    <legendgroup open="true" checked="Qt::Checked" name="OTTICO">
-      <legendlayer drawingOrder="-1" showFeatureCount="0" open="true" checked="Qt::Checked" name="mit_bay">
-        <filegroup open="true" hidden="false">
-          <legendlayerfile visible="1" layerid="mit_bay_3858213d_af6d_4fbe_9229_71aab1387375" isInOverview="0"/>
-        </filegroup>
-      </legendlayer>
-      <legendlayer drawingOrder="-1" showFeatureCount="0" open="true" checked="Qt::Checked" name="cavi">
-        <filegroup open="true" hidden="false">
-          <legendlayerfile visible="1" layerid="cavi_8d201faf_df84_4d64_a17b_e6e96a4f70e1" isInOverview="0"/>
-        </filegroup>
-      </legendlayer>
-      <legendlayer drawingOrder="-1" showFeatureCount="0" open="false" checked="Qt::Checked" name="giunti">
-        <filegroup open="false" hidden="false">
-          <legendlayerfile visible="1" layerid="giunti_c108ad70_c0e8_455c_8beb_731a9ca2c0b8" isInOverview="0"/>
-        </filegroup>
-      </legendlayer>
-    </legendgroup>
     <legendgroup open="true" checked="Qt::Checked" name="PROGETTO CIVILE">
+      <legendgroup open="true" checked="Qt::Checked" name="OTTICO">
+        <legendlayer drawingOrder="-1" showFeatureCount="0" open="true" checked="Qt::Checked" name="mit_bay">
+          <filegroup open="true" hidden="false">
+            <legendlayerfile visible="1" layerid="mit_bay_3858213d_af6d_4fbe_9229_71aab1387375" isInOverview="0"/>
+          </filegroup>
+        </legendlayer>
+        <legendlayer drawingOrder="-1" showFeatureCount="0" open="true" checked="Qt::Checked" name="cavi">
+          <filegroup open="true" hidden="false">
+            <legendlayerfile visible="1" layerid="cavi_8d201faf_df84_4d64_a17b_e6e96a4f70e1" isInOverview="0"/>
+          </filegroup>
+        </legendlayer>
+        <legendlayer drawingOrder="-1" showFeatureCount="0" open="false" checked="Qt::Checked" name="giunti">
+          <filegroup open="false" hidden="false">
+            <legendlayerfile visible="1" layerid="giunti_c108ad70_c0e8_455c_8beb_731a9ca2c0b8" isInOverview="0"/>
+          </filegroup>
+        </legendlayer>
+      </legendgroup>
       <legendlayer drawingOrder="-1" showFeatureCount="0" open="true" checked="Qt::Checked" name="access_point">
         <filegroup open="true" hidden="false">
           <legendlayerfile visible="1" layerid="access_point_25b43332_5abb_436b_9f0b_4cf243083d0f" isInOverview="0"/>
@@ -5018,9 +5018,39 @@ def my_form_open(dialog, layer, feature):
       </renderer-v2>
       <labeling type="simple">
         <settings calloutType="simple">
-          <text-style fontItalic="0" useSubstitutions="1" fontFamily="MS Shell Dlg 2" fontSize="10" textOpacity="1" fontWordSpacing="0" fontCapitals="0" namedStyle="Normal" fontWeight="50" fontSizeUnit="Point" multilineHeight="1" fontStrikeout="0" textOrientation="horizontal" fontKerning="1" fieldName="name" fontSizeMapUnitScale="3x:0,0,0,0,0,0" textColor="0,0,0,255" isExpression="0" blendMode="0" previewBkgrdColor="255,255,255,255" fontUnderline="0" fontLetterSpacing="0">
+          <text-style fontItalic="0" useSubstitutions="1" fontFamily="MS Shell Dlg 2" fontSize="10" textOpacity="1" fontWordSpacing="0" fontCapitals="0" namedStyle="Normale" fontWeight="50" fontSizeUnit="Point" multilineHeight="1" fontStrikeout="0" textOrientation="horizontal" fontKerning="1" fieldName="name" fontSizeMapUnitScale="3x:0,0,0,0,0,0" textColor="0,0,0,255" isExpression="0" blendMode="0" previewBkgrdColor="255,255,255,255" fontUnderline="0" fontLetterSpacing="0">
             <text-buffer bufferDraw="0" bufferSizeMapUnitScale="3x:0,0,0,0,0,0" bufferOpacity="1" bufferSize="1" bufferColor="255,255,255,255" bufferSizeUnits="MM" bufferNoFill="1" bufferJoinStyle="128" bufferBlendMode="0"/>
-            <background shapeBorderWidth="0" shapeSizeMapUnitScale="3x:0,0,0,0,0,0" shapeOffsetX="0" shapeSizeUnit="MM" shapeRotationType="0" shapeSizeType="0" shapeRadiiMapUnitScale="3x:0,0,0,0,0,0" shapeBlendMode="0" shapeDraw="0" shapeType="0" shapeFillColor="255,255,255,255" shapeBorderWidthUnit="MM" shapeBorderWidthMapUnitScale="3x:0,0,0,0,0,0" shapeOffsetUnit="MM" shapeBorderColor="128,128,128,255" shapeSVGFile="" shapeOffsetY="0" shapeOffsetMapUnitScale="3x:0,0,0,0,0,0" shapeJoinStyle="64" shapeOpacity="1" shapeSizeY="0" shapeRadiiUnit="MM" shapeRadiiX="0" shapeRotation="0" shapeRadiiY="0" shapeSizeX="0"/>
+            <background shapeBorderWidth="0" shapeSizeMapUnitScale="3x:0,0,0,0,0,0" shapeOffsetX="0" shapeSizeUnit="MM" shapeRotationType="0" shapeSizeType="0" shapeRadiiMapUnitScale="3x:0,0,0,0,0,0" shapeBlendMode="0" shapeDraw="0" shapeType="0" shapeFillColor="255,255,255,255" shapeBorderWidthUnit="MM" shapeBorderWidthMapUnitScale="3x:0,0,0,0,0,0" shapeOffsetUnit="MM" shapeBorderColor="128,128,128,255" shapeSVGFile="" shapeOffsetY="0" shapeOffsetMapUnitScale="3x:0,0,0,0,0,0" shapeJoinStyle="64" shapeOpacity="1" shapeSizeY="0" shapeRadiiUnit="MM" shapeRadiiX="0" shapeRotation="0" shapeRadiiY="0" shapeSizeX="0">
+              <symbol alpha="1" clip_to_extent="1" type="marker" force_rhr="0" name="markerSymbol">
+                <layer enabled="1" pass="0" class="SimpleMarker" locked="0">
+                  <prop v="0" k="angle"/>
+                  <prop v="232,113,141,255" k="color"/>
+                  <prop v="1" k="horizontal_anchor_point"/>
+                  <prop v="bevel" k="joinstyle"/>
+                  <prop v="circle" k="name"/>
+                  <prop v="0,0" k="offset"/>
+                  <prop v="3x:0,0,0,0,0,0" k="offset_map_unit_scale"/>
+                  <prop v="MM" k="offset_unit"/>
+                  <prop v="35,35,35,255" k="outline_color"/>
+                  <prop v="solid" k="outline_style"/>
+                  <prop v="0" k="outline_width"/>
+                  <prop v="3x:0,0,0,0,0,0" k="outline_width_map_unit_scale"/>
+                  <prop v="MM" k="outline_width_unit"/>
+                  <prop v="diameter" k="scale_method"/>
+                  <prop v="2" k="size"/>
+                  <prop v="3x:0,0,0,0,0,0" k="size_map_unit_scale"/>
+                  <prop v="MM" k="size_unit"/>
+                  <prop v="1" k="vertical_anchor_point"/>
+                  <data_defined_properties>
+                    <Option type="Map">
+                      <Option value="" type="QString" name="name"/>
+                      <Option name="properties"/>
+                      <Option value="collection" type="QString" name="type"/>
+                    </Option>
+                  </data_defined_properties>
+                </layer>
+              </symbol>
+            </background>
             <shadow shadowRadiusMapUnitScale="3x:0,0,0,0,0,0" shadowScale="100" shadowOffsetMapUnitScale="3x:0,0,0,0,0,0" shadowUnder="0" shadowOffsetAngle="135" shadowOffsetUnit="MM" shadowOffsetDist="1" shadowRadiusAlphaOnly="0" shadowRadiusUnit="MM" shadowOpacity="0.7" shadowBlendMode="6" shadowColor="0,0,0,255" shadowDraw="0" shadowOffsetGlobal="1" shadowRadius="1.5"/>
             <dd_properties>
               <Option type="Map">
@@ -5032,7 +5062,7 @@ def my_form_open(dialog, layer, feature):
             <substitutions/>
           </text-style>
           <text-format autoWrapLength="0" useMaxLineLengthForAutoWrap="1" formatNumbers="0" leftDirectionSymbol="&lt;" plussign="0" wrapChar="" addDirectionSymbol="0" decimals="3" reverseDirectionSymbol="0" multilineAlign="3" placeDirectionSymbol="0" rightDirectionSymbol=">"/>
-          <placement placementFlags="10" repeatDistanceUnits="MM" maxCurvedCharAngleOut="-25" geometryGeneratorType="PointGeometry" fitInPolygonOnly="0" quadOffset="2" labelOffsetMapUnitScale="3x:0,0,0,0,0,0" repeatDistanceMapUnitScale="3x:0,0,0,0,0,0" layerType="UnknownGeometry" yOffset="8" predefinedPositionOrder="TR,TL,BR,BL,R,L,TSR,BSR" dist="0" priority="5" rotationAngle="0" maxCurvedCharAngleIn="25" offsetType="0" geometryGeneratorEnabled="0" overrunDistance="0" placement="1" xOffset="8" repeatDistance="0" preserveRotation="1" geometryGenerator="" distMapUnitScale="3x:0,0,0,0,0,0" overrunDistanceUnit="MM" overrunDistanceMapUnitScale="3x:0,0,0,0,0,0" offsetUnits="MM" distUnits="MM" centroidWhole="0" centroidInside="0"/>
+          <placement placementFlags="10" repeatDistanceUnits="MM" maxCurvedCharAngleOut="-25" geometryGeneratorType="PointGeometry" fitInPolygonOnly="0" quadOffset="2" labelOffsetMapUnitScale="3x:0,0,0,0,0,0" repeatDistanceMapUnitScale="3x:0,0,0,0,0,0" layerType="PointGeometry" yOffset="8" predefinedPositionOrder="TR,TL,BR,BL,R,L,TSR,BSR" dist="0" priority="5" rotationAngle="0" maxCurvedCharAngleIn="25" offsetType="0" geometryGeneratorEnabled="0" overrunDistance="0" placement="1" xOffset="8" repeatDistance="0" preserveRotation="1" geometryGenerator="" distMapUnitScale="3x:0,0,0,0,0,0" overrunDistanceUnit="MM" overrunDistanceMapUnitScale="3x:0,0,0,0,0,0" offsetUnits="MM" distUnits="MM" centroidWhole="0" centroidInside="0"/>
           <rendering drawLabels="1" obstacleFactor="1" obstacle="1" scaleMax="0" scaleVisibility="0" mergeLines="0" minFeatureSize="0" maxNumLabels="2000" displayAll="0" fontMinPixelSize="3" fontMaxPixelSize="10000" scaleMin="0" zIndex="0" labelPerPart="0" limitNumLabels="0" upsidedownLabels="0" obstacleType="0" fontLimitPixelSize="0"/>
           <dd_properties>
             <Option type="Map">
@@ -5106,7 +5136,10 @@ def my_form_open(dialog, layer, feature):
         <field name="name">
           <editWidget type="TextEdit">
             <config>
-              <Option/>
+              <Option type="Map">
+                <Option value="false" type="bool" name="IsMultiline"/>
+                <Option value="false" type="bool" name="UseHtml"/>
+              </Option>
             </config>
           </editWidget>
         </field>
@@ -5295,7 +5328,7 @@ def my_form_open(dialog, layer, feature):
       </fieldConfiguration>
       <aliases>
         <alias index="0" field="gidd" name=""/>
-        <alias index="1" field="name" name=""/>
+        <alias index="1" field="name" name="nome giunto"/>
         <alias index="2" field="spec_id" name="tipologia"/>
         <alias index="3" field="ebw_strutt" name=""/>
         <alias index="4" field="tipo_appar" name=""/>
@@ -5322,8 +5355,8 @@ def my_form_open(dialog, layer, feature):
         <attribute>profondita</attribute>
         <attribute>gidd</attribute>
         <attribute>ebw_log_na</attribute>
-        <attribute>installed_</attribute>
         <attribute>tipo_appar</attribute>
+        <attribute>installed_</attribute>
         <attribute>ebw_strutt</attribute>
         <attribute>splice_typ</attribute>
         <attribute>num_availa</attribute>
@@ -5342,8 +5375,8 @@ def my_form_open(dialog, layer, feature):
         <attribute>profondita</attribute>
         <attribute>gidd</attribute>
         <attribute>ebw_log_na</attribute>
-        <attribute>installed_</attribute>
         <attribute>tipo_appar</attribute>
+        <attribute>installed_</attribute>
         <attribute>ebw_strutt</attribute>
         <attribute>splice_typ</attribute>
         <attribute>num_availa</attribute>
@@ -5383,7 +5416,7 @@ def my_form_open(dialog, layer, feature):
       </defaults>
       <constraints>
         <constraint exp_strength="0" constraints="3" notnull_strength="1" unique_strength="1" field="gidd"/>
-        <constraint exp_strength="0" constraints="0" notnull_strength="0" unique_strength="0" field="name"/>
+        <constraint exp_strength="0" constraints="1" notnull_strength="1" unique_strength="0" field="name"/>
         <constraint exp_strength="0" constraints="1" notnull_strength="1" unique_strength="0" field="spec_id"/>
         <constraint exp_strength="0" constraints="0" notnull_strength="0" unique_strength="0" field="ebw_strutt"/>
         <constraint exp_strength="0" constraints="0" notnull_strength="0" unique_strength="0" field="tipo_appar"/>
@@ -5488,10 +5521,15 @@ def my_form_open(dialog, layer, feature):
       <featformsuppress>0</featformsuppress>
       <editorlayout>tablayout</editorlayout>
       <attributeEditorForm>
-        <attributeEditorField index="16" showLabel="1" name="shp_id"/>
-        <attributeEditorField index="2" showLabel="1" name="spec_id"/>
-        <attributeEditorField index="19" showLabel="1" name="tipo_posa"/>
-        <attributeEditorField index="12" showLabel="1" name="constructi"/>
+        <attributeEditorContainer columnCount="1" visibilityExpressionEnabled="0" showLabel="1" name="Edit giunti" groupBox="0" visibilityExpression="">
+          <attributeEditorField index="16" showLabel="1" name="shp_id"/>
+          <attributeEditorField index="1" showLabel="1" name="name"/>
+          <attributeEditorField index="2" showLabel="1" name="spec_id"/>
+          <attributeEditorContainer columnCount="1" visibilityExpressionEnabled="1" showLabel="1" name="Muffola PD" groupBox="1" visibilityExpression=" &quot;spec_id&quot;  = 'PD'">
+            <attributeEditorField index="19" showLabel="1" name="tipo_posa"/>
+          </attributeEditorContainer>
+          <attributeEditorField index="12" showLabel="1" name="constructi"/>
+        </attributeEditorContainer>
       </attributeEditorForm>
       <editable>
         <field editable="1" name="account_co"/>
