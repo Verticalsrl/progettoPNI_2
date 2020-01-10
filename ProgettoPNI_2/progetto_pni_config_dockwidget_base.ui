@@ -230,14 +230,14 @@ p, li { white-space: pre-wrap; }
     <widget class="QToolButton" name="testBtn">
      <property name="geometry">
       <rect>
-       <x>70</x>
+       <x>60</x>
        <y>100</y>
-       <width>81</width>
+       <width>91</width>
        <height>20</height>
       </rect>
      </property>
      <property name="text">
-      <string>Test DB</string>
+      <string>Connetti DB</string>
      </property>
     </widget>
     <widget class="QLineEdit" name="testAnswer">
@@ -258,7 +258,7 @@ p, li { white-space: pre-wrap; }
       <rect>
        <x>40</x>
        <y>140</y>
-       <width>191</width>
+       <width>221</width>
        <height>20</height>
       </rect>
      </property>
@@ -272,9 +272,9 @@ p, li { white-space: pre-wrap; }
      </property>
      <property name="geometry">
       <rect>
-       <x>240</x>
+       <x>260</x>
        <y>170</y>
-       <width>141</width>
+       <width>151</width>
        <height>20</height>
       </rect>
      </property>
@@ -303,7 +303,7 @@ p, li { white-space: pre-wrap; }
       <rect>
        <x>40</x>
        <y>170</y>
-       <width>191</width>
+       <width>221</width>
        <height>20</height>
       </rect>
      </property>
@@ -317,9 +317,9 @@ p, li { white-space: pre-wrap; }
      </property>
      <property name="geometry">
       <rect>
-       <x>240</x>
+       <x>260</x>
        <y>140</y>
-       <width>141</width>
+       <width>151</width>
        <height>22</height>
       </rect>
      </property>

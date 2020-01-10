@@ -909,6 +909,9 @@ class ProgettoPNI_2:
 
                 #3-quelle tavole che restano sul DB e che non sono state mappate, le aggiungo al progetto qgis con una visualizzazione di default
                 for table in layer_on_DB:
+                    #NON carico eventuali tabelle _history nel caso fossero presenti sullo schema poiche' sono le tabelle in cui tengo traccia delle modifiche sui layer:
+                    if ('_history' in table):
+                        continue
                     uri = "%s key=gidd table=\"%s\".\"%s\" (geom) sql=" % (dest_dir, schemaDB, table.lower())
                     layer_to_add = QgsVectorLayer(uri, table, "postgres")
                     if (int(qgis_version[0]) >= 3):
