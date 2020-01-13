@@ -603,7 +603,12 @@ class ProgettoPNI_2:
         #self.dlg_config.import_progressBar.setMaximum(len(self.LAYER_NAME_PNI))
         
         #in base al tipo di progetto recupero i nomi dei layer da caricare:
+        global tipo_progetto
         ced_checked = self.dlg_config.ced_radioButton.isChecked()
+        if ced_checked:
+            tipo_progetto = 'cd'
+        else:
+            tipo_progetto = 'ab'
         
         self.dlg_config.txtFeedback_import.setText("Sto caricando i dati, non interrompere, il processo potrebbe richiedere alcuni minuti...")
         global epsg_srid
@@ -795,6 +800,11 @@ class ProgettoPNI_2:
                 cur.execute(query_grant)
                 test_conn.commit()
                 
+                #compilo tabella public.tipo_progetti:
+                query_tipo = """INSERT INTO public.tipo_progetti (nomeschema, tipo_progetto, creator) SELECT '%s', '%s', '%s' WHERE NOT EXISTS (SELECT nomeschema, tipo_progetto FROM public.tipo_progetti WHERE nomeschema='%s' AND tipo_progetto='%s');""" % (schemaDB, tipo_progetto, userDB, schemaDB, tipo_progetto)
+                cur.execute(query_tipo)
+                test_conn.commit()
+                
                 #SPATIAL INDEX
                 #creo lo SPATIAL INDEX sugli shp appena caricati
                 for shp_geoidx in shp_name_to_load:
@@ -811,6 +821,8 @@ class ProgettoPNI_2:
                 query_path = "SET search_path = %s, pg_catalog;" % (schemaDB)
                 Utils.logMessage('Adesso se il caso creo il tracking sulle tabelle nello schema ' + str(schemaDB))
                 cur.execute(query_path)
+                
+                #PROGETTI A&B
                 if ('underground_route' in shp_name_to_load):
                     sql_track_file = self.plugin_dir + '/tracking_edit_postgis_tratta.sql'
                     self.tracking_sql(sql_track_file, schemaDB, cur, test_conn)
@@ -837,6 +849,17 @@ class ProgettoPNI_2:
                     self.tracking_sql(sql_track_file, schemaDB, cur, test_conn)
                 if ('mit_bay' in shp_name_to_load):
                     sql_track_file = self.plugin_dir + '/tracking_edit_postgis_mit_bay.sql'
+                    self.tracking_sql(sql_track_file, schemaDB, cur, test_conn)
+                
+                #PROGETTI C&D
+                if ('ebw_cavo' in shp_name_to_load):
+                    sql_track_file = self.plugin_dir + '/tracking_edit_postgis_ebw_cavo.sql'
+                    self.tracking_sql(sql_track_file, schemaDB, cur, test_conn)
+                if ('ebw_route' in shp_name_to_load):
+                    sql_track_file = self.plugin_dir + '/tracking_edit_postgis_ebw_route.sql'
+                    self.tracking_sql(sql_track_file, schemaDB, cur, test_conn)
+                if ('ebw_location' in shp_name_to_load):
+                    sql_track_file = self.plugin_dir + '/tracking_edit_postgis_ebw_location.sql'
                     self.tracking_sql(sql_track_file, schemaDB, cur, test_conn)
                 
                 #se sto caricando solo alcuni dati su DB per creare poi il progetto col pulsante C funzione load_project_from_db, allora salto la creazione del progetto ed esco da questa funzione
@@ -1740,6 +1763,7 @@ class ProgettoPNI_2:
         self.dlg_config.testAnswer.clear()
         self.dlg_config.txtFeedback.clear()
         self.dlg_config.chkDB.setEnabled(True);
+        global userDB
         userDB = self.dlg_config.usrDB.text()
         pwdDB = self.dlg_config.pwdDB.text()
         hostDB = self.dlg_config.hostDB.text()
@@ -1775,7 +1799,9 @@ class ProgettoPNI_2:
             #Secondo passo: recupero gli schemi esistenti
             self.dlg_config.schemaDB_combo.clear() #pulisco la combo
             self.dlg_config.schemaDB.clear()
-            query_get_schema = """SELECT DISTINCT table_schema FROM information_schema.tables WHERE table_schema NOT IN ('information_schema', 'pg_catalog', 'tiger', 'public', 'topology') AND table_type='BASE TABLE' AND table_schema not like '%_topo' AND table_schema not like '%_template' ORDER BY table_schema;"""
+            #query_get_schema = """SELECT DISTINCT table_schema FROM information_schema.tables WHERE table_schema NOT IN ('information_schema', 'pg_catalog', 'tiger', 'public', 'topology') AND table_type='BASE TABLE' AND table_schema not like '%_topo' AND table_schema not like '%_template' ORDER BY table_schema;"""
+            #creando una TAVOLA DI APPOGGIO interrogo quella tavola per recuperare le info necessarie
+            query_get_schema = """SELECT nomeschema || ' (' || CASE WHEN tipo_progetto='ab' THEN 'A&B' WHEN tipo_progetto='cd' THEN 'C&D' END || ')' FROM tipo_progetti;"""
             cur.execute( query_get_schema )
             results_schema = cur.fetchall()
             schema_ins=['--']
@@ -1789,15 +1815,18 @@ class ProgettoPNI_2:
                 test_conn.close()
         
     def test_schema(self):
-        global test_conn, cur, schemaDB
+        global test_conn, cur, schemaDB, tipo_progetto
         test_conn = None
         cur = None
         schemaDB = None
+        tipo_progetto = None
         import string
         invalidChars = set(string.punctuation.replace("_", " ")) #cioe' considero valido il carattere _ ma invalido lo spazio
+        self.dlg_config.txtFeedback.clear()
         #Terzo passo: confermo lo schema
         schemaDB_old = self.dlg_config.schemaDB_combo.currentText()
         schemaDB_new = self.dlg_config.schemaDB.text()
+        #ATTENZIONE! In questa versione lo schema, se OLD, contiene anche il tipo di progetto
         Utils.logMessage(schemaDB_old)
         msg = QMessageBox()
         if ( (schemaDB_old=='--') or (schemaDB_old=='nessun schema PNI su DB') ):
@@ -1812,7 +1841,18 @@ class ProgettoPNI_2:
                 schemaDB = schemaDB_new
                 self.dlg_config.schemaDB_combo.setCurrentIndex(0)
         else:
-            schemaDB = schemaDB_old
+            schemaDB = schemaDB_old.split(" ", 1)[0]
+            tipo_progetto = schemaDB_old.split(" ", 1)[1][1:4] #tolgo anche le parentesi cosi mi resta  C&D o A&B
+            if (tipo_progetto=='C&D'):
+                self.dlg_config.ced_radioButton.setChecked(True)
+                self.dlg_config.aib_radioButton.setEnabled(False)
+                self.dlg_config.ced_radioButton.setEnabled(False)
+                tipo_progetto = 'cd' #lo ridefinisco cosi uso la stessa variabile per inserirlo nel DB nel caso di nuovo prgetto/schema
+            elif (tipo_progetto=='A&B'):
+                self.dlg_config.aib_radioButton.setChecked(True)
+                self.dlg_config.aib_radioButton.setEnabled(False)
+                self.dlg_config.ced_radioButton.setEnabled(False)
+                tipo_progetto = 'ab'
             self.dlg_config.schemaDB.clear()
         Utils.logMessage( str(dest_dir) )
         try:

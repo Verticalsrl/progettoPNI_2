@@ -1,45 +1,34 @@
 DA RIPORTARE SU SERVER MAPHOSTING
 
 
-PER OGNI PROGETTO AB:
-ALTER TABLE underground_route ADD COLUMN ebw_propr_altro character varying(30);
-ALTER TABLE underground_route ADD COLUMN scavo_a_mano boolean;
-ALTER TABLE mit_bay ADD COLUMN quantita character varying(12);
+PER OGNI PROGETTO CD:
+"cassina_rizzarzdi"
+"castel_boglione"
+"pni_bore"
+"robbiate"
+
+
+ALTER SCHEMA cassina_rizzarzdi OWNER TO operatore_r;
+ALTER SCHEMA castel_boglione OWNER TO operatore_r;
+ALTER SCHEMA robbiate OWNER TO operatore_r;
+ALTER SCHEMA pni_bore OWNER TO operatore_r;
 
 
 
+PER OGNI PROGETTO CD:
+GRANT ALL ON TABLE cassina_rizzarzdi.access_point TO GROUP operatore_r;
+...e cosi' via per TUTTE le tabelle dei vari schemi, se gia' non lo hai fatto
 
-SOLO SU SCHEMA PUBLIC:
 
-DELETE FROM mappa_valori_pni2 WHERE tipo_progetto='ab' AND tabella='colonnine' AND campo='spec_id' AND valore IN ('Box Esterno (MW)', 'IP', 'MTCO', 'PALO', 'PTA ALTRO', 'RF')
+--AGGIUNGERE QUESTE COLONNE ANCHE AGLI SHP CHE SI CARICANO NEL CASO NON VI SIANO GIA'! Finora gli shp che mi hanno inviato non tutti avevano questi campi anzi direi quasi nessuno....
+--DA VERIFICARE!!
+ALTER TABLE pni_ced_template.ebw_location ADD COLUMN constructi character varying(14);
+ALTER TABLE pni_ced_template.ebw_route ADD COLUMN diam_minit character varying(100);
+ALTER TABLE pni_ced_template.ebw_route ADD COLUMN num_mtubi character varying(100);
+ALTER TABLE pni_ced_template.ebw_route ADD COLUMN diam_tubo character varying(100);
+ALTER TABLE pni_ced_template.ebw_route ADD COLUMN num_tubi character varying(100);
+ALTER TABLE pni_ced_template.ebw_route ADD COLUMN constructi character varying(14);
+ALTER TABLE pni_ced_template.ebw_cavo ADD COLUMN stato_cost character varying(11);
 
-
-ALTER TABLE mappa_valori_pni2_history ALTER COLUMN valore DROP NOT NULL;
-ALTER TABLE mappa_valori_pni2 DROP CONSTRAINT mappa_valori_pni2_pkey;
-ALTER TABLE mappa_valori_pni2 ALTER COLUMN valore DROP NOT NULL;
-ALTER TABLE mappa_valori_pni2 ADD UNIQUE (tabella, campo, valore, tipo_progetto);
-
-INSERT INTO mappa_valori_pni2(
-tabella, campo, valore, valore_tipo, not_null, note, campo_alias, tipo_progetto)
-VALUES ('mit_bay', 'quantita', NULL, 'character varying(12)', true, NULL, 'character varying(12)', 'ab');
-ALTER TABLE mit_bay ADD COLUMN quantita character varying(12);
-INSERT INTO mappa_valori_pni2(
-tabella, campo, valore, valore_tipo, not_null, note, campo_alias, tipo_progetto)
-VALUES ('mit_bay', 'quantita', 1, 'character varying(12)', true, NULL, 'character varying(12)', 'ab');
-INSERT INTO mappa_valori_pni2(
-tabella, campo, valore, valore_tipo, not_null, note, campo_alias, tipo_progetto)
-VALUES ('mit_bay', 'quantita', 2, 'character varying(12)', true, NULL, 'character varying(12)', 'ab');
-INSERT INTO mappa_valori_pni2(
-tabella, campo, valore, valore_tipo, not_null, note, campo_alias, tipo_progetto)
-VALUES ('mit_bay', 'quantita', 3, 'character varying(12)', true, NULL, 'character varying(12)', 'ab');
-INSERT INTO mappa_valori_pni2(
-tabella, campo, valore, valore_tipo, not_null, note, campo_alias, tipo_progetto)
-VALUES ('mit_bay', 'quantita', 4, 'character varying(12)', true, NULL, 'character varying(12)', 'ab');
-INSERT INTO mappa_valori_pni2(
-tabella, campo, valore, valore_tipo, not_null, note, campo_alias, tipo_progetto)
-VALUES ('mit_bay', 'quantita', 5, 'character varying(12)', true, NULL, 'character varying(12)', 'ab');
-INSERT INTO mappa_valori_pni2(
-tabella, campo, valore, valore_tipo, not_null, note, campo_alias, tipo_progetto)
-VALUES ('mit_bay', 'quantita', 6, 'character varying(12)', true, NULL, 'character varying(12)', 'ab');
 
 
