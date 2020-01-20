@@ -1,6 +1,17 @@
 DA RIPORTARE SU SERVER MAPHOSTING
 
 
+CONTROLLA!! forse c'è già ma a loro NON RISULTA
+INSERT INTO mappa_valori_pni2(tabella, campo, valore, valore_tipo, not_null, note, campo_alias, tipo_progetto) VALUES ('tratta', 'num_mtubi', '0', 'character varying(100)', FALSE, '', 'numero minitubi', 'ab');
+
+
+
+SVILUPPO:
+nel caso si volesse trasformare il campo num_cavi in integer ecco la query per OMETTERE i contenuti stringa convertendo SOLO quelli numerici:
+SELECT num_cavi, num_cavi::integer FROM pni_grosseto.underground_route WHERE num_cavi ~ '^[0-9]+$';
+
+
+
 PER OGNI PROGETTO CD:
 "cassina_rizzarzdi"
 "castel_boglione"
@@ -12,6 +23,70 @@ ALTER SCHEMA cassina_rizzarzdi OWNER TO operatore_r;
 ALTER SCHEMA castel_boglione OWNER TO operatore_r;
 ALTER SCHEMA robbiate OWNER TO operatore_r;
 ALTER SCHEMA pni_bore OWNER TO operatore_r;
+
+
+
+AGGIORNAMENTO tabella MAPPA_VALORI:
+DELETE FROM mappa_valori_pni2 WHERE tabella='ebw_location' AND campo = 'tipo' AND valore IN ('Armadio Telecom', 'BTS', 'Centrali Telecom', 'Edificio', 'Pac Pal', 'PFP', 'PFS', 'POP', 'Pozzetto Virtuale', 'Sconosciuto', 'Traliccio');
+INSERT INTO mappa_valori_pni2(tabella, campo, valore, valore_tipo, not_null, note, campo_alias, tipo_progetto) VALUES ('ebw_location', 'tipo', 'Pozzetto 90x70', 'character varying(100)', TRUE, NULL, 'tipologia', 'cd');
+INSERT INTO mappa_valori_pni2(tabella, campo, valore, valore_tipo, not_null, note, campo_alias, tipo_progetto) VALUES ('ebw_location', 'tipo', 'Virtuale', 'character varying(100)', TRUE, NULL, 'tipologia', 'cd');
+
+
+
+DELETE FROM mappa_valori_pni2 WHERE tabella='ebw_route' AND campo = 'proprietar' AND valore IN ('Lepida', 'Enel Sole');
+DELETE FROM mappa_valori_pni2 WHERE tabella='ebw_route' AND campo = 'proprietar' AND valore IN ('Sconosciuto', 'Altro', 'Privato', 'Pubblica', 'TIM');
+INSERT INTO mappa_valori_pni2(tabella, campo, valore, valore_tipo, not_null, note, campo_alias, tipo_progetto) VALUES ('ebw_route', 'proprietar', 'Sconosciuto', 'character varying(11)', TRUE, NULL, 'proprietario', 'cd');
+INSERT INTO mappa_valori_pni2(tabella, campo, valore, valore_tipo, not_null, note, campo_alias, tipo_progetto) VALUES ('ebw_route', 'proprietar', 'Privato', 'character varying(11)', TRUE, NULL, 'proprietario', 'cd');
+INSERT INTO mappa_valori_pni2(tabella, campo, valore, valore_tipo, not_null, note, campo_alias, tipo_progetto) VALUES ('ebw_route', 'proprietar', 'Altro', 'character varying(11)', TRUE, NULL, 'proprietario', 'cd');
+INSERT INTO mappa_valori_pni2(tabella, campo, valore, valore_tipo, not_null, note, campo_alias, tipo_progetto) VALUES ('ebw_route', 'proprietar', 'TIM', 'character varying(11)', TRUE, NULL, 'proprietario', 'cd');
+INSERT INTO mappa_valori_pni2(tabella, campo, valore, valore_tipo, not_null, note, campo_alias, tipo_progetto) VALUES ('ebw_route', 'proprietar', 'Pubblica', 'character varying(11)', TRUE, NULL, 'proprietario', 'cd');
+INSERT INTO mappa_valori_pni2(tabella, campo, valore, valore_tipo, not_null, note, campo_alias, tipo_progetto) VALUES ('ebw_route', 'proprietar', NULL, 'character varying(11)', TRUE, NULL, 'proprietario', 'cd');
+
+
+INSERT INTO mappa_valori_pni2(tabella, campo, valore, valore_tipo, not_null, note, campo_alias, tipo_progetto) VALUES ('ebw_route', 'constructi', 'Progettato', 'character varying(14)', TRUE, NULL, 'stato', 'cd');
+INSERT INTO mappa_valori_pni2(tabella, campo, valore, valore_tipo, not_null, note, campo_alias, tipo_progetto) VALUES ('ebw_route', 'constructi', 'Realizzato', 'character varying(14)', TRUE, NULL, 'stato', 'cd');
+INSERT INTO mappa_valori_pni2(tabella, campo, valore, valore_tipo, not_null, note, campo_alias, tipo_progetto) VALUES ('ebw_route', 'constructi', NULL, 'character varying(14)', TRUE, NULL, 'stato', 'cd');
+
+
+INSERT INTO mappa_valori_pni2(tabella, campo, valore, valore_tipo, not_null, note, campo_alias, tipo_progetto) VALUES ('ebw_location', 'constructi', 'Progettato', 'character varying(14)', TRUE, NULL, 'stato', 'cd');
+INSERT INTO mappa_valori_pni2(tabella, campo, valore, valore_tipo, not_null, note, campo_alias, tipo_progetto) VALUES ('ebw_location', 'constructi', 'Realizzato', 'character varying(14)', TRUE, NULL, 'stato', 'cd');
+INSERT INTO mappa_valori_pni2(tabella, campo, valore, valore_tipo, not_null, note, campo_alias, tipo_progetto) VALUES ('ebw_location', 'constructi', NULL, 'character varying(14)', TRUE, NULL, 'stato', 'cd');
+
+
+INSERT INTO mappa_valori_pni2(tabella, campo, valore, valore_tipo, not_null, note, campo_alias, tipo_progetto) VALUES ('ebw_cavo', 'potenziali', 288, 'character varying(3)', TRUE, NULL, 'varie', 'cd');
+INSERT INTO mappa_valori_pni2(tabella, campo, valore, valore_tipo, not_null, note, campo_alias, tipo_progetto) VALUES ('ebw_cavo', 'potenziali', NULL, 'character varying(3)', TRUE, NULL, 'varie', 'cd');
+
+INSERT INTO mappa_valori_pni2(tabella, campo, valore, valore_tipo, not_null, note, campo_alias, tipo_progetto) VALUES ('ebw_cavo', 'stato_cost', 'Progettato', 'character varying(14)', TRUE, NULL, 'stato', 'cd');
+INSERT INTO mappa_valori_pni2(tabella, campo, valore, valore_tipo, not_null, note, campo_alias, tipo_progetto) VALUES ('ebw_cavo', 'stato_cost', 'Realizzato', 'character varying(14)', TRUE, NULL, 'stato', 'cd');
+INSERT INTO mappa_valori_pni2(tabella, campo, valore, valore_tipo, not_null, note, campo_alias, tipo_progetto) VALUES ('ebw_cavo', 'stato_cost', NULL, 'character varying(14)', TRUE, NULL, 'stato', 'cd');
+
+
+INSERT INTO mappa_valori_pni2(tabella, campo, valore, valore_tipo, not_null, note, campo_alias, tipo_progetto) VALUES ('ebw_route', 'numero_cav', 0, 'character varying(11)', TRUE, NULL, 'numero cavi', 'cd');
+INSERT INTO mappa_valori_pni2(tabella, campo, valore, valore_tipo, not_null, note, campo_alias, tipo_progetto) VALUES ('ebw_route', 'numero_cav', 1, 'character varying(11)', TRUE, NULL, 'numero cavi', 'cd');
+INSERT INTO mappa_valori_pni2(tabella, campo, valore, valore_tipo, not_null, note, campo_alias, tipo_progetto) VALUES ('ebw_route', 'numero_cav', 2, 'character varying(11)', TRUE, NULL, 'numero cavi', 'cd');
+INSERT INTO mappa_valori_pni2(tabella, campo, valore, valore_tipo, not_null, note, campo_alias, tipo_progetto) VALUES ('ebw_route', 'numero_cav', 3, 'character varying(11)', TRUE, NULL, 'numero cavi', 'cd');
+INSERT INTO mappa_valori_pni2(tabella, campo, valore, valore_tipo, not_null, note, campo_alias, tipo_progetto) VALUES ('ebw_route', 'numero_cav', 4, 'character varying(11)', TRUE, NULL, 'numero cavi', 'cd');
+INSERT INTO mappa_valori_pni2(tabella, campo, valore, valore_tipo, not_null, note, campo_alias, tipo_progetto) VALUES ('ebw_route', 'numero_cav', 5, 'character varying(11)', TRUE, NULL, 'numero cavi', 'cd');
+INSERT INTO mappa_valori_pni2(tabella, campo, valore, valore_tipo, not_null, note, campo_alias, tipo_progetto) VALUES ('ebw_route', 'numero_cav', 6, 'character varying(11)', TRUE, NULL, 'numero cavi', 'cd');
+INSERT INTO mappa_valori_pni2(tabella, campo, valore, valore_tipo, not_null, note, campo_alias, tipo_progetto) VALUES ('ebw_route', 'numero_cav', 7, 'character varying(11)', TRUE, NULL, 'numero cavi', 'cd');
+INSERT INTO mappa_valori_pni2(tabella, campo, valore, valore_tipo, not_null, note, campo_alias, tipo_progetto) VALUES ('ebw_route', 'numero_cav', 8, 'character varying(11)', TRUE, NULL, 'numero cavi', 'cd');
+INSERT INTO mappa_valori_pni2(tabella, campo, valore, valore_tipo, not_null, note, campo_alias, tipo_progetto) VALUES ('ebw_route', 'numero_cav', 9, 'character varying(11)', TRUE, NULL, 'numero cavi', 'cd');
+INSERT INTO mappa_valori_pni2(tabella, campo, valore, valore_tipo, not_null, note, campo_alias, tipo_progetto) VALUES ('ebw_route', 'numero_cav', 10, 'character varying(11)', TRUE, NULL, 'numero cavi', 'cd');
+INSERT INTO mappa_valori_pni2(tabella, campo, valore, valore_tipo, not_null, note, campo_alias, tipo_progetto) VALUES ('ebw_route', 'numero_cav', 11, 'character varying(11)', TRUE, NULL, 'numero cavi', 'cd');
+INSERT INTO mappa_valori_pni2(tabella, campo, valore, valore_tipo, not_null, note, campo_alias, tipo_progetto) VALUES ('ebw_route', 'numero_cav', 12, 'character varying(11)', TRUE, NULL, 'numero cavi', 'cd');
+INSERT INTO mappa_valori_pni2(tabella, campo, valore, valore_tipo, not_null, note, campo_alias, tipo_progetto) VALUES ('ebw_route', 'numero_cav', 13, 'character varying(11)', TRUE, NULL, 'numero cavi', 'cd');
+INSERT INTO mappa_valori_pni2(tabella, campo, valore, valore_tipo, not_null, note, campo_alias, tipo_progetto) VALUES ('ebw_route', 'numero_cav', 14, 'character varying(11)', TRUE, NULL, 'numero cavi', 'cd');
+INSERT INTO mappa_valori_pni2(tabella, campo, valore, valore_tipo, not_null, note, campo_alias, tipo_progetto) VALUES ('ebw_route', 'numero_cav', 15, 'character varying(11)', TRUE, NULL, 'numero cavi', 'cd');
+INSERT INTO mappa_valori_pni2(tabella, campo, valore, valore_tipo, not_null, note, campo_alias, tipo_progetto) VALUES ('ebw_route', 'numero_cav', 16, 'character varying(11)', TRUE, NULL, 'numero cavi', 'cd');
+INSERT INTO mappa_valori_pni2(tabella, campo, valore, valore_tipo, not_null, note, campo_alias, tipo_progetto) VALUES ('ebw_route', 'numero_cav', 17, 'character varying(11)', TRUE, NULL, 'numero cavi', 'cd');
+INSERT INTO mappa_valori_pni2(tabella, campo, valore, valore_tipo, not_null, note, campo_alias, tipo_progetto) VALUES ('ebw_route', 'numero_cav', 18, 'character varying(11)', TRUE, NULL, 'numero cavi', 'cd');
+INSERT INTO mappa_valori_pni2(tabella, campo, valore, valore_tipo, not_null, note, campo_alias, tipo_progetto) VALUES ('ebw_route', 'numero_cav', 19, 'character varying(11)', TRUE, NULL, 'numero cavi', 'cd');
+INSERT INTO mappa_valori_pni2(tabella, campo, valore, valore_tipo, not_null, note, campo_alias, tipo_progetto) VALUES ('ebw_route', 'numero_cav', 20, 'character varying(11)', TRUE, NULL, 'numero cavi', 'cd');
+
+
+
+
+
 
 
 
@@ -28,7 +103,6 @@ ALTER TABLE pni_ced_template.ebw_route ADD COLUMN num_mtubi character varying(10
 ALTER TABLE pni_ced_template.ebw_route ADD COLUMN diam_tubo character varying(100);
 ALTER TABLE pni_ced_template.ebw_route ADD COLUMN num_tubi character varying(100);
 ALTER TABLE pni_ced_template.ebw_route ADD COLUMN constructi character varying(14);
-ALTER TABLE pni_ced_template.ebw_cavo ADD COLUMN stato_cost character varying(11);
-
+ALTER TABLE pni_ced_template.ebw_route ADD COLUMN scavo_a_mano boolean;
 
 
