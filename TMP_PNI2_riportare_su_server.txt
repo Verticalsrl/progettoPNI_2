@@ -1,6 +1,10 @@
 DA RIPORTARE SU SERVER MAPHOSTING
 
 
+PER OGNI PROGETTO AB
+ALTER TABLE pni_aib_template.mit_bay ALTER COLUMN tipo_posa SET DEFAULT 'F';
+
+
 CONTROLLA!! forse c'è già ma a loro NON RISULTA
 INSERT INTO mappa_valori_pni2(tabella, campo, valore, valore_tipo, not_null, note, campo_alias, tipo_progetto) VALUES ('tratta', 'num_mtubi', '0', 'character varying(100)', FALSE, '', 'numero minitubi', 'ab');
 
@@ -31,6 +35,36 @@ DELETE FROM mappa_valori_pni2 WHERE tabella='ebw_location' AND campo = 'tipo' AN
 INSERT INTO mappa_valori_pni2(tabella, campo, valore, valore_tipo, not_null, note, campo_alias, tipo_progetto) VALUES ('ebw_location', 'tipo', 'Pozzetto 90x70', 'character varying(100)', TRUE, NULL, 'tipologia', 'cd');
 INSERT INTO mappa_valori_pni2(tabella, campo, valore, valore_tipo, not_null, note, campo_alias, tipo_progetto) VALUES ('ebw_location', 'tipo', 'Virtuale', 'character varying(100)', TRUE, NULL, 'tipologia', 'cd');
 
+
+UPDATE mappa_valori_pni2 SET valore='00' WHERE tabella='tratta' AND campo='num_cavi' AND tipo_progetto='ab' AND valore='0';
+UPDATE mappa_valori_pni2 SET valore='01' WHERE tabella='tratta' AND campo='num_cavi' AND tipo_progetto='ab' AND valore='1';
+UPDATE mappa_valori_pni2 SET valore='02' WHERE tabella='tratta' AND campo='num_cavi' AND tipo_progetto='ab' AND valore='2';
+UPDATE mappa_valori_pni2 SET valore='03' WHERE tabella='tratta' AND campo='num_cavi' AND tipo_progetto='ab' AND valore='3';
+UPDATE mappa_valori_pni2 SET valore='04' WHERE tabella='tratta' AND campo='num_cavi' AND tipo_progetto='ab' AND valore='4';
+UPDATE mappa_valori_pni2 SET valore='05' WHERE tabella='tratta' AND campo='num_cavi' AND tipo_progetto='ab' AND valore='5';
+UPDATE mappa_valori_pni2 SET valore='06' WHERE tabella='tratta' AND campo='num_cavi' AND tipo_progetto='ab' AND valore='6';
+UPDATE mappa_valori_pni2 SET valore='07' WHERE tabella='tratta' AND campo='num_cavi' AND tipo_progetto='ab' AND valore='7';
+UPDATE mappa_valori_pni2 SET valore='08' WHERE tabella='tratta' AND campo='num_cavi' AND tipo_progetto='ab' AND valore='8';
+UPDATE mappa_valori_pni2 SET valore='09' WHERE tabella='tratta' AND campo='num_cavi' AND tipo_progetto='ab' AND valore='9';
+
+UPDATE mappa_valori_pni2 SET valore='00' WHERE tabella='tratta_aerea' AND campo='num_cavi' AND tipo_progetto='ab' AND valore='0';
+UPDATE mappa_valori_pni2 SET valore='01' WHERE tabella='tratta_aerea' AND campo='num_cavi' AND tipo_progetto='ab' AND valore='1';
+UPDATE mappa_valori_pni2 SET valore='02' WHERE tabella='tratta_aerea' AND campo='num_cavi' AND tipo_progetto='ab' AND valore='2';
+UPDATE mappa_valori_pni2 SET valore='03' WHERE tabella='tratta_aerea' AND campo='num_cavi' AND tipo_progetto='ab' AND valore='3';
+UPDATE mappa_valori_pni2 SET valore='04' WHERE tabella='tratta_aerea' AND campo='num_cavi' AND tipo_progetto='ab' AND valore='4';
+UPDATE mappa_valori_pni2 SET valore='05' WHERE tabella='tratta_aerea' AND campo='num_cavi' AND tipo_progetto='ab' AND valore='5';
+UPDATE mappa_valori_pni2 SET valore='06' WHERE tabella='tratta_aerea' AND campo='num_cavi' AND tipo_progetto='ab' AND valore='6';
+UPDATE mappa_valori_pni2 SET valore='07' WHERE tabella='tratta_aerea' AND campo='num_cavi' AND tipo_progetto='ab' AND valore='7';
+UPDATE mappa_valori_pni2 SET valore='08' WHERE tabella='tratta_aerea' AND campo='num_cavi' AND tipo_progetto='ab' AND valore='8';
+UPDATE mappa_valori_pni2 SET valore='09' WHERE tabella='tratta_aerea' AND campo='num_cavi' AND tipo_progetto='ab' AND valore='9';
+
+
+INSERT INTO mappa_valori_pni2(tabella, campo, valore, valore_tipo, not_null, note, campo_alias, tipo_progetto) VALUES ('pozzetti', 'spec_id', '45x45', 'character varying(12)', TRUE, NULL, 'tipologia', 'ab');
+INSERT INTO mappa_valori_pni2(tabella, campo, valore, valore_tipo, not_null, note, campo_alias, tipo_progetto) VALUES ('pozzetti', 'spec_id', '36x89', 'character varying(12)', TRUE, NULL, 'tipologia', 'ab');
+INSERT INTO mappa_valori_pni2(tabella, campo, valore, valore_tipo, not_null, note, campo_alias, tipo_progetto) VALUES ('pozzetti', 'spec_id', '19x42', 'character varying(12)', TRUE, NULL, 'tipologia', 'ab');
+INSERT INTO mappa_valori_pni2(tabella, campo, valore, valore_tipo, not_null, note, campo_alias, tipo_progetto) VALUES ('pozzetti', 'spec_id', 'Giunto a 3 vie tipo 1', 'character varying(12)', TRUE, 'da aggiungere solo se stato=realizzato', 'tipologia', 'ab');
+INSERT INTO mappa_valori_pni2(tabella, campo, valore, valore_tipo, not_null, note, campo_alias, tipo_progetto) VALUES ('pozzetti', 'spec_id', 'Giunto a 3 vie tipo 2', 'character varying(12)', TRUE, 'da aggiungere solo se stato=realizzato', 'tipologia', 'ab');
+INSERT INTO mappa_valori_pni2(tabella, campo, valore, valore_tipo, not_null, note, campo_alias, tipo_progetto) VALUES ('pozzetti', 'spec_id', 'Verticale', 'character varying(12)', TRUE, 'da aggiungere solo se stato=realizzato', 'tipologia', 'ab');
 
 
 DELETE FROM mappa_valori_pni2 WHERE tabella='ebw_route' AND campo = 'proprietar' AND valore IN ('Lepida', 'Enel Sole');
