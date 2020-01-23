@@ -59,6 +59,15 @@ UPDATE mappa_valori_pni2 SET valore='08' WHERE tabella='tratta_aerea' AND campo=
 UPDATE mappa_valori_pni2 SET valore='09' WHERE tabella='tratta_aerea' AND campo='num_cavi' AND tipo_progetto='ab' AND valore='9';
 
 
+INSERT INTO mappa_valori_pni2(tabella, campo, valore, valore_tipo, not_null, note, campo_alias, tipo_progetto) VALUES ('tratta_aerea', 'guy_type', 'Canaletta FeZn VTR 80x80', 'character varying(19)', TRUE, NULL, 'tipo posa', 'ab');
+INSERT INTO mappa_valori_pni2(tabella, campo, valore, valore_tipo, not_null, note, campo_alias, tipo_progetto) VALUES ('tratta_aerea', 'guy_type', 'Canaletta FeZn VTR 175x175', 'character varying(19)', TRUE, NULL, 'tipo posa', 'ab');
+INSERT INTO mappa_valori_pni2(tabella, campo, valore, valore_tipo, not_null, note, campo_alias, tipo_progetto) VALUES ('tratta_aerea', 'guy_type', NULL, 'character varying(19)', TRUE, NULL, 'tipo posa', 'ab');
+
+
+INSERT INTO mappa_valori_pni2(tabella, campo, valore, valore_tipo, not_null, note, campo_alias, tipo_progetto) VALUES ('tratta', 'ebw_propri', 'BT', 'character varying(30)', TRUE, NULL, 'proprietario', 'ab');
+INSERT INTO mappa_valori_pni2(tabella, campo, valore, valore_tipo, not_null, note, campo_alias, tipo_progetto) VALUES ('tratta', 'ebw_propri', NULL, 'character varying(30)', TRUE, NULL, 'proprietario', 'ab');
+
+
 INSERT INTO mappa_valori_pni2(tabella, campo, valore, valore_tipo, not_null, note, campo_alias, tipo_progetto) VALUES ('pozzetti', 'spec_id', '45x45', 'character varying(12)', TRUE, NULL, 'tipologia', 'ab');
 INSERT INTO mappa_valori_pni2(tabella, campo, valore, valore_tipo, not_null, note, campo_alias, tipo_progetto) VALUES ('pozzetti', 'spec_id', '36x89', 'character varying(12)', TRUE, NULL, 'tipologia', 'ab');
 INSERT INTO mappa_valori_pni2(tabella, campo, valore, valore_tipo, not_null, note, campo_alias, tipo_progetto) VALUES ('pozzetti', 'spec_id', '19x42', 'character varying(12)', TRUE, NULL, 'tipologia', 'ab');
