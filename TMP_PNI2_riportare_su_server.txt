@@ -68,6 +68,9 @@ INSERT INTO mappa_valori_pni2(tabella, campo, valore, valore_tipo, not_null, not
 INSERT INTO mappa_valori_pni2(tabella, campo, valore, valore_tipo, not_null, note, campo_alias, tipo_progetto) VALUES ('tratta', 'ebw_propri', NULL, 'character varying(30)', TRUE, NULL, 'proprietario', 'ab');
 
 
+INSERT INTO mappa_valori_pni2(tabella, campo, valore, valore_tipo, not_null, note, campo_alias, tipo_progetto) VALUES ('tratta', 'constructi', NULL, 'character varying(14)', TRUE, NULL, 'stato', 'ab');
+
+
 INSERT INTO mappa_valori_pni2(tabella, campo, valore, valore_tipo, not_null, note, campo_alias, tipo_progetto) VALUES ('pozzetti', 'spec_id', '45x45', 'character varying(12)', TRUE, NULL, 'tipologia', 'ab');
 INSERT INTO mappa_valori_pni2(tabella, campo, valore, valore_tipo, not_null, note, campo_alias, tipo_progetto) VALUES ('pozzetti', 'spec_id', '36x89', 'character varying(12)', TRUE, NULL, 'tipologia', 'ab');
 INSERT INTO mappa_valori_pni2(tabella, campo, valore, valore_tipo, not_null, note, campo_alias, tipo_progetto) VALUES ('pozzetti', 'spec_id', '19x42', 'character varying(12)', TRUE, NULL, 'tipologia', 'ab');

@@ -41,7 +41,7 @@ changelog=
 	2020/01/10 2.1 aggiornati form di edit per alcuni layer; aggiunti campi ai layer tratta e mit_bay in fase di caricamento degli shp su DB; risolto baco caricamento tavole "history" su Qgis
 	2020/01/13 2.2 riportata scheda "Situazione attuale" anche su tratta_aerea; riportato su form di editing il campo "Specificare proprietario" in caso di "ebw_propr=_Altro" anche per le tratte aeree; alcune configurazioni sul progetto template C&D pni2_CeD_db.qgs; implementata maschera plugin e relativa tabella su DB per assegnazione tipo progetto in fase di creazione/caricamento di un nuovo lotto
 	2020/01/20 2.3 modificato progetto template CeD con le prime indicazioni sui form di edit; corretto stile pozzetti per AeB
-	2020/01/23 2.4 aggiornato progetto qgis AiB template secondo progetto riportato da Nicola da issue github del 21/01/2020, con filtro su mit_bay con tipo_posa=F, e recepimento nuove modifiche su foglio gdrive; aggiunta versione plugin su progetto qgis template AiB
+	2020/01/23 2.4 aggiornato progetto qgis AiB template secondo progetto riportato da Nicola da issue github del 21/01/2020, con filtro su mit_bay con tipo_posa=F, e recepimento nuove modifiche su foglio gdrive; aggiunta versione plugin su progetto qgis template AiB -> da testare
 
 
 # Tags are comma separated with spaces allowed
