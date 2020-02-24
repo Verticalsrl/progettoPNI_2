@@ -1,6 +1,24 @@
 DA RIPORTARE SU SERVER MAPHOSTING
 
 
+UPDATE mappa_valori_pni2 SET valore='00' WHERE tabella='tratta' AND campo='num_mtubi' AND tipo_progetto='ab' AND valore='0';
+UPDATE mappa_valori_pni2 SET valore='01' WHERE tabella='tratta' AND campo='num_mtubi' AND tipo_progetto='ab' AND valore='1';
+UPDATE mappa_valori_pni2 SET valore='02' WHERE tabella='tratta' AND campo='num_mtubi' AND tipo_progetto='ab' AND valore='2';
+UPDATE mappa_valori_pni2 SET valore='03' WHERE tabella='tratta' AND campo='num_mtubi' AND tipo_progetto='ab' AND valore='3';
+UPDATE mappa_valori_pni2 SET valore='04' WHERE tabella='tratta' AND campo='num_mtubi' AND tipo_progetto='ab' AND valore='4';
+UPDATE mappa_valori_pni2 SET valore='05' WHERE tabella='tratta' AND campo='num_mtubi' AND tipo_progetto='ab' AND valore='5';
+UPDATE mappa_valori_pni2 SET valore='06' WHERE tabella='tratta' AND campo='num_mtubi' AND tipo_progetto='ab' AND valore='6';
+UPDATE mappa_valori_pni2 SET valore='07' WHERE tabella='tratta' AND campo='num_mtubi' AND tipo_progetto='ab' AND valore='7';
+UPDATE mappa_valori_pni2 SET valore='08' WHERE tabella='tratta' AND campo='num_mtubi' AND tipo_progetto='ab' AND valore='8';
+UPDATE mappa_valori_pni2 SET valore='09' WHERE tabella='tratta' AND campo='num_mtubi' AND tipo_progetto='ab' AND valore='9';
+
+
+INSERT INTO mappa_valori_pni2 (tabella, campo, valore, valore_tipo, not_null, note, campo_alias, tipo_progetto) VALUES ('pozzetti', 'spec_id', 'G3V.1', 'character varying(12)', TRUE, 'aggiunto solo se stato=realizzato', 'tipologia', 'ab');
+INSERT INTO mappa_valori_pni2 (tabella, campo, valore, valore_tipo, not_null, note, campo_alias, tipo_progetto) VALUES ('pozzetti', 'spec_id', 'G3V.2', 'character varying(12)', TRUE, 'aggiunto solo se stato=realizzato', 'tipologia', 'ab');
+
+
+
+
 SVILUPPO:
 nel caso si volesse trasformare il campo num_cavi in integer ecco la query per OMETTERE i contenuti stringa convertendo SOLO quelli numerici:
 SELECT num_cavi, num_cavi::integer FROM pni_grosseto.underground_route WHERE num_cavi ~ '^[0-9]+$';
