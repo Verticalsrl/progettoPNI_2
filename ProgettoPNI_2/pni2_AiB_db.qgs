@@ -112,23 +112,23 @@
   <snapping-settings mode="2" tolerance="12" type="1" enabled="1" unit="1" intersection-snapping="1">
     <individual-layer-settings>
       <layer-setting id="delivery_4f4b0da2_913c_4fca_ac65_90dbe7c55d27" tolerance="12" type="1" enabled="0" units="1"/>
-      <layer-setting id="access_point_25b43332_5abb_436b_9f0b_4cf243083d0f" tolerance="12" type="1" enabled="0" units="1"/>
-      <layer-setting id="area_anello_6a2ea988_2d72_4a40_af88_6d6e71b8a5aa" tolerance="12" type="1" enabled="0" units="1"/>
-      <layer-setting id="cavi_8d201faf_df84_4d64_a17b_e6e96a4f70e1" tolerance="12" type="1" enabled="0" units="1"/>
-      <layer-setting id="mit_bay_3858213d_af6d_4fbe_9229_71aab1387375" tolerance="12" type="1" enabled="0" units="1"/>
       <layer-setting id="tratta_06af9a9d_b557_4421_8401_a2ef2bcde37b" tolerance="12" type="1" enabled="0" units="1"/>
+      <layer-setting id="planimetria_553eb9fa_4696_43f5_b61f_32f0a6e97351" tolerance="12" type="1" enabled="0" units="1"/>
+      <layer-setting id="area_anello_6a2ea988_2d72_4a40_af88_6d6e71b8a5aa" tolerance="12" type="1" enabled="0" units="1"/>
+      <layer-setting id="area_cavo_01f9f604_2d12_43e2_a847_712b6f866950" tolerance="12" type="1" enabled="0" units="1"/>
+      <layer-setting id="mit_bay_3858213d_af6d_4fbe_9229_71aab1387375" tolerance="12" type="1" enabled="0" units="1"/>
+      <layer-setting id="civici_ef092748_dc57_4e12_980c_9abc51185f7d" tolerance="12" type="1" enabled="0" units="1"/>
       <layer-setting id="giunti_c108ad70_c0e8_455c_8beb_731a9ca2c0b8" tolerance="12" type="1" enabled="0" units="1"/>
-      <layer-setting id="colonnine_c5284ebf_70b2_45db_b36d_9865cb33c24d" tolerance="12" type="1" enabled="0" units="1"/>
-      <layer-setting id="aree_pfs_9d334dd4_11c0_42bc_98b5_48aba5dcd5ef" tolerance="12" type="1" enabled="0" units="1"/>
       <layer-setting id="pozzetti_2d02fc16_d65e_49c0_bafa_bc1ce21acd49" tolerance="12" type="1" enabled="0" units="1"/>
       <layer-setting id="aree_pfp_32e3554a_e9d4_48df_9f0b_bc22c5074aad" tolerance="12" type="1" enabled="0" units="1"/>
-      <layer-setting id="civici_ef092748_dc57_4e12_980c_9abc51185f7d" tolerance="12" type="1" enabled="0" units="1"/>
-      <layer-setting id="area_cavo_01f9f604_2d12_43e2_a847_712b6f866950" tolerance="12" type="1" enabled="0" units="1"/>
-      <layer-setting id="ebw_area_pop_7635488e_0855_41c0_80c9_d940ea6fc2f6" tolerance="12" type="1" enabled="0" units="1"/>
+      <layer-setting id="access_point_25b43332_5abb_436b_9f0b_4cf243083d0f" tolerance="12" type="1" enabled="0" units="1"/>
       <layer-setting id="edifici_06a26bfd_eeb7_4021_a73d_d191c6df0d4e" tolerance="12" type="1" enabled="0" units="1"/>
-      <layer-setting id="planimetria_553eb9fa_4696_43f5_b61f_32f0a6e97351" tolerance="12" type="1" enabled="0" units="1"/>
-      <layer-setting id="tratta_aerea_58249119_032c_4ab7_9924_c350457736bb" tolerance="12" type="1" enabled="0" units="1"/>
       <layer-setting id="strade_3d62a9eb_3ec6_46bf_8393_511f41190724" tolerance="12" type="1" enabled="0" units="1"/>
+      <layer-setting id="tratta_aerea_58249119_032c_4ab7_9924_c350457736bb" tolerance="12" type="1" enabled="0" units="1"/>
+      <layer-setting id="aree_pfs_9d334dd4_11c0_42bc_98b5_48aba5dcd5ef" tolerance="12" type="1" enabled="0" units="1"/>
+      <layer-setting id="cavi_8d201faf_df84_4d64_a17b_e6e96a4f70e1" tolerance="12" type="1" enabled="0" units="1"/>
+      <layer-setting id="colonnine_c5284ebf_70b2_45db_b36d_9865cb33c24d" tolerance="12" type="1" enabled="0" units="1"/>
+      <layer-setting id="ebw_area_pop_7635488e_0855_41c0_80c9_d940ea6fc2f6" tolerance="12" type="1" enabled="0" units="1"/>
     </individual-layer-settings>
   </snapping-settings>
   <relations/>
@@ -264,6 +264,78 @@
   </legend>
   <mapViewDocks/>
   <mapViewDocks3D/>
+  <mapcanvas name="mAreaCanvas" annotationsVisible="1">
+    <units>meters</units>
+    <extent>
+      <xmin>1554976.03410006454214454</xmin>
+      <ymin>4987596.22232352290302515</ymin>
+      <xmax>1556924.57595706824213266</xmax>
+      <ymax>4989249.84973730426281691</ymax>
+    </extent>
+    <rotation>0</rotation>
+    <destinationsrs>
+      <spatialrefsys>
+        <proj4>+proj=tmerc +lat_0=0 +lon_0=9 +k=0.9996 +x_0=1500000 +y_0=0 +ellps=intl +units=m +no_defs</proj4>
+        <srsid>968</srsid>
+        <srid>3003</srid>
+        <authid>EPSG:3003</authid>
+        <description>Monte Mario / Italy zone 1</description>
+        <projectionacronym>tmerc</projectionacronym>
+        <ellipsoidacronym>intl</ellipsoidacronym>
+        <geographicflag>false</geographicflag>
+      </spatialrefsys>
+    </destinationsrs>
+    <rendermaptile>0</rendermaptile>
+    <expressionContextScope/>
+  </mapcanvas>
+  <mapcanvas name="mAreaCanvas" annotationsVisible="1">
+    <units>meters</units>
+    <extent>
+      <xmin>1554976.03410006454214454</xmin>
+      <ymin>4987596.22232352290302515</ymin>
+      <xmax>1556924.57595706824213266</xmax>
+      <ymax>4989249.84973730426281691</ymax>
+    </extent>
+    <rotation>0</rotation>
+    <destinationsrs>
+      <spatialrefsys>
+        <proj4>+proj=tmerc +lat_0=0 +lon_0=9 +k=0.9996 +x_0=1500000 +y_0=0 +ellps=intl +units=m +no_defs</proj4>
+        <srsid>968</srsid>
+        <srid>3003</srid>
+        <authid>EPSG:3003</authid>
+        <description>Monte Mario / Italy zone 1</description>
+        <projectionacronym>tmerc</projectionacronym>
+        <ellipsoidacronym>intl</ellipsoidacronym>
+        <geographicflag>false</geographicflag>
+      </spatialrefsys>
+    </destinationsrs>
+    <rendermaptile>0</rendermaptile>
+    <expressionContextScope/>
+  </mapcanvas>
+  <mapcanvas name="mAreaCanvas" annotationsVisible="1">
+    <units>meters</units>
+    <extent>
+      <xmin>1554976.03410006454214454</xmin>
+      <ymin>4987596.22232352290302515</ymin>
+      <xmax>1556924.57595706824213266</xmax>
+      <ymax>4989249.84973730426281691</ymax>
+    </extent>
+    <rotation>0</rotation>
+    <destinationsrs>
+      <spatialrefsys>
+        <proj4>+proj=tmerc +lat_0=0 +lon_0=9 +k=0.9996 +x_0=1500000 +y_0=0 +ellps=intl +units=m +no_defs</proj4>
+        <srsid>968</srsid>
+        <srid>3003</srid>
+        <authid>EPSG:3003</authid>
+        <description>Monte Mario / Italy zone 1</description>
+        <projectionacronym>tmerc</projectionacronym>
+        <ellipsoidacronym>intl</ellipsoidacronym>
+        <geographicflag>false</geographicflag>
+      </spatialrefsys>
+    </destinationsrs>
+    <rendermaptile>0</rendermaptile>
+    <expressionContextScope/>
+  </mapcanvas>
   <projectlayers>
     <maplayer simplifyMaxScale="1" geometry="Point" refreshOnNotifyMessage="" simplifyAlgorithm="0" readOnly="1" simplifyDrawingHints="0" styleCategories="AllStyleCategories" simplifyDrawingTol="1" minScale="1e+08" hasScaleBasedVisibilityFlag="0" wkbType="Point" maxScale="0" labelsEnabled="0" autoRefreshTime="0" simplifyLocal="1" type="vector" refreshOnNotifyEnabled="0" autoRefreshEnabled="0">
       <id>access_point_25b43332_5abb_436b_9f0b_4cf243083d0f</id>
@@ -1891,16 +1963,16 @@ def my_form_open(dialog, layer, feature):
         <alias field="descriptio" index="24" name=""/>
       </aliases>
       <excludeAttributesWMS>
-        <attribute>ebw_specif</attribute>
         <attribute>ebw_diamet</attribute>
+        <attribute>ebw_specif</attribute>
         <attribute>ebw_numero</attribute>
         <attribute>calculated</attribute>
         <attribute>ebw_catego</attribute>
         <attribute>descriptio</attribute>
         <attribute>ebw_modell</attribute>
         <attribute>ebw_note</attribute>
-        <attribute>ebw_serial</attribute>
         <attribute>ebw_log_na</attribute>
+        <attribute>ebw_serial</attribute>
         <attribute>ebw_lotto</attribute>
         <attribute>installed_</attribute>
         <attribute>ebw_matric</attribute>
@@ -1913,16 +1985,16 @@ def my_form_open(dialog, layer, feature):
         <attribute>measured_s</attribute>
       </excludeAttributesWMS>
       <excludeAttributesWFS>
-        <attribute>ebw_specif</attribute>
         <attribute>ebw_diamet</attribute>
+        <attribute>ebw_specif</attribute>
         <attribute>ebw_numero</attribute>
         <attribute>calculated</attribute>
         <attribute>ebw_catego</attribute>
         <attribute>descriptio</attribute>
         <attribute>ebw_modell</attribute>
         <attribute>ebw_note</attribute>
-        <attribute>ebw_serial</attribute>
         <attribute>ebw_log_na</attribute>
+        <attribute>ebw_serial</attribute>
         <attribute>ebw_lotto</attribute>
         <attribute>installed_</attribute>
         <attribute>ebw_matric</attribute>
@@ -3391,7 +3463,7 @@ def my_form_open(dialog, layer, feature):
             <config>
               <Option type="Map">
                 <Option type="bool" value="true" name="AllowNull"/>
-                <Option type="int" value="100" name="Max"/>
+                <Option type="int" value="256" name="Max"/>
                 <Option type="int" value="0" name="Min"/>
                 <Option type="int" value="0" name="Precision"/>
                 <Option type="int" value="1" name="Step"/>
@@ -3405,7 +3477,7 @@ def my_form_open(dialog, layer, feature):
             <config>
               <Option type="Map">
                 <Option type="bool" value="true" name="AllowNull"/>
-                <Option type="int" value="100" name="Max"/>
+                <Option type="int" value="256" name="Max"/>
                 <Option type="int" value="0" name="Min"/>
                 <Option type="int" value="0" name="Precision"/>
                 <Option type="int" value="1" name="Step"/>
@@ -5084,8 +5156,8 @@ def my_form_open(dialog, layer, feature):
         <attribute>splice_typ</attribute>
         <attribute>tipo_appar</attribute>
         <attribute>name</attribute>
-        <attribute>ebw_utenti</attribute>
         <attribute>num_availa</attribute>
+        <attribute>ebw_utenti</attribute>
         <attribute>peso</attribute>
         <attribute>profondita</attribute>
         <attribute>gid</attribute>
@@ -5104,8 +5176,8 @@ def my_form_open(dialog, layer, feature):
         <attribute>splice_typ</attribute>
         <attribute>tipo_appar</attribute>
         <attribute>name</attribute>
-        <attribute>ebw_utenti</attribute>
         <attribute>num_availa</attribute>
+        <attribute>ebw_utenti</attribute>
         <attribute>peso</attribute>
         <attribute>profondita</attribute>
         <attribute>gid</attribute>
@@ -5329,7 +5401,7 @@ def my_form_open(dialog, layer, feature):
           <description></description>
           <projectionacronym></projectionacronym>
           <ellipsoidacronym></ellipsoidacronym>
-          <geographicflag>false</geographicflag>
+          <geographicflag>true</geographicflag>
         </spatialrefsys>
       </srs>
       <resourceMetadata>
@@ -5351,7 +5423,7 @@ def my_form_open(dialog, layer, feature):
             <description></description>
             <projectionacronym></projectionacronym>
             <ellipsoidacronym></ellipsoidacronym>
-            <geographicflag>false</geographicflag>
+            <geographicflag>true</geographicflag>
           </spatialrefsys>
         </crs>
         <extent/>
@@ -9306,12 +9378,12 @@ def my_form_open(dialog, layer, feature):
         <attribute>notes_1</attribute>
         <attribute>name</attribute>
         <attribute>num_fibre</attribute>
-        <attribute>calculated</attribute>
         <attribute>minitubi_o</attribute>
+        <attribute>calculated</attribute>
         <attribute>ebw_flag_o</attribute>
         <attribute>lungh_infr</attribute>
-        <attribute>ebw_posa_d</attribute>
         <attribute>ebw_codice</attribute>
+        <attribute>ebw_posa_d</attribute>
         <attribute>gid</attribute>
         <attribute>tubi_occup</attribute>
         <attribute>owner</attribute>
@@ -9340,12 +9412,12 @@ def my_form_open(dialog, layer, feature):
         <attribute>notes_1</attribute>
         <attribute>name</attribute>
         <attribute>num_fibre</attribute>
-        <attribute>calculated</attribute>
         <attribute>minitubi_o</attribute>
+        <attribute>calculated</attribute>
         <attribute>ebw_flag_o</attribute>
         <attribute>lungh_infr</attribute>
-        <attribute>ebw_posa_d</attribute>
         <attribute>ebw_codice</attribute>
+        <attribute>ebw_posa_d</attribute>
         <attribute>gid</attribute>
         <attribute>tubi_occup</attribute>
         <attribute>owner</attribute>
@@ -11001,8 +11073,8 @@ Proprietario:&#xd;&#xd;&#xd;
         <attribute>calculated</attribute>
         <attribute>lungh_infr</attribute>
         <attribute>peso_cavi</attribute>
-        <attribute>ebw_posa_d</attribute>
         <attribute>ebw_codice</attribute>
+        <attribute>ebw_posa_d</attribute>
         <attribute>gid</attribute>
         <attribute>tubi_occup</attribute>
         <attribute>ebw_owner</attribute>
@@ -11029,8 +11101,8 @@ Proprietario:&#xd;&#xd;&#xd;
         <attribute>calculated</attribute>
         <attribute>lungh_infr</attribute>
         <attribute>peso_cavi</attribute>
-        <attribute>ebw_posa_d</attribute>
         <attribute>ebw_codice</attribute>
+        <attribute>ebw_posa_d</attribute>
         <attribute>gid</attribute>
         <attribute>tubi_occup</attribute>
         <attribute>ebw_owner</attribute>
