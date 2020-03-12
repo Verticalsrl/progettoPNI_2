@@ -46,10 +46,10 @@
       <layer-tree-layer providerKey="postgres" expanded="0" name="tratta_aerea" id="tratta_aerea_58249119_032c_4ab7_9924_c350457736bb" source="dbname='pni_2' host=86.107.96.34 port=5432 user='operatore' sslmode=disable key='gidd' srid=3003 type=LineString checkPrimaryKeyUnicity='1' table=&quot;pni_aib_template&quot;.&quot;tratta_aerea&quot; (geom) sql=" checked="Qt::Checked">
         <customproperties/>
       </layer-tree-layer>
-      <layer-tree-layer providerKey="postgres" expanded="0" name="tratta" id="tratta_06af9a9d_b557_4421_8401_a2ef2bcde37b" source="dbname='pni_2' host=86.107.96.34 port=5432 user='operatore' sslmode=disable key='gidd' srid=3003 type=LineString checkPrimaryKeyUnicity='1' table=&quot;pni_aib_template&quot;.&quot;tratta&quot; (geom) sql=" checked="Qt::Checked">
+      <layer-tree-layer providerKey="postgres" expanded="1" name="tratta" id="tratta_06af9a9d_b557_4421_8401_a2ef2bcde37b" source="dbname='pni_2' host=86.107.96.34 port=5432 user='operatore' sslmode=disable key='gidd' srid=3003 type=LineString checkPrimaryKeyUnicity='1' table=&quot;pni_aib_template&quot;.&quot;tratta&quot; (geom) sql=" checked="Qt::Checked">
         <customproperties/>
       </layer-tree-layer>
-      <layer-tree-layer providerKey="postgres" expanded="0" name="pozzetti" id="pozzetti_2d02fc16_d65e_49c0_bafa_bc1ce21acd49" source="dbname='pni_2' host=86.107.96.34 port=5432 user='operatore' sslmode=disable key='gidd' srid=3003 type=Point checkPrimaryKeyUnicity='1' table=&quot;pni_aib_template&quot;.&quot;pozzetti&quot; (geom) sql=" checked="Qt::Checked">
+      <layer-tree-layer providerKey="postgres" expanded="1" name="pozzetti" id="pozzetti_2d02fc16_d65e_49c0_bafa_bc1ce21acd49" source="dbname='pni_2' host=86.107.96.34 port=5432 user='operatore' sslmode=disable key='gidd' srid=3003 type=Point checkPrimaryKeyUnicity='1' table=&quot;pni_aib_template&quot;.&quot;pozzetti&quot; (geom) sql=" checked="Qt::Checked">
         <customproperties/>
       </layer-tree-layer>
     </layer-tree-group>
@@ -278,13 +278,13 @@
           <legendlayerfile isInOverview="0" visible="1" layerid="tratta_aerea_58249119_032c_4ab7_9924_c350457736bb"/>
         </filegroup>
       </legendlayer>
-      <legendlayer name="tratta" drawingOrder="-1" showFeatureCount="0" open="false" checked="Qt::Checked">
-        <filegroup hidden="false" open="false">
+      <legendlayer name="tratta" drawingOrder="-1" showFeatureCount="0" open="true" checked="Qt::Checked">
+        <filegroup hidden="false" open="true">
           <legendlayerfile isInOverview="0" visible="1" layerid="tratta_06af9a9d_b557_4421_8401_a2ef2bcde37b"/>
         </filegroup>
       </legendlayer>
-      <legendlayer name="pozzetti" drawingOrder="-1" showFeatureCount="0" open="false" checked="Qt::Checked">
-        <filegroup hidden="false" open="false">
+      <legendlayer name="pozzetti" drawingOrder="-1" showFeatureCount="0" open="true" checked="Qt::Checked">
+        <filegroup hidden="false" open="true">
           <legendlayerfile isInOverview="0" visible="1" layerid="pozzetti_2d02fc16_d65e_49c0_bafa_bc1ce21acd49"/>
         </filegroup>
       </legendlayer>
