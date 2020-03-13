@@ -262,7 +262,7 @@ class ProgettoPNI_2:
         'PNI_TRATTA_AEREA': 'aerial_route',
         'PNI_MIT_BAY': 'mit_bay'
     }
-    LAYER_OPZIONALI_aib = []
+    LAYER_OPZIONALI_aib = ['planimetria', 'address']
     
     LAYER_NAME = {
         'SCALA': 'Scala',
