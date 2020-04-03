@@ -815,6 +815,27 @@ class ProgettoPNI_2:
                     #cur.execute(query_vacuum)
                 test_conn.commit() #committo la creazione dell'indice spaziale
                 
+                #Creo tabella vuota come da mail di Mocco del 31 marzo 2020:
+                if (parziale==0):
+                    query_ftth_cluster = """DROP TABLE IF EXISTS %s.ftth_cluster; CREATE TABLE %s.ftth_cluster (
+                        identificativo integer,
+                        oggetto character varying(100),
+                        qta_min double precision,
+                        unita character varying(100),
+                        prezzo_unita_euro double precision,
+                        qta_as_built double precision,
+                        qta_in_costruzione double precision,
+                        qta_progettato double precision,
+                        qta_realizzato double precision,
+                        totale double precision,
+                        vertice_uno character varying(100),
+                        vertice_due character varying(100),
+                        largh_ripristino_cm double precision,
+                        sup_ripristino_mq double precision
+                        );""" % (schemaDB, schemaDB)
+                    cur.execute(query_ftth_cluster)
+                    test_conn.commit()
+                
                 #TRACKING modifiche sui layer
                 #devo attivare gli script in base ai layer effettivamente caricati
                 Utils.logMessage('shp_name_to_load, per i quali ho anche creato indice spaziale '+str(shp_name_to_load))
