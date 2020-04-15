@@ -519,7 +519,10 @@
         <field name="gidd">
           <editWidget type="TextEdit">
             <config>
-              <Option/>
+              <Option type="Map">
+                <Option name="IsMultiline" type="bool" value="false"/>
+                <Option name="UseHtml" type="bool" value="false"/>
+              </Option>
             </config>
           </editWidget>
         </field>
@@ -543,21 +546,30 @@
         <field name="shp_id">
           <editWidget type="TextEdit">
             <config>
-              <Option/>
+              <Option type="Map">
+                <Option name="IsMultiline" type="bool" value="false"/>
+                <Option name="UseHtml" type="bool" value="false"/>
+              </Option>
             </config>
           </editWidget>
         </field>
         <field name="passthroug">
           <editWidget type="TextEdit">
             <config>
-              <Option/>
+              <Option type="Map">
+                <Option name="IsMultiline" type="bool" value="false"/>
+                <Option name="UseHtml" type="bool" value="false"/>
+              </Option>
             </config>
           </editWidget>
         </field>
         <field name="ebw_altro_">
           <editWidget type="TextEdit">
             <config>
-              <Option/>
+              <Option type="Map">
+                <Option name="IsMultiline" type="bool" value="false"/>
+                <Option name="UseHtml" type="bool" value="false"/>
+              </Option>
             </config>
           </editWidget>
         </field>
@@ -570,6 +582,9 @@
                 <Option name="FilterExpression" type="QString" value="&quot;tabella&quot; = 'access_point' AND  &quot;campo&quot; = 'spec_id'"/>
                 <Option name="Key" type="QString" value="campo"/>
                 <Option name="Layer" type="QString" value="mappa_valori_pni2_7a0eee1d_35f4_4b5f_baff_61c4433fcf53"/>
+                <Option name="LayerName" type="QString" value="mappa_valori_pni2"/>
+                <Option name="LayerProviderName" type="QString" value="postgres"/>
+                <Option name="LayerSource" type="QString" value="dbname='pni_2' host=86.107.96.34 port=5432 user='operatore' sslmode=disable key='tabella,campo,valore,tipo_progetto' checkPrimaryKeyUnicity='1' table=&quot;public&quot;.&quot;mappa_valori_pni2&quot; sql="/>
                 <Option name="NofColumns" type="int" value="1"/>
                 <Option name="OrderByValue" type="bool" value="true"/>
                 <Option name="UseCompleter" type="bool" value="false"/>
@@ -587,6 +602,9 @@
                 <Option name="FilterExpression" type="QString" value="&quot;tabella&quot; = 'access_point' AND  &quot;campo&quot; = 'type'"/>
                 <Option name="Key" type="QString" value="campo"/>
                 <Option name="Layer" type="QString" value="mappa_valori_pni2_7a0eee1d_35f4_4b5f_baff_61c4433fcf53"/>
+                <Option name="LayerName" type="QString" value="mappa_valori_pni2"/>
+                <Option name="LayerProviderName" type="QString" value="postgres"/>
+                <Option name="LayerSource" type="QString" value="dbname='pni_2' host=86.107.96.34 port=5432 user='operatore' sslmode=disable key='tabella,campo,valore,tipo_progetto' checkPrimaryKeyUnicity='1' table=&quot;public&quot;.&quot;mappa_valori_pni2&quot; sql="/>
                 <Option name="NofColumns" type="int" value="1"/>
                 <Option name="OrderByValue" type="bool" value="true"/>
                 <Option name="UseCompleter" type="bool" value="false"/>
@@ -603,7 +621,7 @@
         <alias name="" index="3" field="passthroug"/>
         <alias name="" index="4" field="ebw_altro_"/>
         <alias name="" index="5" field="spec_id"/>
-        <alias name="" index="6" field="type"/>
+        <alias name="tipo" index="6" field="type"/>
       </aliases>
       <excludeAttributesWMS>
         <attribute>gidd</attribute>
@@ -1981,8 +1999,8 @@ def my_form_open(dialog, layer, feature):
         <alias name="" index="24" field="descriptio"/>
       </aliases>
       <excludeAttributesWMS>
-        <attribute>descriptio</attribute>
         <attribute>measured_s</attribute>
+        <attribute>descriptio</attribute>
         <attribute>account_co</attribute>
         <attribute>calculat_1</attribute>
         <attribute>ebw_modell</attribute>
@@ -1999,12 +2017,13 @@ def my_form_open(dialog, layer, feature):
         <attribute>ebw_produt</attribute>
         <attribute>ebw_note</attribute>
         <attribute>ebw_data_i</attribute>
-        <attribute>gidd</attribute>
         <attribute>ebw_catego</attribute>
+        <attribute>gidd</attribute>
+        <attribute>shp_id</attribute>
       </excludeAttributesWMS>
       <excludeAttributesWFS>
-        <attribute>descriptio</attribute>
         <attribute>measured_s</attribute>
+        <attribute>descriptio</attribute>
         <attribute>account_co</attribute>
         <attribute>calculat_1</attribute>
         <attribute>ebw_modell</attribute>
@@ -2021,8 +2040,9 @@ def my_form_open(dialog, layer, feature):
         <attribute>ebw_produt</attribute>
         <attribute>ebw_note</attribute>
         <attribute>ebw_data_i</attribute>
-        <attribute>gidd</attribute>
         <attribute>ebw_catego</attribute>
+        <attribute>gidd</attribute>
+        <attribute>shp_id</attribute>
       </excludeAttributesWFS>
       <defaults>
         <default expression="" field="gidd" applyOnUpdate="0"/>
@@ -3513,8 +3533,8 @@ def my_form_open(dialog, layer, feature):
         <alias name="tipologia" index="4" field="spec_id"/>
         <alias name="nome PFS (max 10chr)" index="5" field="name"/>
         <alias name="stato" index="6" field="constructi"/>
-        <alias name="" index="7" field="giunzioni"/>
-        <alias name="" index="8" field="cavi_attestati"/>
+        <alias name="giunzioni" index="7" field="giunzioni"/>
+        <alias name="cavi attestati" index="8" field="cavi_attestati"/>
       </aliases>
       <excludeAttributesWMS>
         <attribute>fornitore</attribute>
@@ -3611,6 +3631,8 @@ def my_form_open(dialog, layer, feature):
         <attributeEditorField name="name" index="5" showLabel="1"/>
         <attributeEditorField name="spec_id" index="4" showLabel="1"/>
         <attributeEditorField name="constructi" index="6" showLabel="1"/>
+        <attributeEditorField name="giunzioni" index="7" showLabel="1"/>
+        <attributeEditorField name="cavi_attestati" index="8" showLabel="1"/>
       </attributeEditorForm>
       <editable>
         <field name="cavi_attestati" editable="1"/>
@@ -3828,6 +3850,9 @@ def my_form_open(dialog, layer, feature):
                 <Option name="FilterExpression" type="QString" value="&quot;tabella&quot; = 'delivery' AND  &quot;campo&quot; = 'ebw_propri'"/>
                 <Option name="Key" type="QString" value="campo"/>
                 <Option name="Layer" type="QString" value="mappa_valori_pni2_7a0eee1d_35f4_4b5f_baff_61c4433fcf53"/>
+                <Option name="LayerName" type="QString" value="mappa_valori_pni2"/>
+                <Option name="LayerProviderName" type="QString" value="postgres"/>
+                <Option name="LayerSource" type="QString" value="dbname='pni_2' host=86.107.96.34 port=5432 user='operatore' sslmode=disable key='tabella,campo,valore,tipo_progetto' checkPrimaryKeyUnicity='1' table=&quot;public&quot;.&quot;mappa_valori_pni2&quot; sql="/>
                 <Option name="NofColumns" type="int" value="1"/>
                 <Option name="OrderByValue" type="bool" value="true"/>
                 <Option name="UseCompleter" type="bool" value="false"/>
@@ -3845,6 +3870,9 @@ def my_form_open(dialog, layer, feature):
                 <Option name="FilterExpression" type="QString" value="&quot;tabella&quot; = 'delivery' AND  &quot;campo&quot; = 'ebw_type'"/>
                 <Option name="Key" type="QString" value="campo"/>
                 <Option name="Layer" type="QString" value="mappa_valori_pni2_7a0eee1d_35f4_4b5f_baff_61c4433fcf53"/>
+                <Option name="LayerName" type="QString" value="mappa_valori_pni2"/>
+                <Option name="LayerProviderName" type="QString" value="postgres"/>
+                <Option name="LayerSource" type="QString" value="dbname='pni_2' host=86.107.96.34 port=5432 user='operatore' sslmode=disable key='tabella,campo,valore,tipo_progetto' checkPrimaryKeyUnicity='1' table=&quot;public&quot;.&quot;mappa_valori_pni2&quot; sql="/>
                 <Option name="NofColumns" type="int" value="1"/>
                 <Option name="OrderByValue" type="bool" value="true"/>
                 <Option name="UseCompleter" type="bool" value="false"/>
@@ -3857,8 +3885,8 @@ def my_form_open(dialog, layer, feature):
       <aliases>
         <alias name="" index="0" field="gidd"/>
         <alias name="" index="1" field="shp_id"/>
-        <alias name="" index="2" field="ebw_propri"/>
-        <alias name="" index="3" field="ebw_type"/>
+        <alias name="Proprietario" index="2" field="ebw_propri"/>
+        <alias name="Tipo" index="3" field="ebw_type"/>
       </aliases>
       <excludeAttributesWMS>
         <attribute>gidd</attribute>
@@ -11450,7 +11478,6 @@ Proprietario:&#xd;&#xd;&#xd;&#xd;
         <attribute>tipo_posa</attribute>
         <attribute>ebw_flag_r</attribute>
         <attribute>ebw_owner</attribute>
-        <attribute>notes</attribute>
         <attribute>ebw_nome</attribute>
         <attribute>idinfratel</attribute>
         <attribute>ebw_data_i</attribute>
@@ -11479,7 +11506,6 @@ Proprietario:&#xd;&#xd;&#xd;&#xd;
         <attribute>tipo_posa</attribute>
         <attribute>ebw_flag_r</attribute>
         <attribute>ebw_owner</attribute>
-        <attribute>notes</attribute>
         <attribute>ebw_nome</attribute>
         <attribute>idinfratel</attribute>
         <attribute>ebw_data_i</attribute>
