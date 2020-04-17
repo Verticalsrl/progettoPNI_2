@@ -31,6 +31,7 @@ NUOVE NOTE PROGETTO PNI:
 - esegui vacuum dello schema dopo l'import da shp2db, funzione import_shp2db, oppure guarda anche il python ImportIntoPostGIS recuperato da web, che sfrutta la libreria di cui non ho ancora trovato documentazione pero:
     from processing.tools import dataobjects, postgis
 
+- le eccezioni al caricamento dei layer per la creazione di un nuovo progetto sono nella funzione crea_progetto_reindirizzando_il_template
 
 
 OTTIMIZZAZIONI/DUBBI:
@@ -189,21 +190,6 @@ class ProgettoPNI_2:
         'PNI_PFS': 'POLYGON',
         'PNI_PFP': 'POLYGON'
     }
-    #Modificare SOLO la SECONDA voce e non la PRIMA che rappresenta l'indice di questo dictionary. La seconda voce e' il nome come da Legenda in QGis. L'ORDINE sarebbe quello di caricamento, ma per non scombinarlo son costretto a creare un orderedDict:
-    LAYER_NAME_PNI_unordered = {
-        'PNI_SCORTA': 'ebw_scorta',
-        'PNI_GIUNTO': 'ebw_giunto',
-        'PNI_GRAFO': 'ebw_grafo',
-        'PNI_LOCATION': 'ebw_location',
-        'PNI_ROUTE': 'ebw_route',
-        'PNI_CAVO': 'ebw_cavo',
-        'PNI_PFS': 'ebw_pfs',
-        'PNI_PFP': 'ebw_pfp'
-    }
-    #ordino i layer in base a come li voglio visualizzare, l'ordine e' inverso!
-    order_of_keys = ["PNI_PFP", "PNI_PFS", "PNI_CAVO", "PNI_ROUTE", "PNI_LOCATION", "PNI_GRAFO", "PNI_GIUNTO", "PNI_SCORTA"]
-    #list_of_tuples = [(key, LAYER_NAME_PNI_unordered[key]) for key in order_of_keys]
-    #LAYER_NAME_PNI = OrderedDict(list_of_tuples)
     
     LAYER_NAME_PNI_ced = { #in teoria la chiave del dict dovrebbe essere composta da PNI+<nome_del_layer_in_legenda> e il value del dict dovrebbe essere uguale al nome dello shp e quindi della tavola su DB. Nel caso di ced, la key la lascio uguale al nome tavola a meno di non modificare il progetto qgis ced_template....
         'PNI_EBW_PTE': 'ebw_pte',
@@ -223,24 +209,6 @@ class ProgettoPNI_2:
     LAYER_OPZIONALI_ced = ['planimetria', 'street', 'ebw_address', 'ebw_pop', 'ebw_scorta', 'ebw_pte']
     
     #dizionario dei nomi da progetto QGIS_template (key) a tavole su DB (value):
-    '''LAYER_NAME_PNI_aib_ita = {
-        'PNI_ACCESS_POINT': 'access_point',
-        'PNI_AREA_CAVO': 'area_cavo',
-        'PNI_AREE_PFP': 'aree_pfp',
-        'PNI_AREE_PFS': 'aree_pfs',
-        'PNI_AREA_ANELLO': 'area_anello',
-        'PNI_CAVI': 'cavi',
-        'PNI_CIVICI': 'civici',
-        'PNI_COLONNINE': 'colonnine',
-        'PNI_DELIVERY': 'delivery',
-        'PNI_EDIFICI': 'edifici',
-        'PNI_GIUNTI': 'giunti',
-        'PNI_PLANIMETRIA': 'planimetria',
-        'PNI_POZZETTI': 'pozzetti',
-        'PNI_STRADE': 'strade',
-        'PNI_TRATTA': 'tratta',
-        'PNI_TRATTA_AEREA': 'tratta_aerea'
-    }'''
     #questo e' il dictionary in PRODUZIONE!!
     LAYER_NAME_PNI_aib = {
         'PNI_ACCESS_POINT': 'access_point',
@@ -263,94 +231,6 @@ class ProgettoPNI_2:
         'PNI_MIT_BAY': 'mit_bay'
     }
     LAYER_OPZIONALI_aib = ['planimetria', 'address']
-    
-    LAYER_NAME = {
-        'SCALA': 'Scala',
-        'PTA': 'Giunti',
-        'GIUNTO': 'Giunti',
-        'PD': 'PD',
-        'PFS': 'PFS',
-        'PFP': 'PFP',
-        'GIUNTO_F_dev': 'Giunti',
-        'CAVO': 'Cavo',
-        'CAVOROUTE': 'Cavoroute',
-        'SOTTOT': 'Sottotratta',
-        'Area_PFS': 'Area_PFS',
-        'Area_PFP': 'Area_PFP',
-        'Pozzetto': 'Pozzetto',
-        'PD_F': 'PD',
-        'SCALA_F': 'Scala',
-        'SCALA_append': 'scala_append'
-    }
-    ID_NAME = {
-        'SCALA': 'id_scala',
-        'PTA': 'id_giunto',
-        'GIUNTO': 'id_giunto',
-        'PD': 'id_pd',
-        'PFS': 'id_pfs',
-        'PFP': 'id_pfp',
-        'GIUNTO_F_dev': 'id_g_ref',
-        'PD_F': 'id_pd_ref',
-        'SCALA_F': 'id_sc_ref'
-    }
-    FROM_POINT = [
-        '--seleziona--',
-        LAYER_NAME['SCALA'],
-        LAYER_NAME['GIUNTO'],
-        LAYER_NAME['PD'],
-        LAYER_NAME['PFS']
-    ]
-    #regole di deafult
-    FROM_TO_RULES = {
-        'PTA': {'MIN_UI': 0, 'MAX_UI': 44, 'MAX_CONT': 44},
-        'GIUNTO': {'MIN_UI': 0, 'MAX_UI': 96, 'MAX_CONT': 8},
-        'GIUNTO_F_dev': {'MIN_UI': 0, 'MAX_UI': 96, 'MAX_CONT': 8},
-        'PD': {'MIN_UI': 16, 'MAX_UI': 96, 'MAX_CONT': 8},
-        'PFS': {'MIN_UI': 220, 'MAX_UI': 254, 'MAX_CONT': 12},
-        'PFP': {'MIN_UI': 850, 'MAX_UI': 1024, 'MAX_CONT': 4}
-    }
-    #Per non riscrivere il dictionary, e dunque il DB, eseguo questa uguaglianza:
-    #Dopo telefonata con Gatti il mattino del 13 ottobre 2017 assegno nel caso di collegamenti in cascata tra SCALE le stesse regole del PD. Ma visto che il PD ha MIN_UI<>0 per non rischiare dei pasticci lo opngo uguale al GIUNTO
-    FROM_TO_RULES['SCALA'] = FROM_TO_RULES['GIUNTO']
-    '''FIBRE_CAVO = {
-        'PD': {'F_4': 2, 'F_12': 10, 'F_24': 20, 'F_48': 40, 'F_72': 0, 'F_96': 0, 'F_144': 0},
-        'PFS': {'F_4': 0, 'F_12': 0, 'F_24': 12, 'F_48': 36, 'F_72': 60, 'F_96': 72, 'F_144': 120}
-    }'''
-    FIBRE_CAVO = {
-        'SCALA_PTA': {'F_4': 0, 'F_12': 3, 'F_24': 0, 'F_48': 0, 'F_72': 0, 'F_96': 0, 'F_144': 0, 'F_192': 0},
-        'SCALA_GIUNTO': {'F_4': 0, 'F_12': 0, 'F_24': 10, 'F_48': 34, 'F_72': 0, 'F_96': 42, 'F_144': 0, 'F_192': 0},
-        'SCALA_PD': {'F_4': 0, 'F_12': 0, 'F_24': 10, 'F_48': 34, 'F_72': 0, 'F_96': 42, 'F_144': 0, 'F_192': 0},
-        'SCALA_PFS': {'F_4': 0, 'F_12': 0, 'F_24': 10, 'F_48': 34, 'F_72': 0, 'F_96': 42, 'F_144': 0, 'F_192': 0},
-        'GIUNTO_PD': {'F_4': 0, 'F_12': 0, 'F_24': 10, 'F_48': 34, 'F_72': 0, 'F_96': 42, 'F_144': 0, 'F_192': 0},
-        'PTA_PD': {'F_4': 0, 'F_12': 0, 'F_24': 10, 'F_48': 34, 'F_72': 0, 'F_96': 42, 'F_144': 0, 'F_192': 0},
-        'PD_PFS': {'F_4': 0, 'F_12': 0, 'F_24': 16, 'F_48': 32, 'F_72': 0, 'F_96': 64, 'F_144': 96, 'F_192': 0},
-        #'PFS_PFP': {'F_4': 0, 'F_12': 0, 'F_24': 0, 'F_48': 0, 'F_72': 0, 'F_96': 9999, 'F_144': 0, 'F_192': 0}
-        'PFS_PFP': {'F_96': 9999}
-    }
-    #Per non riscrivere il dictionary, e dunque il DB, eseguo questa uguaglianza:
-    FIBRE_CAVO['GIUNTO_GIUNTO'] = FIBRE_CAVO['GIUNTO_PD']
-    FIBRE_CAVO['PTA_GIUNTO'] = FIBRE_CAVO['GIUNTO_PD']
-    FIBRE_CAVO['PTA_PTA'] = FIBRE_CAVO['GIUNTO_PD']
-    FIBRE_CAVO['PTA_PFS'] = FIBRE_CAVO['PTA_PD']
-    FIBRE_CAVO['SCALA_SCALA'] = FIBRE_CAVO['SCALA_PTA']
-    FIBRE_CAVO['PD_PD'] = FIBRE_CAVO['GIUNTO_PD']
-    #le chiavi di net_type devono essere LE STESSE di fibre_cavo. Indicano il valore da scrivere nel layer cavoroute
-    NET_TYPE = {
-        'SCALA_SCALA': "Contatori-contatore",
-        'SCALA_PTA': "Contatori-PTA",
-        'SCALA_GIUNTO': "Contatori-giunto",
-        'SCALA_PD': "Contatori-PD",
-        'SCALA_PFS': "Contatori-PFS",
-        'GIUNTO_GIUNTO': "Giunti-giunto",
-        'GIUNTO_PD': "Giunti-PD",
-        'PTA_PTA': "PTA-PTA",
-        'PTA_GIUNTO': "PTA-giunto",
-        'PTA_PD': "PTA-PD",
-        'PTA_PFS': "PTA-PFS",
-        'PD_PD': "PD-PD",
-        'PD_PFS': "PD-PFS",
-        'PFS_PFP': "PFS-PFP"
-    }
     
     COD_POP = 0
     epsg_srid = 0
@@ -582,6 +462,74 @@ class ProgettoPNI_2:
         cur.execute( filedata )
         test_conn.commit()
     
+    def crea_progetto_reindirizzando_il_template(self, layers_from_project_template, ced_checked, layer_on_DB, project, dirname_text):
+        for layer_imported in layers_from_project_template.values():
+            #new_uri = "%s key=gidd table=\"%s\".\"%s\" (geom) sql=" % (dest_dir, schemaDB, layer_imported.name().lower())
+            #mappa_valori non la ricarico perche' e' comune a tutti i progetti --> ricarico questo controllo perche' su QGis 2.x da errore se lo lascio dopo
+            if ('mappa_valori' in layer_imported.name()):
+                continue
+            elif ('elenco_prezzi' in layer_imported.name()):
+                continue
+            #sul progetto qgis i nomi dei layer sono in italiano. Uso il dizionario LAYER_NAME_PNI_aib per accoppiare i layer con la corretta tavola su DB:
+            chiave_da_ricercare = 'PNI_' + layer_imported.name().upper()
+            Utils.logMessage( 'layer_da_ricercare sul DB: %s' % str(chiave_da_ricercare) )
+            if (ced_checked == True):
+                tabella_da_importare = self.LAYER_NAME_PNI_ced[chiave_da_ricercare]
+            else:
+                if ('punto_ripristino' in layer_imported.name()):
+                    tabella_da_importare = 'punto_ripristino'
+                elif ('nodo_virtuale' in layer_imported.name()):
+                    tabella_da_importare = 'nodo_virtuale'
+                else:
+                    tabella_da_importare = self.LAYER_NAME_PNI_aib[chiave_da_ricercare]
+            #2-confronto la lista delle tabelle su DB con la lista dei layer mappati e via via li sostituisco. Se il layer del progetto template NON E' PRESENTE  sul DB, salto e passo al successivo e TOLGO questo layer dal progetto:
+            if (tabella_da_importare not in layer_on_DB):
+                if (int(qgis_version[0]) >= 3):
+                    QgsProject.instance().removeMapLayer(layer_imported.id())
+                else:
+                    QgsMapLayerRegistry.instance().removeMapLayer(layer_imported.id())
+                continue
+            else:
+                #tolgo il layer da layer_on_DB:
+                layer_on_DB.remove(tabella_da_importare)
+            
+            #mappa_valori non la ricarico perche' e' comune a tutti i progetti
+            if ('mappa_valori' in layer_imported.name()):
+                continue
+            elif ('elenco_prezzi' in layer_imported.name()):
+                continue
+            elif (layer_imported.name() in self.sciape_error): #se lo shp non e' stato importato su DB poiche' non presente salto il suo reindirizzamento sul progetto QGis -- in realta' duplica l'azione precedente di ricerca del layer sul DB
+                #se questa funzione viene richiamata senza caricare gli shp su DB, cioe creando un progetto da dati gia presenti su DB, allora sciape_error POTREBBE NON ESISTERE! per cui e' fondamentale la parte precedente in cui si recuperano effettivamente le tavole da DB
+                continue
+            else:
+                new_uri = "%s key=gidd table=\"%s\".\"%s\" (geom) sql=" % (dest_dir, schemaDB, tabella_da_importare)
+            layer_imported.setDataSource(new_uri, layer_imported.name(), 'postgres')
+            layer_imported.updateExtents()
+            layer_imported.reload()
+
+        Utils.logMessage( 'layer_on_DB dopo scrematura: %s' % str(layer_on_DB) )
+
+        #3-quelle tavole che restano sul DB e che non sono state mappate, le aggiungo al progetto qgis con una visualizzazione di default
+        for table in layer_on_DB:
+            #NON carico eventuali tabelle _history nel caso fossero presenti sullo schema poiche' sono le tabelle in cui tengo traccia delle modifiche sui layer:
+            if ('_history' in table):
+                continue
+            uri = "%s key=gidd table=\"%s\".\"%s\" (geom) sql=" % (dest_dir, schemaDB, table.lower())
+            layer_to_add = QgsVectorLayer(uri, table, "postgres")
+            if (int(qgis_version[0]) >= 3):
+                QgsProject.instance().addMapLayer(layer_to_add)
+            else:
+                QgsMapLayerRegistry.instance().addMapLayer(layer_to_add)
+        
+        #refresh del canvas e zoommo sull'estensione del progetto:
+        iface.mapCanvas().refresh()
+        iface.mapCanvas().zoomToFullExtent()
+        #SALVO il nuovo progetto:
+        if (int(qgis_version[0]) >= 3):
+            project.write(dirname_text+"/"+schemaDB+'.qgs')
+        else:
+            project.write( QFileInfo(dirname_text+"/"+schemaDB+'.qgs') )
+        
     def import_shp2db_parziale(self):
         self.import_shp2db(1)
     
@@ -766,6 +714,8 @@ class ProgettoPNI_2:
                         error = QgsVectorLayerExporter.exportLayer(layer_loaded, uri, "postgres", crs, False, options=options)
                     else:
                         error = QgsVectorLayerImport.importLayer(layer_loaded, uri, "postgres", crs, False, False, options)
+                    #recupero il codice EPSG dei layer importati, per creare le successive tabelle geometriche:
+                    codice_srid = crs.postgisSrid()
                     
                     #my_layer is some QgsVectorLayer
                     #con_string = """dbname='postgres' host='some IP adress' port='5432' user='postgres' password='thepassword' key=my_id type=MULTIPOLYGON table="myschema"."mytable" (geom)"""
@@ -832,8 +782,26 @@ class ProgettoPNI_2:
                         vertice_due character varying(100),
                         largh_ripristino_cm double precision,
                         sup_ripristino_mq double precision
-                        );""" % (schemaDB, schemaDB)
+                        );
+                    GRANT ALL ON TABLE %s.ftth_cluster TO operatore_r;""" % (schemaDB, schemaDB, schemaDB)
                     cur.execute(query_ftth_cluster)
+                    test_conn.commit()
+                    query_nodi_punti = """DROP TABLE IF EXISTS %s.punto_ripristino; CREATE TABLE %s.punto_ripristino (
+                        gidd serial,
+                        geom geometry(Point, %s),
+                        foto character varying(200),
+                        id_tratta character varying(200),
+                        listino character varying(20) DEFAULT 'OF- INF-9.3'
+                        );
+                    GRANT ALL ON TABLE %s.punto_ripristino TO operatore_r;
+                        DROP TABLE IF EXISTS %s.nodo_virtuale; CREATE TABLE %s.nodo_virtuale (
+                        gidd serial,
+                        geom geometry(Point, %s),
+                        tipo character varying(200),
+                        data date,
+                        id_tratta character varying(200));
+                    GRANT ALL ON TABLE %s.nodo_virtuale TO operatore_r;""" % (schemaDB, schemaDB, codice_srid, schemaDB, schemaDB, schemaDB, codice_srid, schemaDB)
+                    cur.execute(query_nodi_punti)
                     test_conn.commit()
                 
                 #TRACKING modifiche sui layer
@@ -904,9 +872,14 @@ class ProgettoPNI_2:
                     else:
                         project.read( QFileInfo(self.plugin_dir + "/pni2_AiB_db.qgs") )
                 #ora modifico i dataSource di questi progetti puntandoli allo schema appena creato:
-                layers_from_project_template = iface.mapCanvas().layers()
-                #ATTENZIONE!!! Se non dovesse esserci una tabella corrispondente su postgres QGis crasha direttamente e anche con try/except non si riesce a intercettare questo errore!!
+                #layers_from_project_template = iface.mapCanvas().layers()
                 #ATTENZIONE!!! iface.mapCanvas().layers() recupera solo i layers visibili, per questo motivo nel template li ho messi tutti visibili
+                #per ovviare a questo limite posso provare questa chiamata:
+                if (int(qgis_version[0]) >= 3):
+                    layers_from_project_template = QgsProject.instance().mapLayers()
+                else:
+                    layers_from_project_template = QgsMapLayerRegistry.instance().mapLayers()
+                #ATTENZIONE!!! Se non dovesse esserci una tabella corrispondente su postgres QGis crasha direttamente e anche con try/except non si riesce a intercettare questo errore!!
                 #per ovviare a questo limite, nel caso in cui vi siano effettivamente questi layer sul DB:
                 #1-scarico la lista delle tavole con the_geom dal DB
                 layer_on_DB = list()
@@ -922,55 +895,7 @@ class ProgettoPNI_2:
                 #test_conn.commit() #committo la creazione dell'indice spaziale
                 test_conn.close()
                 
-                for layer_imported in layers_from_project_template:
-                    #new_uri = "%s key=gidd table=\"%s\".\"%s\" (geom) sql=" % (dest_dir, schemaDB, layer_imported.name().lower())
-                    #sul progetto qgis i nomi dei layer sono in italiano. Uso il dizionario LAYER_NAME_PNI_aib per accoppiare i layer con la corretta tavola su DB:
-                    chiave_da_ricercare = 'PNI_' + layer_imported.name().upper()
-                    if (ced_checked == True):
-                        tabella_da_importare = self.LAYER_NAME_PNI_ced[chiave_da_ricercare]
-                    else:
-                        tabella_da_importare = self.LAYER_NAME_PNI_aib[chiave_da_ricercare]
-                    #2-confronto la lista delle tabelle su DB con la lista dei layer mappati e via via li sostituisco. Se il layer del progetto template NON E' PRESENTE  sul DB, salto e passo al successivo e TOLGO questo layer dal progetto:
-                    if (tabella_da_importare not in layer_on_DB):
-                        if (int(qgis_version[0]) >= 3):
-                            QgsProject.instance().removeMapLayer(layer_imported.id())
-                        else:
-                            QgsMapLayerRegistry.instance().removeMapLayer(layer_imported.id())
-                        continue
-                    else:
-                        #tolgo il layer da layer_on_DB:
-                        layer_on_DB.remove(tabella_da_importare)
-                    #mappa_valori non la ricarico perche' e' comune a tutti i progetti
-                    if ('mappa_valori' in layer_imported.name()):
-                        continue
-                    elif (layer_imported.name() in self.sciape_error): #se lo shp non e' stato importato su DB poiche' non presente salto il suo reindirizzamento sul progetto QGis -- in realta' duplica l'azione precedente di ricerca del layer sul DB
-                        continue
-                    else:
-                        new_uri = "%s key=gidd table=\"%s\".\"%s\" (geom) sql=" % (dest_dir, schemaDB, tabella_da_importare)
-                    layer_imported.setDataSource(new_uri, layer_imported.name(), 'postgres')
-                    layer_imported.updateExtents()
-                    layer_imported.reload()
-
-                #3-quelle tavole che restano sul DB e che non sono state mappate, le aggiungo al progetto qgis con una visualizzazione di default
-                for table in layer_on_DB:
-                    #NON carico eventuali tabelle _history nel caso fossero presenti sullo schema poiche' sono le tabelle in cui tengo traccia delle modifiche sui layer:
-                    if ('_history' in table):
-                        continue
-                    uri = "%s key=gidd table=\"%s\".\"%s\" (geom) sql=" % (dest_dir, schemaDB, table.lower())
-                    layer_to_add = QgsVectorLayer(uri, table, "postgres")
-                    if (int(qgis_version[0]) >= 3):
-                        QgsProject.instance().addMapLayer(layer_to_add)
-                    else:
-                        QgsMapLayerRegistry.instance().addMapLayer(layer_to_add)
-                
-                #refresh del canvas e zoommo sull'estensione del progetto:
-                iface.mapCanvas().refresh()
-                iface.mapCanvas().zoomToFullExtent()
-                #SALVO il nuovo progetto:
-                if (int(qgis_version[0]) >= 3):
-                    project.write(dirname_text+"/"+schemaDB+'.qgs')
-                else:
-                    project.write( QFileInfo(dirname_text+"/"+schemaDB+'.qgs') )
+                self.crea_progetto_reindirizzando_il_template(layers_from_project_template, ced_checked, layer_on_DB, project, dirname_text)
 
             except psycopg2.Error as e:
                 Utils.logMessage(e.pgerror)
@@ -1026,9 +951,14 @@ class ProgettoPNI_2:
                 else:
                     project.read( QFileInfo(self.plugin_dir + "/pni2_AiB_db.qgs") )
             #ora modifico i dataSource di questi progetti puntandoli allo schema appena creato:
-            layers_from_project_template = iface.mapCanvas().layers()
-            #ATTENZIONE!!! Se non dovesse esserci una tabella corrispondente su postgres QGis crasha direttamente e anche con try/except non si riesce a intercettare questo errore!!
+            #layers_from_project_template = iface.mapCanvas().layers()
             #ATTENZIONE!!! iface.mapCanvas().layers() recupera solo i layers visibili, per questo motivo nel template li ho messi tutti visibili
+            #per ovviare a questo limite posso provare questa chiamata:
+            if (int(qgis_version[0]) >= 3):
+                layers_from_project_template = QgsProject.instance().mapLayers()
+            else:
+                layers_from_project_template = QgsMapLayerRegistry.instance().mapLayers()
+            #ATTENZIONE!!! Se non dovesse esserci una tabella corrispondente su postgres QGis crasha direttamente e anche con try/except non si riesce a intercettare questo errore!!
             #per ovviare a questo limite, nel caso in cui vi siano effettivamente questi layer sul DB:
             #apro il cursore per leggere/scrivere sul DB:
             test_conn = psycopg2.connect(dest_dir)
@@ -1044,59 +974,7 @@ class ProgettoPNI_2:
             cur.close()
             test_conn.close()
             
-            for layer_imported in layers_from_project_template:
-                #new_uri = "%s key=gidd table=\"%s\".\"%s\" (geom) sql=" % (dest_dir, schemaDB, layer_imported.name().lower())
-                #sul progetto qgis i nomi dei layer sono in italiano. Uso il dizionario LAYER_NAME_PNI_aib per accoppiare i layer con la corretta tavola su DB:
-                #mappa_valori non la ricarico perche' e' comune a tutti i progetti --> ricarico questo controllo perche' su QGis 2.x da errore se lo lascio dopo
-                if ('mappa_valori' in layer_imported.name()):
-                    continue
-                chiave_da_ricercare = 'PNI_' + layer_imported.name().upper()
-                if (ced_checked == True):
-                    tabella_da_importare = self.LAYER_NAME_PNI_ced[chiave_da_ricercare]
-                else:
-                    tabella_da_importare = self.LAYER_NAME_PNI_aib[chiave_da_ricercare]
-                #2-confronto la lista delle tabelle su DB con la lista dei layer mappati e via via li sostituisco. Se il layer del progetto template NON E' PRESENTE  sul DB, salto e passo al successivo e TOLGO questo layer dal progetto:
-                if (tabella_da_importare not in layer_on_DB):
-                    if (int(qgis_version[0]) >= 3):
-                        QgsProject.instance().removeMapLayer(layer_imported.id())
-                    else:
-                        QgsMapLayerRegistry.instance().removeMapLayer(layer_imported.id())
-                    continue
-                else:
-                    #tolgo il layer da layer_on_DB:
-                    layer_on_DB.remove(tabella_da_importare)
-                #mappa_valori non la ricarico perche' e' comune a tutti i progetti
-                if ('mappa_valori' in layer_imported.name()):
-                    continue
-                elif (layer_imported.name() in self.sciape_error): #se lo shp non e' stato importato su DB poiche' non presente salto il suo reindirizzamento sul progetto QGis -- in realta' duplica l'azione precedente di ricerca del layer sul DB
-                    #sciape_error a questo livello POTREBBE NON ESISTERE! per cui e' fondamentale la parte precedente in cui si recuperano effettivamente le tavole da DB
-                    continue
-                else:
-                    new_uri = "%s key=gidd table=\"%s\".\"%s\" (geom) sql=" % (dest_dir, schemaDB, tabella_da_importare)
-                layer_imported.setDataSource(new_uri, layer_imported.name(), 'postgres')
-                layer_imported.updateExtents()
-                layer_imported.reload()
-
-            #3-quelle tavole che restano sul DB e che non sono state mappate, le aggiungo al progetto qgis con una visualizzazione di default
-            for table in layer_on_DB:
-                #NON carico eventuali tabelle _history nel caso fossero presenti sullo schema poiche' sono le tabelle in cui tengo traccia delle modifiche sui layer:
-                if ('_history' in table):
-                    continue
-                uri = "%s key=gidd table=\"%s\".\"%s\" (geom) sql=" % (dest_dir, schemaDB, table.lower())
-                layer_to_add = QgsVectorLayer(uri, table, "postgres")
-                if (int(qgis_version[0]) >= 3):
-                    QgsProject.instance().addMapLayer(layer_to_add)
-                else:
-                    QgsMapLayerRegistry.instance().addMapLayer(layer_to_add)
-            
-            #refresh del canvas e zoommo sull'estensione del progetto:
-            iface.mapCanvas().refresh()
-            iface.mapCanvas().zoomToFullExtent()
-            #SALVO il nuovo progetto:
-            if (int(qgis_version[0]) >= 3):
-                project.write(dirname_text+"/"+schemaDB+'.qgs')
-            else:
-                project.write( QFileInfo(dirname_text+"/"+schemaDB+'.qgs') )
+            self.crea_progetto_reindirizzando_il_template(layers_from_project_template, ced_checked, layer_on_DB, project, dirname_text)
         
         except SystemError as e:
             debug_text = "Qualcosa e' andata storta nel caricare i layer da DB. Forse il servizio per il DB indicato non esiste? Rivedere i dati e riprovare"
