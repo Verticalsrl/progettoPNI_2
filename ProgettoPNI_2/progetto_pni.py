@@ -787,19 +787,18 @@ class ProgettoPNI_2:
                     cur.execute(query_ftth_cluster)
                     test_conn.commit()
                     query_nodi_punti = """DROP TABLE IF EXISTS %s.punto_ripristino; CREATE TABLE %s.punto_ripristino (
-                        gidd serial,
+                        gidd serial PRIMARY KEY,
                         geom geometry(Point, %s),
-                        foto character varying(200),
                         id_tratta character varying(200),
-                        listino character varying(20) DEFAULT 'OF- INF-9.3'
-                        );
+                        listino character varying(20) DEFAULT 'OF- INF-9.3',
+                        foto character varying(200));
                     GRANT ALL ON TABLE %s.punto_ripristino TO operatore_r;
                         DROP TABLE IF EXISTS %s.nodo_virtuale; CREATE TABLE %s.nodo_virtuale (
-                        gidd serial,
+                        gidd serial PRIMARY KEY,
                         geom geometry(Point, %s),
-                        tipo character varying(200),
-                        data date,
-                        id_tratta character varying(200));
+                        id_tratta character varying(200),
+                        listino character varying(200),
+                        data date);
                     GRANT ALL ON TABLE %s.nodo_virtuale TO operatore_r;""" % (schemaDB, schemaDB, codice_srid, schemaDB, schemaDB, schemaDB, codice_srid, schemaDB)
                     cur.execute(query_nodi_punti)
                     test_conn.commit()
