@@ -1,5 +1,5 @@
 ﻿--aggiungo alcune colonne di appoggio per costruire i form di editing:
-ALTER TABLE uub ADD COLUMN tipo_posa character varying(64);
+ALTER TABLE uub ADD COLUMN tipo_posa character varying(120);
 
 
 
@@ -24,6 +24,7 @@ GRANT EXECUTE ON FUNCTION uub_solid() TO GROUP operatore_r;
 --DROP TABLE uub_history;
 --Create history table. This is the table we will use to store all the historical edit information. In addition to all the fields from uub, we add five more fields:
 */
+DROP TABLE IF EXISTS uub_history;
 CREATE TABLE IF NOT EXISTS uub_history ( like uub, created timestamp without time zone, created_by character varying(64), deleted timestamp without time zone, deleted_by character varying(64));
 GRANT SELECT, UPDATE, INSERT, TRIGGER ON TABLE uub_history TO operatore_r;
 

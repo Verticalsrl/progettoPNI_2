@@ -476,10 +476,13 @@ class ProgettoPNI_2:
             if (ced_checked == True):
                 tabella_da_importare = self.LAYER_NAME_PNI_ced[chiave_da_ricercare]
             else:
+                #aggiungo queste tabelle che creo ad hoc per ogni nuovo progetto, cosi da non ricevere errori
                 if ('punto_ripristino' in layer_imported.name()):
                     tabella_da_importare = 'punto_ripristino'
                 elif ('nodo_virtuale' in layer_imported.name()):
                     tabella_da_importare = 'nodo_virtuale'
+                elif ('user_log_map' in layer_imported.name()):
+                    tabella_da_importare = 'user_log_map'
                 else:
                     tabella_da_importare = self.LAYER_NAME_PNI_aib[chiave_da_ricercare]
             #2-confronto la lista delle tabelle su DB con la lista dei layer mappati e via via li sostituisco. Se il layer del progetto template NON E' PRESENTE  sul DB, salto e passo al successivo e TOLGO questo layer dal progetto:
@@ -799,7 +802,18 @@ class ProgettoPNI_2:
                         id_tratta character varying(200),
                         listino character varying(200),
                         data date);
-                    GRANT ALL ON TABLE %s.nodo_virtuale TO operatore_r;""" % (schemaDB, schemaDB, codice_srid, schemaDB, schemaDB, schemaDB, codice_srid, schemaDB)
+                    GRANT ALL ON TABLE %s.nodo_virtuale TO operatore_r;
+                        DROP TABLE IF EXISTS %s.user_log_map; CREATE TABLE %s.user_log_map (
+                        gidd serial PRIMARY KEY,
+                        layer varchar(20) NOT NULL,
+                        gid_feature int4,
+                        id_user int4,
+                        user_log varchar(50) NOT NULL,
+                        azione varchar(30) NOT NULL,
+                        progetto varchar(100) NOT NULL,
+                        data timestamp(6) DEFAULT now(),
+                        fid varchar(100) COLLATE pg_catalog.default);
+                    GRANT ALL ON TABLE %s.user_log_map TO operatore_r;""" % (schemaDB, schemaDB, codice_srid, schemaDB, schemaDB, schemaDB, codice_srid, schemaDB, schemaDB, schemaDB, schemaDB)
                     cur.execute(query_nodi_punti)
                     test_conn.commit()
                 
