@@ -48,7 +48,7 @@ changelog=
     2020/04/17 2.7 creazione tabelle punto_ripristino e nodo_virtuale per ogni nuovo progetto se parziale=0. Creata funzione crea_progetto_reindirizzando_il_template
 	2020/04/28 2.8 aggiunta PK su tabelle punto_ripristino e nodo_virtuale; aggiunti surface_ma in inglese su tratta, e aggiornata regola da asfalto a Asphalt; aggiunto campo tipo_posa boolean su pozzetti
 	2020/04/30 2.9 aggiunta creazione tabella user_log_map; modifica campo tipo_posa su pozzetti da boolean a text(120)
-	2020/05/14 3.0 correzione bachi per caricamento e reindirizzamento tabelle piatte su progetto qgis; aggiunta ulteriori campi a tratta; aggiunta tabella elenco_prezzi_layer per ogni nuovo schema
+	2020/05/14 3.0 correzione bachi per caricamento e reindirizzamento tabelle piatte su progetto qgis; aggiunta ulteriori campi a tratta e pozzetti; aggiunta tabella elenco_prezzi_layer per ogni nuovo schema
 
 
 # Tags are comma separated with spaces allowed
