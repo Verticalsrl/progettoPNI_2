@@ -468,8 +468,8 @@ class ProgettoPNI_2:
             #mappa_valori non la ricarico perche' e' comune a tutti i progetti --> ricarico questo controllo perche' su QGis 2.x da errore se lo lascio dopo
             if ('mappa_valori' in layer_imported.name()):
                 continue
-            elif ('elenco_prezzi' in layer_imported.name()):
-                continue
+            #elif ('elenco_prezzi' in layer_imported.name()):
+            #    continue
             #sul progetto qgis i nomi dei layer sono in italiano. Uso il dizionario LAYER_NAME_PNI_aib per accoppiare i layer con la corretta tavola su DB:
             chiave_da_ricercare = 'PNI_' + layer_imported.name().upper()
             Utils.logMessage( 'layer_da_ricercare sul DB: %s' % str(chiave_da_ricercare) )
@@ -483,8 +483,13 @@ class ProgettoPNI_2:
                     tabella_da_importare = 'nodo_virtuale'
                 elif ('user_log_map' in layer_imported.name()):
                     tabella_da_importare = 'user_log_map'
+                elif ('elenco_prezzi_layer' in layer_imported.name()):
+                    tabella_da_importare = 'elenco_prezzi_layer'
+                elif ('ftth_cluster' in layer_imported.name()):
+                    tabella_da_importare = 'ftth_cluster'
                 else:
                     tabella_da_importare = self.LAYER_NAME_PNI_aib[chiave_da_ricercare]
+                Utils.logMessage( 'tabella da importare da DB: %s' % str(tabella_da_importare) )
             #2-confronto la lista delle tabelle su DB con la lista dei layer mappati e via via li sostituisco. Se il layer del progetto template NON E' PRESENTE  sul DB, salto e passo al successivo e TOLGO questo layer dal progetto:
             if (tabella_da_importare not in layer_on_DB):
                 if (int(qgis_version[0]) >= 3):
@@ -499,11 +504,18 @@ class ProgettoPNI_2:
             #mappa_valori non la ricarico perche' e' comune a tutti i progetti
             if ('mappa_valori' in layer_imported.name()):
                 continue
-            elif ('elenco_prezzi' in layer_imported.name()):
-                continue
+            #elif ('elenco_prezzi' in layer_imported.name()):
+            #    continue
             elif (layer_imported.name() in self.sciape_error): #se lo shp non e' stato importato su DB poiche' non presente salto il suo reindirizzamento sul progetto QGis -- in realta' duplica l'azione precedente di ricerca del layer sul DB
                 #se questa funzione viene richiamata senza caricare gli shp su DB, cioe creando un progetto da dati gia presenti su DB, allora sciape_error POTREBBE NON ESISTERE! per cui e' fondamentale la parte precedente in cui si recuperano effettivamente le tavole da DB
                 continue
+            #le seguenti tabelle sono PIATTE per cui devo togliere il campo geom e la key:
+            elif ('user_log_map' in layer_imported.name()):
+                new_uri = "%s table=\"%s\".\"%s\" sql=" % (dest_dir, schemaDB, tabella_da_importare)
+            elif ('elenco_prezzi_layer' in layer_imported.name()):
+                new_uri = "%s table=\"%s\".\"%s\" sql=" % (dest_dir, schemaDB, tabella_da_importare)
+            elif ('ftth_cluster' in layer_imported.name()):
+                new_uri = "%s table=\"%s\".\"%s\" sql=" % (dest_dir, schemaDB, tabella_da_importare)
             else:
                 new_uri = "%s key=gidd table=\"%s\".\"%s\" (geom) sql=" % (dest_dir, schemaDB, tabella_da_importare)
             layer_imported.setDataSource(new_uri, layer_imported.name(), 'postgres')
@@ -813,7 +825,16 @@ class ProgettoPNI_2:
                         progetto varchar(100) NOT NULL,
                         data timestamp(6) DEFAULT now(),
                         fid varchar(100) COLLATE pg_catalog.default);
-                    GRANT ALL ON TABLE %s.user_log_map TO operatore_r;""" % (schemaDB, schemaDB, codice_srid, schemaDB, schemaDB, schemaDB, codice_srid, schemaDB, schemaDB, schemaDB, schemaDB)
+                    GRANT ALL ON TABLE %s.user_log_map TO operatore_r;
+                        DROP TABLE IF EXISTS %s.elenco_prezzi_layer; CREATE TABLE %s.elenco_prezzi_layer (
+                        idprezzo integer NOT NULL,
+                        laygidd integer NOT NULL,
+                        layname varchar(200) NOT NULL,
+                        "insDate" timestamp without time zone NOT NULL DEFAULT now(),
+                        "updDate" timestamp without time zone NOT NULL DEFAULT now(),
+                        "updUsr" varchar(100) NOT NULL,
+                        PRIMARY KEY (idprezzo, laygidd, layname) );
+                    GRANT ALL ON TABLE %s.elenco_prezzi_layer TO operatore_r;""" % (schemaDB, schemaDB, codice_srid, schemaDB, schemaDB, schemaDB, codice_srid, schemaDB, schemaDB, schemaDB, schemaDB, schemaDB, schemaDB, schemaDB)
                     cur.execute(query_nodi_punti)
                     test_conn.commit()
                 

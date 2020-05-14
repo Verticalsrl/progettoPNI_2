@@ -5,7 +5,17 @@ ALTER TABLE underground_route ADD COLUMN disfacimento boolean;
 ALTER TABLE underground_route ADD COLUMN adduzione boolean;
 ALTER TABLE underground_route ADD COLUMN attraversamento boolean;
 ALTER TABLE underground_route ADD COLUMN lunghezza_tubo double precision;
-
+--campi aggiunti per Gatti da issue del 13 maggio 2020:
+ALTER TABLE underground_route ADD COLUMN ripr_contestuale boolean;
+ALTER TABLE underground_route ADD COLUMN ripr_cls boolean;
+ALTER TABLE underground_route ADD COLUMN prop_privata boolean;
+ALTER TABLE underground_route ADD COLUMN sottofondo_bituminoso boolean;
+ALTER TABLE underground_route ADD COLUMN mtubi_tipologia character varying(100);
+ALTER TABLE underground_route ADD COLUMN disfacimento_tipo character varying(100);
+ALTER TABLE underground_route ADD COLUMN georadar boolean;
+ALTER TABLE underground_route ADD COLUMN microt_diam_min80 character varying(100);
+ALTER TABLE underground_route ADD COLUMN autoestinguente boolean;
+ALTER TABLE underground_route ADD COLUMN mtubi_calza boolean;
 
 
 --creo le varie FUNZIONI TRIGGER per CONSOLIDARE la tabella
