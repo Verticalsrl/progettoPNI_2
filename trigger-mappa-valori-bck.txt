@@ -1,0 +1,23 @@
+CREATE TRIGGER "mappa_valori_pni2_delete_trigger" AFTER DELETE ON "public"."mappa_valori_pni2_20200518"
+FOR EACH ROW
+EXECUTE PROCEDURE "public"."mappa_valori_pni2_delete"();
+
+CREATE TRIGGER "mappa_valori_pni2_delete_trigger" AFTER DELETE ON "public"."mappa_valori_pni2"
+FOR EACH ROW
+EXECUTE PROCEDURE "public"."mappa_valori_pni2_delete"();
+
+CREATE TRIGGER "mappa_valori_pni2_insert_trigger" AFTER INSERT ON "public"."mappa_valori_pni2_20200518"
+FOR EACH ROW
+EXECUTE PROCEDURE "public"."mappa_valori_pni2_insert"();
+
+CREATE TRIGGER "mappa_valori_pni2_insert_trigger" AFTER INSERT ON "public"."mappa_valori_pni2"
+FOR EACH ROW
+EXECUTE PROCEDURE "public"."mappa_valori_pni2_insert"();
+
+CREATE TRIGGER "mappa_valori_pni2_update_trigger" AFTER UPDATE ON "public"."mappa_valori_pni2_20200518"
+FOR EACH ROW
+EXECUTE PROCEDURE "public"."mappa_valori_pni2_update"();
+
+CREATE TRIGGER "mappa_valori_pni2_update_trigger" AFTER UPDATE ON "public"."mappa_valori_pni2"
+FOR EACH ROW
+EXECUTE PROCEDURE "public"."mappa_valori_pni2_update"();
