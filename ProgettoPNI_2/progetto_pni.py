@@ -824,7 +824,6 @@ class ProgettoPNI_2:
                         azione varchar(30) NOT NULL,
                         progetto varchar(100) NOT NULL,
                         data timestamp(6) DEFAULT now(),
-                        url varchar(640),
                         fid varchar(100) COLLATE pg_catalog.default);
                     GRANT ALL ON TABLE %s.user_log_map TO operatore_r;
                         DROP TABLE IF EXISTS %s.elenco_prezzi_layer; CREATE TABLE %s.elenco_prezzi_layer (
@@ -918,8 +917,8 @@ class ProgettoPNI_2:
                 #per ovviare a questo limite, nel caso in cui vi siano effettivamente questi layer sul DB:
                 #1-scarico la lista delle tavole con the_geom dal DB
                 layer_on_DB = list()
-                #cur.execute( "SELECT table_name FROM information_schema.tables WHERE table_schema = '%s' AND table_type = 'BASE TABLE';" % (schemaDB) )
-                cur.execute( "SELECT f_table_name FROM public.geometry_columns WHERE f_table_schema='%s';" % (schemaDB) )
+                cur.execute( "SELECT table_name FROM information_schema.tables WHERE table_schema = '%s' AND table_type = 'BASE TABLE';" % (schemaDB) )
+                #cur.execute( "SELECT f_table_name FROM public.geometry_columns WHERE f_table_schema='%s';" % (schemaDB) ) #se considero solo le tabelle geometriche, mi butta via le tabelle piatte
                 dataDB = cur.fetchall()
                 for row in dataDB:
                     Utils.logMessage( 'Tabella sul DB: %s' % (row[0]) )
@@ -1001,6 +1000,7 @@ class ProgettoPNI_2:
             #1-scarico la lista delle tavole con the_geom dal DB
             layer_on_DB = list()
             cur.execute( "SELECT table_name FROM information_schema.tables WHERE table_schema = '%s' AND table_type = 'BASE TABLE';" % (schemaDB) )
+            #cur.execute( "SELECT f_table_name FROM public.geometry_columns WHERE f_table_schema='%s';" % (schemaDB) ) #se cnsidero solo le tabelle geometriche, mi butta via le tabelle piatte
             dataDB = cur.fetchall()
             for row in dataDB:
                 Utils.logMessage( 'Tabella sul DB: %s' % (row[0]) )
