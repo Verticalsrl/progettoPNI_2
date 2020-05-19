@@ -29,19 +29,19 @@ GRANT EXECUTE ON FUNCTION uub_solid() TO GROUP operatore_r;
 --Create history table. This is the table we will use to store all the historical edit information. In addition to all the fields from uub, we add five more fields:
 */
 DROP TABLE IF EXISTS uub_history;
-CREATE TABLE IF NOT EXISTS uub_history ( like uub, created timestamp without time zone, created_by character varying(64), deleted timestamp without time zone, deleted_by character varying(64));
+CREATE TABLE IF NOT EXISTS uub_history ( created timestamp without time zone, created_by character varying(64), deleted timestamp without time zone, deleted_by character varying(64), like uub );
 GRANT SELECT, UPDATE, INSERT, TRIGGER ON TABLE uub_history TO operatore_r;
 
 --we import the current state of the active table into the history table, so we have a starting point to trace history from. Note that we fill in the creation time and creation user, but leave the deletion records NULL, but in case it exist already, I truncate it:
 TRUNCATE uub_history;
-INSERT INTO uub_history SELECT *, now(), current_user, null, null FROM uub;
+INSERT INTO uub_history SELECT now(), current_user, null, null, * FROM uub;
 
 --Now we need three triggers on the active table, for INSERT, DELETE and UPDATE actions. First we create the trigger functions, then bind them to the table as triggers.
 --For an insert, we just add a new record into the history table with the creation time/user:
 CREATE OR REPLACE FUNCTION uub_insert() RETURNS trigger AS
 $$
   BEGIN
-    INSERT INTO schemaDB.uub_history VALUES (NEW.*, current_timestamp, current_user, null, null);
+    INSERT INTO schemaDB.uub_history VALUES (current_timestamp, current_user, null, null, NEW.*);
     RETURN NEW;
   END;
 $$
@@ -70,7 +70,7 @@ $$
       WHERE deleted IS NULL and gidd = OLD.gidd;
     INSERT INTO schemaDB.uub_history
     VALUES
-      (NEW.*, current_timestamp, current_user, null, null);
+      (current_timestamp, current_user, null, null, NEW.*);
     RETURN NEW;
   END;
 $$

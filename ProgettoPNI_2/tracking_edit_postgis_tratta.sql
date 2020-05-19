@@ -54,12 +54,12 @@ GRANT EXECUTE ON FUNCTION underground_route_solid() TO GROUP operatore_r;
 --Create history table. This is the table we will use to store all the historical edit information. In addition to all the fields from underground_route, we add five more fields:
 */
 DROP TABLE IF EXISTS underground_route_history;
-CREATE TABLE IF NOT EXISTS underground_route_history ( like underground_route, created timestamp without time zone, created_by character varying(64), deleted timestamp without time zone, deleted_by character varying(64));
+CREATE TABLE IF NOT EXISTS underground_route_history ( created timestamp without time zone, created_by character varying(64), deleted timestamp without time zone, deleted_by character varying(64), like underground_route );
 GRANT SELECT, UPDATE, INSERT, TRIGGER ON TABLE underground_route_history TO operatore_r;
 
 --we import the current state of the active table into the history table, so we have a starting point to trace history from. Note that we fill in the creation time and creation user, but leave the deletion records NULL, but in case it exist already, I truncate it:
 TRUNCATE underground_route_history;
-INSERT INTO underground_route_history SELECT *, now(), current_user, null, null FROM underground_route;
+INSERT INTO underground_route_history SELECT now(), current_user, null, null, * FROM underground_route;
 
 --Now we need three triggers on the active table, for INSERT, DELETE and UPDATE actions. First we create the trigger functions, then bind them to the table as triggers.
 --For an insert, we just add a new record into the history table with the creation time/user:
@@ -69,7 +69,7 @@ $$
     INSERT INTO schemaDB.underground_route_history
     VALUES
       --(NEW.gid, NEW.id, NEW.name, NEW.oneway, NEW.type, NEW.geom,
-      (NEW.*, current_timestamp, current_user, null, null);
+      ( current_timestamp, current_user, null, null, NEW.* );
     RETURN NEW;
   END;
 $$
@@ -99,7 +99,7 @@ $$
     INSERT INTO schemaDB.underground_route_history
     VALUES
       --(NEW.gid, NEW.id, NEW.name, NEW.oneway, NEW.type, NEW.geom,
-      (NEW.*, current_timestamp, current_user, null, null);
+      (current_timestamp, current_user, null, null, NEW.*);
     RETURN NEW;
   END;
 $$
