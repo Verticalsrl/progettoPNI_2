@@ -3,6 +3,8 @@ ALTER TABLE uub ADD COLUMN tipo_posa character varying(120);
 --campi aggiunti per Gatti da issue del 13 maggio 2020:
 ALTER TABLE uub ADD COLUMN giunto_3vie character varying(100);
 ALTER TABLE uub ADD COLUMN chiusino boolean;
+ALTER TABLE uub ADD COLUMN posa_inf_esistente boolean;
+ALTER TABLE uub ADD COLUMN posa_interrato_aff boolean;
 
 
 --creo le varie FUNZIONI TRIGGER per CONSOLIDARE la tabella
