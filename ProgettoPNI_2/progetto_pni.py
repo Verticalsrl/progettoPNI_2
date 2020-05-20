@@ -824,6 +824,7 @@ class ProgettoPNI_2:
                         azione varchar(30) NOT NULL,
                         progetto varchar(100) NOT NULL,
                         data timestamp(6) DEFAULT now(),
+                        url varchar(640),
                         fid varchar(100) COLLATE pg_catalog.default);
                     GRANT ALL ON TABLE %s.user_log_map TO operatore_r;
                         DROP TABLE IF EXISTS %s.elenco_prezzi_layer; CREATE TABLE %s.elenco_prezzi_layer (
