@@ -6,6 +6,12 @@ ALTER TABLE uub ADD COLUMN chiusino boolean;
 ALTER TABLE uub ADD COLUMN posa_inf_esistente boolean;
 ALTER TABLE uub ADD COLUMN posa_interrato_aff boolean;
 
+--aggiunta nuovi campi da issue del 17 giugno 2020
+ALTER TABLE uub ADD COLUMN passacavi integer;
+ALTER TABLE uub ADD COLUMN num_tubi character varying(100);
+ALTER TABLE uub ADD COLUMN diam_tubo character varying(100);
+ALTER TABLE uub ADD COLUMN lunghezza_tubo double precision;
+ALTER TABLE uub ADD COLUMN autoestinguente boolean;
 
 --creo le varie FUNZIONI TRIGGER per CONSOLIDARE la tabella
 CREATE OR REPLACE FUNCTION uub_solid() RETURNS trigger AS
