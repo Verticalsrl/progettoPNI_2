@@ -849,10 +849,9 @@ class ProgettoPNI_2:
                         tipo varchar(255),
                         attestazione json,
                         splitter_nc json);
-                    ALTER TABLE {db_schema}.tab_nodo_ottico OWNER TO postgres;
                     COMMENT ON COLUMN {db_schema}.tab_nodo_ottico.attestazione IS 'campo contenente ncavi x attestazione x scorta';
                     COMMENT ON COLUMN {db_schema}.tab_nodo_ottico.splitter_nc IS 'contiene qta splitter e tipo';
-                    GRANT SELECT ON TABLE {db_schema}.tab_nodo_ottico TO operatore_r;""".format(db_schema=schemaDB)
+                    GRANT ALL ON TABLE {db_schema}.tab_nodo_ottico TO operatore_r;""".format(db_schema=schemaDB)
                     cur.execute(query_nodi_punti)
                     test_conn.commit()
                 
