@@ -3,9 +3,9 @@
 --
 
 -- Dumped from database version 9.6.12
--- Dumped by pg_dump version 10.7 (Ubuntu 10.7-1.pgdg18.04+1)
+-- Dumped by pg_dump version 9.6.18
 
--- Started on 2019-12-20 16:51:01 CET
+-- Started on 2020-06-26 12:45:38
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -14,11 +14,12 @@ SET client_encoding = 'UTF8';
 SET standard_conforming_strings = on;
 SELECT pg_catalog.set_config('search_path', '', false);
 SET check_function_bodies = false;
+SET xmloption = content;
 SET client_min_messages = warning;
 SET row_security = off;
 
 --
--- TOC entry 12 (class 2615 OID 32950)
+-- TOC entry 11 (class 2615 OID 32950)
 -- Name: pni_aib_template; Type: SCHEMA; Schema: -; Owner: postgres
 --
 
@@ -28,7 +29,7 @@ CREATE SCHEMA pni_aib_template;
 ALTER SCHEMA pni_aib_template OWNER TO postgres;
 
 --
--- TOC entry 13 (class 2615 OID 32951)
+-- TOC entry 12 (class 2615 OID 32951)
 -- Name: pni_ced_template; Type: SCHEMA; Schema: -; Owner: postgres
 --
 
@@ -42,7 +43,7 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
--- TOC entry 236 (class 1259 OID 32952)
+-- TOC entry 225 (class 1259 OID 32952)
 -- Name: access_point; Type: TABLE; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -61,7 +62,7 @@ CREATE TABLE pni_aib_template.access_point (
 ALTER TABLE pni_aib_template.access_point OWNER TO postgres;
 
 --
--- TOC entry 237 (class 1259 OID 32958)
+-- TOC entry 226 (class 1259 OID 32958)
 -- Name: access_point_gidd_seq; Type: SEQUENCE; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -76,8 +77,8 @@ CREATE SEQUENCE pni_aib_template.access_point_gidd_seq
 ALTER TABLE pni_aib_template.access_point_gidd_seq OWNER TO postgres;
 
 --
--- TOC entry 5310 (class 0 OID 0)
--- Dependencies: 237
+-- TOC entry 6260 (class 0 OID 0)
+-- Dependencies: 226
 -- Name: access_point_gidd_seq; Type: SEQUENCE OWNED BY; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -85,7 +86,7 @@ ALTER SEQUENCE pni_aib_template.access_point_gidd_seq OWNED BY pni_aib_template.
 
 
 --
--- TOC entry 365 (class 1259 OID 34158)
+-- TOC entry 306 (class 1259 OID 34158)
 -- Name: area_anello; Type: TABLE; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -99,7 +100,7 @@ CREATE TABLE pni_aib_template.area_anello (
 ALTER TABLE pni_aib_template.area_anello OWNER TO postgres;
 
 --
--- TOC entry 366 (class 1259 OID 34164)
+-- TOC entry 307 (class 1259 OID 34164)
 -- Name: area_anello_gidd_seq; Type: SEQUENCE; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -114,8 +115,8 @@ CREATE SEQUENCE pni_aib_template.area_anello_gidd_seq
 ALTER TABLE pni_aib_template.area_anello_gidd_seq OWNER TO postgres;
 
 --
--- TOC entry 5312 (class 0 OID 0)
--- Dependencies: 366
+-- TOC entry 6262 (class 0 OID 0)
+-- Dependencies: 307
 -- Name: area_anello_gidd_seq; Type: SEQUENCE OWNED BY; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -123,7 +124,7 @@ ALTER SEQUENCE pni_aib_template.area_anello_gidd_seq OWNED BY pni_aib_template.a
 
 
 --
--- TOC entry 238 (class 1259 OID 32960)
+-- TOC entry 227 (class 1259 OID 32960)
 -- Name: area_cavo; Type: TABLE; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -137,7 +138,7 @@ CREATE TABLE pni_aib_template.area_cavo (
 ALTER TABLE pni_aib_template.area_cavo OWNER TO postgres;
 
 --
--- TOC entry 239 (class 1259 OID 32966)
+-- TOC entry 228 (class 1259 OID 32966)
 -- Name: area_cavo_gidd_seq; Type: SEQUENCE; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -152,8 +153,8 @@ CREATE SEQUENCE pni_aib_template.area_cavo_gidd_seq
 ALTER TABLE pni_aib_template.area_cavo_gidd_seq OWNER TO postgres;
 
 --
--- TOC entry 5314 (class 0 OID 0)
--- Dependencies: 239
+-- TOC entry 6264 (class 0 OID 0)
+-- Dependencies: 228
 -- Name: area_cavo_gidd_seq; Type: SEQUENCE OWNED BY; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -161,7 +162,7 @@ ALTER SEQUENCE pni_aib_template.area_cavo_gidd_seq OWNED BY pni_aib_template.are
 
 
 --
--- TOC entry 240 (class 1259 OID 32968)
+-- TOC entry 229 (class 1259 OID 32968)
 -- Name: aree_pfp; Type: TABLE; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -175,7 +176,7 @@ CREATE TABLE pni_aib_template.aree_pfp (
 ALTER TABLE pni_aib_template.aree_pfp OWNER TO postgres;
 
 --
--- TOC entry 241 (class 1259 OID 32974)
+-- TOC entry 230 (class 1259 OID 32974)
 -- Name: aree_pfp_gidd_seq; Type: SEQUENCE; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -190,8 +191,8 @@ CREATE SEQUENCE pni_aib_template.aree_pfp_gidd_seq
 ALTER TABLE pni_aib_template.aree_pfp_gidd_seq OWNER TO postgres;
 
 --
--- TOC entry 5316 (class 0 OID 0)
--- Dependencies: 241
+-- TOC entry 6266 (class 0 OID 0)
+-- Dependencies: 230
 -- Name: aree_pfp_gidd_seq; Type: SEQUENCE OWNED BY; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -199,7 +200,7 @@ ALTER SEQUENCE pni_aib_template.aree_pfp_gidd_seq OWNED BY pni_aib_template.aree
 
 
 --
--- TOC entry 242 (class 1259 OID 32976)
+-- TOC entry 231 (class 1259 OID 32976)
 -- Name: aree_pfs; Type: TABLE; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -213,7 +214,7 @@ CREATE TABLE pni_aib_template.aree_pfs (
 ALTER TABLE pni_aib_template.aree_pfs OWNER TO postgres;
 
 --
--- TOC entry 243 (class 1259 OID 32982)
+-- TOC entry 232 (class 1259 OID 32982)
 -- Name: aree_pfs_gidd_seq; Type: SEQUENCE; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -228,8 +229,8 @@ CREATE SEQUENCE pni_aib_template.aree_pfs_gidd_seq
 ALTER TABLE pni_aib_template.aree_pfs_gidd_seq OWNER TO postgres;
 
 --
--- TOC entry 5318 (class 0 OID 0)
--- Dependencies: 243
+-- TOC entry 6268 (class 0 OID 0)
+-- Dependencies: 232
 -- Name: aree_pfs_gidd_seq; Type: SEQUENCE OWNED BY; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -237,7 +238,7 @@ ALTER SEQUENCE pni_aib_template.aree_pfs_gidd_seq OWNED BY pni_aib_template.aree
 
 
 --
--- TOC entry 244 (class 1259 OID 32984)
+-- TOC entry 233 (class 1259 OID 32984)
 -- Name: cavi; Type: TABLE; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -274,7 +275,7 @@ CREATE TABLE pni_aib_template.cavi (
 ALTER TABLE pni_aib_template.cavi OWNER TO postgres;
 
 --
--- TOC entry 245 (class 1259 OID 32990)
+-- TOC entry 234 (class 1259 OID 32990)
 -- Name: cavi_gidd_seq; Type: SEQUENCE; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -289,8 +290,8 @@ CREATE SEQUENCE pni_aib_template.cavi_gidd_seq
 ALTER TABLE pni_aib_template.cavi_gidd_seq OWNER TO postgres;
 
 --
--- TOC entry 5320 (class 0 OID 0)
--- Dependencies: 245
+-- TOC entry 6270 (class 0 OID 0)
+-- Dependencies: 234
 -- Name: cavi_gidd_seq; Type: SEQUENCE OWNED BY; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -298,7 +299,7 @@ ALTER SEQUENCE pni_aib_template.cavi_gidd_seq OWNED BY pni_aib_template.cavi.gid
 
 
 --
--- TOC entry 246 (class 1259 OID 32992)
+-- TOC entry 235 (class 1259 OID 32992)
 -- Name: civici; Type: TABLE; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -325,7 +326,7 @@ CREATE TABLE pni_aib_template.civici (
 ALTER TABLE pni_aib_template.civici OWNER TO postgres;
 
 --
--- TOC entry 247 (class 1259 OID 32998)
+-- TOC entry 236 (class 1259 OID 32998)
 -- Name: civici_gidd_seq; Type: SEQUENCE; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -340,8 +341,8 @@ CREATE SEQUENCE pni_aib_template.civici_gidd_seq
 ALTER TABLE pni_aib_template.civici_gidd_seq OWNER TO postgres;
 
 --
--- TOC entry 5322 (class 0 OID 0)
--- Dependencies: 247
+-- TOC entry 6272 (class 0 OID 0)
+-- Dependencies: 236
 -- Name: civici_gidd_seq; Type: SEQUENCE OWNED BY; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -349,7 +350,7 @@ ALTER SEQUENCE pni_aib_template.civici_gidd_seq OWNED BY pni_aib_template.civici
 
 
 --
--- TOC entry 248 (class 1259 OID 33000)
+-- TOC entry 237 (class 1259 OID 33000)
 -- Name: colonnine; Type: TABLE; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -361,14 +362,16 @@ CREATE TABLE pni_aib_template.colonnine (
     modello character varying(11),
     spec_id character varying(16),
     name character varying(100),
-    constructi character varying(14)
+    constructi character varying(14),
+    giunzioni integer,
+    cavi_attestati integer
 );
 
 
 ALTER TABLE pni_aib_template.colonnine OWNER TO postgres;
 
 --
--- TOC entry 249 (class 1259 OID 33006)
+-- TOC entry 238 (class 1259 OID 33006)
 -- Name: colonnine_gidd_seq; Type: SEQUENCE; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -383,8 +386,8 @@ CREATE SEQUENCE pni_aib_template.colonnine_gidd_seq
 ALTER TABLE pni_aib_template.colonnine_gidd_seq OWNER TO postgres;
 
 --
--- TOC entry 5324 (class 0 OID 0)
--- Dependencies: 249
+-- TOC entry 6274 (class 0 OID 0)
+-- Dependencies: 238
 -- Name: colonnine_gidd_seq; Type: SEQUENCE OWNED BY; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -392,7 +395,7 @@ ALTER SEQUENCE pni_aib_template.colonnine_gidd_seq OWNED BY pni_aib_template.col
 
 
 --
--- TOC entry 250 (class 1259 OID 33008)
+-- TOC entry 239 (class 1259 OID 33008)
 -- Name: delivery; Type: TABLE; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -408,7 +411,7 @@ CREATE TABLE pni_aib_template.delivery (
 ALTER TABLE pni_aib_template.delivery OWNER TO postgres;
 
 --
--- TOC entry 251 (class 1259 OID 33014)
+-- TOC entry 240 (class 1259 OID 33014)
 -- Name: delivery_gidd_seq; Type: SEQUENCE; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -423,8 +426,8 @@ CREATE SEQUENCE pni_aib_template.delivery_gidd_seq
 ALTER TABLE pni_aib_template.delivery_gidd_seq OWNER TO postgres;
 
 --
--- TOC entry 5326 (class 0 OID 0)
--- Dependencies: 251
+-- TOC entry 6276 (class 0 OID 0)
+-- Dependencies: 240
 -- Name: delivery_gidd_seq; Type: SEQUENCE OWNED BY; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -432,7 +435,7 @@ ALTER SEQUENCE pni_aib_template.delivery_gidd_seq OWNED BY pni_aib_template.deli
 
 
 --
--- TOC entry 706 (class 1259 OID 39816)
+-- TOC entry 353 (class 1259 OID 39816)
 -- Name: ebw_area_pop; Type: TABLE; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -446,7 +449,7 @@ CREATE TABLE pni_aib_template.ebw_area_pop (
 ALTER TABLE pni_aib_template.ebw_area_pop OWNER TO postgres;
 
 --
--- TOC entry 705 (class 1259 OID 39814)
+-- TOC entry 352 (class 1259 OID 39814)
 -- Name: ebw_area_pop_gidd_seq; Type: SEQUENCE; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -461,8 +464,8 @@ CREATE SEQUENCE pni_aib_template.ebw_area_pop_gidd_seq
 ALTER TABLE pni_aib_template.ebw_area_pop_gidd_seq OWNER TO postgres;
 
 --
--- TOC entry 5328 (class 0 OID 0)
--- Dependencies: 705
+-- TOC entry 6278 (class 0 OID 0)
+-- Dependencies: 352
 -- Name: ebw_area_pop_gidd_seq; Type: SEQUENCE OWNED BY; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -470,7 +473,7 @@ ALTER SEQUENCE pni_aib_template.ebw_area_pop_gidd_seq OWNED BY pni_aib_template.
 
 
 --
--- TOC entry 252 (class 1259 OID 33016)
+-- TOC entry 241 (class 1259 OID 33016)
 -- Name: edifici; Type: TABLE; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -502,7 +505,7 @@ CREATE TABLE pni_aib_template.edifici (
 ALTER TABLE pni_aib_template.edifici OWNER TO postgres;
 
 --
--- TOC entry 253 (class 1259 OID 33022)
+-- TOC entry 242 (class 1259 OID 33022)
 -- Name: edifici_gidd_seq; Type: SEQUENCE; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -517,8 +520,8 @@ CREATE SEQUENCE pni_aib_template.edifici_gidd_seq
 ALTER TABLE pni_aib_template.edifici_gidd_seq OWNER TO postgres;
 
 --
--- TOC entry 5330 (class 0 OID 0)
--- Dependencies: 253
+-- TOC entry 6280 (class 0 OID 0)
+-- Dependencies: 242
 -- Name: edifici_gidd_seq; Type: SEQUENCE OWNED BY; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -526,7 +529,49 @@ ALTER SEQUENCE pni_aib_template.edifici_gidd_seq OWNED BY pni_aib_template.edifi
 
 
 --
--- TOC entry 254 (class 1259 OID 33024)
+-- TOC entry 555 (class 1259 OID 72363)
+-- Name: elenco_prezzi_layer; Type: TABLE; Schema: pni_aib_template; Owner: postgres
+--
+
+CREATE TABLE pni_aib_template.elenco_prezzi_layer (
+    idprezzo integer NOT NULL,
+    laygidd integer NOT NULL,
+    layname character varying(200) NOT NULL,
+    "insDate" timestamp without time zone DEFAULT now() NOT NULL,
+    "updDate" timestamp without time zone DEFAULT now() NOT NULL,
+    "updUsr" character varying(100) NOT NULL
+);
+
+
+ALTER TABLE pni_aib_template.elenco_prezzi_layer OWNER TO postgres;
+
+--
+-- TOC entry 557 (class 1259 OID 72377)
+-- Name: ftth_cluster; Type: TABLE; Schema: pni_aib_template; Owner: postgres
+--
+
+CREATE TABLE pni_aib_template.ftth_cluster (
+    identificativo integer,
+    oggetto character varying(100),
+    qta_min double precision,
+    unita character varying(100),
+    prezzo_unita_euro double precision,
+    qta_as_built double precision,
+    qta_in_costruzione double precision,
+    qta_progettato double precision,
+    qta_realizzato double precision,
+    totale double precision,
+    vertice_uno character varying(100),
+    vertice_due character varying(100),
+    largh_ripristino_cm double precision,
+    sup_ripristino_mq double precision
+);
+
+
+ALTER TABLE pni_aib_template.ftth_cluster OWNER TO postgres;
+
+--
+-- TOC entry 243 (class 1259 OID 33024)
 -- Name: giunti; Type: TABLE; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -560,7 +605,7 @@ CREATE TABLE pni_aib_template.giunti (
 ALTER TABLE pni_aib_template.giunti OWNER TO postgres;
 
 --
--- TOC entry 255 (class 1259 OID 33030)
+-- TOC entry 244 (class 1259 OID 33030)
 -- Name: giunti_gidd_seq; Type: SEQUENCE; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -575,8 +620,8 @@ CREATE SEQUENCE pni_aib_template.giunti_gidd_seq
 ALTER TABLE pni_aib_template.giunti_gidd_seq OWNER TO postgres;
 
 --
--- TOC entry 5332 (class 0 OID 0)
--- Dependencies: 255
+-- TOC entry 6284 (class 0 OID 0)
+-- Dependencies: 244
 -- Name: giunti_gidd_seq; Type: SEQUENCE OWNED BY; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -584,7 +629,7 @@ ALTER SEQUENCE pni_aib_template.giunti_gidd_seq OWNED BY pni_aib_template.giunti
 
 
 --
--- TOC entry 704 (class 1259 OID 39804)
+-- TOC entry 351 (class 1259 OID 39804)
 -- Name: mit_bay; Type: TABLE; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -611,7 +656,7 @@ CREATE TABLE pni_aib_template.mit_bay (
     spec_id character varying(25),
     descriptio character varying(100),
     ebw_booked character varying(10),
-    tipo_posa character varying(100),
+    tipo_posa character varying(100) DEFAULT 'F'::character varying,
     ebw_number bigint,
     date_insta date,
     acceptan_1 character varying(30),
@@ -623,14 +668,15 @@ CREATE TABLE pni_aib_template.mit_bay (
     ebw_oda_re character varying(20),
     number character varying(10),
     idinfratel character varying(100),
-    altezza character varying(100)
+    altezza character varying(100),
+    quantita character varying(12)
 );
 
 
 ALTER TABLE pni_aib_template.mit_bay OWNER TO postgres;
 
 --
--- TOC entry 703 (class 1259 OID 39802)
+-- TOC entry 350 (class 1259 OID 39802)
 -- Name: mit_bay_gidd_seq; Type: SEQUENCE; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -645,8 +691,8 @@ CREATE SEQUENCE pni_aib_template.mit_bay_gidd_seq
 ALTER TABLE pni_aib_template.mit_bay_gidd_seq OWNER TO postgres;
 
 --
--- TOC entry 5334 (class 0 OID 0)
--- Dependencies: 703
+-- TOC entry 6286 (class 0 OID 0)
+-- Dependencies: 350
 -- Name: mit_bay_gidd_seq; Type: SEQUENCE OWNED BY; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -654,7 +700,47 @@ ALTER SEQUENCE pni_aib_template.mit_bay_gidd_seq OWNED BY pni_aib_template.mit_b
 
 
 --
--- TOC entry 256 (class 1259 OID 33032)
+-- TOC entry 502 (class 1259 OID 63377)
+-- Name: nodo_virtuale; Type: TABLE; Schema: pni_aib_template; Owner: postgres
+--
+
+CREATE TABLE pni_aib_template.nodo_virtuale (
+    gidd integer NOT NULL,
+    geom public.geometry(Point,3003),
+    tipo character varying(200),
+    data date,
+    id_tratta character varying(200)
+);
+
+
+ALTER TABLE pni_aib_template.nodo_virtuale OWNER TO postgres;
+
+--
+-- TOC entry 501 (class 1259 OID 63375)
+-- Name: nodo_virtuale_gidd_seq; Type: SEQUENCE; Schema: pni_aib_template; Owner: postgres
+--
+
+CREATE SEQUENCE pni_aib_template.nodo_virtuale_gidd_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE pni_aib_template.nodo_virtuale_gidd_seq OWNER TO postgres;
+
+--
+-- TOC entry 6288 (class 0 OID 0)
+-- Dependencies: 501
+-- Name: nodo_virtuale_gidd_seq; Type: SEQUENCE OWNED BY; Schema: pni_aib_template; Owner: postgres
+--
+
+ALTER SEQUENCE pni_aib_template.nodo_virtuale_gidd_seq OWNED BY pni_aib_template.nodo_virtuale.gidd;
+
+
+--
+-- TOC entry 245 (class 1259 OID 33032)
 -- Name: planimetria; Type: TABLE; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -668,7 +754,7 @@ CREATE TABLE pni_aib_template.planimetria (
 ALTER TABLE pni_aib_template.planimetria OWNER TO postgres;
 
 --
--- TOC entry 257 (class 1259 OID 33038)
+-- TOC entry 246 (class 1259 OID 33038)
 -- Name: planimetria_gidd_seq; Type: SEQUENCE; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -683,8 +769,8 @@ CREATE SEQUENCE pni_aib_template.planimetria_gidd_seq
 ALTER TABLE pni_aib_template.planimetria_gidd_seq OWNER TO postgres;
 
 --
--- TOC entry 5336 (class 0 OID 0)
--- Dependencies: 257
+-- TOC entry 6290 (class 0 OID 0)
+-- Dependencies: 246
 -- Name: planimetria_gidd_seq; Type: SEQUENCE OWNED BY; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -692,7 +778,7 @@ ALTER SEQUENCE pni_aib_template.planimetria_gidd_seq OWNED BY pni_aib_template.p
 
 
 --
--- TOC entry 258 (class 1259 OID 33040)
+-- TOC entry 247 (class 1259 OID 33040)
 -- Name: pozzetti; Type: TABLE; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -712,14 +798,24 @@ CREATE TABLE pni_aib_template.pozzetti (
     type character varying(28),
     label character varying(20),
     ebw_data_i date,
-    ebw_owner character varying(30)
+    ebw_owner character varying(30),
+    giunto_3vie character varying(100),
+    tipo_posa character varying(120),
+    chiusino boolean,
+    posa_inf_esistente boolean,
+    posa_interrato_aff boolean,
+    passacavi integer,
+    num_tubi character varying(100),
+    diam_tubo character varying(100),
+    lunghezza_tubo double precision,
+    autoestinguente boolean
 );
 
 
 ALTER TABLE pni_aib_template.pozzetti OWNER TO postgres;
 
 --
--- TOC entry 259 (class 1259 OID 33046)
+-- TOC entry 248 (class 1259 OID 33046)
 -- Name: pozzetti_gidd_seq; Type: SEQUENCE; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -734,8 +830,8 @@ CREATE SEQUENCE pni_aib_template.pozzetti_gidd_seq
 ALTER TABLE pni_aib_template.pozzetti_gidd_seq OWNER TO postgres;
 
 --
--- TOC entry 5338 (class 0 OID 0)
--- Dependencies: 259
+-- TOC entry 6292 (class 0 OID 0)
+-- Dependencies: 248
 -- Name: pozzetti_gidd_seq; Type: SEQUENCE OWNED BY; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -743,7 +839,47 @@ ALTER SEQUENCE pni_aib_template.pozzetti_gidd_seq OWNED BY pni_aib_template.pozz
 
 
 --
--- TOC entry 260 (class 1259 OID 33048)
+-- TOC entry 500 (class 1259 OID 63367)
+-- Name: punto_ripristino; Type: TABLE; Schema: pni_aib_template; Owner: postgres
+--
+
+CREATE TABLE pni_aib_template.punto_ripristino (
+    gidd integer NOT NULL,
+    geom public.geometry(Point,3003),
+    foto character varying(200),
+    id_tratta character varying(200),
+    listino character varying(20) DEFAULT 'OF- INF-9.3'::character varying
+);
+
+
+ALTER TABLE pni_aib_template.punto_ripristino OWNER TO postgres;
+
+--
+-- TOC entry 499 (class 1259 OID 63365)
+-- Name: punto_ripristino_gidd_seq; Type: SEQUENCE; Schema: pni_aib_template; Owner: postgres
+--
+
+CREATE SEQUENCE pni_aib_template.punto_ripristino_gidd_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE pni_aib_template.punto_ripristino_gidd_seq OWNER TO postgres;
+
+--
+-- TOC entry 6294 (class 0 OID 0)
+-- Dependencies: 499
+-- Name: punto_ripristino_gidd_seq; Type: SEQUENCE OWNED BY; Schema: pni_aib_template; Owner: postgres
+--
+
+ALTER SEQUENCE pni_aib_template.punto_ripristino_gidd_seq OWNED BY pni_aib_template.punto_ripristino.gidd;
+
+
+--
+-- TOC entry 249 (class 1259 OID 33048)
 -- Name: strade; Type: TABLE; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -757,7 +893,7 @@ CREATE TABLE pni_aib_template.strade (
 ALTER TABLE pni_aib_template.strade OWNER TO postgres;
 
 --
--- TOC entry 261 (class 1259 OID 33054)
+-- TOC entry 250 (class 1259 OID 33054)
 -- Name: strade_gidd_seq; Type: SEQUENCE; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -772,8 +908,8 @@ CREATE SEQUENCE pni_aib_template.strade_gidd_seq
 ALTER TABLE pni_aib_template.strade_gidd_seq OWNER TO postgres;
 
 --
--- TOC entry 5340 (class 0 OID 0)
--- Dependencies: 261
+-- TOC entry 6296 (class 0 OID 0)
+-- Dependencies: 250
 -- Name: strade_gidd_seq; Type: SEQUENCE OWNED BY; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -781,7 +917,7 @@ ALTER SEQUENCE pni_aib_template.strade_gidd_seq OWNED BY pni_aib_template.strade
 
 
 --
--- TOC entry 262 (class 1259 OID 33056)
+-- TOC entry 251 (class 1259 OID 33056)
 -- Name: tratta; Type: TABLE; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -830,14 +966,38 @@ CREATE TABLE pni_aib_template.tratta (
     gid character varying(100),
     owner character varying(50),
     core_mat_1 double precision,
-    lun_tratta character varying(100)
+    lun_tratta character varying(100),
+    ebw_propr_altro character varying(30),
+    scavo_a_mano boolean,
+    disfacimento boolean,
+    adduzione boolean,
+    attraversamento boolean,
+    lunghezza_tubo double precision,
+    ripr_contestuale boolean,
+    ripr_cls boolean,
+    prop_privata boolean,
+    sottofondo_bituminoso boolean,
+    mtubi_tipologia character varying(100),
+    disfacimento_tipo character varying(100),
+    georadar boolean,
+    microt_diam_min80 character varying(100),
+    autoestinguente boolean,
+    mtubi_calza boolean,
+    minitubi_j json,
+    cavi_j json,
+    ripr_tipo character varying(255),
+    ripr_larghezza double precision,
+    ripr_rete_elettro boolean,
+    ripr_geogriglia boolean,
+    ripr_scarifica boolean,
+    riempimento_cls boolean
 );
 
 
 ALTER TABLE pni_aib_template.tratta OWNER TO postgres;
 
 --
--- TOC entry 263 (class 1259 OID 33062)
+-- TOC entry 252 (class 1259 OID 33062)
 -- Name: tratta_aerea; Type: TABLE; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -874,14 +1034,17 @@ CREATE TABLE pni_aib_template.tratta_aerea (
     num_cavi_1 character varying(100),
     ebw_owner character varying(50),
     num_tubi character varying(100),
-    constructi character varying(14)
+    constructi character varying(14),
+    ebw_propr_altro character varying(30),
+    nuova_tesata boolean,
+    fascettato boolean
 );
 
 
 ALTER TABLE pni_aib_template.tratta_aerea OWNER TO postgres;
 
 --
--- TOC entry 264 (class 1259 OID 33068)
+-- TOC entry 253 (class 1259 OID 33068)
 -- Name: tratta_aerea_gidd_seq; Type: SEQUENCE; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -896,8 +1059,8 @@ CREATE SEQUENCE pni_aib_template.tratta_aerea_gidd_seq
 ALTER TABLE pni_aib_template.tratta_aerea_gidd_seq OWNER TO postgres;
 
 --
--- TOC entry 5343 (class 0 OID 0)
--- Dependencies: 264
+-- TOC entry 6299 (class 0 OID 0)
+-- Dependencies: 253
 -- Name: tratta_aerea_gidd_seq; Type: SEQUENCE OWNED BY; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -905,7 +1068,7 @@ ALTER SEQUENCE pni_aib_template.tratta_aerea_gidd_seq OWNED BY pni_aib_template.
 
 
 --
--- TOC entry 265 (class 1259 OID 33070)
+-- TOC entry 254 (class 1259 OID 33070)
 -- Name: tratta_gidd_seq; Type: SEQUENCE; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -920,8 +1083,8 @@ CREATE SEQUENCE pni_aib_template.tratta_gidd_seq
 ALTER TABLE pni_aib_template.tratta_gidd_seq OWNER TO postgres;
 
 --
--- TOC entry 5344 (class 0 OID 0)
--- Dependencies: 265
+-- TOC entry 6300 (class 0 OID 0)
+-- Dependencies: 254
 -- Name: tratta_gidd_seq; Type: SEQUENCE OWNED BY; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -929,7 +1092,28 @@ ALTER SEQUENCE pni_aib_template.tratta_gidd_seq OWNED BY pni_aib_template.tratta
 
 
 --
--- TOC entry 400 (class 1259 OID 34352)
+-- TOC entry 551 (class 1259 OID 69795)
+-- Name: user_log_map; Type: TABLE; Schema: pni_aib_template; Owner: arpa
+--
+
+CREATE TABLE pni_aib_template.user_log_map (
+    gidd integer,
+    layer character varying(20) NOT NULL,
+    gid_feature integer,
+    id_user integer,
+    user_log character varying(50) NOT NULL,
+    azione character varying(30) NOT NULL,
+    progetto character varying(100) NOT NULL,
+    data timestamp(6) without time zone DEFAULT now(),
+    id bigint NOT NULL,
+    fid character varying(100)
+);
+
+
+ALTER TABLE pni_aib_template.user_log_map OWNER TO arpa;
+
+--
+-- TOC entry 309 (class 1259 OID 34352)
 -- Name: ebw_address; Type: TABLE; Schema: pni_ced_template; Owner: postgres
 --
 
@@ -966,7 +1150,7 @@ CREATE TABLE pni_ced_template.ebw_address (
 ALTER TABLE pni_ced_template.ebw_address OWNER TO postgres;
 
 --
--- TOC entry 399 (class 1259 OID 34350)
+-- TOC entry 308 (class 1259 OID 34350)
 -- Name: ebw_address_gidd_seq; Type: SEQUENCE; Schema: pni_ced_template; Owner: postgres
 --
 
@@ -981,8 +1165,8 @@ CREATE SEQUENCE pni_ced_template.ebw_address_gidd_seq
 ALTER TABLE pni_ced_template.ebw_address_gidd_seq OWNER TO postgres;
 
 --
--- TOC entry 5346 (class 0 OID 0)
--- Dependencies: 399
+-- TOC entry 6302 (class 0 OID 0)
+-- Dependencies: 308
 -- Name: ebw_address_gidd_seq; Type: SEQUENCE OWNED BY; Schema: pni_ced_template; Owner: postgres
 --
 
@@ -990,7 +1174,7 @@ ALTER SEQUENCE pni_ced_template.ebw_address_gidd_seq OWNED BY pni_ced_template.e
 
 
 --
--- TOC entry 266 (class 1259 OID 33072)
+-- TOC entry 255 (class 1259 OID 33072)
 -- Name: ebw_cavo; Type: TABLE; Schema: pni_ced_template; Owner: postgres
 --
 
@@ -1012,7 +1196,7 @@ CREATE TABLE pni_ced_template.ebw_cavo (
 ALTER TABLE pni_ced_template.ebw_cavo OWNER TO postgres;
 
 --
--- TOC entry 267 (class 1259 OID 33078)
+-- TOC entry 256 (class 1259 OID 33078)
 -- Name: ebw_cavo_gidd_seq; Type: SEQUENCE; Schema: pni_ced_template; Owner: postgres
 --
 
@@ -1027,8 +1211,8 @@ CREATE SEQUENCE pni_ced_template.ebw_cavo_gidd_seq
 ALTER TABLE pni_ced_template.ebw_cavo_gidd_seq OWNER TO postgres;
 
 --
--- TOC entry 5348 (class 0 OID 0)
--- Dependencies: 267
+-- TOC entry 6304 (class 0 OID 0)
+-- Dependencies: 256
 -- Name: ebw_cavo_gidd_seq; Type: SEQUENCE OWNED BY; Schema: pni_ced_template; Owner: postgres
 --
 
@@ -1036,7 +1220,7 @@ ALTER SEQUENCE pni_ced_template.ebw_cavo_gidd_seq OWNED BY pni_ced_template.ebw_
 
 
 --
--- TOC entry 268 (class 1259 OID 33080)
+-- TOC entry 257 (class 1259 OID 33080)
 -- Name: ebw_giunto; Type: TABLE; Schema: pni_ced_template; Owner: postgres
 --
 
@@ -1055,7 +1239,7 @@ CREATE TABLE pni_ced_template.ebw_giunto (
 ALTER TABLE pni_ced_template.ebw_giunto OWNER TO postgres;
 
 --
--- TOC entry 269 (class 1259 OID 33086)
+-- TOC entry 258 (class 1259 OID 33086)
 -- Name: ebw_giunto_gidd_seq; Type: SEQUENCE; Schema: pni_ced_template; Owner: postgres
 --
 
@@ -1070,8 +1254,8 @@ CREATE SEQUENCE pni_ced_template.ebw_giunto_gidd_seq
 ALTER TABLE pni_ced_template.ebw_giunto_gidd_seq OWNER TO postgres;
 
 --
--- TOC entry 5350 (class 0 OID 0)
--- Dependencies: 269
+-- TOC entry 6306 (class 0 OID 0)
+-- Dependencies: 258
 -- Name: ebw_giunto_gidd_seq; Type: SEQUENCE OWNED BY; Schema: pni_ced_template; Owner: postgres
 --
 
@@ -1079,7 +1263,7 @@ ALTER SEQUENCE pni_ced_template.ebw_giunto_gidd_seq OWNED BY pni_ced_template.eb
 
 
 --
--- TOC entry 270 (class 1259 OID 33088)
+-- TOC entry 259 (class 1259 OID 33088)
 -- Name: ebw_location; Type: TABLE; Schema: pni_ced_template; Owner: postgres
 --
 
@@ -1103,7 +1287,7 @@ CREATE TABLE pni_ced_template.ebw_location (
 ALTER TABLE pni_ced_template.ebw_location OWNER TO postgres;
 
 --
--- TOC entry 271 (class 1259 OID 33094)
+-- TOC entry 260 (class 1259 OID 33094)
 -- Name: ebw_location_gidd_seq; Type: SEQUENCE; Schema: pni_ced_template; Owner: postgres
 --
 
@@ -1118,8 +1302,8 @@ CREATE SEQUENCE pni_ced_template.ebw_location_gidd_seq
 ALTER TABLE pni_ced_template.ebw_location_gidd_seq OWNER TO postgres;
 
 --
--- TOC entry 5352 (class 0 OID 0)
--- Dependencies: 271
+-- TOC entry 6308 (class 0 OID 0)
+-- Dependencies: 260
 -- Name: ebw_location_gidd_seq; Type: SEQUENCE OWNED BY; Schema: pni_ced_template; Owner: postgres
 --
 
@@ -1127,7 +1311,7 @@ ALTER SEQUENCE pni_ced_template.ebw_location_gidd_seq OWNED BY pni_ced_template.
 
 
 --
--- TOC entry 272 (class 1259 OID 33096)
+-- TOC entry 261 (class 1259 OID 33096)
 -- Name: ebw_pfp; Type: TABLE; Schema: pni_ced_template; Owner: postgres
 --
 
@@ -1144,7 +1328,7 @@ CREATE TABLE pni_ced_template.ebw_pfp (
 ALTER TABLE pni_ced_template.ebw_pfp OWNER TO postgres;
 
 --
--- TOC entry 273 (class 1259 OID 33102)
+-- TOC entry 262 (class 1259 OID 33102)
 -- Name: ebw_pfp_gidd_seq; Type: SEQUENCE; Schema: pni_ced_template; Owner: postgres
 --
 
@@ -1159,8 +1343,8 @@ CREATE SEQUENCE pni_ced_template.ebw_pfp_gidd_seq
 ALTER TABLE pni_ced_template.ebw_pfp_gidd_seq OWNER TO postgres;
 
 --
--- TOC entry 5354 (class 0 OID 0)
--- Dependencies: 273
+-- TOC entry 6310 (class 0 OID 0)
+-- Dependencies: 262
 -- Name: ebw_pfp_gidd_seq; Type: SEQUENCE OWNED BY; Schema: pni_ced_template; Owner: postgres
 --
 
@@ -1168,7 +1352,7 @@ ALTER SEQUENCE pni_ced_template.ebw_pfp_gidd_seq OWNED BY pni_ced_template.ebw_p
 
 
 --
--- TOC entry 274 (class 1259 OID 33104)
+-- TOC entry 263 (class 1259 OID 33104)
 -- Name: ebw_pfs; Type: TABLE; Schema: pni_ced_template; Owner: postgres
 --
 
@@ -1185,7 +1369,7 @@ CREATE TABLE pni_ced_template.ebw_pfs (
 ALTER TABLE pni_ced_template.ebw_pfs OWNER TO postgres;
 
 --
--- TOC entry 275 (class 1259 OID 33110)
+-- TOC entry 264 (class 1259 OID 33110)
 -- Name: ebw_pfs_gidd_seq; Type: SEQUENCE; Schema: pni_ced_template; Owner: postgres
 --
 
@@ -1200,8 +1384,8 @@ CREATE SEQUENCE pni_ced_template.ebw_pfs_gidd_seq
 ALTER TABLE pni_ced_template.ebw_pfs_gidd_seq OWNER TO postgres;
 
 --
--- TOC entry 5356 (class 0 OID 0)
--- Dependencies: 275
+-- TOC entry 6312 (class 0 OID 0)
+-- Dependencies: 264
 -- Name: ebw_pfs_gidd_seq; Type: SEQUENCE OWNED BY; Schema: pni_ced_template; Owner: postgres
 --
 
@@ -1209,7 +1393,7 @@ ALTER SEQUENCE pni_ced_template.ebw_pfs_gidd_seq OWNED BY pni_ced_template.ebw_p
 
 
 --
--- TOC entry 402 (class 1259 OID 34375)
+-- TOC entry 311 (class 1259 OID 34375)
 -- Name: ebw_pop; Type: TABLE; Schema: pni_ced_template; Owner: postgres
 --
 
@@ -1226,7 +1410,7 @@ CREATE TABLE pni_ced_template.ebw_pop (
 ALTER TABLE pni_ced_template.ebw_pop OWNER TO postgres;
 
 --
--- TOC entry 401 (class 1259 OID 34373)
+-- TOC entry 310 (class 1259 OID 34373)
 -- Name: ebw_pop_gidd_seq; Type: SEQUENCE; Schema: pni_ced_template; Owner: postgres
 --
 
@@ -1241,8 +1425,8 @@ CREATE SEQUENCE pni_ced_template.ebw_pop_gidd_seq
 ALTER TABLE pni_ced_template.ebw_pop_gidd_seq OWNER TO postgres;
 
 --
--- TOC entry 5358 (class 0 OID 0)
--- Dependencies: 401
+-- TOC entry 6314 (class 0 OID 0)
+-- Dependencies: 310
 -- Name: ebw_pop_gidd_seq; Type: SEQUENCE OWNED BY; Schema: pni_ced_template; Owner: postgres
 --
 
@@ -1250,7 +1434,7 @@ ALTER SEQUENCE pni_ced_template.ebw_pop_gidd_seq OWNED BY pni_ced_template.ebw_p
 
 
 --
--- TOC entry 548 (class 1259 OID 35688)
+-- TOC entry 313 (class 1259 OID 35688)
 -- Name: ebw_pte; Type: TABLE; Schema: pni_ced_template; Owner: postgres
 --
 
@@ -1268,7 +1452,7 @@ CREATE TABLE pni_ced_template.ebw_pte (
 ALTER TABLE pni_ced_template.ebw_pte OWNER TO postgres;
 
 --
--- TOC entry 547 (class 1259 OID 35686)
+-- TOC entry 312 (class 1259 OID 35686)
 -- Name: ebw_pte_gidd_seq; Type: SEQUENCE; Schema: pni_ced_template; Owner: postgres
 --
 
@@ -1283,8 +1467,8 @@ CREATE SEQUENCE pni_ced_template.ebw_pte_gidd_seq
 ALTER TABLE pni_ced_template.ebw_pte_gidd_seq OWNER TO postgres;
 
 --
--- TOC entry 5360 (class 0 OID 0)
--- Dependencies: 547
+-- TOC entry 6316 (class 0 OID 0)
+-- Dependencies: 312
 -- Name: ebw_pte_gidd_seq; Type: SEQUENCE OWNED BY; Schema: pni_ced_template; Owner: postgres
 --
 
@@ -1292,7 +1476,7 @@ ALTER SEQUENCE pni_ced_template.ebw_pte_gidd_seq OWNED BY pni_ced_template.ebw_p
 
 
 --
--- TOC entry 276 (class 1259 OID 33120)
+-- TOC entry 265 (class 1259 OID 33120)
 -- Name: ebw_route; Type: TABLE; Schema: pni_ced_template; Owner: postgres
 --
 
@@ -1323,7 +1507,7 @@ CREATE TABLE pni_ced_template.ebw_route (
 ALTER TABLE pni_ced_template.ebw_route OWNER TO postgres;
 
 --
--- TOC entry 277 (class 1259 OID 33126)
+-- TOC entry 266 (class 1259 OID 33126)
 -- Name: ebw_route_gidd_seq; Type: SEQUENCE; Schema: pni_ced_template; Owner: postgres
 --
 
@@ -1338,8 +1522,8 @@ CREATE SEQUENCE pni_ced_template.ebw_route_gidd_seq
 ALTER TABLE pni_ced_template.ebw_route_gidd_seq OWNER TO postgres;
 
 --
--- TOC entry 5362 (class 0 OID 0)
--- Dependencies: 277
+-- TOC entry 6318 (class 0 OID 0)
+-- Dependencies: 266
 -- Name: ebw_route_gidd_seq; Type: SEQUENCE OWNED BY; Schema: pni_ced_template; Owner: postgres
 --
 
@@ -1347,7 +1531,7 @@ ALTER SEQUENCE pni_ced_template.ebw_route_gidd_seq OWNED BY pni_ced_template.ebw
 
 
 --
--- TOC entry 278 (class 1259 OID 33128)
+-- TOC entry 267 (class 1259 OID 33128)
 -- Name: ebw_scorta; Type: TABLE; Schema: pni_ced_template; Owner: postgres
 --
 
@@ -1363,7 +1547,7 @@ CREATE TABLE pni_ced_template.ebw_scorta (
 ALTER TABLE pni_ced_template.ebw_scorta OWNER TO postgres;
 
 --
--- TOC entry 279 (class 1259 OID 33134)
+-- TOC entry 268 (class 1259 OID 33134)
 -- Name: ebw_scorta_gidd_seq; Type: SEQUENCE; Schema: pni_ced_template; Owner: postgres
 --
 
@@ -1378,8 +1562,8 @@ CREATE SEQUENCE pni_ced_template.ebw_scorta_gidd_seq
 ALTER TABLE pni_ced_template.ebw_scorta_gidd_seq OWNER TO postgres;
 
 --
--- TOC entry 5364 (class 0 OID 0)
--- Dependencies: 279
+-- TOC entry 6320 (class 0 OID 0)
+-- Dependencies: 268
 -- Name: ebw_scorta_gidd_seq; Type: SEQUENCE OWNED BY; Schema: pni_ced_template; Owner: postgres
 --
 
@@ -1387,7 +1571,7 @@ ALTER SEQUENCE pni_ced_template.ebw_scorta_gidd_seq OWNED BY pni_ced_template.eb
 
 
 --
--- TOC entry 280 (class 1259 OID 33136)
+-- TOC entry 269 (class 1259 OID 33136)
 -- Name: grid_a0_bettola; Type: TABLE; Schema: pni_ced_template; Owner: postgres
 --
 
@@ -1405,7 +1589,7 @@ CREATE TABLE pni_ced_template.grid_a0_bettola (
 ALTER TABLE pni_ced_template.grid_a0_bettola OWNER TO postgres;
 
 --
--- TOC entry 281 (class 1259 OID 33142)
+-- TOC entry 270 (class 1259 OID 33142)
 -- Name: grid_a0_bettola_gidd_seq; Type: SEQUENCE; Schema: pni_ced_template; Owner: postgres
 --
 
@@ -1420,8 +1604,8 @@ CREATE SEQUENCE pni_ced_template.grid_a0_bettola_gidd_seq
 ALTER TABLE pni_ced_template.grid_a0_bettola_gidd_seq OWNER TO postgres;
 
 --
--- TOC entry 5366 (class 0 OID 0)
--- Dependencies: 281
+-- TOC entry 6322 (class 0 OID 0)
+-- Dependencies: 270
 -- Name: grid_a0_bettola_gidd_seq; Type: SEQUENCE OWNED BY; Schema: pni_ced_template; Owner: postgres
 --
 
@@ -1429,7 +1613,7 @@ ALTER SEQUENCE pni_ced_template.grid_a0_bettola_gidd_seq OWNED BY pni_ced_templa
 
 
 --
--- TOC entry 282 (class 1259 OID 33144)
+-- TOC entry 271 (class 1259 OID 33144)
 -- Name: planimetria; Type: TABLE; Schema: pni_ced_template; Owner: postgres
 --
 
@@ -1443,7 +1627,7 @@ CREATE TABLE pni_ced_template.planimetria (
 ALTER TABLE pni_ced_template.planimetria OWNER TO postgres;
 
 --
--- TOC entry 283 (class 1259 OID 33150)
+-- TOC entry 272 (class 1259 OID 33150)
 -- Name: planimetria_gidd_seq; Type: SEQUENCE; Schema: pni_ced_template; Owner: postgres
 --
 
@@ -1458,8 +1642,8 @@ CREATE SEQUENCE pni_ced_template.planimetria_gidd_seq
 ALTER TABLE pni_ced_template.planimetria_gidd_seq OWNER TO postgres;
 
 --
--- TOC entry 5368 (class 0 OID 0)
--- Dependencies: 283
+-- TOC entry 6324 (class 0 OID 0)
+-- Dependencies: 272
 -- Name: planimetria_gidd_seq; Type: SEQUENCE OWNED BY; Schema: pni_ced_template; Owner: postgres
 --
 
@@ -1467,7 +1651,7 @@ ALTER SEQUENCE pni_ced_template.planimetria_gidd_seq OWNED BY pni_ced_template.p
 
 
 --
--- TOC entry 284 (class 1259 OID 33152)
+-- TOC entry 273 (class 1259 OID 33152)
 -- Name: street; Type: TABLE; Schema: pni_ced_template; Owner: postgres
 --
 
@@ -1481,7 +1665,7 @@ CREATE TABLE pni_ced_template.street (
 ALTER TABLE pni_ced_template.street OWNER TO postgres;
 
 --
--- TOC entry 285 (class 1259 OID 33158)
+-- TOC entry 274 (class 1259 OID 33158)
 -- Name: street_gidd_seq; Type: SEQUENCE; Schema: pni_ced_template; Owner: postgres
 --
 
@@ -1496,8 +1680,8 @@ CREATE SEQUENCE pni_ced_template.street_gidd_seq
 ALTER TABLE pni_ced_template.street_gidd_seq OWNER TO postgres;
 
 --
--- TOC entry 5370 (class 0 OID 0)
--- Dependencies: 285
+-- TOC entry 6326 (class 0 OID 0)
+-- Dependencies: 274
 -- Name: street_gidd_seq; Type: SEQUENCE OWNED BY; Schema: pni_ced_template; Owner: postgres
 --
 
@@ -1505,7 +1689,7 @@ ALTER SEQUENCE pni_ced_template.street_gidd_seq OWNED BY pni_ced_template.street
 
 
 --
--- TOC entry 5021 (class 2604 OID 33160)
+-- TOC entry 5940 (class 2604 OID 33160)
 -- Name: access_point gidd; Type: DEFAULT; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -1513,7 +1697,7 @@ ALTER TABLE ONLY pni_aib_template.access_point ALTER COLUMN gidd SET DEFAULT nex
 
 
 --
--- TOC entry 5046 (class 2604 OID 34166)
+-- TOC entry 5965 (class 2604 OID 34166)
 -- Name: area_anello gidd; Type: DEFAULT; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -1521,7 +1705,7 @@ ALTER TABLE ONLY pni_aib_template.area_anello ALTER COLUMN gidd SET DEFAULT next
 
 
 --
--- TOC entry 5022 (class 2604 OID 33161)
+-- TOC entry 5941 (class 2604 OID 33161)
 -- Name: area_cavo gidd; Type: DEFAULT; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -1529,7 +1713,7 @@ ALTER TABLE ONLY pni_aib_template.area_cavo ALTER COLUMN gidd SET DEFAULT nextva
 
 
 --
--- TOC entry 5023 (class 2604 OID 33162)
+-- TOC entry 5942 (class 2604 OID 33162)
 -- Name: aree_pfp gidd; Type: DEFAULT; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -1537,7 +1721,7 @@ ALTER TABLE ONLY pni_aib_template.aree_pfp ALTER COLUMN gidd SET DEFAULT nextval
 
 
 --
--- TOC entry 5024 (class 2604 OID 33163)
+-- TOC entry 5943 (class 2604 OID 33163)
 -- Name: aree_pfs gidd; Type: DEFAULT; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -1545,7 +1729,7 @@ ALTER TABLE ONLY pni_aib_template.aree_pfs ALTER COLUMN gidd SET DEFAULT nextval
 
 
 --
--- TOC entry 5025 (class 2604 OID 33164)
+-- TOC entry 5944 (class 2604 OID 33164)
 -- Name: cavi gidd; Type: DEFAULT; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -1553,7 +1737,7 @@ ALTER TABLE ONLY pni_aib_template.cavi ALTER COLUMN gidd SET DEFAULT nextval('pn
 
 
 --
--- TOC entry 5026 (class 2604 OID 33165)
+-- TOC entry 5945 (class 2604 OID 33165)
 -- Name: civici gidd; Type: DEFAULT; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -1561,7 +1745,7 @@ ALTER TABLE ONLY pni_aib_template.civici ALTER COLUMN gidd SET DEFAULT nextval('
 
 
 --
--- TOC entry 5027 (class 2604 OID 33166)
+-- TOC entry 5946 (class 2604 OID 33166)
 -- Name: colonnine gidd; Type: DEFAULT; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -1569,7 +1753,7 @@ ALTER TABLE ONLY pni_aib_template.colonnine ALTER COLUMN gidd SET DEFAULT nextva
 
 
 --
--- TOC entry 5028 (class 2604 OID 33167)
+-- TOC entry 5947 (class 2604 OID 33167)
 -- Name: delivery gidd; Type: DEFAULT; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -1577,7 +1761,7 @@ ALTER TABLE ONLY pni_aib_template.delivery ALTER COLUMN gidd SET DEFAULT nextval
 
 
 --
--- TOC entry 5051 (class 2604 OID 39819)
+-- TOC entry 5971 (class 2604 OID 39819)
 -- Name: ebw_area_pop gidd; Type: DEFAULT; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -1585,7 +1769,7 @@ ALTER TABLE ONLY pni_aib_template.ebw_area_pop ALTER COLUMN gidd SET DEFAULT nex
 
 
 --
--- TOC entry 5029 (class 2604 OID 33168)
+-- TOC entry 5948 (class 2604 OID 33168)
 -- Name: edifici gidd; Type: DEFAULT; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -1593,7 +1777,7 @@ ALTER TABLE ONLY pni_aib_template.edifici ALTER COLUMN gidd SET DEFAULT nextval(
 
 
 --
--- TOC entry 5030 (class 2604 OID 33169)
+-- TOC entry 5949 (class 2604 OID 33169)
 -- Name: giunti gidd; Type: DEFAULT; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -1601,7 +1785,7 @@ ALTER TABLE ONLY pni_aib_template.giunti ALTER COLUMN gidd SET DEFAULT nextval('
 
 
 --
--- TOC entry 5050 (class 2604 OID 39807)
+-- TOC entry 5969 (class 2604 OID 39807)
 -- Name: mit_bay gidd; Type: DEFAULT; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -1609,7 +1793,15 @@ ALTER TABLE ONLY pni_aib_template.mit_bay ALTER COLUMN gidd SET DEFAULT nextval(
 
 
 --
--- TOC entry 5031 (class 2604 OID 33170)
+-- TOC entry 5974 (class 2604 OID 63380)
+-- Name: nodo_virtuale gidd; Type: DEFAULT; Schema: pni_aib_template; Owner: postgres
+--
+
+ALTER TABLE ONLY pni_aib_template.nodo_virtuale ALTER COLUMN gidd SET DEFAULT nextval('pni_aib_template.nodo_virtuale_gidd_seq'::regclass);
+
+
+--
+-- TOC entry 5950 (class 2604 OID 33170)
 -- Name: planimetria gidd; Type: DEFAULT; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -1617,7 +1809,7 @@ ALTER TABLE ONLY pni_aib_template.planimetria ALTER COLUMN gidd SET DEFAULT next
 
 
 --
--- TOC entry 5032 (class 2604 OID 33171)
+-- TOC entry 5951 (class 2604 OID 33171)
 -- Name: pozzetti gidd; Type: DEFAULT; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -1625,7 +1817,15 @@ ALTER TABLE ONLY pni_aib_template.pozzetti ALTER COLUMN gidd SET DEFAULT nextval
 
 
 --
--- TOC entry 5033 (class 2604 OID 33172)
+-- TOC entry 5972 (class 2604 OID 63370)
+-- Name: punto_ripristino gidd; Type: DEFAULT; Schema: pni_aib_template; Owner: postgres
+--
+
+ALTER TABLE ONLY pni_aib_template.punto_ripristino ALTER COLUMN gidd SET DEFAULT nextval('pni_aib_template.punto_ripristino_gidd_seq'::regclass);
+
+
+--
+-- TOC entry 5952 (class 2604 OID 33172)
 -- Name: strade gidd; Type: DEFAULT; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -1633,7 +1833,7 @@ ALTER TABLE ONLY pni_aib_template.strade ALTER COLUMN gidd SET DEFAULT nextval('
 
 
 --
--- TOC entry 5034 (class 2604 OID 33173)
+-- TOC entry 5953 (class 2604 OID 33173)
 -- Name: tratta gidd; Type: DEFAULT; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -1641,7 +1841,7 @@ ALTER TABLE ONLY pni_aib_template.tratta ALTER COLUMN gidd SET DEFAULT nextval('
 
 
 --
--- TOC entry 5035 (class 2604 OID 33174)
+-- TOC entry 5954 (class 2604 OID 33174)
 -- Name: tratta_aerea gidd; Type: DEFAULT; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -1649,7 +1849,7 @@ ALTER TABLE ONLY pni_aib_template.tratta_aerea ALTER COLUMN gidd SET DEFAULT nex
 
 
 --
--- TOC entry 5047 (class 2604 OID 34355)
+-- TOC entry 5966 (class 2604 OID 34355)
 -- Name: ebw_address gidd; Type: DEFAULT; Schema: pni_ced_template; Owner: postgres
 --
 
@@ -1657,7 +1857,7 @@ ALTER TABLE ONLY pni_ced_template.ebw_address ALTER COLUMN gidd SET DEFAULT next
 
 
 --
--- TOC entry 5036 (class 2604 OID 33175)
+-- TOC entry 5955 (class 2604 OID 33175)
 -- Name: ebw_cavo gidd; Type: DEFAULT; Schema: pni_ced_template; Owner: postgres
 --
 
@@ -1665,7 +1865,7 @@ ALTER TABLE ONLY pni_ced_template.ebw_cavo ALTER COLUMN gidd SET DEFAULT nextval
 
 
 --
--- TOC entry 5037 (class 2604 OID 33176)
+-- TOC entry 5956 (class 2604 OID 33176)
 -- Name: ebw_giunto gidd; Type: DEFAULT; Schema: pni_ced_template; Owner: postgres
 --
 
@@ -1673,7 +1873,7 @@ ALTER TABLE ONLY pni_ced_template.ebw_giunto ALTER COLUMN gidd SET DEFAULT nextv
 
 
 --
--- TOC entry 5038 (class 2604 OID 33177)
+-- TOC entry 5957 (class 2604 OID 33177)
 -- Name: ebw_location gidd; Type: DEFAULT; Schema: pni_ced_template; Owner: postgres
 --
 
@@ -1681,7 +1881,7 @@ ALTER TABLE ONLY pni_ced_template.ebw_location ALTER COLUMN gidd SET DEFAULT nex
 
 
 --
--- TOC entry 5039 (class 2604 OID 33178)
+-- TOC entry 5958 (class 2604 OID 33178)
 -- Name: ebw_pfp gidd; Type: DEFAULT; Schema: pni_ced_template; Owner: postgres
 --
 
@@ -1689,7 +1889,7 @@ ALTER TABLE ONLY pni_ced_template.ebw_pfp ALTER COLUMN gidd SET DEFAULT nextval(
 
 
 --
--- TOC entry 5040 (class 2604 OID 33179)
+-- TOC entry 5959 (class 2604 OID 33179)
 -- Name: ebw_pfs gidd; Type: DEFAULT; Schema: pni_ced_template; Owner: postgres
 --
 
@@ -1697,7 +1897,7 @@ ALTER TABLE ONLY pni_ced_template.ebw_pfs ALTER COLUMN gidd SET DEFAULT nextval(
 
 
 --
--- TOC entry 5048 (class 2604 OID 34378)
+-- TOC entry 5967 (class 2604 OID 34378)
 -- Name: ebw_pop gidd; Type: DEFAULT; Schema: pni_ced_template; Owner: postgres
 --
 
@@ -1705,7 +1905,7 @@ ALTER TABLE ONLY pni_ced_template.ebw_pop ALTER COLUMN gidd SET DEFAULT nextval(
 
 
 --
--- TOC entry 5049 (class 2604 OID 35691)
+-- TOC entry 5968 (class 2604 OID 35691)
 -- Name: ebw_pte gidd; Type: DEFAULT; Schema: pni_ced_template; Owner: postgres
 --
 
@@ -1713,7 +1913,7 @@ ALTER TABLE ONLY pni_ced_template.ebw_pte ALTER COLUMN gidd SET DEFAULT nextval(
 
 
 --
--- TOC entry 5041 (class 2604 OID 33181)
+-- TOC entry 5960 (class 2604 OID 33181)
 -- Name: ebw_route gidd; Type: DEFAULT; Schema: pni_ced_template; Owner: postgres
 --
 
@@ -1721,7 +1921,7 @@ ALTER TABLE ONLY pni_ced_template.ebw_route ALTER COLUMN gidd SET DEFAULT nextva
 
 
 --
--- TOC entry 5042 (class 2604 OID 33182)
+-- TOC entry 5961 (class 2604 OID 33182)
 -- Name: ebw_scorta gidd; Type: DEFAULT; Schema: pni_ced_template; Owner: postgres
 --
 
@@ -1729,7 +1929,7 @@ ALTER TABLE ONLY pni_ced_template.ebw_scorta ALTER COLUMN gidd SET DEFAULT nextv
 
 
 --
--- TOC entry 5043 (class 2604 OID 33183)
+-- TOC entry 5962 (class 2604 OID 33183)
 -- Name: grid_a0_bettola gidd; Type: DEFAULT; Schema: pni_ced_template; Owner: postgres
 --
 
@@ -1737,7 +1937,7 @@ ALTER TABLE ONLY pni_ced_template.grid_a0_bettola ALTER COLUMN gidd SET DEFAULT 
 
 
 --
--- TOC entry 5044 (class 2604 OID 33184)
+-- TOC entry 5963 (class 2604 OID 33184)
 -- Name: planimetria gidd; Type: DEFAULT; Schema: pni_ced_template; Owner: postgres
 --
 
@@ -1745,7 +1945,7 @@ ALTER TABLE ONLY pni_ced_template.planimetria ALTER COLUMN gidd SET DEFAULT next
 
 
 --
--- TOC entry 5045 (class 2604 OID 33185)
+-- TOC entry 5964 (class 2604 OID 33185)
 -- Name: street gidd; Type: DEFAULT; Schema: pni_ced_template; Owner: postgres
 --
 
@@ -1753,8 +1953,8 @@ ALTER TABLE ONLY pni_ced_template.street ALTER COLUMN gidd SET DEFAULT nextval('
 
 
 --
--- TOC entry 5240 (class 0 OID 32952)
--- Dependencies: 236
+-- TOC entry 6183 (class 0 OID 32952)
+-- Dependencies: 225
 -- Data for Name: access_point; Type: TABLE DATA; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -1763,8 +1963,17 @@ COPY pni_aib_template.access_point (gidd, geom, ebw_propri, shp_id, passthroug, 
 
 
 --
--- TOC entry 5290 (class 0 OID 34158)
--- Dependencies: 365
+-- TOC entry 6327 (class 0 OID 0)
+-- Dependencies: 226
+-- Name: access_point_gidd_seq; Type: SEQUENCE SET; Schema: pni_aib_template; Owner: postgres
+--
+
+SELECT pg_catalog.setval('pni_aib_template.access_point_gidd_seq', 1, false);
+
+
+--
+-- TOC entry 6233 (class 0 OID 34158)
+-- Dependencies: 306
 -- Data for Name: area_anello; Type: TABLE DATA; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -1773,8 +1982,17 @@ COPY pni_aib_template.area_anello (gidd, geom, ebw_nome) FROM stdin;
 
 
 --
--- TOC entry 5242 (class 0 OID 32960)
--- Dependencies: 238
+-- TOC entry 6328 (class 0 OID 0)
+-- Dependencies: 307
+-- Name: area_anello_gidd_seq; Type: SEQUENCE SET; Schema: pni_aib_template; Owner: postgres
+--
+
+SELECT pg_catalog.setval('pni_aib_template.area_anello_gidd_seq', 1, false);
+
+
+--
+-- TOC entry 6185 (class 0 OID 32960)
+-- Dependencies: 227
 -- Data for Name: area_cavo; Type: TABLE DATA; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -1783,8 +2001,17 @@ COPY pni_aib_template.area_cavo (gidd, geom, ebw_nome) FROM stdin;
 
 
 --
--- TOC entry 5244 (class 0 OID 32968)
--- Dependencies: 240
+-- TOC entry 6329 (class 0 OID 0)
+-- Dependencies: 228
+-- Name: area_cavo_gidd_seq; Type: SEQUENCE SET; Schema: pni_aib_template; Owner: postgres
+--
+
+SELECT pg_catalog.setval('pni_aib_template.area_cavo_gidd_seq', 1, false);
+
+
+--
+-- TOC entry 6187 (class 0 OID 32968)
+-- Dependencies: 229
 -- Data for Name: aree_pfp; Type: TABLE DATA; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -1793,8 +2020,17 @@ COPY pni_aib_template.aree_pfp (gidd, geom, ebw_nome) FROM stdin;
 
 
 --
--- TOC entry 5246 (class 0 OID 32976)
--- Dependencies: 242
+-- TOC entry 6330 (class 0 OID 0)
+-- Dependencies: 230
+-- Name: aree_pfp_gidd_seq; Type: SEQUENCE SET; Schema: pni_aib_template; Owner: postgres
+--
+
+SELECT pg_catalog.setval('pni_aib_template.aree_pfp_gidd_seq', 1, false);
+
+
+--
+-- TOC entry 6189 (class 0 OID 32976)
+-- Dependencies: 231
 -- Data for Name: aree_pfs; Type: TABLE DATA; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -1803,8 +2039,17 @@ COPY pni_aib_template.aree_pfs (gidd, geom, ebw_nome) FROM stdin;
 
 
 --
--- TOC entry 5248 (class 0 OID 32984)
--- Dependencies: 244
+-- TOC entry 6331 (class 0 OID 0)
+-- Dependencies: 232
+-- Name: aree_pfs_gidd_seq; Type: SEQUENCE SET; Schema: pni_aib_template; Owner: postgres
+--
+
+SELECT pg_catalog.setval('pni_aib_template.aree_pfs_gidd_seq', 1, false);
+
+
+--
+-- TOC entry 6191 (class 0 OID 32984)
+-- Dependencies: 233
 -- Data for Name: cavi; Type: TABLE DATA; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -1813,8 +2058,17 @@ COPY pni_aib_template.cavi (gidd, geom, constructi, installed_, ebw_matric, name
 
 
 --
--- TOC entry 5250 (class 0 OID 32992)
--- Dependencies: 246
+-- TOC entry 6332 (class 0 OID 0)
+-- Dependencies: 234
+-- Name: cavi_gidd_seq; Type: SEQUENCE SET; Schema: pni_aib_template; Owner: postgres
+--
+
+SELECT pg_catalog.setval('pni_aib_template.cavi_gidd_seq', 1, false);
+
+
+--
+-- TOC entry 6193 (class 0 OID 32992)
+-- Dependencies: 235
 -- Data for Name: civici; Type: TABLE DATA; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -1823,18 +2077,36 @@ COPY pni_aib_template.civici (gidd, geom, name, ebw_partic, type, ebw_frazio, eb
 
 
 --
--- TOC entry 5252 (class 0 OID 33000)
--- Dependencies: 248
+-- TOC entry 6333 (class 0 OID 0)
+-- Dependencies: 236
+-- Name: civici_gidd_seq; Type: SEQUENCE SET; Schema: pni_aib_template; Owner: postgres
+--
+
+SELECT pg_catalog.setval('pni_aib_template.civici_gidd_seq', 1, false);
+
+
+--
+-- TOC entry 6195 (class 0 OID 33000)
+-- Dependencies: 237
 -- Data for Name: colonnine; Type: TABLE DATA; Schema: pni_aib_template; Owner: postgres
 --
 
-COPY pni_aib_template.colonnine (gidd, geom, fornitore, shp_id, modello, spec_id, name, constructi) FROM stdin;
+COPY pni_aib_template.colonnine (gidd, geom, fornitore, shp_id, modello, spec_id, name, constructi, giunzioni, cavi_attestati) FROM stdin;
 \.
 
 
 --
--- TOC entry 5254 (class 0 OID 33008)
--- Dependencies: 250
+-- TOC entry 6334 (class 0 OID 0)
+-- Dependencies: 238
+-- Name: colonnine_gidd_seq; Type: SEQUENCE SET; Schema: pni_aib_template; Owner: postgres
+--
+
+SELECT pg_catalog.setval('pni_aib_template.colonnine_gidd_seq', 1, false);
+
+
+--
+-- TOC entry 6197 (class 0 OID 33008)
+-- Dependencies: 239
 -- Data for Name: delivery; Type: TABLE DATA; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -1843,8 +2115,17 @@ COPY pni_aib_template.delivery (gidd, geom, shp_id, ebw_propri, ebw_type) FROM s
 
 
 --
--- TOC entry 5301 (class 0 OID 39816)
--- Dependencies: 706
+-- TOC entry 6335 (class 0 OID 0)
+-- Dependencies: 240
+-- Name: delivery_gidd_seq; Type: SEQUENCE SET; Schema: pni_aib_template; Owner: postgres
+--
+
+SELECT pg_catalog.setval('pni_aib_template.delivery_gidd_seq', 1, false);
+
+
+--
+-- TOC entry 6244 (class 0 OID 39816)
+-- Dependencies: 353
 -- Data for Name: ebw_area_pop; Type: TABLE DATA; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -1854,8 +2135,17 @@ COPY pni_aib_template.ebw_area_pop (gidd, geom, ebw_nome) FROM stdin;
 
 
 --
--- TOC entry 5256 (class 0 OID 33016)
--- Dependencies: 252
+-- TOC entry 6336 (class 0 OID 0)
+-- Dependencies: 352
+-- Name: ebw_area_pop_gidd_seq; Type: SEQUENCE SET; Schema: pni_aib_template; Owner: postgres
+--
+
+SELECT pg_catalog.setval('pni_aib_template.ebw_area_pop_gidd_seq', 1, true);
+
+
+--
+-- TOC entry 6199 (class 0 OID 33016)
+-- Dependencies: 241
 -- Data for Name: edifici; Type: TABLE DATA; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -1864,8 +2154,37 @@ COPY pni_aib_template.edifici (gidd, geom, ebw_indiri, ebw_region, ebw_comune, s
 
 
 --
--- TOC entry 5258 (class 0 OID 33024)
--- Dependencies: 254
+-- TOC entry 6337 (class 0 OID 0)
+-- Dependencies: 242
+-- Name: edifici_gidd_seq; Type: SEQUENCE SET; Schema: pni_aib_template; Owner: postgres
+--
+
+SELECT pg_catalog.setval('pni_aib_template.edifici_gidd_seq', 1, false);
+
+
+--
+-- TOC entry 6250 (class 0 OID 72363)
+-- Dependencies: 555
+-- Data for Name: elenco_prezzi_layer; Type: TABLE DATA; Schema: pni_aib_template; Owner: postgres
+--
+
+COPY pni_aib_template.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr") FROM stdin;
+\.
+
+
+--
+-- TOC entry 6251 (class 0 OID 72377)
+-- Dependencies: 557
+-- Data for Name: ftth_cluster; Type: TABLE DATA; Schema: pni_aib_template; Owner: postgres
+--
+
+COPY pni_aib_template.ftth_cluster (identificativo, oggetto, qta_min, unita, prezzo_unita_euro, qta_as_built, qta_in_costruzione, qta_progettato, qta_realizzato, totale, vertice_uno, vertice_due, largh_ripristino_cm, sup_ripristino_mq) FROM stdin;
+\.
+
+
+--
+-- TOC entry 6201 (class 0 OID 33024)
+-- Dependencies: 243
 -- Data for Name: giunti; Type: TABLE DATA; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -1874,18 +2193,55 @@ COPY pni_aib_template.giunti (gidd, geom, name, spec_id, ebw_strutt, tipo_appar,
 
 
 --
--- TOC entry 5299 (class 0 OID 39804)
--- Dependencies: 704
+-- TOC entry 6338 (class 0 OID 0)
+-- Dependencies: 244
+-- Name: giunti_gidd_seq; Type: SEQUENCE SET; Schema: pni_aib_template; Owner: postgres
+--
+
+SELECT pg_catalog.setval('pni_aib_template.giunti_gidd_seq', 1, false);
+
+
+--
+-- TOC entry 6242 (class 0 OID 39804)
+-- Dependencies: 351
 -- Data for Name: mit_bay; Type: TABLE DATA; Schema: pni_aib_template; Owner: postgres
 --
 
-COPY pni_aib_template.mit_bay (gidd, geom, pta_enel, gid, account_co, installer_, ebw_expiri, ebw_part_n, peso, acceptance, tipo_appar, numero_por, barcode_nu, constructi, ebw_date_t, profondita, ebw_bookin, ebw_power_, serial_num, spec_id, descriptio, ebw_booked, tipo_posa, ebw_number, date_insta, acceptan_1, ebw_positi, larghezza, ebw_door, ebw_feasib, note, ebw_oda_re, number, idinfratel, altezza) FROM stdin;
+COPY pni_aib_template.mit_bay (gidd, geom, pta_enel, gid, account_co, installer_, ebw_expiri, ebw_part_n, peso, acceptance, tipo_appar, numero_por, barcode_nu, constructi, ebw_date_t, profondita, ebw_bookin, ebw_power_, serial_num, spec_id, descriptio, ebw_booked, tipo_posa, ebw_number, date_insta, acceptan_1, ebw_positi, larghezza, ebw_door, ebw_feasib, note, ebw_oda_re, number, idinfratel, altezza, quantita) FROM stdin;
 \.
 
 
 --
--- TOC entry 5260 (class 0 OID 33032)
--- Dependencies: 256
+-- TOC entry 6339 (class 0 OID 0)
+-- Dependencies: 350
+-- Name: mit_bay_gidd_seq; Type: SEQUENCE SET; Schema: pni_aib_template; Owner: postgres
+--
+
+SELECT pg_catalog.setval('pni_aib_template.mit_bay_gidd_seq', 520, true);
+
+
+--
+-- TOC entry 6248 (class 0 OID 63377)
+-- Dependencies: 502
+-- Data for Name: nodo_virtuale; Type: TABLE DATA; Schema: pni_aib_template; Owner: postgres
+--
+
+COPY pni_aib_template.nodo_virtuale (gidd, geom, tipo, data, id_tratta) FROM stdin;
+\.
+
+
+--
+-- TOC entry 6340 (class 0 OID 0)
+-- Dependencies: 501
+-- Name: nodo_virtuale_gidd_seq; Type: SEQUENCE SET; Schema: pni_aib_template; Owner: postgres
+--
+
+SELECT pg_catalog.setval('pni_aib_template.nodo_virtuale_gidd_seq', 1, false);
+
+
+--
+-- TOC entry 6203 (class 0 OID 33032)
+-- Dependencies: 245
 -- Data for Name: planimetria; Type: TABLE DATA; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -1894,18 +2250,55 @@ COPY pni_aib_template.planimetria (gidd, geom, type) FROM stdin;
 
 
 --
--- TOC entry 5262 (class 0 OID 33040)
--- Dependencies: 258
+-- TOC entry 6341 (class 0 OID 0)
+-- Dependencies: 246
+-- Name: planimetria_gidd_seq; Type: SEQUENCE SET; Schema: pni_aib_template; Owner: postgres
+--
+
+SELECT pg_catalog.setval('pni_aib_template.planimetria_gidd_seq', 1, false);
+
+
+--
+-- TOC entry 6205 (class 0 OID 33040)
+-- Dependencies: 247
 -- Data for Name: pozzetti; Type: TABLE DATA; Schema: pni_aib_template; Owner: postgres
 --
 
-COPY pni_aib_template.pozzetti (gidd, geom, ebw_serial, spec_id, constructi, ebw_note, ebw_flag_p, shp_id, installed_, ebw_produt, ebw_matric, ebw_caratt, type, label, ebw_data_i, ebw_owner) FROM stdin;
+COPY pni_aib_template.pozzetti (gidd, geom, ebw_serial, spec_id, constructi, ebw_note, ebw_flag_p, shp_id, installed_, ebw_produt, ebw_matric, ebw_caratt, type, label, ebw_data_i, ebw_owner, giunto_3vie, tipo_posa, chiusino, posa_inf_esistente, posa_interrato_aff, passacavi, num_tubi, diam_tubo, lunghezza_tubo, autoestinguente) FROM stdin;
 \.
 
 
 --
--- TOC entry 5264 (class 0 OID 33048)
--- Dependencies: 260
+-- TOC entry 6342 (class 0 OID 0)
+-- Dependencies: 248
+-- Name: pozzetti_gidd_seq; Type: SEQUENCE SET; Schema: pni_aib_template; Owner: postgres
+--
+
+SELECT pg_catalog.setval('pni_aib_template.pozzetti_gidd_seq', 1, false);
+
+
+--
+-- TOC entry 6246 (class 0 OID 63367)
+-- Dependencies: 500
+-- Data for Name: punto_ripristino; Type: TABLE DATA; Schema: pni_aib_template; Owner: postgres
+--
+
+COPY pni_aib_template.punto_ripristino (gidd, geom, foto, id_tratta, listino) FROM stdin;
+\.
+
+
+--
+-- TOC entry 6343 (class 0 OID 0)
+-- Dependencies: 499
+-- Name: punto_ripristino_gidd_seq; Type: SEQUENCE SET; Schema: pni_aib_template; Owner: postgres
+--
+
+SELECT pg_catalog.setval('pni_aib_template.punto_ripristino_gidd_seq', 1, false);
+
+
+--
+-- TOC entry 6207 (class 0 OID 33048)
+-- Dependencies: 249
 -- Data for Name: strade; Type: TABLE DATA; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -1914,28 +2307,65 @@ COPY pni_aib_template.strade (gidd, geom, descriptio) FROM stdin;
 
 
 --
--- TOC entry 5266 (class 0 OID 33056)
--- Dependencies: 262
+-- TOC entry 6344 (class 0 OID 0)
+-- Dependencies: 250
+-- Name: strade_gidd_seq; Type: SEQUENCE SET; Schema: pni_aib_template; Owner: postgres
+--
+
+SELECT pg_catalog.setval('pni_aib_template.strade_gidd_seq', 1, false);
+
+
+--
+-- TOC entry 6209 (class 0 OID 33056)
+-- Dependencies: 251
 -- Data for Name: tratta; Type: TABLE DATA; Schema: pni_aib_template; Owner: postgres
 --
 
-COPY pni_aib_template.tratta (gidd, geom, num_fibre, diameter, num_tubi, diam_tubo, ebw_codice, base_mater, width, upper_mate, idinfratel, measured_l, upper_ma_1, tubi_occup, num_mtubi, ebw_tipo_p, minitubi_o, name, restrictio, num_cavi, undergroun, ebw_flag_i, base_mat_1, calculated, tipo_mtubi, ebw_flag_o, surroundin, constructi, ebw_posa_d, ebw_propri, diam_minit, ripristino, centre_poi, shp_id, core_mater, num_minitu, ebw_flag_1, notes, surface_ma, notes_1, lungh_infr, gid, owner, core_mat_1, lun_tratta) FROM stdin;
+COPY pni_aib_template.tratta (gidd, geom, num_fibre, diameter, num_tubi, diam_tubo, ebw_codice, base_mater, width, upper_mate, idinfratel, measured_l, upper_ma_1, tubi_occup, num_mtubi, ebw_tipo_p, minitubi_o, name, restrictio, num_cavi, undergroun, ebw_flag_i, base_mat_1, calculated, tipo_mtubi, ebw_flag_o, surroundin, constructi, ebw_posa_d, ebw_propri, diam_minit, ripristino, centre_poi, shp_id, core_mater, num_minitu, ebw_flag_1, notes, surface_ma, notes_1, lungh_infr, gid, owner, core_mat_1, lun_tratta, ebw_propr_altro, scavo_a_mano, disfacimento, adduzione, attraversamento, lunghezza_tubo, ripr_contestuale, ripr_cls, prop_privata, sottofondo_bituminoso, mtubi_tipologia, disfacimento_tipo, georadar, microt_diam_min80, autoestinguente, mtubi_calza, minitubi_j, cavi_j, ripr_tipo, ripr_larghezza, ripr_rete_elettro, ripr_geogriglia, ripr_scarifica, riempimento_cls) FROM stdin;
 \.
 
 
 --
--- TOC entry 5267 (class 0 OID 33062)
--- Dependencies: 263
+-- TOC entry 6210 (class 0 OID 33062)
+-- Dependencies: 252
 -- Data for Name: tratta_aerea; Type: TABLE DATA; Schema: pni_aib_template; Owner: postgres
 --
 
-COPY pni_aib_template.tratta_aerea (gidd, geom, peso_cavi, tipo_cavi, num_cavi, calculated, idinfratel, ebw_propri, ebw_flag_i, ebw_flag_r, gid, notes, ebw_nome, ebw_codice, tipo_posa, lungh_infr, ebw_data_i, shp_id, diam_cavi, measured_l, diam_tubo, num_fibre, ebw_flag_1, ebw_posa_d, minitubi_o, diam_minit, guy_type, lun_tratta, tubi_occup, num_cavi_1, ebw_owner, num_tubi, constructi) FROM stdin;
+COPY pni_aib_template.tratta_aerea (gidd, geom, peso_cavi, tipo_cavi, num_cavi, calculated, idinfratel, ebw_propri, ebw_flag_i, ebw_flag_r, gid, notes, ebw_nome, ebw_codice, tipo_posa, lungh_infr, ebw_data_i, shp_id, diam_cavi, measured_l, diam_tubo, num_fibre, ebw_flag_1, ebw_posa_d, minitubi_o, diam_minit, guy_type, lun_tratta, tubi_occup, num_cavi_1, ebw_owner, num_tubi, constructi, ebw_propr_altro, nuova_tesata, fascettato) FROM stdin;
 \.
 
 
 --
--- TOC entry 5293 (class 0 OID 34352)
--- Dependencies: 400
+-- TOC entry 6345 (class 0 OID 0)
+-- Dependencies: 253
+-- Name: tratta_aerea_gidd_seq; Type: SEQUENCE SET; Schema: pni_aib_template; Owner: postgres
+--
+
+SELECT pg_catalog.setval('pni_aib_template.tratta_aerea_gidd_seq', 1, false);
+
+
+--
+-- TOC entry 6346 (class 0 OID 0)
+-- Dependencies: 254
+-- Name: tratta_gidd_seq; Type: SEQUENCE SET; Schema: pni_aib_template; Owner: postgres
+--
+
+SELECT pg_catalog.setval('pni_aib_template.tratta_gidd_seq', 1, false);
+
+
+--
+-- TOC entry 6249 (class 0 OID 69795)
+-- Dependencies: 551
+-- Data for Name: user_log_map; Type: TABLE DATA; Schema: pni_aib_template; Owner: arpa
+--
+
+COPY pni_aib_template.user_log_map (gidd, layer, gid_feature, id_user, user_log, azione, progetto, data, id, fid) FROM stdin;
+\.
+
+
+--
+-- TOC entry 6236 (class 0 OID 34352)
+-- Dependencies: 309
 -- Data for Name: ebw_address; Type: TABLE DATA; Schema: pni_ced_template; Owner: postgres
 --
 
@@ -1944,8 +2374,17 @@ COPY pni_ced_template.ebw_address (gidd, geom, anno_text, anno_angle, anno_just,
 
 
 --
--- TOC entry 5270 (class 0 OID 33072)
--- Dependencies: 266
+-- TOC entry 6347 (class 0 OID 0)
+-- Dependencies: 308
+-- Name: ebw_address_gidd_seq; Type: SEQUENCE SET; Schema: pni_ced_template; Owner: postgres
+--
+
+SELECT pg_catalog.setval('pni_ced_template.ebw_address_gidd_seq', 1, false);
+
+
+--
+-- TOC entry 6213 (class 0 OID 33072)
+-- Dependencies: 255
 -- Data for Name: ebw_cavo; Type: TABLE DATA; Schema: pni_ced_template; Owner: postgres
 --
 
@@ -1954,8 +2393,17 @@ COPY pni_ced_template.ebw_cavo (gidd, geom, nome, note, tipologia_, potenziali, 
 
 
 --
--- TOC entry 5272 (class 0 OID 33080)
--- Dependencies: 268
+-- TOC entry 6348 (class 0 OID 0)
+-- Dependencies: 256
+-- Name: ebw_cavo_gidd_seq; Type: SEQUENCE SET; Schema: pni_ced_template; Owner: postgres
+--
+
+SELECT pg_catalog.setval('pni_ced_template.ebw_cavo_gidd_seq', 1, false);
+
+
+--
+-- TOC entry 6215 (class 0 OID 33080)
+-- Dependencies: 257
 -- Data for Name: ebw_giunto; Type: TABLE DATA; Schema: pni_ced_template; Owner: postgres
 --
 
@@ -1964,8 +2412,17 @@ COPY pni_ced_template.ebw_giunto (gidd, geom, id, nome, tipo, note, ebw_stato_, 
 
 
 --
--- TOC entry 5274 (class 0 OID 33088)
--- Dependencies: 270
+-- TOC entry 6349 (class 0 OID 0)
+-- Dependencies: 258
+-- Name: ebw_giunto_gidd_seq; Type: SEQUENCE SET; Schema: pni_ced_template; Owner: postgres
+--
+
+SELECT pg_catalog.setval('pni_ced_template.ebw_giunto_gidd_seq', 1, false);
+
+
+--
+-- TOC entry 6217 (class 0 OID 33088)
+-- Dependencies: 259
 -- Data for Name: ebw_location; Type: TABLE DATA; Schema: pni_ced_template; Owner: postgres
 --
 
@@ -1974,8 +2431,17 @@ COPY pni_ced_template.ebw_location (gidd, geom, id, nome, indirizzo, civico, tip
 
 
 --
--- TOC entry 5276 (class 0 OID 33096)
--- Dependencies: 272
+-- TOC entry 6350 (class 0 OID 0)
+-- Dependencies: 260
+-- Name: ebw_location_gidd_seq; Type: SEQUENCE SET; Schema: pni_ced_template; Owner: postgres
+--
+
+SELECT pg_catalog.setval('pni_ced_template.ebw_location_gidd_seq', 1, false);
+
+
+--
+-- TOC entry 6219 (class 0 OID 33096)
+-- Dependencies: 261
 -- Data for Name: ebw_pfp; Type: TABLE DATA; Schema: pni_ced_template; Owner: postgres
 --
 
@@ -1984,8 +2450,17 @@ COPY pni_ced_template.ebw_pfp (gidd, geom, stato_cost, ebw_stato_, nome, note) F
 
 
 --
--- TOC entry 5278 (class 0 OID 33104)
--- Dependencies: 274
+-- TOC entry 6351 (class 0 OID 0)
+-- Dependencies: 262
+-- Name: ebw_pfp_gidd_seq; Type: SEQUENCE SET; Schema: pni_ced_template; Owner: postgres
+--
+
+SELECT pg_catalog.setval('pni_ced_template.ebw_pfp_gidd_seq', 1, false);
+
+
+--
+-- TOC entry 6221 (class 0 OID 33104)
+-- Dependencies: 263
 -- Data for Name: ebw_pfs; Type: TABLE DATA; Schema: pni_ced_template; Owner: postgres
 --
 
@@ -1994,8 +2469,17 @@ COPY pni_ced_template.ebw_pfs (gidd, geom, note, ebw_stato_, stato_cost, nome) F
 
 
 --
--- TOC entry 5295 (class 0 OID 34375)
--- Dependencies: 402
+-- TOC entry 6352 (class 0 OID 0)
+-- Dependencies: 264
+-- Name: ebw_pfs_gidd_seq; Type: SEQUENCE SET; Schema: pni_ced_template; Owner: postgres
+--
+
+SELECT pg_catalog.setval('pni_ced_template.ebw_pfs_gidd_seq', 1, false);
+
+
+--
+-- TOC entry 6238 (class 0 OID 34375)
+-- Dependencies: 311
 -- Data for Name: ebw_pop; Type: TABLE DATA; Schema: pni_ced_template; Owner: postgres
 --
 
@@ -2004,8 +2488,17 @@ COPY pni_ced_template.ebw_pop (gidd, geom, nome, note, stato_cost, ebw_stato_) F
 
 
 --
--- TOC entry 5297 (class 0 OID 35688)
--- Dependencies: 548
+-- TOC entry 6353 (class 0 OID 0)
+-- Dependencies: 310
+-- Name: ebw_pop_gidd_seq; Type: SEQUENCE SET; Schema: pni_ced_template; Owner: postgres
+--
+
+SELECT pg_catalog.setval('pni_ced_template.ebw_pop_gidd_seq', 1, false);
+
+
+--
+-- TOC entry 6240 (class 0 OID 35688)
+-- Dependencies: 313
 -- Data for Name: ebw_pte; Type: TABLE DATA; Schema: pni_ced_template; Owner: postgres
 --
 
@@ -2014,8 +2507,17 @@ COPY pni_ced_template.ebw_pte (gidd, geom, note, numero_por, stato_cost, nome, e
 
 
 --
--- TOC entry 5280 (class 0 OID 33120)
--- Dependencies: 276
+-- TOC entry 6354 (class 0 OID 0)
+-- Dependencies: 312
+-- Name: ebw_pte_gidd_seq; Type: SEQUENCE SET; Schema: pni_ced_template; Owner: postgres
+--
+
+SELECT pg_catalog.setval('pni_ced_template.ebw_pte_gidd_seq', 1, false);
+
+
+--
+-- TOC entry 6223 (class 0 OID 33120)
+-- Dependencies: 265
 -- Data for Name: ebw_route; Type: TABLE DATA; Schema: pni_ced_template; Owner: postgres
 --
 
@@ -2024,8 +2526,17 @@ COPY pni_ced_template.ebw_route (gidd, geom, id, tipo, "num.tubi", posa_aerea, l
 
 
 --
--- TOC entry 5282 (class 0 OID 33128)
--- Dependencies: 278
+-- TOC entry 6355 (class 0 OID 0)
+-- Dependencies: 266
+-- Name: ebw_route_gidd_seq; Type: SEQUENCE SET; Schema: pni_ced_template; Owner: postgres
+--
+
+SELECT pg_catalog.setval('pni_ced_template.ebw_route_gidd_seq', 1, false);
+
+
+--
+-- TOC entry 6225 (class 0 OID 33128)
+-- Dependencies: 267
 -- Data for Name: ebw_scorta; Type: TABLE DATA; Schema: pni_ced_template; Owner: postgres
 --
 
@@ -2034,8 +2545,17 @@ COPY pni_ced_template.ebw_scorta (gidd, geom, nome, note, lunghezza) FROM stdin;
 
 
 --
--- TOC entry 5284 (class 0 OID 33136)
--- Dependencies: 280
+-- TOC entry 6356 (class 0 OID 0)
+-- Dependencies: 268
+-- Name: ebw_scorta_gidd_seq; Type: SEQUENCE SET; Schema: pni_ced_template; Owner: postgres
+--
+
+SELECT pg_catalog.setval('pni_ced_template.ebw_scorta_gidd_seq', 1, false);
+
+
+--
+-- TOC entry 6227 (class 0 OID 33136)
+-- Dependencies: 269
 -- Data for Name: grid_a0_bettola; Type: TABLE DATA; Schema: pni_ced_template; Owner: postgres
 --
 
@@ -2044,8 +2564,17 @@ COPY pni_ced_template.grid_a0_bettola (gidd, geom, "left", top, "right", bottom,
 
 
 --
--- TOC entry 5286 (class 0 OID 33144)
--- Dependencies: 282
+-- TOC entry 6357 (class 0 OID 0)
+-- Dependencies: 270
+-- Name: grid_a0_bettola_gidd_seq; Type: SEQUENCE SET; Schema: pni_ced_template; Owner: postgres
+--
+
+SELECT pg_catalog.setval('pni_ced_template.grid_a0_bettola_gidd_seq', 1, false);
+
+
+--
+-- TOC entry 6229 (class 0 OID 33144)
+-- Dependencies: 271
 -- Data for Name: planimetria; Type: TABLE DATA; Schema: pni_ced_template; Owner: postgres
 --
 
@@ -2054,8 +2583,17 @@ COPY pni_ced_template.planimetria (gidd, geom, type) FROM stdin;
 
 
 --
--- TOC entry 5288 (class 0 OID 33152)
--- Dependencies: 284
+-- TOC entry 6358 (class 0 OID 0)
+-- Dependencies: 272
+-- Name: planimetria_gidd_seq; Type: SEQUENCE SET; Schema: pni_ced_template; Owner: postgres
+--
+
+SELECT pg_catalog.setval('pni_ced_template.planimetria_gidd_seq', 1, false);
+
+
+--
+-- TOC entry 6231 (class 0 OID 33152)
+-- Dependencies: 273
 -- Data for Name: street; Type: TABLE DATA; Schema: pni_ced_template; Owner: postgres
 --
 
@@ -2064,278 +2602,8 @@ COPY pni_ced_template.street (gidd, geom, descriptio) FROM stdin;
 
 
 --
--- TOC entry 5371 (class 0 OID 0)
--- Dependencies: 237
--- Name: access_point_gidd_seq; Type: SEQUENCE SET; Schema: pni_aib_template; Owner: postgres
---
-
-SELECT pg_catalog.setval('pni_aib_template.access_point_gidd_seq', 1, false);
-
-
---
--- TOC entry 5372 (class 0 OID 0)
--- Dependencies: 366
--- Name: area_anello_gidd_seq; Type: SEQUENCE SET; Schema: pni_aib_template; Owner: postgres
---
-
-SELECT pg_catalog.setval('pni_aib_template.area_anello_gidd_seq', 1, false);
-
-
---
--- TOC entry 5373 (class 0 OID 0)
--- Dependencies: 239
--- Name: area_cavo_gidd_seq; Type: SEQUENCE SET; Schema: pni_aib_template; Owner: postgres
---
-
-SELECT pg_catalog.setval('pni_aib_template.area_cavo_gidd_seq', 1, false);
-
-
---
--- TOC entry 5374 (class 0 OID 0)
--- Dependencies: 241
--- Name: aree_pfp_gidd_seq; Type: SEQUENCE SET; Schema: pni_aib_template; Owner: postgres
---
-
-SELECT pg_catalog.setval('pni_aib_template.aree_pfp_gidd_seq', 1, false);
-
-
---
--- TOC entry 5375 (class 0 OID 0)
--- Dependencies: 243
--- Name: aree_pfs_gidd_seq; Type: SEQUENCE SET; Schema: pni_aib_template; Owner: postgres
---
-
-SELECT pg_catalog.setval('pni_aib_template.aree_pfs_gidd_seq', 1, false);
-
-
---
--- TOC entry 5376 (class 0 OID 0)
--- Dependencies: 245
--- Name: cavi_gidd_seq; Type: SEQUENCE SET; Schema: pni_aib_template; Owner: postgres
---
-
-SELECT pg_catalog.setval('pni_aib_template.cavi_gidd_seq', 1, false);
-
-
---
--- TOC entry 5377 (class 0 OID 0)
--- Dependencies: 247
--- Name: civici_gidd_seq; Type: SEQUENCE SET; Schema: pni_aib_template; Owner: postgres
---
-
-SELECT pg_catalog.setval('pni_aib_template.civici_gidd_seq', 1, false);
-
-
---
--- TOC entry 5378 (class 0 OID 0)
--- Dependencies: 249
--- Name: colonnine_gidd_seq; Type: SEQUENCE SET; Schema: pni_aib_template; Owner: postgres
---
-
-SELECT pg_catalog.setval('pni_aib_template.colonnine_gidd_seq', 1, false);
-
-
---
--- TOC entry 5379 (class 0 OID 0)
--- Dependencies: 251
--- Name: delivery_gidd_seq; Type: SEQUENCE SET; Schema: pni_aib_template; Owner: postgres
---
-
-SELECT pg_catalog.setval('pni_aib_template.delivery_gidd_seq', 1, false);
-
-
---
--- TOC entry 5380 (class 0 OID 0)
--- Dependencies: 705
--- Name: ebw_area_pop_gidd_seq; Type: SEQUENCE SET; Schema: pni_aib_template; Owner: postgres
---
-
-SELECT pg_catalog.setval('pni_aib_template.ebw_area_pop_gidd_seq', 1, true);
-
-
---
--- TOC entry 5381 (class 0 OID 0)
--- Dependencies: 253
--- Name: edifici_gidd_seq; Type: SEQUENCE SET; Schema: pni_aib_template; Owner: postgres
---
-
-SELECT pg_catalog.setval('pni_aib_template.edifici_gidd_seq', 1, false);
-
-
---
--- TOC entry 5382 (class 0 OID 0)
--- Dependencies: 255
--- Name: giunti_gidd_seq; Type: SEQUENCE SET; Schema: pni_aib_template; Owner: postgres
---
-
-SELECT pg_catalog.setval('pni_aib_template.giunti_gidd_seq', 1, false);
-
-
---
--- TOC entry 5383 (class 0 OID 0)
--- Dependencies: 703
--- Name: mit_bay_gidd_seq; Type: SEQUENCE SET; Schema: pni_aib_template; Owner: postgres
---
-
-SELECT pg_catalog.setval('pni_aib_template.mit_bay_gidd_seq', 520, true);
-
-
---
--- TOC entry 5384 (class 0 OID 0)
--- Dependencies: 257
--- Name: planimetria_gidd_seq; Type: SEQUENCE SET; Schema: pni_aib_template; Owner: postgres
---
-
-SELECT pg_catalog.setval('pni_aib_template.planimetria_gidd_seq', 1, false);
-
-
---
--- TOC entry 5385 (class 0 OID 0)
--- Dependencies: 259
--- Name: pozzetti_gidd_seq; Type: SEQUENCE SET; Schema: pni_aib_template; Owner: postgres
---
-
-SELECT pg_catalog.setval('pni_aib_template.pozzetti_gidd_seq', 1, false);
-
-
---
--- TOC entry 5386 (class 0 OID 0)
--- Dependencies: 261
--- Name: strade_gidd_seq; Type: SEQUENCE SET; Schema: pni_aib_template; Owner: postgres
---
-
-SELECT pg_catalog.setval('pni_aib_template.strade_gidd_seq', 1, false);
-
-
---
--- TOC entry 5387 (class 0 OID 0)
--- Dependencies: 264
--- Name: tratta_aerea_gidd_seq; Type: SEQUENCE SET; Schema: pni_aib_template; Owner: postgres
---
-
-SELECT pg_catalog.setval('pni_aib_template.tratta_aerea_gidd_seq', 1, false);
-
-
---
--- TOC entry 5388 (class 0 OID 0)
--- Dependencies: 265
--- Name: tratta_gidd_seq; Type: SEQUENCE SET; Schema: pni_aib_template; Owner: postgres
---
-
-SELECT pg_catalog.setval('pni_aib_template.tratta_gidd_seq', 1, false);
-
-
---
--- TOC entry 5389 (class 0 OID 0)
--- Dependencies: 399
--- Name: ebw_address_gidd_seq; Type: SEQUENCE SET; Schema: pni_ced_template; Owner: postgres
---
-
-SELECT pg_catalog.setval('pni_ced_template.ebw_address_gidd_seq', 1, false);
-
-
---
--- TOC entry 5390 (class 0 OID 0)
--- Dependencies: 267
--- Name: ebw_cavo_gidd_seq; Type: SEQUENCE SET; Schema: pni_ced_template; Owner: postgres
---
-
-SELECT pg_catalog.setval('pni_ced_template.ebw_cavo_gidd_seq', 1, false);
-
-
---
--- TOC entry 5391 (class 0 OID 0)
--- Dependencies: 269
--- Name: ebw_giunto_gidd_seq; Type: SEQUENCE SET; Schema: pni_ced_template; Owner: postgres
---
-
-SELECT pg_catalog.setval('pni_ced_template.ebw_giunto_gidd_seq', 1, false);
-
-
---
--- TOC entry 5392 (class 0 OID 0)
--- Dependencies: 271
--- Name: ebw_location_gidd_seq; Type: SEQUENCE SET; Schema: pni_ced_template; Owner: postgres
---
-
-SELECT pg_catalog.setval('pni_ced_template.ebw_location_gidd_seq', 1, false);
-
-
---
--- TOC entry 5393 (class 0 OID 0)
--- Dependencies: 273
--- Name: ebw_pfp_gidd_seq; Type: SEQUENCE SET; Schema: pni_ced_template; Owner: postgres
---
-
-SELECT pg_catalog.setval('pni_ced_template.ebw_pfp_gidd_seq', 1, false);
-
-
---
--- TOC entry 5394 (class 0 OID 0)
--- Dependencies: 275
--- Name: ebw_pfs_gidd_seq; Type: SEQUENCE SET; Schema: pni_ced_template; Owner: postgres
---
-
-SELECT pg_catalog.setval('pni_ced_template.ebw_pfs_gidd_seq', 1, false);
-
-
---
--- TOC entry 5395 (class 0 OID 0)
--- Dependencies: 401
--- Name: ebw_pop_gidd_seq; Type: SEQUENCE SET; Schema: pni_ced_template; Owner: postgres
---
-
-SELECT pg_catalog.setval('pni_ced_template.ebw_pop_gidd_seq', 1, false);
-
-
---
--- TOC entry 5396 (class 0 OID 0)
--- Dependencies: 547
--- Name: ebw_pte_gidd_seq; Type: SEQUENCE SET; Schema: pni_ced_template; Owner: postgres
---
-
-SELECT pg_catalog.setval('pni_ced_template.ebw_pte_gidd_seq', 1, false);
-
-
---
--- TOC entry 5397 (class 0 OID 0)
--- Dependencies: 277
--- Name: ebw_route_gidd_seq; Type: SEQUENCE SET; Schema: pni_ced_template; Owner: postgres
---
-
-SELECT pg_catalog.setval('pni_ced_template.ebw_route_gidd_seq', 1, false);
-
-
---
--- TOC entry 5398 (class 0 OID 0)
--- Dependencies: 279
--- Name: ebw_scorta_gidd_seq; Type: SEQUENCE SET; Schema: pni_ced_template; Owner: postgres
---
-
-SELECT pg_catalog.setval('pni_ced_template.ebw_scorta_gidd_seq', 1, false);
-
-
---
--- TOC entry 5399 (class 0 OID 0)
--- Dependencies: 281
--- Name: grid_a0_bettola_gidd_seq; Type: SEQUENCE SET; Schema: pni_ced_template; Owner: postgres
---
-
-SELECT pg_catalog.setval('pni_ced_template.grid_a0_bettola_gidd_seq', 1, false);
-
-
---
--- TOC entry 5400 (class 0 OID 0)
--- Dependencies: 283
--- Name: planimetria_gidd_seq; Type: SEQUENCE SET; Schema: pni_ced_template; Owner: postgres
---
-
-SELECT pg_catalog.setval('pni_ced_template.planimetria_gidd_seq', 1, false);
-
-
---
--- TOC entry 5401 (class 0 OID 0)
--- Dependencies: 285
+-- TOC entry 6359 (class 0 OID 0)
+-- Dependencies: 274
 -- Name: street_gidd_seq; Type: SEQUENCE SET; Schema: pni_ced_template; Owner: postgres
 --
 
@@ -2343,7 +2611,7 @@ SELECT pg_catalog.setval('pni_ced_template.street_gidd_seq', 1, false);
 
 
 --
--- TOC entry 5053 (class 2606 OID 33187)
+-- TOC entry 5979 (class 2606 OID 33187)
 -- Name: access_point access_point_pkey; Type: CONSTRAINT; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -2352,7 +2620,7 @@ ALTER TABLE ONLY pni_aib_template.access_point
 
 
 --
--- TOC entry 5103 (class 2606 OID 34168)
+-- TOC entry 6029 (class 2606 OID 34168)
 -- Name: area_anello area_anello_pkey; Type: CONSTRAINT; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -2361,7 +2629,7 @@ ALTER TABLE ONLY pni_aib_template.area_anello
 
 
 --
--- TOC entry 5055 (class 2606 OID 33189)
+-- TOC entry 5981 (class 2606 OID 33189)
 -- Name: area_cavo area_cavo_pkey; Type: CONSTRAINT; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -2370,7 +2638,7 @@ ALTER TABLE ONLY pni_aib_template.area_cavo
 
 
 --
--- TOC entry 5057 (class 2606 OID 33191)
+-- TOC entry 5983 (class 2606 OID 33191)
 -- Name: aree_pfp aree_pfp_pkey; Type: CONSTRAINT; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -2379,7 +2647,7 @@ ALTER TABLE ONLY pni_aib_template.aree_pfp
 
 
 --
--- TOC entry 5059 (class 2606 OID 33193)
+-- TOC entry 5985 (class 2606 OID 33193)
 -- Name: aree_pfs aree_pfs_pkey; Type: CONSTRAINT; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -2388,7 +2656,7 @@ ALTER TABLE ONLY pni_aib_template.aree_pfs
 
 
 --
--- TOC entry 5061 (class 2606 OID 33195)
+-- TOC entry 5987 (class 2606 OID 33195)
 -- Name: cavi cavi_pkey; Type: CONSTRAINT; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -2397,7 +2665,7 @@ ALTER TABLE ONLY pni_aib_template.cavi
 
 
 --
--- TOC entry 5063 (class 2606 OID 33197)
+-- TOC entry 5989 (class 2606 OID 33197)
 -- Name: civici civici_pkey; Type: CONSTRAINT; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -2406,7 +2674,7 @@ ALTER TABLE ONLY pni_aib_template.civici
 
 
 --
--- TOC entry 5065 (class 2606 OID 33199)
+-- TOC entry 5991 (class 2606 OID 33199)
 -- Name: colonnine colonnine_pkey; Type: CONSTRAINT; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -2415,7 +2683,7 @@ ALTER TABLE ONLY pni_aib_template.colonnine
 
 
 --
--- TOC entry 5067 (class 2606 OID 33201)
+-- TOC entry 5993 (class 2606 OID 33201)
 -- Name: delivery delivery_pkey; Type: CONSTRAINT; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -2424,7 +2692,7 @@ ALTER TABLE ONLY pni_aib_template.delivery
 
 
 --
--- TOC entry 5114 (class 2606 OID 39821)
+-- TOC entry 6040 (class 2606 OID 39821)
 -- Name: ebw_area_pop ebw_area_pop_pkey; Type: CONSTRAINT; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -2433,7 +2701,7 @@ ALTER TABLE ONLY pni_aib_template.ebw_area_pop
 
 
 --
--- TOC entry 5069 (class 2606 OID 33203)
+-- TOC entry 5995 (class 2606 OID 33203)
 -- Name: edifici edifici_pkey; Type: CONSTRAINT; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -2442,7 +2710,16 @@ ALTER TABLE ONLY pni_aib_template.edifici
 
 
 --
--- TOC entry 5071 (class 2606 OID 33205)
+-- TOC entry 6049 (class 2606 OID 72369)
+-- Name: elenco_prezzi_layer elenco_prezzi_layer_pkey; Type: CONSTRAINT; Schema: pni_aib_template; Owner: postgres
+--
+
+ALTER TABLE ONLY pni_aib_template.elenco_prezzi_layer
+    ADD CONSTRAINT elenco_prezzi_layer_pkey PRIMARY KEY (idprezzo, laygidd, layname);
+
+
+--
+-- TOC entry 5997 (class 2606 OID 33205)
 -- Name: giunti giunti_pkey; Type: CONSTRAINT; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -2451,7 +2728,7 @@ ALTER TABLE ONLY pni_aib_template.giunti
 
 
 --
--- TOC entry 5111 (class 2606 OID 39809)
+-- TOC entry 6037 (class 2606 OID 39809)
 -- Name: mit_bay mit_bay_pkey; Type: CONSTRAINT; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -2460,7 +2737,16 @@ ALTER TABLE ONLY pni_aib_template.mit_bay
 
 
 --
--- TOC entry 5073 (class 2606 OID 33207)
+-- TOC entry 6045 (class 2606 OID 69786)
+-- Name: nodo_virtuale nodo_virtuale_pkey; Type: CONSTRAINT; Schema: pni_aib_template; Owner: postgres
+--
+
+ALTER TABLE ONLY pni_aib_template.nodo_virtuale
+    ADD CONSTRAINT nodo_virtuale_pkey PRIMARY KEY (gidd);
+
+
+--
+-- TOC entry 5999 (class 2606 OID 33207)
 -- Name: planimetria planimetria_pkey; Type: CONSTRAINT; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -2469,7 +2755,7 @@ ALTER TABLE ONLY pni_aib_template.planimetria
 
 
 --
--- TOC entry 5075 (class 2606 OID 33209)
+-- TOC entry 6001 (class 2606 OID 33209)
 -- Name: pozzetti pozzetti_pkey; Type: CONSTRAINT; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -2478,7 +2764,16 @@ ALTER TABLE ONLY pni_aib_template.pozzetti
 
 
 --
--- TOC entry 5077 (class 2606 OID 33211)
+-- TOC entry 6043 (class 2606 OID 69784)
+-- Name: punto_ripristino punto_ripristino_pkey; Type: CONSTRAINT; Schema: pni_aib_template; Owner: postgres
+--
+
+ALTER TABLE ONLY pni_aib_template.punto_ripristino
+    ADD CONSTRAINT punto_ripristino_pkey PRIMARY KEY (gidd);
+
+
+--
+-- TOC entry 6003 (class 2606 OID 33211)
 -- Name: strade strade_pkey; Type: CONSTRAINT; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -2487,7 +2782,7 @@ ALTER TABLE ONLY pni_aib_template.strade
 
 
 --
--- TOC entry 5081 (class 2606 OID 33213)
+-- TOC entry 6007 (class 2606 OID 33213)
 -- Name: tratta_aerea tratta_aerea_pkey; Type: CONSTRAINT; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -2496,7 +2791,7 @@ ALTER TABLE ONLY pni_aib_template.tratta_aerea
 
 
 --
--- TOC entry 5079 (class 2606 OID 33215)
+-- TOC entry 6005 (class 2606 OID 33215)
 -- Name: tratta tratta_pkey; Type: CONSTRAINT; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -2505,7 +2800,16 @@ ALTER TABLE ONLY pni_aib_template.tratta
 
 
 --
--- TOC entry 5105 (class 2606 OID 34357)
+-- TOC entry 6047 (class 2606 OID 69802)
+-- Name: user_log_map user_log_map_pkey; Type: CONSTRAINT; Schema: pni_aib_template; Owner: arpa
+--
+
+ALTER TABLE ONLY pni_aib_template.user_log_map
+    ADD CONSTRAINT user_log_map_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 6031 (class 2606 OID 34357)
 -- Name: ebw_address ebw_address_pkey; Type: CONSTRAINT; Schema: pni_ced_template; Owner: postgres
 --
 
@@ -2514,7 +2818,7 @@ ALTER TABLE ONLY pni_ced_template.ebw_address
 
 
 --
--- TOC entry 5083 (class 2606 OID 33217)
+-- TOC entry 6009 (class 2606 OID 33217)
 -- Name: ebw_cavo ebw_cavo_pkey; Type: CONSTRAINT; Schema: pni_ced_template; Owner: postgres
 --
 
@@ -2523,7 +2827,7 @@ ALTER TABLE ONLY pni_ced_template.ebw_cavo
 
 
 --
--- TOC entry 5085 (class 2606 OID 33219)
+-- TOC entry 6011 (class 2606 OID 33219)
 -- Name: ebw_giunto ebw_giunto_pkey; Type: CONSTRAINT; Schema: pni_ced_template; Owner: postgres
 --
 
@@ -2532,7 +2836,7 @@ ALTER TABLE ONLY pni_ced_template.ebw_giunto
 
 
 --
--- TOC entry 5087 (class 2606 OID 33221)
+-- TOC entry 6013 (class 2606 OID 33221)
 -- Name: ebw_location ebw_location_pkey; Type: CONSTRAINT; Schema: pni_ced_template; Owner: postgres
 --
 
@@ -2541,7 +2845,7 @@ ALTER TABLE ONLY pni_ced_template.ebw_location
 
 
 --
--- TOC entry 5089 (class 2606 OID 33223)
+-- TOC entry 6015 (class 2606 OID 33223)
 -- Name: ebw_pfp ebw_pfp_pkey; Type: CONSTRAINT; Schema: pni_ced_template; Owner: postgres
 --
 
@@ -2550,7 +2854,7 @@ ALTER TABLE ONLY pni_ced_template.ebw_pfp
 
 
 --
--- TOC entry 5091 (class 2606 OID 33225)
+-- TOC entry 6017 (class 2606 OID 33225)
 -- Name: ebw_pfs ebw_pfs_pkey; Type: CONSTRAINT; Schema: pni_ced_template; Owner: postgres
 --
 
@@ -2559,7 +2863,7 @@ ALTER TABLE ONLY pni_ced_template.ebw_pfs
 
 
 --
--- TOC entry 5107 (class 2606 OID 34380)
+-- TOC entry 6033 (class 2606 OID 34380)
 -- Name: ebw_pop ebw_pop_pkey; Type: CONSTRAINT; Schema: pni_ced_template; Owner: postgres
 --
 
@@ -2568,7 +2872,7 @@ ALTER TABLE ONLY pni_ced_template.ebw_pop
 
 
 --
--- TOC entry 5109 (class 2606 OID 35696)
+-- TOC entry 6035 (class 2606 OID 35696)
 -- Name: ebw_pte ebw_pte_pkey; Type: CONSTRAINT; Schema: pni_ced_template; Owner: postgres
 --
 
@@ -2577,7 +2881,7 @@ ALTER TABLE ONLY pni_ced_template.ebw_pte
 
 
 --
--- TOC entry 5093 (class 2606 OID 33229)
+-- TOC entry 6019 (class 2606 OID 33229)
 -- Name: ebw_route ebw_route_pkey; Type: CONSTRAINT; Schema: pni_ced_template; Owner: postgres
 --
 
@@ -2586,7 +2890,7 @@ ALTER TABLE ONLY pni_ced_template.ebw_route
 
 
 --
--- TOC entry 5095 (class 2606 OID 33231)
+-- TOC entry 6021 (class 2606 OID 33231)
 -- Name: ebw_scorta ebw_scorta_pkey; Type: CONSTRAINT; Schema: pni_ced_template; Owner: postgres
 --
 
@@ -2595,7 +2899,7 @@ ALTER TABLE ONLY pni_ced_template.ebw_scorta
 
 
 --
--- TOC entry 5097 (class 2606 OID 33233)
+-- TOC entry 6023 (class 2606 OID 33233)
 -- Name: grid_a0_bettola grid_a0_bettola_pkey; Type: CONSTRAINT; Schema: pni_ced_template; Owner: postgres
 --
 
@@ -2604,7 +2908,7 @@ ALTER TABLE ONLY pni_ced_template.grid_a0_bettola
 
 
 --
--- TOC entry 5099 (class 2606 OID 33235)
+-- TOC entry 6025 (class 2606 OID 33235)
 -- Name: planimetria planimetria_pkey; Type: CONSTRAINT; Schema: pni_ced_template; Owner: postgres
 --
 
@@ -2613,7 +2917,7 @@ ALTER TABLE ONLY pni_ced_template.planimetria
 
 
 --
--- TOC entry 5101 (class 2606 OID 33237)
+-- TOC entry 6027 (class 2606 OID 33237)
 -- Name: street street_pkey; Type: CONSTRAINT; Schema: pni_ced_template; Owner: postgres
 --
 
@@ -2622,7 +2926,7 @@ ALTER TABLE ONLY pni_ced_template.street
 
 
 --
--- TOC entry 5115 (class 1259 OID 39825)
+-- TOC entry 6041 (class 1259 OID 39825)
 -- Name: sidx_ebw_area_pop_geom; Type: INDEX; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -2630,7 +2934,7 @@ CREATE INDEX sidx_ebw_area_pop_geom ON pni_aib_template.ebw_area_pop USING gist 
 
 
 --
--- TOC entry 5112 (class 1259 OID 39813)
+-- TOC entry 6038 (class 1259 OID 39813)
 -- Name: sidx_mit_bay_geom; Type: INDEX; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -2638,8 +2942,8 @@ CREATE INDEX sidx_mit_bay_geom ON pni_aib_template.mit_bay USING gist (geom);
 
 
 --
--- TOC entry 5307 (class 0 OID 0)
--- Dependencies: 12
+-- TOC entry 6257 (class 0 OID 0)
+-- Dependencies: 11
 -- Name: SCHEMA pni_aib_template; Type: ACL; Schema: -; Owner: postgres
 --
 
@@ -2647,8 +2951,8 @@ GRANT USAGE ON SCHEMA pni_aib_template TO operatore;
 
 
 --
--- TOC entry 5308 (class 0 OID 0)
--- Dependencies: 13
+-- TOC entry 6258 (class 0 OID 0)
+-- Dependencies: 12
 -- Name: SCHEMA pni_ced_template; Type: ACL; Schema: -; Owner: postgres
 --
 
@@ -2656,8 +2960,8 @@ GRANT USAGE ON SCHEMA pni_ced_template TO operatore;
 
 
 --
--- TOC entry 5309 (class 0 OID 0)
--- Dependencies: 236
+-- TOC entry 6259 (class 0 OID 0)
+-- Dependencies: 225
 -- Name: TABLE access_point; Type: ACL; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -2665,8 +2969,8 @@ GRANT SELECT ON TABLE pni_aib_template.access_point TO operatore_r;
 
 
 --
--- TOC entry 5311 (class 0 OID 0)
--- Dependencies: 365
+-- TOC entry 6261 (class 0 OID 0)
+-- Dependencies: 306
 -- Name: TABLE area_anello; Type: ACL; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -2674,8 +2978,8 @@ GRANT SELECT ON TABLE pni_aib_template.area_anello TO operatore_r;
 
 
 --
--- TOC entry 5313 (class 0 OID 0)
--- Dependencies: 238
+-- TOC entry 6263 (class 0 OID 0)
+-- Dependencies: 227
 -- Name: TABLE area_cavo; Type: ACL; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -2683,8 +2987,8 @@ GRANT SELECT ON TABLE pni_aib_template.area_cavo TO operatore_r;
 
 
 --
--- TOC entry 5315 (class 0 OID 0)
--- Dependencies: 240
+-- TOC entry 6265 (class 0 OID 0)
+-- Dependencies: 229
 -- Name: TABLE aree_pfp; Type: ACL; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -2692,8 +2996,8 @@ GRANT SELECT ON TABLE pni_aib_template.aree_pfp TO operatore_r;
 
 
 --
--- TOC entry 5317 (class 0 OID 0)
--- Dependencies: 242
+-- TOC entry 6267 (class 0 OID 0)
+-- Dependencies: 231
 -- Name: TABLE aree_pfs; Type: ACL; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -2701,8 +3005,8 @@ GRANT SELECT ON TABLE pni_aib_template.aree_pfs TO operatore_r;
 
 
 --
--- TOC entry 5319 (class 0 OID 0)
--- Dependencies: 244
+-- TOC entry 6269 (class 0 OID 0)
+-- Dependencies: 233
 -- Name: TABLE cavi; Type: ACL; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -2710,8 +3014,8 @@ GRANT SELECT ON TABLE pni_aib_template.cavi TO operatore_r;
 
 
 --
--- TOC entry 5321 (class 0 OID 0)
--- Dependencies: 246
+-- TOC entry 6271 (class 0 OID 0)
+-- Dependencies: 235
 -- Name: TABLE civici; Type: ACL; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -2719,8 +3023,8 @@ GRANT SELECT ON TABLE pni_aib_template.civici TO operatore_r;
 
 
 --
--- TOC entry 5323 (class 0 OID 0)
--- Dependencies: 248
+-- TOC entry 6273 (class 0 OID 0)
+-- Dependencies: 237
 -- Name: TABLE colonnine; Type: ACL; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -2728,8 +3032,8 @@ GRANT SELECT ON TABLE pni_aib_template.colonnine TO operatore_r;
 
 
 --
--- TOC entry 5325 (class 0 OID 0)
--- Dependencies: 250
+-- TOC entry 6275 (class 0 OID 0)
+-- Dependencies: 239
 -- Name: TABLE delivery; Type: ACL; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -2737,8 +3041,8 @@ GRANT SELECT ON TABLE pni_aib_template.delivery TO operatore_r;
 
 
 --
--- TOC entry 5327 (class 0 OID 0)
--- Dependencies: 706
+-- TOC entry 6277 (class 0 OID 0)
+-- Dependencies: 353
 -- Name: TABLE ebw_area_pop; Type: ACL; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -2746,8 +3050,8 @@ GRANT SELECT ON TABLE pni_aib_template.ebw_area_pop TO operatore_r;
 
 
 --
--- TOC entry 5329 (class 0 OID 0)
--- Dependencies: 252
+-- TOC entry 6279 (class 0 OID 0)
+-- Dependencies: 241
 -- Name: TABLE edifici; Type: ACL; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -2755,8 +3059,26 @@ GRANT SELECT ON TABLE pni_aib_template.edifici TO operatore_r;
 
 
 --
--- TOC entry 5331 (class 0 OID 0)
--- Dependencies: 254
+-- TOC entry 6281 (class 0 OID 0)
+-- Dependencies: 555
+-- Name: TABLE elenco_prezzi_layer; Type: ACL; Schema: pni_aib_template; Owner: postgres
+--
+
+GRANT SELECT ON TABLE pni_aib_template.elenco_prezzi_layer TO operatore_r;
+
+
+--
+-- TOC entry 6282 (class 0 OID 0)
+-- Dependencies: 557
+-- Name: TABLE ftth_cluster; Type: ACL; Schema: pni_aib_template; Owner: postgres
+--
+
+GRANT SELECT ON TABLE pni_aib_template.ftth_cluster TO operatore_r;
+
+
+--
+-- TOC entry 6283 (class 0 OID 0)
+-- Dependencies: 243
 -- Name: TABLE giunti; Type: ACL; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -2764,8 +3086,8 @@ GRANT SELECT ON TABLE pni_aib_template.giunti TO operatore_r;
 
 
 --
--- TOC entry 5333 (class 0 OID 0)
--- Dependencies: 704
+-- TOC entry 6285 (class 0 OID 0)
+-- Dependencies: 351
 -- Name: TABLE mit_bay; Type: ACL; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -2773,8 +3095,17 @@ GRANT SELECT ON TABLE pni_aib_template.mit_bay TO operatore_r;
 
 
 --
--- TOC entry 5335 (class 0 OID 0)
--- Dependencies: 256
+-- TOC entry 6287 (class 0 OID 0)
+-- Dependencies: 502
+-- Name: TABLE nodo_virtuale; Type: ACL; Schema: pni_aib_template; Owner: postgres
+--
+
+GRANT SELECT ON TABLE pni_aib_template.nodo_virtuale TO operatore_r;
+
+
+--
+-- TOC entry 6289 (class 0 OID 0)
+-- Dependencies: 245
 -- Name: TABLE planimetria; Type: ACL; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -2782,8 +3113,8 @@ GRANT SELECT ON TABLE pni_aib_template.planimetria TO operatore_r;
 
 
 --
--- TOC entry 5337 (class 0 OID 0)
--- Dependencies: 258
+-- TOC entry 6291 (class 0 OID 0)
+-- Dependencies: 247
 -- Name: TABLE pozzetti; Type: ACL; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -2791,8 +3122,17 @@ GRANT SELECT ON TABLE pni_aib_template.pozzetti TO operatore_r;
 
 
 --
--- TOC entry 5339 (class 0 OID 0)
--- Dependencies: 260
+-- TOC entry 6293 (class 0 OID 0)
+-- Dependencies: 500
+-- Name: TABLE punto_ripristino; Type: ACL; Schema: pni_aib_template; Owner: postgres
+--
+
+GRANT SELECT ON TABLE pni_aib_template.punto_ripristino TO operatore_r;
+
+
+--
+-- TOC entry 6295 (class 0 OID 0)
+-- Dependencies: 249
 -- Name: TABLE strade; Type: ACL; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -2800,8 +3140,8 @@ GRANT SELECT ON TABLE pni_aib_template.strade TO operatore_r;
 
 
 --
--- TOC entry 5341 (class 0 OID 0)
--- Dependencies: 262
+-- TOC entry 6297 (class 0 OID 0)
+-- Dependencies: 251
 -- Name: TABLE tratta; Type: ACL; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -2809,8 +3149,8 @@ GRANT SELECT ON TABLE pni_aib_template.tratta TO operatore_r;
 
 
 --
--- TOC entry 5342 (class 0 OID 0)
--- Dependencies: 263
+-- TOC entry 6298 (class 0 OID 0)
+-- Dependencies: 252
 -- Name: TABLE tratta_aerea; Type: ACL; Schema: pni_aib_template; Owner: postgres
 --
 
@@ -2818,123 +3158,136 @@ GRANT SELECT ON TABLE pni_aib_template.tratta_aerea TO operatore_r;
 
 
 --
--- TOC entry 5345 (class 0 OID 0)
--- Dependencies: 400
+-- TOC entry 6301 (class 0 OID 0)
+-- Dependencies: 309
 -- Name: TABLE ebw_address; Type: ACL; Schema: pni_ced_template; Owner: postgres
 --
 
 GRANT SELECT ON TABLE pni_ced_template.ebw_address TO operatore;
+GRANT SELECT ON TABLE pni_ced_template.ebw_address TO operatore_r;
 
 
 --
--- TOC entry 5347 (class 0 OID 0)
--- Dependencies: 266
+-- TOC entry 6303 (class 0 OID 0)
+-- Dependencies: 255
 -- Name: TABLE ebw_cavo; Type: ACL; Schema: pni_ced_template; Owner: postgres
 --
 
 GRANT SELECT ON TABLE pni_ced_template.ebw_cavo TO operatore;
+GRANT SELECT ON TABLE pni_ced_template.ebw_cavo TO operatore_r;
 
 
 --
--- TOC entry 5349 (class 0 OID 0)
--- Dependencies: 268
+-- TOC entry 6305 (class 0 OID 0)
+-- Dependencies: 257
 -- Name: TABLE ebw_giunto; Type: ACL; Schema: pni_ced_template; Owner: postgres
 --
 
 GRANT SELECT ON TABLE pni_ced_template.ebw_giunto TO operatore;
+GRANT SELECT ON TABLE pni_ced_template.ebw_giunto TO operatore_r;
 
 
 --
--- TOC entry 5351 (class 0 OID 0)
--- Dependencies: 270
+-- TOC entry 6307 (class 0 OID 0)
+-- Dependencies: 259
 -- Name: TABLE ebw_location; Type: ACL; Schema: pni_ced_template; Owner: postgres
 --
 
 GRANT SELECT ON TABLE pni_ced_template.ebw_location TO operatore;
+GRANT SELECT ON TABLE pni_ced_template.ebw_location TO operatore_r;
 
 
 --
--- TOC entry 5353 (class 0 OID 0)
--- Dependencies: 272
+-- TOC entry 6309 (class 0 OID 0)
+-- Dependencies: 261
 -- Name: TABLE ebw_pfp; Type: ACL; Schema: pni_ced_template; Owner: postgres
 --
 
 GRANT SELECT ON TABLE pni_ced_template.ebw_pfp TO operatore;
+GRANT SELECT ON TABLE pni_ced_template.ebw_pfp TO operatore_r;
 
 
 --
--- TOC entry 5355 (class 0 OID 0)
--- Dependencies: 274
+-- TOC entry 6311 (class 0 OID 0)
+-- Dependencies: 263
 -- Name: TABLE ebw_pfs; Type: ACL; Schema: pni_ced_template; Owner: postgres
 --
 
 GRANT SELECT ON TABLE pni_ced_template.ebw_pfs TO operatore;
+GRANT SELECT ON TABLE pni_ced_template.ebw_pfs TO operatore_r;
 
 
 --
--- TOC entry 5357 (class 0 OID 0)
--- Dependencies: 402
+-- TOC entry 6313 (class 0 OID 0)
+-- Dependencies: 311
 -- Name: TABLE ebw_pop; Type: ACL; Schema: pni_ced_template; Owner: postgres
 --
 
 GRANT SELECT ON TABLE pni_ced_template.ebw_pop TO operatore;
+GRANT SELECT ON TABLE pni_ced_template.ebw_pop TO operatore_r;
 
 
 --
--- TOC entry 5359 (class 0 OID 0)
--- Dependencies: 548
+-- TOC entry 6315 (class 0 OID 0)
+-- Dependencies: 313
 -- Name: TABLE ebw_pte; Type: ACL; Schema: pni_ced_template; Owner: postgres
 --
 
 GRANT SELECT ON TABLE pni_ced_template.ebw_pte TO operatore;
+GRANT SELECT ON TABLE pni_ced_template.ebw_pte TO operatore_r;
 
 
 --
--- TOC entry 5361 (class 0 OID 0)
--- Dependencies: 276
+-- TOC entry 6317 (class 0 OID 0)
+-- Dependencies: 265
 -- Name: TABLE ebw_route; Type: ACL; Schema: pni_ced_template; Owner: postgres
 --
 
 GRANT SELECT ON TABLE pni_ced_template.ebw_route TO operatore;
+GRANT SELECT ON TABLE pni_ced_template.ebw_route TO operatore_r;
 
 
 --
--- TOC entry 5363 (class 0 OID 0)
--- Dependencies: 278
+-- TOC entry 6319 (class 0 OID 0)
+-- Dependencies: 267
 -- Name: TABLE ebw_scorta; Type: ACL; Schema: pni_ced_template; Owner: postgres
 --
 
 GRANT SELECT ON TABLE pni_ced_template.ebw_scorta TO operatore;
+GRANT SELECT ON TABLE pni_ced_template.ebw_scorta TO operatore_r;
 
 
 --
--- TOC entry 5365 (class 0 OID 0)
--- Dependencies: 280
+-- TOC entry 6321 (class 0 OID 0)
+-- Dependencies: 269
 -- Name: TABLE grid_a0_bettola; Type: ACL; Schema: pni_ced_template; Owner: postgres
 --
 
 GRANT SELECT ON TABLE pni_ced_template.grid_a0_bettola TO operatore;
+GRANT SELECT ON TABLE pni_ced_template.grid_a0_bettola TO operatore_r;
 
 
 --
--- TOC entry 5367 (class 0 OID 0)
--- Dependencies: 282
+-- TOC entry 6323 (class 0 OID 0)
+-- Dependencies: 271
 -- Name: TABLE planimetria; Type: ACL; Schema: pni_ced_template; Owner: postgres
 --
 
 GRANT SELECT ON TABLE pni_ced_template.planimetria TO operatore;
+GRANT SELECT ON TABLE pni_ced_template.planimetria TO operatore_r;
 
 
 --
--- TOC entry 5369 (class 0 OID 0)
--- Dependencies: 284
+-- TOC entry 6325 (class 0 OID 0)
+-- Dependencies: 273
 -- Name: TABLE street; Type: ACL; Schema: pni_ced_template; Owner: postgres
 --
 
 GRANT SELECT ON TABLE pni_ced_template.street TO operatore;
+GRANT SELECT ON TABLE pni_ced_template.street TO operatore_r;
 
 
--- Completed on 2019-12-20 16:51:06 CET
+-- Completed on 2020-06-26 12:46:15
 
 --
 -- PostgreSQL database dump complete

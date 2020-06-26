@@ -782,7 +782,7 @@ class ProgettoPNI_2:
                 
                 #Creo tabella vuota come da mail di Mocco del 31 marzo 2020:
                 if (parziale==0):
-                    query_ftth_cluster = """DROP TABLE IF EXISTS %s.ftth_cluster; CREATE TABLE %s.ftth_cluster (
+                    query_ftth_cluster = """DROP TABLE IF EXISTS {db_schema}.ftth_cluster; CREATE TABLE {db_schema}.ftth_cluster (
                         identificativo integer,
                         oggetto character varying(100),
                         qta_min double precision,
@@ -798,24 +798,25 @@ class ProgettoPNI_2:
                         largh_ripristino_cm double precision,
                         sup_ripristino_mq double precision
                         );
-                    GRANT ALL ON TABLE %s.ftth_cluster TO operatore_r;""" % (schemaDB, schemaDB, schemaDB)
+                    GRANT ALL ON TABLE {db_schema}.ftth_cluster TO operatore_r;""".format(db_schema=schemaDB)
                     cur.execute(query_ftth_cluster)
                     test_conn.commit()
-                    query_nodi_punti = """DROP TABLE IF EXISTS %s.punto_ripristino; CREATE TABLE %s.punto_ripristino (
+                    
+                    query_nodi_punti = """DROP TABLE IF EXISTS {db_schema}.punto_ripristino; CREATE TABLE {db_schema}.punto_ripristino (
                         gidd serial PRIMARY KEY,
-                        geom geometry(Point, %s),
+                        geom geometry(Point, {db_schema}),
                         id_tratta character varying(200),
                         listino character varying(20) DEFAULT 'OF- INF-9.3',
                         foto character varying(200));
-                    GRANT ALL ON TABLE %s.punto_ripristino TO operatore_r;
-                        DROP TABLE IF EXISTS %s.nodo_virtuale; CREATE TABLE %s.nodo_virtuale (
+                    GRANT ALL ON TABLE {db_schema}.punto_ripristino TO operatore_r;
+                        DROP TABLE IF EXISTS {db_schema}.nodo_virtuale; CREATE TABLE {db_schema}.nodo_virtuale (
                         gidd serial PRIMARY KEY,
-                        geom geometry(Point, %s),
+                        geom geometry(Point, {db_schema}),
                         id_tratta character varying(200),
                         listino character varying(200),
                         data date);
-                    GRANT ALL ON TABLE %s.nodo_virtuale TO operatore_r;
-                        DROP TABLE IF EXISTS %s.user_log_map; CREATE TABLE %s.user_log_map (
+                    GRANT ALL ON TABLE {db_schema}.nodo_virtuale TO operatore_r;
+                        DROP TABLE IF EXISTS {db_schema}.user_log_map; CREATE TABLE {db_schema}.user_log_map (
                         gidd serial PRIMARY KEY,
                         layer varchar(20) NOT NULL,
                         gid_feature int4,
@@ -826,8 +827,8 @@ class ProgettoPNI_2:
                         data timestamp(6) DEFAULT now(),
                         url varchar(640),
                         fid varchar(100) COLLATE pg_catalog.default);
-                    GRANT ALL ON TABLE %s.user_log_map TO operatore_r;
-                        DROP TABLE IF EXISTS %s.elenco_prezzi_layer; CREATE TABLE %s.elenco_prezzi_layer (
+                    GRANT ALL ON TABLE {db_schema}.user_log_map TO operatore_r;
+                        DROP TABLE IF EXISTS {db_schema}.elenco_prezzi_layer; CREATE TABLE {db_schema}.elenco_prezzi_layer (
                         idprezzo integer NOT NULL,
                         laygidd integer NOT NULL,
                         layname varchar(200) NOT NULL,
@@ -835,7 +836,23 @@ class ProgettoPNI_2:
                         "updDate" timestamp without time zone NOT NULL DEFAULT now(),
                         "updUsr" varchar(100) NOT NULL,
                         PRIMARY KEY (idprezzo, laygidd, layname) );
-                    GRANT ALL ON TABLE %s.elenco_prezzi_layer TO operatore_r;""" % (schemaDB, schemaDB, codice_srid, schemaDB, schemaDB, schemaDB, codice_srid, schemaDB, schemaDB, schemaDB, schemaDB, schemaDB, schemaDB, schemaDB)
+                    GRANT ALL ON TABLE {db_schema}.elenco_prezzi_layer TO operatore_r;
+                        DROP TABLE IF EXISTS {db_schema}.tab_nodo_ottico; CREATE TABLE {db_schema}.tab_nodo_ottico (
+                        gidd serial PRIMARY KEY,
+                        posa bool,
+                        giunzione bool,
+                        collaudo bool,
+                        tipo_posa varchar(255),
+                        staffato bool,
+                        passacavi bool,
+                        gidd_pozzetto int4,
+                        tipo varchar(255),
+                        attestazione json,
+                        splitter_nc json);
+                    ALTER TABLE {db_schema}.tab_nodo_ottico OWNER TO postgres;
+                    COMMENT ON COLUMN {db_schema}.tab_nodo_ottico.attestazione IS 'campo contenente ncavi x attestazione x scorta';
+                    COMMENT ON COLUMN {db_schema}.tab_nodo_ottico.splitter_nc IS 'contiene qta splitter e tipo';
+                    GRANT SELECT ON TABLE {db_schema}.tab_nodo_ottico TO operatore_r;""".format(db_schema=schemaDB)
                     cur.execute(query_nodi_punti)
                     test_conn.commit()
                 
