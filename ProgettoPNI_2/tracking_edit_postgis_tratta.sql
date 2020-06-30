@@ -29,6 +29,48 @@ ALTER TABLE underground_route ADD COLUMN ripr_scarifica boolean;
 ALTER TABLE underground_route ADD COLUMN riempimento_cls boolean;
 
 
+--da issue n.16 del 25/06/2020: query di consolidamento campi
+--https://github.com/Verticalsrl/progettoPNI_2/issues/16
+--minitubi_j
+update underground_route
+set minitubi_j = cast(jsonelupd as json)
+from
+(
+select gidd,concat('[' , STRING_AGG(jsonelupdriga,','),']') jsonelupd from
+(
+select gruppo,gidd,concat('{"tipologia":"",',STRING_AGG(elemjson,',' order by riga DESC),',"posato":false , "calzamultic" : false}') jsonelupdriga from
+(
+select ( (row_number() over () / 2) + mod( row_number() over (),2)) as gruppo,(row_number() over ()) as riga,gidd,elem,case when mod( row_number() over (),2) = 0 then concat('"tipo":','"',elem ,'"') else concat('"num":','"',elem ,'"') end as elemjson from
+(
+select gidd , UPPER(unnest(string_to_array(tipo_mtubi, ' '))) as "elem" from underground_route where tipo_mtubi is not null and minitubi_j is null
+order by gidd
+) x
+) h group by gidd,gruppo order by gidd
+) hh
+group by gidd
+) jsontbl
+where underground_route.gidd = jsontbl.gidd and minitubi_j is null;
+
+--cavi_j
+update underground_route
+set cavi_j = cast(jsonelupd as json)
+from
+(
+select gidd,concat('[' , STRING_AGG(jsonelupdriga,','),']') jsonelupd from
+(
+select gruppo,gidd,concat('{"tipologia":"",',STRING_AGG(elemjson,',' order by riga),',"posab":false , "posam" : false}') jsonelupdriga from
+(
+select ( (row_number() over () / 2) + mod( row_number() over (),2)) as gruppo,(row_number() over ()) as riga,gidd,elem,case when mod( row_number() over (),2) = 0 then concat('"numfibre":','"',elem ,'"') else concat('"numcavi":','"',elem ,'"') end as elemjson from
+(
+select gidd , UPPER(unnest(string_to_array(num_fibre, ' '))) as "elem" from underground_route where num_fibre is not null and cavi_j is null order by gidd
+) x
+) h group by gidd,gruppo order by gidd
+) hh
+group by gidd
+) jsontbl
+where underground_route.gidd = jsontbl.gidd and cavi_j is null;
+
+
 --creo le varie FUNZIONI TRIGGER per CONSOLIDARE la tabella
 CREATE OR REPLACE FUNCTION underground_route_solid() RETURNS trigger AS
 $$

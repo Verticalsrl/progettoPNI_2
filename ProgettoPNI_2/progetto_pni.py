@@ -855,7 +855,7 @@ class ProgettoPNI_2:
                     cur.execute(query_nodi_punti)
                     test_conn.commit()
                 
-                #TRACKING modifiche sui layer
+                #TRACKING modifiche sui layer e creazione campi aggiuntivi:
                 #devo attivare gli script in base ai layer effettivamente caricati
                 Utils.logMessage('shp_name_to_load, per i quali ho anche creato indice spaziale '+str(shp_name_to_load))
                 query_path = "SET search_path = %s, pg_catalog;" % (schemaDB)
