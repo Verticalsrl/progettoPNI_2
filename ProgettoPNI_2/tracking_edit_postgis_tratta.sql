@@ -6,7 +6,7 @@ ALTER TABLE underground_route ADD COLUMN adduzione boolean;
 ALTER TABLE underground_route ADD COLUMN attraversamento boolean;
 ALTER TABLE underground_route ADD COLUMN lunghezza_tubo double precision;
 --campi aggiunti per Gatti da issue del 13 maggio 2020:
-ALTER TABLE underground_route ADD COLUMN ripr_contestuale boolean;
+--ALTER TABLE underground_route ADD COLUMN ripr_contestuale boolean;
 ALTER TABLE underground_route ADD COLUMN prop_privata boolean;
 ALTER TABLE underground_route ADD COLUMN sottofondo_bituminoso boolean;
 ALTER TABLE underground_route ADD COLUMN mtubi_tipologia character varying(100);
@@ -21,7 +21,7 @@ ALTER TABLE underground_route ADD COLUMN minitubi_j json;
 ALTER TABLE underground_route ADD COLUMN cavi_j json;
 ALTER TABLE underground_route ADD COLUMN ripr_tipo character varying(255);
 ALTER TABLE underground_route ADD COLUMN ripr_larghezza double precision;
-ALTER TABLE underground_route ADD COLUMN ripr_contestuale boolean;
+ALTER TABLE underground_route ADD COLUMN ripr_contestuale boolean; --gia' presente in versioni precedenti del plugin, riordino qui
 ALTER TABLE underground_route ADD COLUMN ripr_cls boolean; --gia' presente in versioni precedenti del plugin, riordino qui
 ALTER TABLE underground_route ADD COLUMN ripr_rete_elettro boolean;
 ALTER TABLE underground_route ADD COLUMN ripr_geogriglia boolean;
