@@ -804,14 +804,14 @@ class ProgettoPNI_2:
                     
                     query_nodi_punti = """DROP TABLE IF EXISTS {db_schema}.punto_ripristino; CREATE TABLE {db_schema}.punto_ripristino (
                         gidd serial PRIMARY KEY,
-                        geom geometry(Point, {db_schema}),
+                        geom geometry(Point, {codice_srid}),
                         id_tratta character varying(200),
                         listino character varying(20) DEFAULT 'OF- INF-9.3',
                         foto character varying(200));
                     GRANT ALL ON TABLE {db_schema}.punto_ripristino TO operatore_r;
                         DROP TABLE IF EXISTS {db_schema}.nodo_virtuale; CREATE TABLE {db_schema}.nodo_virtuale (
                         gidd serial PRIMARY KEY,
-                        geom geometry(Point, {db_schema}),
+                        geom geometry(Point, {codice_srid}),
                         id_tratta character varying(200),
                         listino character varying(200),
                         data date);
@@ -851,7 +851,7 @@ class ProgettoPNI_2:
                         splitter_nc json);
                     COMMENT ON COLUMN {db_schema}.tab_nodo_ottico.attestazione IS 'campo contenente ncavi x attestazione x scorta';
                     COMMENT ON COLUMN {db_schema}.tab_nodo_ottico.splitter_nc IS 'contiene qta splitter e tipo';
-                    GRANT ALL ON TABLE {db_schema}.tab_nodo_ottico TO operatore_r;""".format(db_schema=schemaDB)
+                    GRANT ALL ON TABLE {db_schema}.tab_nodo_ottico TO operatore_r;""".format(db_schema=schemaDB, codice_srid=codice_srid)
                     cur.execute(query_nodi_punti)
                     test_conn.commit()
                 
