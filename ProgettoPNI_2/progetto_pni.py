@@ -487,6 +487,8 @@ class ProgettoPNI_2:
                     tabella_da_importare = 'elenco_prezzi_layer'
                 elif ('ftth_cluster' in layer_imported.name()):
                     tabella_da_importare = 'ftth_cluster'
+                elif ('tab_nodo_ottico' in layer_imported.name()):
+                    tabella_da_importare = 'tab_nodo_ottico'
                 else:
                     tabella_da_importare = self.LAYER_NAME_PNI_aib[chiave_da_ricercare]
                 Utils.logMessage( 'tabella da importare da DB: %s' % str(tabella_da_importare) )
@@ -515,6 +517,8 @@ class ProgettoPNI_2:
             elif ('elenco_prezzi_layer' in layer_imported.name()):
                 new_uri = "%s table=\"%s\".\"%s\" sql=" % (dest_dir, schemaDB, tabella_da_importare)
             elif ('ftth_cluster' in layer_imported.name()):
+                new_uri = "%s table=\"%s\".\"%s\" sql=" % (dest_dir, schemaDB, tabella_da_importare)
+            elif ('tab_nodo_ottico' in layer_imported.name()):
                 new_uri = "%s table=\"%s\".\"%s\" sql=" % (dest_dir, schemaDB, tabella_da_importare)
             else:
                 new_uri = "%s key=gidd table=\"%s\".\"%s\" (geom) sql=" % (dest_dir, schemaDB, tabella_da_importare)

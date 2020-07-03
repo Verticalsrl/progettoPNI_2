@@ -11,10 +11,10 @@ name=ProgettoPNI_2
 qgisMinimumVersion=3.8
 qgisMaximumVersion=3.99
 description=import dati progetto PNI versione 2
-version=3.3
+version=3.4
 author=A.R.Gaeta
 email=ar_gaeta@yahoo.it
-release_date=2020/06/26
+release_date=2020/07/03
 
 about=Questo plugin permette di gestire la progettazione della rete PNI per i cantieri - versione 2
 
@@ -53,6 +53,7 @@ changelog=
 	2020/05/19 3.2 modificata struttura tavole history mettendo in testa i 4 campi specifici, di conseguenza modificati tutti i trigger
 	2020/06/26 3.3b aggiungo campi a tabelle tratta e pozzetti da issue del 17 giugno 2020; aggiunta tabella tab_nodo_ottico; aggiornati script sql per creazione schemi template e tabella mappa_valori_pni2; versione ancora temporanea del plugin in attesa di acquisire le nuove issue
 	2020/06/30 3.3 acquisite le nuove issue SOLO per progetti A&B, con creazione query consolidamento su tratta
+	2020/07/03 3.4 risolti alcuni bachi di caricamento per creazione campi e srid su campi geom; aggiungo tabella tab_nodo_ottico su progetto qgs
 
 
 # Tags are comma separated with spaces allowed
