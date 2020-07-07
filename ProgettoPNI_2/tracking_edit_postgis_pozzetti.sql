@@ -13,6 +13,8 @@ ALTER TABLE uub ADD COLUMN diam_tubo character varying(100);
 ALTER TABLE uub ADD COLUMN lunghezza_tubo double precision;
 ALTER TABLE uub ADD COLUMN autoestinguente boolean;
 
+/*
+//commento queste funzioni secondo telegram di Andrea Mocco del 7 luglio 2020
 --creo le varie FUNZIONI TRIGGER per CONSOLIDARE la tabella
 CREATE OR REPLACE FUNCTION uub_solid() RETURNS trigger AS
 $$
@@ -28,6 +30,7 @@ $$
 LANGUAGE plpgsql;
 CREATE TRIGGER uub_solid_trigger AFTER INSERT OR UPDATE ON uub FOR EACH ROW EXECUTE PROCEDURE uub_solid();
 GRANT EXECUTE ON FUNCTION uub_solid() TO GROUP operatore_r;
+*/
 
 /*
 -->source: http://postgis.net/workshops/postgis-intro/history_tracking.html

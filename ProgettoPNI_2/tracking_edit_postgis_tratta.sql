@@ -70,7 +70,8 @@ group by gidd
 ) jsontbl
 where underground_route.gidd = jsontbl.gidd and cavi_j is null;
 
-
+/*
+//commento queste funzioni secondo telegram di Andrea Mocco del 7 luglio 2020
 --creo le varie FUNZIONI TRIGGER per CONSOLIDARE la tabella
 CREATE OR REPLACE FUNCTION underground_route_solid() RETURNS trigger AS
 $$
@@ -99,6 +100,7 @@ $$
 LANGUAGE plpgsql;
 CREATE TRIGGER underground_route_solid_trigger AFTER INSERT OR UPDATE ON underground_route FOR EACH ROW EXECUTE PROCEDURE underground_route_solid();
 GRANT EXECUTE ON FUNCTION underground_route_solid() TO GROUP operatore_r;
+*/
 
 
 /*
