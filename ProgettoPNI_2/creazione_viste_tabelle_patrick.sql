@@ -1,17 +1,13 @@
+/*
+@p.tomassone@vertical-srl.it
+questo script crea i trigger sulle tabelle underground_route, uub e tab_nodo_ottico di insert/update e delete per il popolamento della tabella elenco_prezzi_layer con i prezzi automatici previsti dalle regole implementate
+*/
+
 drop view if exists v_elenco_prezzi;
 drop view if exists v_prezzi_layers;
 
--- auto-generated definition
-ALTER TABLE schemaDB.elenco_prezzi_layer
-  DROP COLUMN qta cascade;
-
--- auto-generated definition
-ALTER TABLE schemaDB.elenco_prezzi_layer
-  ADD COLUMN qta numeric;
-
 drop function if exists underground_route_prezzi_insert_update() cascade;
 
--- auto-generated definition
 create function underground_route_prezzi_insert_update() returns trigger
   language plpgsql
 as
@@ -30,7 +26,8 @@ BEGIN
   END IF;
 
   --OF-SCV-1.3--
-  IF (NEW.ebw_propri = 'EOF' AND UPPER(NEW.ebw_tipo_p) IN ('TRINCEA', 'MINITRINCEA', 'MICROTRINCEA')) THEN
+  IF (NEW.ebw_propri = 'EOF' AND UPPER(NEW.ebw_tipo_p) IN ('TRINCEA', 'MINITRINCEA', 'MICROTRINCEA'))
+    AND NEW.measured_l < 10 THEN
     SELECT id into idp
     FROM public.viareggio_elenco_prezzi
     WHERE art = 'OF-SCV-1.3';
@@ -486,7 +483,7 @@ BEGIN
            NEW.measured_l;
   END IF;
   --OF-INF-1.6-
-  IF NEW.ebw_propri <> 'EOF' AND
+  IF NEW.ebw_propri = 'EOF' AND
      UPPER(NEW.ebw_tipo_p) IN ('MICROTRINCEA', 'TRINCEA', 'MINITRINCEA') AND
      (SELECT COUNT(*) > 0
       FROM json_array_elements(NEW.minitubi_j) obj
@@ -533,7 +530,7 @@ BEGIN
            NEW.measured_l;
   END IF;
   --OF-INF-2.1-
-  IF NEW.ebw_propri <> 'EOF' AND
+  IF NEW.ebw_propri = 'EOF' AND
      (SELECT COUNT(*) > 0
       FROM json_array_elements(NEW.minitubi_j) obj
       WHERE CAST(obj ->> 'posato' AS VARCHAR) = 'true'

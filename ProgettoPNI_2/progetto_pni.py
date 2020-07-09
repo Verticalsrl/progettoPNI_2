@@ -839,6 +839,7 @@ class ProgettoPNI_2:
                         "insDate" timestamp without time zone NOT NULL DEFAULT now(),
                         "updDate" timestamp without time zone NOT NULL DEFAULT now(),
                         "updUsr" varchar(100) NOT NULL,
+                        qta numeric,
                         PRIMARY KEY (idprezzo, laygidd, layname) );
                     GRANT ALL ON TABLE {db_schema}.elenco_prezzi_layer TO operatore_r;
                         DROP TABLE IF EXISTS {db_schema}.tab_nodo_ottico; CREATE TABLE {db_schema}.tab_nodo_ottico (
