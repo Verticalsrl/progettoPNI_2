@@ -1048,138 +1048,78 @@ $$;
 
 alter function tab_nodo_ottico_prezzi_insert_update() owner to operatore;
 
-drop function if exists uub_prezzi_insert_update() cascade;
 
+drop function if exists uub_prezzi_insert_update() cascade;
 -- auto-generated definition
-create function uub_prezzi_insert_update() returns trigger
+create function public.uub_prezzi_insert_update() returns trigger
   language plpgsql
 as
 $$
 declare
   idp integer := 0;
+  schemaDB text := TG_ARGV[0];
 BEGIN
   --Delete prezzi con NEW.gidd--
-  DELETE
-  FROM schemaDB.elenco_prezzi_layer as epl
-  WHERE epl.laygidd = NEW.gidd;
+  EXECUTE FORMAT('DELETE FROM %s.elenco_prezzi_layer as epl WHERE epl.laygidd = NEW.gidd;', schemaDB);
 
   IF NEW.constructi = 'Progettato' THEN
-    DELETE
-    FROM tab_nodo_ottico as tno
-    WHERE tno.gidd_pozzetto = NEW.gidd;
+    EXECUTE FORMAT('DELETE FROM %s.tab_nodo_ottico as tno WHERE tno.gidd_pozzetto = NEW.gidd;', schemaDB);
 
     RETURN NEW;
   END IF;
 
   --OF-INF-1.4-
   IF NEW.diam_tubo IN ('100', '125') THEN
-    SELECT id into idp
-    FROM public.viareggio_elenco_prezzi
-    WHERE art = 'OF-INF-1.4';
+    SELECT id into idp FROM public.viareggio_elenco_prezzi WHERE art = 'OF-INF-1.4';
 
-    INSERT INTO schemaDB.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
-    SELECT idp,
-           NEW.gidd,
-           'pozzetti',
-           current_timestamp,
-           current_timestamp,
-           'trigger',
-           NEW.lunghezza_tubo;
+    EXECUTE FORMAT('INSERT INTO %s.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta) SELECT idp, NEW.gidd, ''pozzetti'', current_timestamp, current_timestamp, ''trigger'', NEW.lunghezza_tubo;', schemaDB);
   END IF;
+ 
   --OF-INF-1.5-
   IF NEW.diam_tubo = '>150' THEN
-    SELECT id into idp
-    FROM public.viareggio_elenco_prezzi
-    WHERE art = 'OF-INF-1.5';
+    SELECT id into idp FROM public.viareggio_elenco_prezzi WHERE art = 'OF-INF-1.5';
 
-    INSERT INTO schemaDB.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
-    SELECT idp,
-           NEW.gidd,
-           'pozzetti',
-           current_timestamp,
-           current_timestamp,
-           'trigger',
-           NEW.lunghezza_tubo;
+    EXECUTE FORMAT('INSERT INTO schemaDB.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta) SELECT idp, NEW.gidd, ''pozzetti'', current_timestamp, current_timestamp, ''trigger'', NEW.lunghezza_tubo;', schemaDB);
   END IF;
   --OF-INF-3.1-
   IF NEW.autoestinguente = true THEN
-    SELECT id into idp
-    FROM public.viareggio_elenco_prezzi
-    WHERE art = 'OF-INF-3.1';
+    SELECT id into idp FROM public.viareggio_elenco_prezzi WHERE art = 'OF-INF-3.1';
 
     INSERT INTO schemaDB.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
-    SELECT idp,
-           NEW.gidd,
-           'pozzetti',
-           current_timestamp,
-           current_timestamp,
-           'trigger',
-           NEW.lunghezza_tubo;
+    SELECT idp, NEW.gidd, 'pozzetti', current_timestamp, current_timestamp, 'trigger', NEW.lunghezza_tubo;
   END IF;
   --OF-INF-8.1--
   IF (NEW.spec_id IN ('13x38', '30x70', '40x40')) THEN
-
-    SELECT id into idp
-    FROM public.viareggio_elenco_prezzi
-    WHERE art = 'OF-INF-8.1';
+    SELECT id into idp FROM public.viareggio_elenco_prezzi WHERE art = 'OF-INF-8.1';
 
     INSERT INTO schemaDB.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
-    SELECT idp,
-           NEW.gidd,
-           'pozzetti',
-           current_timestamp,
-           current_timestamp,
-           'trigger',
-           1;
+    SELECT idp, NEW.gidd, 'pozzetti', current_timestamp, current_timestamp, 'trigger', 1;
   END IF;
+  
   --OF-INF-8.2--
   IF (NEW.spec_id IN ('40x76', '90x70')) THEN
-
-    SELECT id into idp
-    FROM public.viareggio_elenco_prezzi
-    WHERE art = 'OF-INF-8.2';
+    SELECT id into idp FROM public.viareggio_elenco_prezzi WHERE art = 'OF-INF-8.2';
 
     INSERT INTO schemaDB.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
-    SELECT idp,
-           NEW.gidd,
-           'pozzetti',
-           current_timestamp,
-           current_timestamp,
-           'trigger',
-           1;
+    SELECT idp, NEW.gidd, 'pozzetti', current_timestamp, current_timestamp, 'trigger', 1;
   END IF;
+  
   --OF-INF-8.3--
   IF (NEW.spec_id = '125x80') THEN
-
-    SELECT id into idp
-    FROM public.viareggio_elenco_prezzi
-    WHERE art = 'OF-INF-8.3';
+    SELECT id into idp FROM public.viareggio_elenco_prezzi WHERE art = 'OF-INF-8.3';
 
     INSERT INTO schemaDB.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
-    SELECT idp,
-           NEW.gidd,
-           'pozzetti',
-           current_timestamp,
-           current_timestamp,
-           'trigger',
-           1;
+    SELECT idp, NEW.gidd, 'pozzetti', current_timestamp, current_timestamp, 'trigger', 1;
   END IF;
+  
   --OF-INF-8.4--
   IF (NEW.spec_id = '220x170') THEN
-
-    SELECT id into idp
-    FROM public.viareggio_elenco_prezzi
-    WHERE art = 'OF-INF-8.4';
+    SELECT id into idp FROM public.viareggio_elenco_prezzi WHERE art = 'OF-INF-8.4';
 
     INSERT INTO schemaDB.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
-    SELECT idp,
-           NEW.gidd,
-           'pozzetti',
-           current_timestamp,
-           current_timestamp,
-           'trigger',
-           1;
+    SELECT idp, NEW.gidd, 'pozzetti', current_timestamp, current_timestamp, 'trigger', 1;
   END IF;
+ 
   --OF-INF-9.1--
   IF UPPER(NEW.ebw_flag_p) = 'FALSE' AND NEW.posa_interrato_aff = true THEN
     SELECT id into idp
@@ -1195,6 +1135,7 @@ BEGIN
            'trigger',
            1;
   END IF;
+ 
   --OF-INF-9.2--
   IF UPPER(NEW.ebw_flag_p) = 'TRUE' AND NEW.posa_inf_esistente = true THEN
 
@@ -1211,6 +1152,7 @@ BEGIN
            'trigger',
            1;
   END IF;
+
   --OF-INF-9.4--
   IF NEW.giunto_3vie IS NOT NULL AND NEW.giunto_3vie != '' THEN
 
@@ -1227,12 +1169,10 @@ BEGIN
            'trigger',
            1;
   END IF;
+
   --OF-FOR-3-10--
   IF NEW.diam_tubo = '50' THEN
-
-    SELECT id into idp
-    FROM public.viareggio_elenco_prezzi
-    WHERE art = 'OF-FOR-3-10';
+    SELECT id into idp FROM public.viareggio_elenco_prezzi WHERE art = 'OF-FOR-3-10';
 
     INSERT INTO schemaDB.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
     SELECT idp,
@@ -1242,23 +1182,16 @@ BEGIN
            current_timestamp,
            'trigger',
            NEW.lunghezza_tubo;
-    --OF-INF-1.3--
-    SELECT id into idp
-    FROM public.viareggio_elenco_prezzi
-    WHERE art = 'OF-INF-1.3';
+    
+	--OF-INF-1.3--
+    SELECT id into idp FROM public.viareggio_elenco_prezzi WHERE art = 'OF-INF-1.3';
 
     INSERT INTO schemaDB.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
-    SELECT idp,
-           NEW.gidd,
-           'pozzetti',
-           current_timestamp,
-           current_timestamp,
-           'trigger',
-           NEW.lunghezza_tubo;
+    SELECT idp, NEW.gidd, 'pozzetti', current_timestamp, current_timestamp, 'trigger', NEW.lunghezza_tubo;
   END IF;
+
   --OF-FOR-3-11--
   IF NEW.diam_tubo IN ('63', '100', '125') THEN
-
     SELECT id into idp
     FROM public.viareggio_elenco_prezzi
     WHERE art = 'OF-FOR-3-11';
@@ -1271,8 +1204,9 @@ BEGIN
            current_timestamp,
            'trigger',
            NEW.lunghezza_tubo;
-    --OF-INF-1.3--
-    IF NEW.diam_tubo = '63' THEN
+    
+  --OF-INF-1.3--
+  IF NEW.diam_tubo = '63' THEN
       SELECT id into idp
       FROM public.viareggio_elenco_prezzi
       WHERE art = 'OF-INF-1.3';
@@ -1287,9 +1221,9 @@ BEGIN
              NEW.lunghezza_tubo;
     END IF;
   END IF;
+
   --OF-FOR-3-12--
   IF NEW.giunto_3vie = 'Ã =63 Tipo 2' THEN
-
     SELECT id into idp
     FROM public.viareggio_elenco_prezzi
     WHERE art = 'OF-FOR-3-12';
@@ -1303,12 +1237,10 @@ BEGIN
            'trigger',
            1;
   END IF;
+
   --OF-FOR-3-13--
   IF NEW.giunto_3vie = 'Ã >63 Tipo 1' THEN
-
-    SELECT id into idp
-    FROM public.viareggio_elenco_prezzi
-    WHERE art = 'OF-FOR-3-13';
+    SELECT id into idp FROM public.viareggio_elenco_prezzi WHERE art = 'OF-FOR-3-13';
 
     INSERT INTO schemaDB.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
     SELECT idp,
@@ -1319,9 +1251,9 @@ BEGIN
            'trigger',
            1;
   END IF;
+
   --OF-FOR-3-14--
   IF NEW.diam_tubo = '>150' THEN
-
     SELECT id into idp
     FROM public.viareggio_elenco_prezzi
     WHERE art = 'OF-FOR-3-14';
@@ -1335,6 +1267,7 @@ BEGIN
            'trigger',
            NEW.lunghezza_tubo;
   END IF;
+
   --OF-FOR-3-17--
   IF NEW.spec_id = '220x170' THEN
 
@@ -1514,11 +1447,10 @@ BEGIN
   RETURN NEW;
 END;
 $$;
-
 alter function uub_prezzi_insert_update() owner to operatore;
 
-drop function if exists underground_route_prezzi_delete() cascade;
 
+drop function if exists underground_route_prezzi_delete() cascade;
 -- auto-generated definition
 create function underground_route_prezzi_delete() returns trigger
   language plpgsql
@@ -1579,11 +1511,11 @@ create trigger underground_route_prezzi_insert_update
 execute procedure underground_route_prezzi_insert_update();
 
 -- auto-generated definition
-create trigger uub_prezzi_insert_update
+create trigger uub_prezzi_insert_update_trigger
   before insert or update
-  on uub
+  on schemaDB.uub
   for each row
-execute procedure uub_prezzi_insert_update();
+execute procedure public.uub_prezzi_insert_update('schemaDB');
 
 -- auto-generated definition
 create trigger tab_nodo_ottico_prezzi_insert_update
