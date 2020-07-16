@@ -85,3 +85,14 @@ FROM (schemaDB.elenco_prezzi_layer
        JOIN public.CITTA_elenco_prezzi ON ((schemaDB.elenco_prezzi_layer.idprezzo = public.CITTA_elenco_prezzi.id)));
 
 alter table schemaDB.v_prezzi_layers owner to postgres;
+
+-- auto-generated definition
+create or replace view v_computo_cme as
+SELECT el.tipo,
+       (sum((el.prezzo * (epl.qta)::double precision)))::numeric(100, 2) AS totalprezzo,
+       sum(epl.qta)                                                      AS totalqta,
+       count(*)                                                          AS countprezzo
+FROM (schemaDB.elenco_prezzi_layer epl
+       JOIN public.CITTA_elenco_prezzi el ON ((epl.idprezzo = el.id)))
+GROUP BY el.tipo
+ORDER BY el.tipo;
