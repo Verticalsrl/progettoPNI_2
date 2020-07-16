@@ -834,7 +834,7 @@ class ProgettoPNI_2:
                         url varchar(640),
                         fid varchar(100) COLLATE pg_catalog.default);
                     GRANT ALL ON TABLE {db_schema}.user_log_map TO operatore_r;
-                        DROP TABLE IF EXISTS {db_schema}.elenco_prezzi_layer; CREATE TABLE {db_schema}.elenco_prezzi_layer (
+                        DROP TABLE IF EXISTS {db_schema}.elenco_prezzi_layer CASCADE; CREATE TABLE {db_schema}.elenco_prezzi_layer (
                         idprezzo integer NOT NULL,
                         laygidd integer NOT NULL,
                         layname varchar(200) NOT NULL,
