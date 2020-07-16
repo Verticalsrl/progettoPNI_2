@@ -459,6 +459,8 @@ class ProgettoPNI_2:
             filedata = file.read()
         # Replace the target string
         filedata = filedata.replace('schemaDB', schemaDB)
+        CITTA = schemaDB[0:schemaDB.find('_')] #estraggo il nome della citta dallo schema al primo underscore
+        filedata = filedata.replace('CITTA', CITTA)
         cur.execute( filedata )
         test_conn.commit()
     
@@ -871,7 +873,7 @@ class ProgettoPNI_2:
                 if ('underground_route' in shp_name_to_load):
                     sql_track_file = self.plugin_dir + '/tracking_edit_postgis_tratta.sql'
                     self.tracking_sql(sql_track_file, schemaDB, cur, test_conn)
-                    sql_patrick = self.plugin_dir + '/creazione_viste_tabelle_patrick.sql'
+                    sql_patrick = self.plugin_dir + '/creazione_viste_prezzi.sql'
                     self.tracking_sql(sql_patrick, schemaDB, cur, test_conn)
                 if ('aerial_route' in shp_name_to_load):
                     sql_track_file = self.plugin_dir + '/tracking_edit_postgis_tratta_aerea.sql'
