@@ -3,49 +3,7 @@
 questo script crea i trigger sulle tabelle underground_route, uub e tab_nodo_ottico di insert/update e delete per il popolamento della tabella elenco_prezzi_layer con i prezzi automatici previsti dalle regole implementate
 */
 
--- auto-generated definition
-create trigger uub_prezzi_insert_update_trigger
-  before insert or update
-  on schemaDB.uub
-  for each row
-execute procedure public.uub_prezzi_insert_update('schemaDB', 'CITTA');
-
-/* commento per testare il primo pezzo della procedura
--- auto-generated definition
-create trigger underground_route_prezzi_insert_update
-  before insert or update
-  on underground_route
-  for each row
-execute procedure underground_route_prezzi_insert_update();
-
--- auto-generated definition
-create trigger tab_nodo_ottico_prezzi_insert_update
-  before insert or update
-  on tab_nodo_ottico
-  for each row
-execute procedure tab_nodo_ottico_prezzi_insert_update();
-
--- auto-generated definition
-create trigger underground_route_prezzi_delete
-  before delete
-  on underground_route
-  for each row
-execute procedure underground_route_prezzi_delete();
-
--- auto-generated definition
-create trigger uub_prezzi_delete
-  before delete
-  on uub
-  for each row
-execute procedure uub_prezzi_delete();
-
--- auto-generated definition
-create trigger tab_nodo_ottico_prezzi_delete
-  before delete
-  on tab_nodo_ottico
-  for each row
-execute procedure tab_nodo_ottico_prezzi_delete();
-*/
+--quando creare queste viste???
 
 -- auto-generated definition
 create or replace view schemaDB.v_elenco_prezzi as
