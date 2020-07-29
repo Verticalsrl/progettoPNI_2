@@ -52,7 +52,7 @@ BEGIN
   END IF;
   
   --OF-INF-8.2--
-  IF (NEW.spec_id IN ('40x76', '90x70')) THEN
+  IF (NEW.spec_id IN ('76x40', '40x76', '90x70')) THEN
 EXECUTE FORMAT('SELECT id into idp FROM public.%s_elenco_prezzi WHERE art = ''OF-INF-8.2'';', CITTA_da_trigger);
 
     EXECUTE FORMAT('INSERT INTO %s.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
