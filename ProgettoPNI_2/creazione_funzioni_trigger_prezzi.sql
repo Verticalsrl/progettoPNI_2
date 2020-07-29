@@ -1048,6 +1048,139 @@ $$;
 
 alter function tab_nodo_ottico_prezzi_insert_update() owner to operatore;
 
+drop function if exists aerial_route_prezzi_insert_update() cascade;
+
+create function aerial_route_prezzi_insert_update() returns trigger
+  language plpgsql
+as
+$$
+declare
+  idp     integer := 0;
+  posati  integer := 0.0;
+  counter integer := 0.0;
+BEGIN
+  --Delete prezzi con NEW.gidd--
+  DELETE
+  FROM viareggio_lu02_01e3.elenco_prezzi_layer as epl
+  WHERE epl.laygidd = NEW.gidd;
+
+  IF NEW.constructi = 'Progettato' THEN
+    RETURN NEW;
+  END IF;
+
+  --OF-CVI-2.1--
+  IF NEW.guy_type = 'In Facciata' THEN
+    SELECT id into idp
+    FROM public.viareggio_elenco_prezzi
+    WHERE art = 'OF-CVI-2.1';
+
+    INSERT INTO viareggio_lu02_01e3.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
+    SELECT idp,
+           NEW.gidd,
+           'tratta_aerea',
+           current_timestamp,
+           current_timestamp,
+           'trigger',
+           NEW.measured_l;
+
+    --OF-CVI-4.1--
+    IF (SELECT SUM(CAST(obj ->> 'numcavi' AS NUMERIC)) > 1
+        FROM json_array_elements(NEW.cavi_posati_j) obj
+        WHERE CAST(obj ->> 'posab' AS BOOLEAN) = true) THEN
+      SELECT id into idp
+      FROM public.viareggio_elenco_prezzi
+      WHERE art = 'OF-CVI-4.1';
+
+      SELECT SUM(CAST(obj ->> 'numcavi' AS NUMERIC)) into posati
+      FROM json_array_elements(NEW.cavi_posati_j) obj
+      WHERE CAST(obj ->> 'posab' AS BOOLEAN) = true;
+
+      INSERT INTO viareggio_lu02_01e3.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
+      SELECT idp,
+             NEW.gidd,
+             'tratta_aerea',
+             current_timestamp,
+             current_timestamp,
+             'trigger',
+             NEW.measured_l*(posati-1);
+    END IF;
+  END IF;
+
+  --OF-CVI-3.1--
+  IF NEW.tipo_cavo = 'FO' AND NEW.tipo_tensione = 'BT' THEN
+    SELECT id into idp
+    FROM public.viareggio_elenco_prezzi
+    WHERE art = 'OF-CVI-3.1';
+
+    INSERT INTO viareggio_lu02_01e3.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
+    SELECT idp,
+           NEW.gidd,
+           'tratta_aerea',
+           current_timestamp,
+           current_timestamp,
+           'trigger',
+           NEW.measured_l;
+  END IF;
+
+  --OF-CVI-3.2--
+  IF NEW.tipo_cavo = 'ADSS Light' AND NEW.tipo_tensione = 'BT' THEN
+    SELECT id into idp
+    FROM public.viareggio_elenco_prezzi
+    WHERE art = 'OF-CVI-3.2';
+
+    INSERT INTO viareggio_lu02_01e3.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
+    SELECT idp,
+           NEW.gidd,
+           'tratta_aerea',
+           current_timestamp,
+           current_timestamp,
+           'trigger',
+           NEW.measured_l;
+  END IF;
+
+  --OF-CVI-3.3--
+  IF NEW.tipo_cavo = 'ADSS' AND NEW.tipo_tensione = 'MT' THEN
+    SELECT id into idp
+    FROM public.viareggio_elenco_prezzi
+    WHERE art = 'OF-CVI-3.3';
+
+    INSERT INTO viareggio_lu02_01e3.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
+    SELECT idp,
+           NEW.gidd,
+           'tratta_aerea',
+           current_timestamp,
+           current_timestamp,
+           'trigger',
+           NEW.measured_l;
+  END IF;
+
+  --OF-FOR-5-11--
+  IF (SELECT SUM(CAST(obj ->> 'numcavi' AS NUMERIC)) > 0
+      FROM json_array_elements(NEW.cavi_posati_j) obj
+      WHERE CAST(obj ->> 'posab' AS BOOLEAN) = true) THEN
+    SELECT id into idp
+    FROM public.viareggio_elenco_prezzi
+    WHERE art = 'OF-FOR-5-11';
+
+    SELECT SUM(CAST(obj ->> 'numcavi' AS NUMERIC)) into posati
+    FROM json_array_elements(NEW.cavi_posati_j) obj
+    WHERE CAST(obj ->> 'posab' AS BOOLEAN) = true;
+
+    INSERT INTO viareggio_lu02_01e3.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
+    SELECT idp,
+           NEW.gidd,
+           'tratta_aerea',
+           current_timestamp,
+           current_timestamp,
+           'trigger',
+           NEW.measured_l*posati;
+  END IF;
+
+  RETURN NEW;
+END;
+$$;
+
+alter function aerial_route_prezzi_insert_update() owner to operatore;
 
 drop function if exists underground_route_prezzi_delete() cascade;
 -- auto-generated definition
@@ -1101,3 +1234,20 @@ END;
 $$;
 
 alter function uub_prezzi_delete() owner to operatore;
+
+drop function if exists aerial_route_prezzi_delete() cascade;
+
+create function aerial_route_prezzi_delete() returns trigger
+  language plpgsql
+as
+$$
+BEGIN
+  --Delete prezzi con OLD.gidd--
+  DELETE
+  FROM viareggio_lu02_01e3.elenco_prezzi_layer as epl
+  WHERE epl.laygidd = OLD.gidd AND epl.layname = 'tratta_aerea';
+  RETURN OLD;
+END;
+$$;
+
+alter function aerial_route_prezzi_delete() owner to operatore;
