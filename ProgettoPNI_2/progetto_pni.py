@@ -459,6 +459,8 @@ class ProgettoPNI_2:
             filedata = file.read()
         # Replace the target string
         filedata = filedata.replace('schemaDB', schemaDB)
+        CITTA = schemaDB[0:schemaDB.find('_')] #estraggo il nome della citta dallo schema al primo underscore
+        filedata = filedata.replace('CITTA', CITTA)
         cur.execute( filedata )
         test_conn.commit()
     
@@ -832,7 +834,7 @@ class ProgettoPNI_2:
                         url varchar(640),
                         fid varchar(100) COLLATE pg_catalog.default);
                     GRANT ALL ON TABLE {db_schema}.user_log_map TO operatore_r;
-                        DROP TABLE IF EXISTS {db_schema}.elenco_prezzi_layer; CREATE TABLE {db_schema}.elenco_prezzi_layer (
+                        DROP TABLE IF EXISTS {db_schema}.elenco_prezzi_layer CASCADE; CREATE TABLE {db_schema}.elenco_prezzi_layer (
                         idprezzo integer NOT NULL,
                         laygidd integer NOT NULL,
                         layname varchar(200) NOT NULL,
@@ -856,7 +858,9 @@ class ProgettoPNI_2:
                         splitter_nc json);
                     COMMENT ON COLUMN {db_schema}.tab_nodo_ottico.attestazione IS 'campo contenente ncavi x attestazione x scorta';
                     COMMENT ON COLUMN {db_schema}.tab_nodo_ottico.splitter_nc IS 'contiene qta splitter e tipo';
-                    GRANT ALL ON TABLE {db_schema}.tab_nodo_ottico TO operatore_r;""".format(db_schema=schemaDB, codice_srid=codice_srid)
+                    GRANT ALL ON TABLE {db_schema}.tab_nodo_ottico TO operatore_r;
+                    CREATE TRIGGER tab_nodo_ottico_prezzi_insert_update_trigger BEFORE insert or update ON {db_schema}.tab_nodo_ottico FOR each row EXECUTE procedure tab_nodo_ottico_prezzi_insert_update('{db_schema}', '{CITTA_var}');
+                    CREATE TRIGGER tab_nodo_ottico_prezzi_delete_trigger BEFORE delete ON {db_schema}.tab_nodo_ottico FOR each row EXECUTE procedure tab_nodo_ottico_prezzi_delete('{db_schema}', '{CITTA_var}');""".format(db_schema=schemaDB, codice_srid=codice_srid, CITTA_var=schemaDB[0:schemaDB.find('_')])
                     cur.execute(query_nodi_punti)
                     test_conn.commit()
                 
@@ -871,7 +875,7 @@ class ProgettoPNI_2:
                 if ('underground_route' in shp_name_to_load):
                     sql_track_file = self.plugin_dir + '/tracking_edit_postgis_tratta.sql'
                     self.tracking_sql(sql_track_file, schemaDB, cur, test_conn)
-                    sql_patrick = self.plugin_dir + '/creazione_viste_tabelle_patrick.sql'
+                    sql_patrick = self.plugin_dir + '/creazione_viste_prezzi.sql'
                     self.tracking_sql(sql_patrick, schemaDB, cur, test_conn)
                 if ('aerial_route' in shp_name_to_load):
                     sql_track_file = self.plugin_dir + '/tracking_edit_postgis_tratta_aerea.sql'
