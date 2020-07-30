@@ -14,7 +14,7 @@ ALTER TABLE uub ADD COLUMN lunghezza_tubo double precision;
 ALTER TABLE uub ADD COLUMN autoestinguente boolean;
 
 --trigger Patrick luglio 2020
-/*create trigger uub_prezzi_insert_update_trigger
+create trigger uub_prezzi_insert_update_trigger
   before insert or update
   on schemaDB.uub
   for each row
@@ -23,7 +23,18 @@ create trigger uub_prezzi_delete_trigger
   before delete
   on schemaDB.uub
   for each row
-execute procedure uub_prezzi_delete('schemaDB', 'CITTA');*/
+execute procedure uub_prezzi_delete('schemaDB', 'CITTA');
+
+create trigger tab_nodo_ottico_prezzi_insert_update_trigger
+  before insert or update
+  on schemaDB.tab_nodo_ottico
+  for each row
+execute procedure public.tab_nodo_ottico_prezzi_insert_update('schemaDB', 'CITTA');
+create trigger tab_nodo_ottico_prezzi_delete_trigger
+  before delete
+  on schemaDB.tab_nodo_ottico
+  for each row
+execute procedure tab_nodo_ottico_prezzi_delete('schemaDB', 'CITTA');
 
 /*
 //commento queste funzioni secondo telegram di Andrea Mocco del 7 luglio 2020

@@ -1217,6 +1217,472 @@ $$;
 
 alter function tab_nodo_ottico_prezzi_delete() owner to operatore;
 
+create function uub_prezzi_insert_update() returns trigger
+  language plpgsql
+as
+$$
+declare
+  idp integer := 0;
+BEGIN
+  --Delete prezzi con NEW.gidd--
+  DELETE
+  FROM viareggio_lu02_02w4.elenco_prezzi_layer as epl
+  WHERE epl.laygidd = NEW.gidd;
+
+  IF NEW.constructi = 'Progettato' THEN
+    DELETE
+    FROM tab_nodo_ottico as tno
+    WHERE tno.gidd_pozzetto = NEW.gidd;
+
+    RETURN NEW;
+  END IF;
+
+  --OF-INF-1.4-
+  IF NEW.diam_tubo IN ('100', '125') THEN
+    SELECT id into idp
+    FROM public.viareggio_elenco_prezzi
+    WHERE art = 'OF-INF-1.4';
+
+    INSERT INTO viareggio_lu02_02w4.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
+    SELECT idp,
+           NEW.gidd,
+           'pozzetti',
+           current_timestamp,
+           current_timestamp,
+           'trigger',
+           NEW.lunghezza_tubo;
+  END IF;
+  --OF-INF-1.5-
+  IF NEW.diam_tubo = '>150' THEN
+    SELECT id into idp
+    FROM public.viareggio_elenco_prezzi
+    WHERE art = 'OF-INF-1.5';
+
+    INSERT INTO viareggio_lu02_02w4.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
+    SELECT idp,
+           NEW.gidd,
+           'pozzetti',
+           current_timestamp,
+           current_timestamp,
+           'trigger',
+           NEW.lunghezza_tubo;
+  END IF;
+  --OF-INF-3.1-
+  IF NEW.autoestinguente = true THEN
+    SELECT id into idp
+    FROM public.viareggio_elenco_prezzi
+    WHERE art = 'OF-INF-3.1';
+
+    INSERT INTO viareggio_lu02_02w4.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
+    SELECT idp,
+           NEW.gidd,
+           'pozzetti',
+           current_timestamp,
+           current_timestamp,
+           'trigger',
+           NEW.lunghezza_tubo;
+  END IF;
+  --OF-INF-8.1--
+  IF (NEW.spec_id IN ('13x38', '30x70', '40x40')) THEN
+
+    SELECT id into idp
+    FROM public.viareggio_elenco_prezzi
+    WHERE art = 'OF-INF-8.1';
+
+    INSERT INTO viareggio_lu02_02w4.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
+    SELECT idp,
+           NEW.gidd,
+           'pozzetti',
+           current_timestamp,
+           current_timestamp,
+           'trigger',
+           1;
+  END IF;
+  --OF-INF-8.2--
+  IF (NEW.spec_id IN ('76x40', '40x76', '90x70')) THEN
+
+    SELECT id into idp
+    FROM public.viareggio_elenco_prezzi
+    WHERE art = 'OF-INF-8.2';
+
+    INSERT INTO viareggio_lu02_02w4.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
+    SELECT idp,
+           NEW.gidd,
+           'pozzetti',
+           current_timestamp,
+           current_timestamp,
+           'trigger',
+           1;
+  END IF;
+  --OF-INF-8.3--
+  IF (NEW.spec_id = '125x80') THEN
+
+    SELECT id into idp
+    FROM public.viareggio_elenco_prezzi
+    WHERE art = 'OF-INF-8.3';
+
+    INSERT INTO viareggio_lu02_02w4.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
+    SELECT idp,
+           NEW.gidd,
+           'pozzetti',
+           current_timestamp,
+           current_timestamp,
+           'trigger',
+           1;
+  END IF;
+  --OF-INF-8.4--
+  IF (NEW.spec_id = '220x170') THEN
+
+    SELECT id into idp
+    FROM public.viareggio_elenco_prezzi
+    WHERE art = 'OF-INF-8.4';
+
+    INSERT INTO viareggio_lu02_02w4.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
+    SELECT idp,
+           NEW.gidd,
+           'pozzetti',
+           current_timestamp,
+           current_timestamp,
+           'trigger',
+           1;
+  END IF;
+  --OF-INF-9.1--
+  IF UPPER(NEW.ebw_flag_p) = 'FALSE' AND NEW.posa_interrato_aff = true THEN
+    SELECT id into idp
+    FROM public.viareggio_elenco_prezzi
+    WHERE art = 'OF-INF-9.1';
+
+    INSERT INTO viareggio_lu02_02w4.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
+    SELECT idp,
+           NEW.gidd,
+           'pozzetti',
+           current_timestamp,
+           current_timestamp,
+           'trigger',
+           1;
+  END IF;
+  --OF-INF-9.2--
+  IF UPPER(NEW.ebw_flag_p) = 'TRUE' AND NEW.posa_inf_esistente = true THEN
+
+    SELECT id into idp
+    FROM public.viareggio_elenco_prezzi
+    WHERE art = 'OF-INF-9.2';
+
+    INSERT INTO viareggio_lu02_02w4.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
+    SELECT idp,
+           NEW.gidd,
+           'pozzetti',
+           current_timestamp,
+           current_timestamp,
+           'trigger',
+           1;
+  END IF;
+  --OF-INF-9.4--
+  IF NEW.giunto_3vie IS NOT NULL AND NEW.giunto_3vie != '' THEN
+
+    SELECT id into idp
+    FROM public.viareggio_elenco_prezzi
+    WHERE art = 'OF-INF-9.4';
+
+    INSERT INTO viareggio_lu02_02w4.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
+    SELECT idp,
+           NEW.gidd,
+           'pozzetti',
+           current_timestamp,
+           current_timestamp,
+           'trigger',
+           1;
+  END IF;
+  --OF-FOR-3-10--
+  IF NEW.diam_tubo = '50' THEN
+
+    SELECT id into idp
+    FROM public.viareggio_elenco_prezzi
+    WHERE art = 'OF-FOR-3-10';
+
+    INSERT INTO viareggio_lu02_02w4.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
+    SELECT idp,
+           NEW.gidd,
+           'pozzetti',
+           current_timestamp,
+           current_timestamp,
+           'trigger',
+           NEW.lunghezza_tubo;
+    --OF-INF-1.3--
+    SELECT id into idp
+    FROM public.viareggio_elenco_prezzi
+    WHERE art = 'OF-INF-1.3';
+
+    INSERT INTO viareggio_lu02_02w4.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
+    SELECT idp,
+           NEW.gidd,
+           'pozzetti',
+           current_timestamp,
+           current_timestamp,
+           'trigger',
+           NEW.lunghezza_tubo;
+  END IF;
+  --OF-FOR-3-11--
+  IF NEW.diam_tubo IN ('63', '100', '125') THEN
+
+    SELECT id into idp
+    FROM public.viareggio_elenco_prezzi
+    WHERE art = 'OF-FOR-3-11';
+
+    INSERT INTO viareggio_lu02_02w4.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
+    SELECT idp,
+           NEW.gidd,
+           'pozzetti',
+           current_timestamp,
+           current_timestamp,
+           'trigger',
+           NEW.lunghezza_tubo;
+    --OF-INF-1.3--
+    IF NEW.diam_tubo = '63' THEN
+      SELECT id into idp
+      FROM public.viareggio_elenco_prezzi
+      WHERE art = 'OF-INF-1.3';
+
+      INSERT INTO viareggio_lu02_02w4.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
+      SELECT idp,
+             NEW.gidd,
+             'pozzetti',
+             current_timestamp,
+             current_timestamp,
+             'trigger',
+             NEW.lunghezza_tubo;
+    END IF;
+  END IF;
+  --OF-FOR-3-12--
+  IF NEW.giunto_3vie = 'Ã =63 Tipo 2' THEN
+
+    SELECT id into idp
+    FROM public.viareggio_elenco_prezzi
+    WHERE art = 'OF-FOR-3-12';
+
+    INSERT INTO viareggio_lu02_02w4.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
+    SELECT idp,
+           NEW.gidd,
+           'pozzetti',
+           current_timestamp,
+           current_timestamp,
+           'trigger',
+           1;
+  END IF;
+  --OF-FOR-3-13--
+  IF NEW.giunto_3vie = 'Ã >63 Tipo 1' THEN
+
+    SELECT id into idp
+    FROM public.viareggio_elenco_prezzi
+    WHERE art = 'OF-FOR-3-13';
+
+    INSERT INTO viareggio_lu02_02w4.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
+    SELECT idp,
+           NEW.gidd,
+           'pozzetti',
+           current_timestamp,
+           current_timestamp,
+           'trigger',
+           1;
+  END IF;
+  --OF-FOR-3-14--
+  IF NEW.diam_tubo = '>150' THEN
+
+    SELECT id into idp
+    FROM public.viareggio_elenco_prezzi
+    WHERE art = 'OF-FOR-3-14';
+
+    INSERT INTO viareggio_lu02_02w4.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
+    SELECT idp,
+           NEW.gidd,
+           'pozzetti',
+           current_timestamp,
+           current_timestamp,
+           'trigger',
+           NEW.lunghezza_tubo;
+  END IF;
+  --OF-FOR-3-17--
+  IF NEW.spec_id = '220x170' THEN
+
+    SELECT id into idp
+    FROM public.viareggio_elenco_prezzi
+    WHERE art = 'OF-FOR-3-17';
+
+    INSERT INTO viareggio_lu02_02w4.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
+    SELECT idp,
+           NEW.gidd,
+           'pozzetti',
+           current_timestamp,
+           current_timestamp,
+           'trigger',
+           1;
+  END IF;
+  --OF-FOR-3-18--
+  IF NEW.spec_id = '125x80' THEN
+
+    SELECT id into idp
+    FROM public.viareggio_elenco_prezzi
+    WHERE art = 'OF-FOR-3-18';
+
+    INSERT INTO viareggio_lu02_02w4.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
+    SELECT idp,
+           NEW.gidd,
+           'pozzetti',
+           current_timestamp,
+           current_timestamp,
+           'trigger',
+           1;
+  END IF;
+  --OF-FOR-3-19--
+  IF NEW.spec_id = '125x80' AND NEW.chiusino = true THEN
+
+    SELECT id into idp
+    FROM public.viareggio_elenco_prezzi
+    WHERE art = 'OF-FOR-3-19';
+
+    INSERT INTO viareggio_lu02_02w4.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
+    SELECT idp,
+           NEW.gidd,
+           'pozzetti',
+           current_timestamp,
+           current_timestamp,
+           'trigger',
+           1;
+  END IF;
+  --OF-FOR-3-20--
+  IF NEW.spec_id = '90x70' THEN
+
+    SELECT id into idp
+    FROM public.viareggio_elenco_prezzi
+    WHERE art = 'OF-FOR-3-20';
+
+    INSERT INTO viareggio_lu02_02w4.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
+    SELECT idp,
+           NEW.gidd,
+           'pozzetti',
+           current_timestamp,
+           current_timestamp,
+           'trigger',
+           1;
+  END IF;
+  --OF-FOR-3-21--
+  IF NEW.spec_id = '90x70' AND NEW.chiusino = true THEN
+
+    SELECT id into idp
+    FROM public.viareggio_elenco_prezzi
+    WHERE art = 'OF-FOR-3-21';
+
+    INSERT INTO viareggio_lu02_02w4.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
+    SELECT idp,
+           NEW.gidd,
+           'pozzetti',
+           current_timestamp,
+           current_timestamp,
+           'trigger',
+           1;
+  END IF;
+  --OF-FOR-3-22--
+  IF NEW.spec_id = '45x45' THEN
+
+    SELECT id into idp
+    FROM public.viareggio_elenco_prezzi
+    WHERE art = 'OF-FOR-3-22';
+
+    INSERT INTO viareggio_lu02_02w4.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
+    SELECT idp,
+           NEW.gidd,
+           'pozzetti',
+           current_timestamp,
+           current_timestamp,
+           'trigger',
+           1;
+  END IF;
+  --OF-FOR-3-23--
+  IF NEW.spec_id = '40x76' THEN
+
+    SELECT id into idp
+    FROM public.viareggio_elenco_prezzi
+    WHERE art = 'OF-FOR-3-23';
+
+    INSERT INTO viareggio_lu02_02w4.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
+    SELECT idp,
+           NEW.gidd,
+           'pozzetti',
+           current_timestamp,
+           current_timestamp,
+           'trigger',
+           1;
+  END IF;
+  --OF-FOR-3-24--
+  IF NEW.spec_id = '40x76' AND NEW.chiusino = true THEN
+
+    SELECT id into idp
+    FROM public.viareggio_elenco_prezzi
+    WHERE art = 'OF-FOR-3-24';
+
+    INSERT INTO viareggio_lu02_02w4.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
+    SELECT idp,
+           NEW.gidd,
+           'pozzetti',
+           current_timestamp,
+           current_timestamp,
+           'trigger',
+           1;
+  END IF;
+  --OF-FOR-3-25--
+  IF NEW.spec_id IN ('30x85', '30x70') THEN
+
+    SELECT id into idp
+    FROM public.viareggio_elenco_prezzi
+    WHERE art = 'OF-FOR-3-25';
+
+    INSERT INTO viareggio_lu02_02w4.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
+    SELECT idp,
+           NEW.gidd,
+           'pozzetti',
+           current_timestamp,
+           current_timestamp,
+           'trigger',
+           1;
+  END IF;
+  --OF-FOR-3-26--
+  IF NEW.spec_id = '40x15' THEN
+
+    SELECT id into idp
+    FROM public.viareggio_elenco_prezzi
+    WHERE art = 'OF-FOR-3-26';
+
+    INSERT INTO viareggio_lu02_02w4.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
+    SELECT idp,
+           NEW.gidd,
+           'pozzetti',
+           current_timestamp,
+           current_timestamp,
+           'trigger',
+           1;
+  END IF;
+  --OF-FOR-3-27--
+  IF NEW.spec_id = '13x38' THEN
+
+    SELECT id into idp
+    FROM public.viareggio_elenco_prezzi
+    WHERE art = 'OF-FOR-3-27';
+
+    INSERT INTO viareggio_lu02_02w4.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
+    SELECT idp,
+           NEW.gidd,
+           'pozzetti',
+           current_timestamp,
+           current_timestamp,
+           'trigger',
+           1;
+  END IF;
+  RETURN NEW;
+END;
+$$;
+
+alter function uub_prezzi_insert_update() owner to operatore;
+
 drop function if exists uub_prezzi_delete() cascade;
 
 -- auto-generated definition

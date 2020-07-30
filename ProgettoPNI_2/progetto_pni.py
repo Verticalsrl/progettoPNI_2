@@ -868,7 +868,10 @@ class ProgettoPNI_2:
                 query_path = "SET search_path = %s, pg_catalog;" % (schemaDB)
                 Utils.logMessage('Adesso se il caso creo il tracking sulle tabelle nello schema ' + str(schemaDB))
                 cur.execute(query_path)
-                
+
+                sql_funzioni_trigger = self.plugin_dir + '/creazione_funzioni_trigger_prezzi.sql'
+                self.tracking_sql(sql_funzioni_trigger, schemaDB, cur, test_conn)
+
                 #PROGETTI A&B
                 if ('underground_route' in shp_name_to_load):
                     sql_track_file = self.plugin_dir + '/tracking_edit_postgis_tratta.sql'
