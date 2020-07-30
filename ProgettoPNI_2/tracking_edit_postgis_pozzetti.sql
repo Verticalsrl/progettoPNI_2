@@ -18,12 +18,12 @@ create trigger uub_prezzi_insert_update_trigger
   before insert or update
   on schemaDB.uub
   for each row
-execute procedure public.uub_prezzi_insert_update('schemaDB', 'CITTA');
+execute procedure schemaDB.uub_prezzi_insert_update('schemaDB', 'CITTA');
 create trigger uub_prezzi_delete_trigger
   before delete
   on schemaDB.uub
   for each row
-execute procedure uub_prezzi_delete('schemaDB', 'CITTA');
+execute procedure schemaDB.uub_prezzi_delete('schemaDB', 'CITTA');
 
 /*create trigger tab_nodo_ottico_prezzi_insert_update_trigger
   before insert or update
