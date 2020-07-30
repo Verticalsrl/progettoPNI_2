@@ -1061,7 +1061,7 @@ declare
 BEGIN
   --Delete prezzi con NEW.gidd--
   DELETE
-  FROM viareggio_lu02_01e3.elenco_prezzi_layer as epl
+  FROM schemaDB.elenco_prezzi_layer as epl
   WHERE epl.laygidd = NEW.gidd;
 
   IF NEW.constructi = 'Progettato' THEN
@@ -1074,7 +1074,7 @@ BEGIN
     FROM public.viareggio_elenco_prezzi
     WHERE art = 'OF-CVI-2.1';
 
-    INSERT INTO viareggio_lu02_01e3.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
+    INSERT INTO schemaDB.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
     SELECT idp,
            NEW.gidd,
            'tratta_aerea',
@@ -1095,7 +1095,7 @@ BEGIN
       FROM json_array_elements(NEW.cavi_posati_j) obj
       WHERE CAST(obj ->> 'posab' AS BOOLEAN) = true;
 
-      INSERT INTO viareggio_lu02_01e3.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
+      INSERT INTO schemaDB.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
       SELECT idp,
              NEW.gidd,
              'tratta_aerea',
@@ -1112,7 +1112,7 @@ BEGIN
     FROM public.viareggio_elenco_prezzi
     WHERE art = 'OF-CVI-3.1';
 
-    INSERT INTO viareggio_lu02_01e3.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
+    INSERT INTO schemaDB.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
     SELECT idp,
            NEW.gidd,
            'tratta_aerea',
@@ -1128,7 +1128,7 @@ BEGIN
     FROM public.viareggio_elenco_prezzi
     WHERE art = 'OF-CVI-3.2';
 
-    INSERT INTO viareggio_lu02_01e3.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
+    INSERT INTO schemaDB.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
     SELECT idp,
            NEW.gidd,
            'tratta_aerea',
@@ -1144,7 +1144,7 @@ BEGIN
     FROM public.viareggio_elenco_prezzi
     WHERE art = 'OF-CVI-3.3';
 
-    INSERT INTO viareggio_lu02_01e3.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
+    INSERT INTO schemaDB.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
     SELECT idp,
            NEW.gidd,
            'tratta_aerea',
@@ -1166,7 +1166,7 @@ BEGIN
     FROM json_array_elements(NEW.cavi_posati_j) obj
     WHERE CAST(obj ->> 'posab' AS BOOLEAN) = true;
 
-    INSERT INTO viareggio_lu02_01e3.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
+    INSERT INTO schemaDB.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
     SELECT idp,
            NEW.gidd,
            'tratta_aerea',
@@ -1226,7 +1226,7 @@ declare
 BEGIN
   --Delete prezzi con NEW.gidd--
   DELETE
-  FROM viareggio_lu02_02w4.elenco_prezzi_layer as epl
+  FROM schemaDB.elenco_prezzi_layer as epl
   WHERE epl.laygidd = NEW.gidd;
 
   IF NEW.constructi = 'Progettato' THEN
@@ -1243,7 +1243,7 @@ BEGIN
     FROM public.viareggio_elenco_prezzi
     WHERE art = 'OF-INF-1.4';
 
-    INSERT INTO viareggio_lu02_02w4.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
+    INSERT INTO schemaDB.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
     SELECT idp,
            NEW.gidd,
            'pozzetti',
@@ -1258,7 +1258,7 @@ BEGIN
     FROM public.viareggio_elenco_prezzi
     WHERE art = 'OF-INF-1.5';
 
-    INSERT INTO viareggio_lu02_02w4.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
+    INSERT INTO schemaDB.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
     SELECT idp,
            NEW.gidd,
            'pozzetti',
@@ -1273,7 +1273,7 @@ BEGIN
     FROM public.viareggio_elenco_prezzi
     WHERE art = 'OF-INF-3.1';
 
-    INSERT INTO viareggio_lu02_02w4.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
+    INSERT INTO schemaDB.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
     SELECT idp,
            NEW.gidd,
            'pozzetti',
@@ -1289,7 +1289,7 @@ BEGIN
     FROM public.viareggio_elenco_prezzi
     WHERE art = 'OF-INF-8.1';
 
-    INSERT INTO viareggio_lu02_02w4.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
+    INSERT INTO schemaDB.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
     SELECT idp,
            NEW.gidd,
            'pozzetti',
@@ -1305,7 +1305,7 @@ BEGIN
     FROM public.viareggio_elenco_prezzi
     WHERE art = 'OF-INF-8.2';
 
-    INSERT INTO viareggio_lu02_02w4.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
+    INSERT INTO schemaDB.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
     SELECT idp,
            NEW.gidd,
            'pozzetti',
@@ -1321,7 +1321,7 @@ BEGIN
     FROM public.viareggio_elenco_prezzi
     WHERE art = 'OF-INF-8.3';
 
-    INSERT INTO viareggio_lu02_02w4.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
+    INSERT INTO schemaDB.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
     SELECT idp,
            NEW.gidd,
            'pozzetti',
@@ -1337,7 +1337,7 @@ BEGIN
     FROM public.viareggio_elenco_prezzi
     WHERE art = 'OF-INF-8.4';
 
-    INSERT INTO viareggio_lu02_02w4.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
+    INSERT INTO schemaDB.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
     SELECT idp,
            NEW.gidd,
            'pozzetti',
@@ -1352,7 +1352,7 @@ BEGIN
     FROM public.viareggio_elenco_prezzi
     WHERE art = 'OF-INF-9.1';
 
-    INSERT INTO viareggio_lu02_02w4.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
+    INSERT INTO schemaDB.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
     SELECT idp,
            NEW.gidd,
            'pozzetti',
@@ -1368,7 +1368,7 @@ BEGIN
     FROM public.viareggio_elenco_prezzi
     WHERE art = 'OF-INF-9.2';
 
-    INSERT INTO viareggio_lu02_02w4.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
+    INSERT INTO schemaDB.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
     SELECT idp,
            NEW.gidd,
            'pozzetti',
@@ -1384,7 +1384,7 @@ BEGIN
     FROM public.viareggio_elenco_prezzi
     WHERE art = 'OF-INF-9.4';
 
-    INSERT INTO viareggio_lu02_02w4.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
+    INSERT INTO schemaDB.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
     SELECT idp,
            NEW.gidd,
            'pozzetti',
@@ -1400,7 +1400,7 @@ BEGIN
     FROM public.viareggio_elenco_prezzi
     WHERE art = 'OF-FOR-3-10';
 
-    INSERT INTO viareggio_lu02_02w4.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
+    INSERT INTO schemaDB.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
     SELECT idp,
            NEW.gidd,
            'pozzetti',
@@ -1413,7 +1413,7 @@ BEGIN
     FROM public.viareggio_elenco_prezzi
     WHERE art = 'OF-INF-1.3';
 
-    INSERT INTO viareggio_lu02_02w4.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
+    INSERT INTO schemaDB.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
     SELECT idp,
            NEW.gidd,
            'pozzetti',
@@ -1429,7 +1429,7 @@ BEGIN
     FROM public.viareggio_elenco_prezzi
     WHERE art = 'OF-FOR-3-11';
 
-    INSERT INTO viareggio_lu02_02w4.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
+    INSERT INTO schemaDB.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
     SELECT idp,
            NEW.gidd,
            'pozzetti',
@@ -1443,7 +1443,7 @@ BEGIN
       FROM public.viareggio_elenco_prezzi
       WHERE art = 'OF-INF-1.3';
 
-      INSERT INTO viareggio_lu02_02w4.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
+      INSERT INTO schemaDB.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
       SELECT idp,
              NEW.gidd,
              'pozzetti',
@@ -1460,7 +1460,7 @@ BEGIN
     FROM public.viareggio_elenco_prezzi
     WHERE art = 'OF-FOR-3-12';
 
-    INSERT INTO viareggio_lu02_02w4.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
+    INSERT INTO schemaDB.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
     SELECT idp,
            NEW.gidd,
            'pozzetti',
@@ -1476,7 +1476,7 @@ BEGIN
     FROM public.viareggio_elenco_prezzi
     WHERE art = 'OF-FOR-3-13';
 
-    INSERT INTO viareggio_lu02_02w4.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
+    INSERT INTO schemaDB.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
     SELECT idp,
            NEW.gidd,
            'pozzetti',
@@ -1492,7 +1492,7 @@ BEGIN
     FROM public.viareggio_elenco_prezzi
     WHERE art = 'OF-FOR-3-14';
 
-    INSERT INTO viareggio_lu02_02w4.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
+    INSERT INTO schemaDB.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
     SELECT idp,
            NEW.gidd,
            'pozzetti',
@@ -1508,7 +1508,7 @@ BEGIN
     FROM public.viareggio_elenco_prezzi
     WHERE art = 'OF-FOR-3-17';
 
-    INSERT INTO viareggio_lu02_02w4.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
+    INSERT INTO schemaDB.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
     SELECT idp,
            NEW.gidd,
            'pozzetti',
@@ -1524,7 +1524,7 @@ BEGIN
     FROM public.viareggio_elenco_prezzi
     WHERE art = 'OF-FOR-3-18';
 
-    INSERT INTO viareggio_lu02_02w4.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
+    INSERT INTO schemaDB.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
     SELECT idp,
            NEW.gidd,
            'pozzetti',
@@ -1540,7 +1540,7 @@ BEGIN
     FROM public.viareggio_elenco_prezzi
     WHERE art = 'OF-FOR-3-19';
 
-    INSERT INTO viareggio_lu02_02w4.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
+    INSERT INTO schemaDB.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
     SELECT idp,
            NEW.gidd,
            'pozzetti',
@@ -1556,7 +1556,7 @@ BEGIN
     FROM public.viareggio_elenco_prezzi
     WHERE art = 'OF-FOR-3-20';
 
-    INSERT INTO viareggio_lu02_02w4.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
+    INSERT INTO schemaDB.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
     SELECT idp,
            NEW.gidd,
            'pozzetti',
@@ -1572,7 +1572,7 @@ BEGIN
     FROM public.viareggio_elenco_prezzi
     WHERE art = 'OF-FOR-3-21';
 
-    INSERT INTO viareggio_lu02_02w4.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
+    INSERT INTO schemaDB.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
     SELECT idp,
            NEW.gidd,
            'pozzetti',
@@ -1588,7 +1588,7 @@ BEGIN
     FROM public.viareggio_elenco_prezzi
     WHERE art = 'OF-FOR-3-22';
 
-    INSERT INTO viareggio_lu02_02w4.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
+    INSERT INTO schemaDB.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
     SELECT idp,
            NEW.gidd,
            'pozzetti',
@@ -1604,7 +1604,7 @@ BEGIN
     FROM public.viareggio_elenco_prezzi
     WHERE art = 'OF-FOR-3-23';
 
-    INSERT INTO viareggio_lu02_02w4.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
+    INSERT INTO schemaDB.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
     SELECT idp,
            NEW.gidd,
            'pozzetti',
@@ -1620,7 +1620,7 @@ BEGIN
     FROM public.viareggio_elenco_prezzi
     WHERE art = 'OF-FOR-3-24';
 
-    INSERT INTO viareggio_lu02_02w4.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
+    INSERT INTO schemaDB.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
     SELECT idp,
            NEW.gidd,
            'pozzetti',
@@ -1636,7 +1636,7 @@ BEGIN
     FROM public.viareggio_elenco_prezzi
     WHERE art = 'OF-FOR-3-25';
 
-    INSERT INTO viareggio_lu02_02w4.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
+    INSERT INTO schemaDB.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
     SELECT idp,
            NEW.gidd,
            'pozzetti',
@@ -1652,7 +1652,7 @@ BEGIN
     FROM public.viareggio_elenco_prezzi
     WHERE art = 'OF-FOR-3-26';
 
-    INSERT INTO viareggio_lu02_02w4.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
+    INSERT INTO schemaDB.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
     SELECT idp,
            NEW.gidd,
            'pozzetti',
@@ -1668,7 +1668,7 @@ BEGIN
     FROM public.viareggio_elenco_prezzi
     WHERE art = 'OF-FOR-3-27';
 
-    INSERT INTO viareggio_lu02_02w4.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
+    INSERT INTO schemaDB.elenco_prezzi_layer (idprezzo, laygidd, layname, "insDate", "updDate", "updUsr", qta)
     SELECT idp,
            NEW.gidd,
            'pozzetti',
@@ -1710,7 +1710,7 @@ $$
 BEGIN
   --Delete prezzi con OLD.gidd--
   DELETE
-  FROM viareggio_lu02_01e3.elenco_prezzi_layer as epl
+  FROM schemaDB.elenco_prezzi_layer as epl
   WHERE epl.laygidd = OLD.gidd AND epl.layname = 'tratta_aerea';
   RETURN OLD;
 END;

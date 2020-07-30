@@ -29,7 +29,7 @@ ALTER TABLE underground_route ADD COLUMN ripr_scarifica boolean;
 ALTER TABLE underground_route ADD COLUMN riempimento_cls boolean;
 
 --trigger Patrick luglio 2020
-create trigger underground_route_prezzi_insert_update_trigger
+/*create trigger underground_route_prezzi_insert_update_trigger
   before insert or update
   on schemaDB.underground_route
   for each row
@@ -38,7 +38,7 @@ create trigger underground_route_prezzi_delete_trigger
   before delete
   on schemaDB.underground_route
   for each row
-execute procedure underground_route_prezzi_delete('schemaDB', 'CITTA');
+execute procedure underground_route_prezzi_delete('schemaDB', 'CITTA');*/
 
 --da issue n.16 del 25/06/2020: query di consolidamento campi
 --https://github.com/Verticalsrl/progettoPNI_2/issues/16

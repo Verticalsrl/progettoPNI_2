@@ -869,7 +869,7 @@ class ProgettoPNI_2:
                 Utils.logMessage('Adesso se il caso creo il tracking sulle tabelle nello schema ' + str(schemaDB))
                 cur.execute(query_path)
 
-                sql_funzioni_trigger = self.plugin_dir + '/creazione_funzioni_trigger_prezzi.sql'
+                sql_funzioni_trigger = self.plugin_dir + '/creazione_funzioni_trigger_prezzi_uub.sql'
                 self.tracking_sql(sql_funzioni_trigger, schemaDB, cur, test_conn)
 
                 #PROGETTI A&B
