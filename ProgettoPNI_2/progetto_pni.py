@@ -858,9 +858,7 @@ class ProgettoPNI_2:
                         splitter_nc json);
                     COMMENT ON COLUMN {db_schema}.tab_nodo_ottico.attestazione IS 'campo contenente ncavi x attestazione x scorta';
                     COMMENT ON COLUMN {db_schema}.tab_nodo_ottico.splitter_nc IS 'contiene qta splitter e tipo';
-                    GRANT ALL ON TABLE {db_schema}.tab_nodo_ottico TO operatore_r;
-                    CREATE TRIGGER tab_nodo_ottico_prezzi_insert_update_trigger BEFORE insert or update ON {db_schema}.tab_nodo_ottico FOR each row EXECUTE procedure tab_nodo_ottico_prezzi_insert_update('{db_schema}', '{CITTA_var}');
-                    CREATE TRIGGER tab_nodo_ottico_prezzi_delete_trigger BEFORE delete ON {db_schema}.tab_nodo_ottico FOR each row EXECUTE procedure tab_nodo_ottico_prezzi_delete('{db_schema}', '{CITTA_var}');""".format(db_schema=schemaDB, codice_srid=codice_srid, CITTA_var=schemaDB[0:schemaDB.find('_')])
+                    GRANT ALL ON TABLE {db_schema}.tab_nodo_ottico TO operatore_r;""".format(db_schema=schemaDB, codice_srid=codice_srid, CITTA_var=schemaDB[0:schemaDB.find('_')])
                     cur.execute(query_nodi_punti)
                     test_conn.commit()
                 
