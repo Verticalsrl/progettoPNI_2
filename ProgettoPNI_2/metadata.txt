@@ -58,6 +58,7 @@ changelog=
 	2020/07/09 3.5c aggiunto campo qta numeric alla tabella elenco_prezzi_layer; aggiorno creazione_viste_tabelle_patrick.sql secondo nuova mail di Patrick
 	2020/07/16 3.5d aggiorno parzialmente la funzione uub_prezzi_insert_update per renderla pubblica a tutti gli schemi e citta - DA TESTARE
 	2020/07/30 3.5e aggiorno parzialmente la funzione uub_prezzi_insert_update per renderla funzionante su ogni schema
+	2020/07/30 3.5f aggiorno parzialmente le funzioni uub_prezzi_insert_update e underground_route_prezzi_insert_update per renderle pubbliche a tutti gli schemi e citta
 
 
 # Tags are comma separated with spaces allowed
